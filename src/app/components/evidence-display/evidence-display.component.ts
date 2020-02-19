@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Evidence } from 'src/app/models/Evidence.model';
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
-import { ActivatedRoute } from '@angular/router';
-import { EvidenceService } from 'src/app/services/evidence.service';
+import { Evidence } from "src/app/models/Evidence.model";
+import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { ActivatedRoute } from "@angular/router";
+import { EvidenceService } from "src/app/services/evidence.service";
 
 @Component({
   selector: "app-evidence-display",
