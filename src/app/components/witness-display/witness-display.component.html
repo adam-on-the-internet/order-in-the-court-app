@@ -1,1 +1,12 @@
-<p>witness-display works!</p>
+<ng-container *ngIf="ready; else notReady">
+  <h1>
+    {{ witness.name }}
+  </h1>
+  <p>
+    <small>{{ witness._id }}</small>
+  </p>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>

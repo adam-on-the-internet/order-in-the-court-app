@@ -1,1 +1,15 @@
-<p>issue-display works!</p>
+<ng-container *ngIf="ready; else notReady">
+  <h1>
+    {{ issue.name }}
+  </h1>
+  <p>
+    {{ issue.description }}
+  </p>
+  <p>
+    <small>{{ issue._id }}</small>
+  </p>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>
