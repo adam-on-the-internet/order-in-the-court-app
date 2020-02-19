@@ -1,1 +1,35 @@
-<p>courtroom works!</p>
+<div class="header">
+  <h1>
+    Courtroom
+  </h1>
+</div>
+<div class="content" *ngIf="ready; else notReady">
+  <p>
+    Welcome to the courtroom.
+  </p>
+  <h2>{{ case.issue.name }}</h2>
+  <p>{{ case.issue.description }}</p>
+  <h2>Plantiff Evidence</h2>
+  <ul>
+    <li *ngFor="let evidence of case.plantiffEvidence">
+      {{ evidence.name }}
+    </li>
+  </ul>
+  <h2>Defendant Evidence</h2>
+  <ul>
+    <li *ngFor="let evidence of case.defendantEvidence">
+      {{ evidence.name }}
+    </li>
+  </ul>
+  <h2>Witnesses</h2>
+  <ul>
+    <li *ngFor="let witness of case.witnesses">
+      {{ witness.name }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #notReady>
+  <p *ngIf="!error">Loading...</p>
+  <p *ngIf="error">An error has occured :(</p>
+</ng-template>
