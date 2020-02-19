@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "basic-angular-app": {
+    "order-in-the-court-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/basic-angular-app",
+            "outputPath": "dist/order-in-the-court-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "basic-angular-app:build"
+            "browserTarget": "order-in-the-court-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "basic-angular-app:build:production"
+              "browserTarget": "order-in-the-court-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "basic-angular-app:build"
+            "browserTarget": "order-in-the-court-app:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "basic-angular-app:serve"
+            "devServerTarget": "order-in-the-court-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "basic-angular-app:serve:production"
+              "devServerTarget": "order-in-the-court-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "basic-angular-app"
+  "defaultProject": "order-in-the-court-app"
 }
