@@ -1,1 +1,36 @@
-<p>issue-table works!</p>
+<ng-container *ngIf="ready; else notReady">
+  <button (click)="createIssue()" *ngIf="canEdit">
+    Create Issue
+  </button>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Details</th>
+        <ng-container *ngIf="canEdit">
+          <th>Edit</th>
+          <th>Delete</th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let issue of issues">
+        <td>{{ issue.name }}</td>
+        <td>
+          <button (click)="issueDetails(issue)">Details</button>
+        </td>
+        <ng-container *ngIf="canEdit">
+          <td><button (click)="editIssue(issue)">Edit</button></td>
+          <td>
+            <button (click)="requestDelete(issue)">Delete</button>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+<ng-template #notReady>
+  <p *ngIf="error">Error occured :(</p>
+  <p *ngIf="!error">Loading...</p>
+</ng-template>
