@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { RestUrlBuilder } from "../utilities/rest-url-builder.util";
 import { ServiceUrl } from "../constants/rest.constants";
 import { CookieHelper } from "../utilities/cookie.util";
+import { Evidence } from "../models/Evidence.model";
 
 const controller = "evidence";
 
@@ -15,21 +16,21 @@ export class EvidenceService {
     private http: HttpClient,
   ) { }
 
-  public getEvidence(): Observable<any> {
+  public getEvidence(): Observable<Evidence[]> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url) as Observable<any>;
+    return this.http.get(url) as Observable<Evidence[]>;
   }
 
-  public getSingleEvidence(evienceId: string): Observable<any> {
+  public getSingleEvidence(evienceId: string): Observable<Evidence> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
       params: evienceId,
     });
-    return this.http.get(url) as Observable<any>;
+    return this.http.get(url) as Observable<Evidence>;
   }
 
   public createEvidence(evidence: any): Observable<any> {
