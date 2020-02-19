@@ -5,11 +5,17 @@ import { InfoComponent } from "./components/info/info.component";
 import { ROUTES_ENUM } from "./constants/routing.constants";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
-import { ContraptionOverviewComponent } from "./components/contraption-overview/contraption-overview.component";
-import { ContraptionDisplayComponent } from "./components/contraption-display/contraption-display.component";
-import { ContraptionFormComponent } from "./components/contraption-form/contraption-form.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { AdminComponent } from "./components/admin/admin.component";
+import { EvidenceOverviewComponent } from "./components/evidence-overview/evidence-overview.component";
+import { EvidenceDisplayComponent } from "./components/evidence-display/evidence-display.component";
+import { EvidenceFormComponent } from "./components/evidence-form/evidence-form.component";
+import { IssueOverviewComponent } from "./components/issue-overview/issue-overview.component";
+import { IssueDisplayComponent } from "./components/issue-display/issue-display.component";
+import { IssueFormComponent } from "./components/issue-form/issue-form.component";
+import { WitnessOverviewComponent } from "./components/witness-overview/witness-overview.component";
+import { WitnessDisplayComponent } from "./components/witness-display/witness-display.component";
+import { WitnessFormComponent } from "./components/witness-form/witness-form.component";
 
 const routes: Routes = [
   // main
@@ -19,11 +25,21 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Register, component: RegisterComponent },
   { path: ROUTES_ENUM.Profile, component: ProfileComponent },
   { path: ROUTES_ENUM.Admin, component: AdminComponent },
-  // contraption
-  { path: ROUTES_ENUM.ContraptionOverview, component: ContraptionOverviewComponent },
-  { path: ROUTES_ENUM.ContraptionDetails + "/:id", component: ContraptionDisplayComponent },
-  { path: ROUTES_ENUM.ContraptionForm, component: ContraptionFormComponent },
-  { path: ROUTES_ENUM.ContraptionForm + "/:id", component: ContraptionFormComponent },
+  // evidence
+  { path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent },
+  { path: ROUTES_ENUM.EvidenceDetails + "/:id", component: EvidenceDisplayComponent },
+  { path: ROUTES_ENUM.EvidenceForm, component: EvidenceFormComponent },
+  { path: ROUTES_ENUM.EvidenceForm + "/:id", component: EvidenceFormComponent },
+  // witness
+  { path: ROUTES_ENUM.WitnessOverview, component: WitnessOverviewComponent },
+  { path: ROUTES_ENUM.WitnessDetails + "/:id", component: WitnessDisplayComponent },
+  { path: ROUTES_ENUM.WitnessForm, component: WitnessFormComponent },
+  { path: ROUTES_ENUM.WitnessForm + "/:id", component: WitnessFormComponent },
+  // issue
+  { path: ROUTES_ENUM.IssueOverview, component: IssueOverviewComponent },
+  { path: ROUTES_ENUM.IssueDetails + "/:id", component: IssueDisplayComponent },
+  { path: ROUTES_ENUM.IssueForm, component: IssueFormComponent },
+  { path: ROUTES_ENUM.IssueForm + "/:id", component: IssueFormComponent },
   // default
   { path: "**", redirectTo: "dashboard" },
 ];

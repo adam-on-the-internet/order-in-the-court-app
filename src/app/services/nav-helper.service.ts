@@ -35,21 +35,61 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.Register);
   }
 
-  public goToContraptionOverview(): void {
-    this.goToRoute(ROUTES_ENUM.ContraptionOverview);
+  // EVIDENCE
+
+  public goToEvidenceOverview(): void {
+    this.goToRoute(ROUTES_ENUM.EvidenceOverview);
   }
 
-  public goToContraptionDetails(contraptionId: string): void {
-    this.goToRoutes([ROUTES_ENUM.ContraptionDetails, contraptionId]);
+  public goToEvidenceDetails(evidenceId: string): void {
+    this.goToRoutes([ROUTES_ENUM.EvidenceDetails, evidenceId]);
   }
 
-  public goToContraptionCreateForm(): void {
-    this.goToRoute(ROUTES_ENUM.ContraptionForm);
+  public goToEvidenceCreateForm(): void {
+    this.goToRoute(ROUTES_ENUM.EvidenceForm);
   }
 
-  public goToContraptionEditForm(contraptionId: string): void {
-    this.goToRoutes([ROUTES_ENUM.ContraptionForm, contraptionId]);
+  public goToEvidenceEditForm(evidenceId: string): void {
+    this.goToRoutes([ROUTES_ENUM.EvidenceForm, evidenceId]);
   }
+
+  // WITNESS
+
+  public goToWitnessOverview(): void {
+    this.goToRoute(ROUTES_ENUM.WitnessOverview);
+  }
+
+  public goToWitnessDetails(witnessId: string): void {
+    this.goToRoutes([ROUTES_ENUM.WitnessDetails, witnessId]);
+  }
+
+  public goToWitnessCreateForm(): void {
+    this.goToRoute(ROUTES_ENUM.WitnessForm);
+  }
+
+  public goToWitnessEditForm(witnessId: string): void {
+    this.goToRoutes([ROUTES_ENUM.WitnessForm, witnessId]);
+  }
+
+  // ISSUE
+
+  public goToIssueOverview(): void {
+    this.goToRoute(ROUTES_ENUM.IssueOverview);
+  }
+
+  public goToIssueDetails(issueId: string): void {
+    this.goToRoutes([ROUTES_ENUM.IssueDetails, issueId]);
+  }
+
+  public goToIssueCreateForm(): void {
+    this.goToRoute(ROUTES_ENUM.IssueForm);
+  }
+
+  public goToIssueEditForm(issueId: string): void {
+    this.goToRoutes([ROUTES_ENUM.IssueForm, issueId]);
+  }
+
+  // GENERAL
 
   private goToRoute(route: string): void {
     this.goToRoutes([route]);

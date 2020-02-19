@@ -12,12 +12,20 @@ import { HttpClientModule } from "@angular/common/http";
 import { ActuatorReportComponent } from "./components/actuator-report/actuator-report.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
-import { ContraptionDisplayComponent } from "./components/contraption-display/contraption-display.component";
-import { ContraptionFormComponent } from "./components/contraption-form/contraption-form.component";
-import { ContraptionOverviewComponent } from "./components/contraption-overview/contraption-overview.component";
-import { ContraptionTableComponent } from "./components/contraption-table/contraption-table.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { AdminComponent } from "./components/admin/admin.component";
+import { EvidenceOverviewComponent } from "./components/evidence-overview/evidence-overview.component";
+import { EvidenceDisplayComponent } from "./components/evidence-display/evidence-display.component";
+import { EvidenceFormComponent } from "./components/evidence-form/evidence-form.component";
+import { WitnessFormComponent } from "./components/witness-form/witness-form.component";
+import { WitnessDisplayComponent } from "./components/witness-display/witness-display.component";
+import { WitnessOverviewComponent } from "./components/witness-overview/witness-overview.component";
+import { IssueOverviewComponent } from "./components/issue-overview/issue-overview.component";
+import { IssueFormComponent } from "./components/issue-form/issue-form.component";
+import { IssueDisplayComponent } from "./components/issue-display/issue-display.component";
+import { IssueTableComponent } from "./components/issue-table/issue-table.component";
+import { WitnessTableComponent } from "./components/witness-table/witness-table.component";
+import { EvidenceTableComponent } from "./components/evidence-table/evidence-table.component";
 
 @NgModule({
   declarations: [
@@ -29,12 +37,20 @@ import { AdminComponent } from "./components/admin/admin.component";
     ActuatorReportComponent,
     LoginComponent,
     RegisterComponent,
-    ContraptionDisplayComponent,
-    ContraptionFormComponent,
-    ContraptionOverviewComponent,
-    ContraptionTableComponent,
     ProfileComponent,
-    AdminComponent
+    AdminComponent,
+    EvidenceOverviewComponent,
+    EvidenceDisplayComponent,
+    EvidenceFormComponent,
+    WitnessFormComponent,
+    WitnessDisplayComponent,
+    WitnessOverviewComponent,
+    IssueOverviewComponent,
+    IssueFormComponent,
+    IssueDisplayComponent,
+    IssueTableComponent,
+    WitnessTableComponent,
+    EvidenceTableComponent
   ],
   imports: [
     BrowserModule,

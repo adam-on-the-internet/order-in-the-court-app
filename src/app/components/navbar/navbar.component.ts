@@ -53,8 +53,16 @@ export class NavbarComponent {
     this.navHelper.goToRegister();
   }
 
-  public goToContraptionOverview(): void {
-    this.navHelper.goToContraptionOverview();
+  public goToEvidenceOverview(): void {
+    this.navHelper.goToEvidenceOverview();
+  }
+
+  public goToWitnessOverview(): void {
+    this.navHelper.goToWitnessOverview();
+  }
+
+  public goToIssueOverview(): void {
+    this.navHelper.goToIssueOverview();
   }
 
   public logout(): void {
