@@ -1,1 +1,45 @@
-<p>issue-form works!</p>
+<ng-container *ngIf="ready; else notReady">
+  <div class="header">
+    <h1>
+      <span *ngIf="editMode">Edit Issue</span>
+      <span *ngIf="!editMode">Create Issue</span>
+    </h1>
+    <hr />
+  </div>
+  <div class="body">
+    <form>
+      <section id="issue-name">
+        1. Issue name:
+        <input
+          type="text"
+          name="issueName"
+          [(ngModel)]="issue.name"
+        /><br /><br />
+      </section>
+      <section id="issue-description">
+        2. Issue description:
+        <input
+          type="text"
+          name="issueDescription"
+          [(ngModel)]="issue.description"
+        /><br /><br />
+      </section>
+      <hr />
+      <div class="error-report" *ngIf="showErrors && !valid">
+        <p>Please correct the following errors:</p>
+        <ul>
+          <li *ngFor="let error of errors">
+            {{ error }}
+          </li>
+        </ul>
+      </div>
+      <button (click)="submit()">
+        Save Issue
+      </button>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>
