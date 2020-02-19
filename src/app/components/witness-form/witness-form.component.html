@@ -1,1 +1,37 @@
-<p>witness-form works!</p>
+<ng-container *ngIf="ready; else notReady">
+  <div class="header">
+    <h1>
+      <span *ngIf="editMode">Edit Witness</span>
+      <span *ngIf="!editMode">Create Witness</span>
+    </h1>
+    <hr />
+  </div>
+  <div class="body">
+    <form>
+      <section id="witness-name">
+        1. Witness name:
+        <input
+          type="text"
+          name="witnessName"
+          [(ngModel)]="witness.name"
+        /><br /><br />
+      </section>
+      <hr />
+      <div class="error-report" *ngIf="showErrors && !valid">
+        <p>Please correct the following errors:</p>
+        <ul>
+          <li *ngFor="let error of errors">
+            {{ error }}
+          </li>
+        </ul>
+      </div>
+      <button (click)="submit()">
+        Save Witness
+      </button>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>
