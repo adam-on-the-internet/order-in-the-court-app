@@ -1,0 +1,31 @@
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - '10.16.3'
+
+# safelist
+branches:
+  only:
+  - master
+
+addons:
+  chrome: stable
+
+cache:
+  directories:
+    - ./node_modules
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install libxml2-dev
+
+install:
+  - npm install
+
+script:
+- npm run lint
+- npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+- npm run e2e
+- npm run build-for-prod

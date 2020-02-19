@@ -1,0 +1,42 @@
+<div class="header">
+  <h1>
+    Login
+  </h1>
+</div>
+<div class="content">
+  <p *ngIf="loginFailure">
+    Failed to login. Check your email and password.
+  </p>
+  <form>
+    <section id="email">
+      Email:
+      <br />
+      <input type="text" name="email" [(ngModel)]="email" /><br /><br />
+    </section>
+    <section id="password">
+      Password:
+      <br />
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+      /><br /><br />
+    </section>
+    <div class="error-report" *ngIf="showErrors && !valid">
+      <p>Please correct the following errors:</p>
+      <ul>
+        <li *ngFor="let error of errors">
+          {{ error }}
+        </li>
+      </ul>
+    </div>
+    <button (click)="submit()">
+      Login
+    </button>
+    <br />
+    <br />
+    <button (click)="resetPassword()">
+      Forgot password? Send reset email.
+    </button>
+  </form>
+</div>

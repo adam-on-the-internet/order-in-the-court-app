@@ -1,0 +1,17 @@
+<p>
+  <span (click)="goToDashboard()" id="app-title">basic-angular-app</span> //
+  <span (click)="goToInfo()">info</span> //
+  <span (click)="goToWidgetOverview()">widget</span> //
+  <span (click)="goToDoodadOverview()">doodad</span> //
+  <span (click)="goToContraptionOverview()">contraption</span> //
+  <ng-container *ngIf="isLoggedIn">
+    <span (click)="logout()">logout</span> //
+    <span (click)="goToProfile()">Hello, {{ userEmail }}</span> //
+    <span (click)="goToAdmin()" *ngIf="isAdmin">(ADMIN) //</span>
+  </ng-container>
+  <ng-container *ngIf="!isLoggedIn">
+    <span (click)="goToRegister()">register</span> //
+    <span (click)="goToLogin()">login</span> //
+  </ng-container>
+</p>
+<hr />

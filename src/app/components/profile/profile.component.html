@@ -1,0 +1,31 @@
+<div class="header">
+  <h1>
+    Your Profile
+  </h1>
+</div>
+<div class="content">
+  <p>
+    <strong>
+      email:
+    </strong>
+    {{ email }}
+  </p>
+  <p>
+    <strong>
+      admin:
+    </strong>
+    {{ admin }}
+  </p>
+  <p>
+    <strong>
+      special access:
+    </strong>
+    {{ specialAccess }}
+  </p>
+  <p>
+    <button (click)="editEmail()">Edit your email</button>
+  </p>
+  <p>
+    <button (click)="editPassword()">Edit your password</button>
+  </p>
+</div>

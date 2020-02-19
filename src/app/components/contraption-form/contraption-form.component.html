@@ -1,0 +1,72 @@
+<ng-container *ngIf="ready; else notReady">
+  <div class="header">
+    <h1>
+      <span *ngIf="editMode">Edit Contraption</span>
+      <span *ngIf="!editMode">Create Contraption</span>
+    </h1>
+    <hr />
+  </div>
+  <div class="body">
+    <form>
+      <section id="contraption-name">
+        1. Contraption name:
+        <input
+          type="text"
+          name="contraptionName"
+          [(ngModel)]="contraption.name"
+        /><br /><br />
+      </section>
+      <section id="contraption-type">
+        2. Contraption type:
+        <input
+          type="text"
+          name="contraptionType"
+          [(ngModel)]="contraption.type"
+        /><br /><br />
+      </section>
+      <section id="contraption-age">
+        3. Contraption age:
+        <input
+          type="number"
+          name="contraptionAge"
+          [(ngModel)]="contraption.age"
+        /><br /><br />
+      </section>
+      <section id="contraption-condition">
+        4. Contraption condition:
+        <input
+          type="checkbox"
+          name="contraptionCondition"
+          [(ngModel)]="contraption.used"
+        />Used <br /><br />
+      </section>
+      <section id="contraption-description">
+        5. Contraption description:
+        <br />
+        <textarea
+          rows="4"
+          cols="50"
+          name="contraptionDescription"
+          [(ngModel)]="contraption.description"
+        >
+        </textarea>
+      </section>
+      <hr />
+      <div class="error-report" *ngIf="showErrors && !valid">
+        <p>Please correct the following errors:</p>
+        <ul>
+          <li *ngFor="let error of errors">
+            {{ error }}
+          </li>
+        </ul>
+      </div>
+      <button (click)="submit()">
+        Save Contraption
+      </button>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>

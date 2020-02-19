@@ -1,0 +1,26 @@
+<ng-container *ngIf="ready; else notReady">
+  <h1>
+    {{ widget.name }}
+  </h1>
+  <p>
+    <strong>Description:</strong>
+    {{ widget.description }}
+  </p>
+  <p>
+    <strong>Age:</strong>
+    {{ widget.age }}
+  </p>
+  <p>
+    <strong>Type:</strong>
+    {{ widget.type }}
+  </p>
+  <p>
+    <strong>Condition:</strong>
+    <span *ngIf="widget.used"> used</span>
+    <span *ngIf="!widget.used"> new</span>
+  </p>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>

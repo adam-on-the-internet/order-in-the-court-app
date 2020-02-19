@@ -1,0 +1,48 @@
+<div class="header">
+  <h1>
+    Admin Panel
+  </h1>
+</div>
+<div class="content">
+  <table *ngIf="ready; else loading">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Admin</th>
+        <th>Toggle Admin</th>
+        <th>Special Access</th>
+        <th>Edit Access</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.email }}</td>
+        <td>{{ user.admin }}</td>
+        <td>
+          <button (click)="toggleAdmin(user)">
+            <span *ngIf="user.admin">
+              Remove admin rights
+            </span>
+            <span *ngIf="!user.admin">
+              Add admin rights
+            </span>
+          </button>
+        </td>
+        <td>{{ user.specialAccess }}</td>
+        <td>
+          <button (click)="setSpecialAccess(user)">Edit access</button>
+        </td>
+        <td>
+          <button (click)="deleteUser(user)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

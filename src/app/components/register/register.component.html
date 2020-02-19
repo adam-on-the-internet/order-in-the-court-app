@@ -1,0 +1,25 @@
+<div class="header">
+  <h1>
+    Register
+  </h1>
+</div>
+<div class="content">
+  <form>
+    <section id="email">
+      Email:
+      <br />
+      <input type="text" name="email" [(ngModel)]="email" /><br /><br />
+    </section>
+    <div class="error-report" *ngIf="showErrors && !valid">
+      <p>Please correct the following errors:</p>
+      <ul>
+        <li *ngFor="let error of errors">
+          {{ error }}
+        </li>
+      </ul>
+    </div>
+    <button (click)="submit()">
+      Register
+    </button>
+  </form>
+</div>

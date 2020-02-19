@@ -1,0 +1,26 @@
+<ng-container *ngIf="ready; else notReady">
+  <h1>
+    {{ doodad.name }}
+  </h1>
+  <p>
+    <strong>Description:</strong>
+    {{ doodad.description }}
+  </p>
+  <p>
+    <strong>Age:</strong>
+    {{ doodad.age }}
+  </p>
+  <p>
+    <strong>Type:</strong>
+    {{ doodad.type }}
+  </p>
+  <p>
+    <strong>Condition:</strong>
+    <span *ngIf="doodad.used"> used</span>
+    <span *ngIf="!doodad.used"> new</span>
+  </p>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>

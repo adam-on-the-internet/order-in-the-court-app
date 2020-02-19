@@ -1,0 +1,17 @@
+export const enum ROUTES_ENUM {
+  Dashboard = "dashboard",
+  Info = "info",
+  Profile = "profile",
+  Admin = "admin",
+  ContraptionOverview = "contraption-overview",
+  ContraptionDetails = "contraption-details",
+  ContraptionForm = "contraption-form",
+  WidgetOverview = "widget-overview",
+  WidgetDetails = "widget-details",
+  WidgetForm = "widget-form",
+  DoodadOverview = "doodad-overview",
+  DoodadDetails = "doodad-details",
+  DoodadForm = "doodad-form",
+  Login = "login",
+  Register = "register",
+}

@@ -1,0 +1,72 @@
+<ng-container *ngIf="ready; else notReady">
+  <div class="header">
+    <h1>
+      <span *ngIf="editMode">Edit Doodad</span>
+      <span *ngIf="!editMode">Create Doodad</span>
+    </h1>
+    <hr />
+  </div>
+  <div class="body">
+    <form>
+      <section id="doodad-name">
+        1. Doodad name:
+        <input
+          type="text"
+          name="doodadName"
+          [(ngModel)]="doodad.name"
+        /><br /><br />
+      </section>
+      <section id="doodad-type">
+        2. Doodad type:
+        <input
+          type="text"
+          name="doodadType"
+          [(ngModel)]="doodad.type"
+        /><br /><br />
+      </section>
+      <section id="doodad-age">
+        3. Doodad age:
+        <input
+          type="number"
+          name="doodadAge"
+          [(ngModel)]="doodad.age"
+        /><br /><br />
+      </section>
+      <section id="doodad-condition">
+        4. Doodad condition:
+        <input
+          type="checkbox"
+          name="doodadCondition"
+          [(ngModel)]="doodad.used"
+        />Used <br /><br />
+      </section>
+      <section id="doodad-description">
+        5. Doodad description:
+        <br />
+        <textarea
+          rows="4"
+          cols="50"
+          name="doodadDescription"
+          [(ngModel)]="doodad.description"
+        >
+        </textarea>
+      </section>
+      <hr />
+      <div class="error-report" *ngIf="showErrors && !valid">
+        <p>Please correct the following errors:</p>
+        <ul>
+          <li *ngFor="let error of errors">
+            {{ error }}
+          </li>
+        </ul>
+      </div>
+      <button (click)="submit()">
+        Save Doodad
+      </button>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #notReady>
+  <p>Loading...</p>
+</ng-template>
