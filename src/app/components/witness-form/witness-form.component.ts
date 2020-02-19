@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Witness } from 'src/app/models/Witness.model';
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
-import { ActivatedRoute } from '@angular/router';
-import { WitnessService } from 'src/app/services/witness.service';
-import { NavHelperService } from 'src/app/services/nav-helper.service';
+import { Witness } from "src/app/models/Witness.model";
+import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { ActivatedRoute } from "@angular/router";
+import { WitnessService } from "src/app/services/witness.service";
+import { NavHelperService } from "src/app/services/nav-helper.service";
 
 @Component({
   selector: "app-witness-form",

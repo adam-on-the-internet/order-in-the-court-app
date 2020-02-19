@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Witness } from 'src/app/models/Witness.model';
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
-import { WitnessService } from 'src/app/services/witness.service';
-import { ActivatedRoute } from '@angular/router';
+import { Witness } from "src/app/models/Witness.model";
+import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { WitnessService } from "src/app/services/witness.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-witness-display",

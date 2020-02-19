@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Witness } from 'src/app/models/Witness.model';
-import { CookieHelper } from 'src/app/utilities/cookie.util';
-import { WitnessService } from 'src/app/services/witness.service';
-import { NavHelperService } from 'src/app/services/nav-helper.service';
+import { Witness } from "src/app/models/Witness.model";
+import { CookieHelper } from "src/app/utilities/cookie.util";
+import { WitnessService } from "src/app/services/witness.service";
+import { NavHelperService } from "src/app/services/nav-helper.service";
 
 @Component({
   selector: "app-witness-table",

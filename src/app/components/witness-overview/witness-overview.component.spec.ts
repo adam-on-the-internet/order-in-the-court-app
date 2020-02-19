@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { WitnessOverviewComponent } from "./witness-overview.component";
+import { WitnessTableComponent } from "../witness-table/witness-table.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe("WitnessOverviewComponent", () => {
   let component: WitnessOverviewComponent;
@@ -8,9 +11,10 @@ describe("WitnessOverviewComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WitnessOverviewComponent ]
+      declarations: [WitnessOverviewComponent, WitnessTableComponent],
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Issue } from 'src/app/models/Issue.model';
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
-import { ActivatedRoute } from '@angular/router';
-import { IssueService } from 'src/app/services/issue.service';
-import { NavHelperService } from 'src/app/services/nav-helper.service';
+import { Issue } from "src/app/models/Issue.model";
+import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { ActivatedRoute } from "@angular/router";
+import { IssueService } from "src/app/services/issue.service";
+import { NavHelperService } from "src/app/services/nav-helper.service";
 
 @Component({
   selector: "app-issue-form",
