@@ -7,11 +7,26 @@
   <p>
     Welcome to the Order in the Court app!
   </p>
-  <ul>
-    <li *ngFor="let case of cases">
-      <button (click)="goToCourtroom(case)">
-        {{ case.name }}
-      </button>
-    </li>
-  </ul>
+  <table *ngIf="ready; else loading">
+    <thead>
+      <tr>
+        <th>Case name</th>
+        <th>Enter</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let case of cases">
+        <td>{{ case.name }}</td>
+        <td>
+          <button (click)="goToCourtroom(case)">
+            Enter the Courtroom
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
