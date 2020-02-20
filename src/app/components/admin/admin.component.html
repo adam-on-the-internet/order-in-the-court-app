@@ -2,8 +2,18 @@
   <h1>
     Admin Panel
   </h1>
+  <p>Here you can manage App Data.</p>
+  <hr />
 </div>
 <div class="content">
+  <h2>Controls</h2>
+  <button>Manage evidence</button>
+  <button>Manage witnesses</button>
+  <button>Manage issues</button>
+  <button>Manage cases</button>
+  <button>Manage users</button>
+  <hr />
+  <h2>Users</h2>
   <table *ngIf="ready; else loading">
     <thead>
       <tr>
