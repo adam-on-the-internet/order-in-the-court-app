@@ -7,6 +7,11 @@
   <p>
     Welcome to the Order in the Court app!
   </p>
+  <p>
+    <button (click)="generateCase()">
+      Generate a new case
+    </button>
+  </p>
   <table *ngIf="ready; else loading">
     <thead>
       <tr>

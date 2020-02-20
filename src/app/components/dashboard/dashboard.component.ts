@@ -3,6 +3,7 @@ import { Case } from "src/app/models/Case.model";
 import { CaseService } from "src/app/services/case.service";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { NavHelperService } from "src/app/services/nav-helper.service";
+import { CaseOrder } from "src/app/models/CaseOrder.model";
 
 @Component({
   selector: "app-dashboard",
@@ -27,7 +28,31 @@ export class DashboardComponent implements OnInit {
   }
 
   public goToCourtroom(myCase: Case) {
-      this.navHelper.goToCourtroom(myCase._id);
+    this.navHelper.goToCourtroom(myCase._id);
+  }
+
+  public generateCase() {
+    const caseName = prompt("What name do you want to give your case?");
+    const evidencePerSide = prompt("How much evidence should each team have?");
+    const witnesses = prompt("How many witnesses do you want?");
+    const caseOrder: CaseOrder = {
+      name: caseName,
+      witnessCount: Number(witnesses),
+      evidenceCount: Number(evidencePerSide)
+    };
+    this.submitCase(caseOrder);
+  }
+
+  private submitCase(caseOrder: CaseOrder) {
+    let newCase: Case;
+    this.caseService.makeACase(caseOrder)
+      .subscribe((res) => newCase = res,
+        (error) => {
+          this.error = true;
+          console.log("make case failed");
+        }, () => {
+          this.goToCourtroom(newCase);
+        });
   }
 
   private loadCases() {
