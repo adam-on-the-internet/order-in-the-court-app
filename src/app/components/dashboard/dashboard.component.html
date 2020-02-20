@@ -7,7 +7,11 @@
   <p>
     Welcome to the Order in the Court app!
   </p>
-  <p>
-    More coming soon...
-  </p>
+  <ul>
+    <li *ngFor="let case of cases">
+      <button (click)="goToCourtroom(case)">
+        {{ case.name }}
+      </button>
+    </li>
+  </ul>
 </div>

@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Register, component: RegisterComponent },
   { path: ROUTES_ENUM.Profile, component: ProfileComponent },
   { path: ROUTES_ENUM.Admin, component: AdminComponent },
-  { path: ROUTES_ENUM.CourtRoom, component: CourtroomComponent },
+  { path: ROUTES_ENUM.CourtRoom + "/:id", component: CourtroomComponent },
   // evidence
   { path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent },
   { path: ROUTES_ENUM.EvidenceDetails + "/:id", component: EvidenceDisplayComponent },

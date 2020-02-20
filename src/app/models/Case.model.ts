@@ -3,8 +3,9 @@ import { Witness } from "./Witness.model";
 import { Evidence } from "./Evidence.model";
 
 export interface Case {
+  _id: string;
   issue: Issue;
   witnesses: Witness[];
-  plantiffEvidence: Evidence[];
+  plaintiffEvidence: Evidence[];
   defendantEvidence: Evidence[];
 }

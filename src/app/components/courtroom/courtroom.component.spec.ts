@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { CourtroomComponent } from "./courtroom.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe("CourtroomComponent", () => {
   let component: CourtroomComponent;
@@ -10,7 +11,7 @@ describe("CourtroomComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CourtroomComponent],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();
   }));

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Case } from "src/app/models/Case.model";
 import { CaseService } from "src/app/services/case.service";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-courtroom",
@@ -17,7 +18,8 @@ export class CourtroomComponent implements OnInit {
   }
 
   constructor(
-    private caseService: CaseService
+    private caseService: CaseService,
+    private route: ActivatedRoute
   ) { }
 
   public ngOnInit() {
@@ -27,7 +29,8 @@ export class CourtroomComponent implements OnInit {
   private loadCase() {
     this.case = null;
     this.error = false;
-    this.caseService.getRandomCase()
+    const id = this.route.snapshot.paramMap.get("id");
+    this.caseService.getCaseById(id)
       .subscribe((res) => this.case = res,
         (error) => {
           this.error = true;

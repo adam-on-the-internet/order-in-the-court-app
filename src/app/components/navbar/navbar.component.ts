@@ -53,10 +53,6 @@ export class NavbarComponent {
     this.navHelper.goToRegister();
   }
 
-  public goToCourtroom(): void {
-    this.navHelper.goToCourtroom();
-  }
-
   public goToEvidenceOverview(): void {
     this.navHelper.goToEvidenceOverview();
   }
