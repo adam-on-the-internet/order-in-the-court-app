@@ -30,6 +30,7 @@ import { UserOverviewComponent } from "./components/user-overview/user-overview.
 import { CaseDisplayComponent } from "./components/case-display/case-display.component";
 import { CaseTableComponent } from "./components/case-table/case-table.component";
 import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
+import { UserTableComponent } from "./components/user-table/user-table.component";
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CaseOverviewComponent } from "./components/case-overview/case-overview.
     UserOverviewComponent,
     CaseDisplayComponent,
     CaseTableComponent,
-    CaseOverviewComponent
+    CaseOverviewComponent,
+    UserTableComponent
   ],
   imports: [
     BrowserModule,
