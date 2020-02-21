@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/services/user.service";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { User } from "src/app/models/User.model";
+import { NavHelperService } from "src/app/services/nav-helper.service";
 
 @Component({
   selector: "app-admin",
@@ -17,10 +18,31 @@ export class AdminComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private navHelper: NavHelperService,
   ) { }
 
   public ngOnInit() {
     this.loadUsers();
+  }
+
+  public manageEvidence() {
+    this.navHelper.goToEvidenceOverview();
+  }
+
+  public manageWitnesses() {
+    this.navHelper.goToWitnessOverview();
+  }
+
+  public manageIssues() {
+    this.navHelper.goToIssueOverview();
+  }
+
+  public manageCases() {
+    this.navHelper.goToCaseOverview();
+  }
+
+  public manageUsers() {
+    this.navHelper.goToUserOverview();
   }
 
   public toggleAdmin(user: User) {

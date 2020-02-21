@@ -16,6 +16,9 @@ import { WitnessOverviewComponent } from "./components/witness-overview/witness-
 import { WitnessDisplayComponent } from "./components/witness-display/witness-display.component";
 import { WitnessFormComponent } from "./components/witness-form/witness-form.component";
 import { CourtroomComponent } from "./components/courtroom/courtroom.component";
+import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
+import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
+import { CaseDisplayComponent } from "./components/case-display/case-display.component";
 
 const routes: Routes = [
   // main
@@ -40,6 +43,11 @@ const routes: Routes = [
   { path: ROUTES_ENUM.IssueDetails + "/:id", component: IssueDisplayComponent },
   { path: ROUTES_ENUM.IssueForm, component: IssueFormComponent },
   { path: ROUTES_ENUM.IssueForm + "/:id", component: IssueFormComponent },
+  // case
+  { path: ROUTES_ENUM.CaseOverview, component: CaseOverviewComponent },
+  { path: ROUTES_ENUM.CaseDetails + "/:id", component: CaseDisplayComponent },
+  // user
+  { path: ROUTES_ENUM.UserOverview, component: UserOverviewComponent },
   // default
   { path: "**", redirectTo: "dashboard" },
 ];

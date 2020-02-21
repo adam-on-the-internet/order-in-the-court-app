@@ -26,6 +26,10 @@ import { IssueTableComponent } from "./components/issue-table/issue-table.compon
 import { WitnessTableComponent } from "./components/witness-table/witness-table.component";
 import { EvidenceTableComponent } from "./components/evidence-table/evidence-table.component";
 import { CourtroomComponent } from "./components/courtroom/courtroom.component";
+import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
+import { CaseDisplayComponent } from "./components/case-display/case-display.component";
+import { CaseTableComponent } from "./components/case-table/case-table.component";
+import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { CourtroomComponent } from "./components/courtroom/courtroom.component";
     IssueTableComponent,
     WitnessTableComponent,
     EvidenceTableComponent,
-    CourtroomComponent
+    CourtroomComponent,
+    UserOverviewComponent,
+    CaseDisplayComponent,
+    CaseTableComponent,
+    CaseOverviewComponent
   ],
   imports: [
     BrowserModule,

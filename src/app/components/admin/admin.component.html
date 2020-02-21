@@ -7,11 +7,11 @@
 </div>
 <div class="content">
   <h2>Controls</h2>
-  <button>Manage evidence</button>
-  <button>Manage witnesses</button>
-  <button>Manage issues</button>
-  <button>Manage cases</button>
-  <button>Manage users</button>
+  <button (click)="manageEvidence()">Manage evidence</button>
+  <button (click)="manageWitnesses()">Manage witnesses</button>
+  <button (click)="manageIssues()">Manage issues</button>
+  <button (click)="manageCases()">Manage cases</button>
+  <button (click)="manageUsers()">Manage users</button>
   <hr />
   <h2>Users</h2>
   <table *ngIf="ready; else loading">

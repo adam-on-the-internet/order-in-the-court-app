@@ -89,6 +89,22 @@ export class NavHelperService {
     this.goToRoutes([ROUTES_ENUM.IssueForm, issueId]);
   }
 
+  // CASE
+
+  public goToCaseOverview(): void {
+    this.goToRoute(ROUTES_ENUM.CaseOverview);
+  }
+
+  public goToCaseDetails(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.CaseDetails, caseId]);
+  }
+
+  // USER
+
+  public goToUserOverview(): void {
+    this.goToRoute(ROUTES_ENUM.UserOverview);
+  }
+
   // GENERAL
 
   private goToRoute(route: string): void {

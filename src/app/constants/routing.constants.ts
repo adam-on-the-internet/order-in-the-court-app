@@ -13,5 +13,8 @@ export const enum ROUTES_ENUM {
   IssueOverview = "issue-overview",
   IssueDetails = "issue-details",
   IssueForm = "issue-form",
+  CaseOverview = "case-overview",
+  CaseDetails = "case-details",
+  UserOverview = "user-overview",
   Login = "login",
 }
