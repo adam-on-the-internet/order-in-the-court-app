@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { CaseOverviewComponent } from "./case-overview.component";
+import { CaseTableComponent } from "../case-table/case-table.component";
 
 describe("CaseOverviewComponent", () => {
   let component: CaseOverviewComponent;
@@ -8,9 +9,9 @@ describe("CaseOverviewComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CaseOverviewComponent ]
+      declarations: [CaseOverviewComponent, CaseTableComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
