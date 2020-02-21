@@ -32,7 +32,7 @@ export class CaseService {
       controller,
       collection: id,
     });
-    return this.http.get(url, CookieHelper.unauthHeaders) as Observable<Case>;
+    return this.http.get(url, CookieHelper.authHeaders) as Observable<Case>;
   }
 
   public makeACase(caseOrder: CaseOrder): Observable<Case> {
