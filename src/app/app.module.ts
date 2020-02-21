@@ -11,7 +11,6 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ActuatorReportComponent } from "./components/actuator-report/actuator-report.component";
 import { LoginComponent } from "./components/login/login.component";
-import { RegisterComponent } from "./components/register/register.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { EvidenceOverviewComponent } from "./components/evidence-overview/evidence-overview.component";
@@ -37,7 +36,6 @@ import { CourtroomComponent } from "./components/courtroom/courtroom.component";
     FooterComponent,
     ActuatorReportComponent,
     LoginComponent,
-    RegisterComponent,
     ProfileComponent,
     AdminComponent,
     EvidenceOverviewComponent,

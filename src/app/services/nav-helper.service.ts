@@ -31,10 +31,6 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.Login);
   }
 
-  public goToRegister(): void {
-    this.goToRoute(ROUTES_ENUM.Register);
-  }
-
   public goToCourtroom(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.CourtRoom, caseId]);
   }

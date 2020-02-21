@@ -14,5 +14,4 @@ export const enum ROUTES_ENUM {
   IssueDetails = "issue-details",
   IssueForm = "issue-form",
   Login = "login",
-  Register = "register",
 }
