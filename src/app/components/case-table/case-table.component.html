@@ -3,7 +3,8 @@
     Generate a new case
   </button>
 </p>
-<table *ngIf="ready; else loading">
+<ng-container *ngIf="ready; else loading">
+<table *ngIf="cases.length > 0">
   <thead>
     <tr>
       <th>Case name</th>
@@ -33,3 +34,7 @@
     </tr>
   </tbody>
 </table>
+<p *ngIf="cases.length === 0">
+No cases available.
+</p>
+</ng-container>
