@@ -6,6 +6,14 @@
     <p>
       You are the witness.
     </p>
+    <p>
+      Here are the witnesses for this case:
+    </p>
+    <ol>
+      <li *ngFor="let witness of case.witnesses">
+        {{ witness.name }}
+      </li>
+    </ol>
   </div>
 </ng-container>
 
