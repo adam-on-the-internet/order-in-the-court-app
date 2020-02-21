@@ -1,43 +1,41 @@
 <ng-container *ngIf="ready; else notReady">
-  <h1>
-    Name: {{ case.name }}
-  </h1>
-  <hr>
+  <h1>Name: {{ case.name }}</h1>
+  <hr />
   <h2>Issue</h2>
   <p>
-  <strong>
-  Name: 
-  </strong>
-  {{case.issue.name}}
+    <strong>
+      Name:
+    </strong>
+    {{ case.issue.name }}
   </p>
   <p>
-  <strong>
-  Description: 
-  </strong>
-  {{case.issue.description}}
+    <strong>
+      Description:
+    </strong>
+    {{ case.issue.description }}
   </p>
-  <hr>
+  <hr />
   <h2>Witnesses</h2>
   <ol>
     <li *ngFor="let witness of case.witnesses">
-      {{witness.name}}
+      {{ witness.name }}
     </li>
   </ol>
-  <hr>
+  <hr />
   <h2>Plaintiff Evidence</h2>
-    <ol>
+  <ol>
     <li *ngFor="let evidence of case.plaintiffEvidence">
-      {{evidence.name}}
+      {{ evidence.name }}
     </li>
   </ol>
-  <hr>
+  <hr />
   <h2>Defendant Evidence</h2>
-      <ol>
+  <ol>
     <li *ngFor="let evidence of case.defendantEvidence">
-      {{evidence.name}}
+      {{ evidence.name }}
     </li>
   </ol>
-  <hr>
+  <hr />
   <p>
     <small>id: {{ case._id }}</small>
   </p>
