@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
-import { CaseService } from 'src/app/services/case.service';
-import { ActivatedRoute } from '@angular/router';
-import { Case } from 'src/app/models/Case.model';
+import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { CaseService } from "src/app/services/case.service";
+import { ActivatedRoute } from "@angular/router";
+import { Case } from "src/app/models/Case.model";
 
 @Component({
   selector: "app-judge",
