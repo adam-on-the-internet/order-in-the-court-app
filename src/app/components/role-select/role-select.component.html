@@ -1,11 +1,34 @@
-<div class="header">
-  <h1>
-    Role Select
-  </h1>
-</div>
-<div class="content">
-  <p>
-    Select your role.
-  </p>
-  <button (click)="beJudge()">Judge</button>
-</div>
+<ng-container *ngIf="ready; else loading">
+  <div class="header">
+    <h1>
+      {{ case.name }}:
+      <small>Role Select</small>
+    </h1>
+  </div>
+  <div class="content">
+    <p>
+      Select your role.
+    </p>
+    <button (click)="beJudge()">Judge</button>
+    <br />
+    <br />
+    <button (click)="bePlaintiff()">Plaintiff</button>
+    <br />
+    <br />
+    <button (click)="beDefendant()">Defendant</button>
+    <br />
+    <br />
+    <ng-container *ngIf="case.witnesses.length > 0">
+      <button (click)="beWitness()">Witness</button>
+      <br />
+      <br />
+    </ng-container>
+    <button (click)="beJury()">Jury</button>
+    <br />
+    <br />
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

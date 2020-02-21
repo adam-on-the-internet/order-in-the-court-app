@@ -33,16 +33,28 @@ export class NavHelperService {
 
   // COURTROOM
 
-  public goToCourtroom(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.CourtRoom, caseId]);
-  }
-
   public goToRoleSelect(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.RoleSelect, caseId]);
   }
 
   public goToJudge(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.Judge, caseId]);
+  }
+
+  public goToPlaintiff(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Plaintiff, caseId]);
+  }
+
+  public goToDefendant(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Defendant, caseId]);
+  }
+
+  public goToWitness(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Witness, caseId]);
+  }
+
+  public goToJury(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Jury, caseId]);
   }
 
   // EVIDENCE

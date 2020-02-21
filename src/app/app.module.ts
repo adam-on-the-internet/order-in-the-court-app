@@ -25,7 +25,6 @@ import { IssueDisplayComponent } from "./components/issue-display/issue-display.
 import { IssueTableComponent } from "./components/issue-table/issue-table.component";
 import { WitnessTableComponent } from "./components/witness-table/witness-table.component";
 import { EvidenceTableComponent } from "./components/evidence-table/evidence-table.component";
-import { CourtroomComponent } from "./components/courtroom/courtroom.component";
 import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
 import { CaseDisplayComponent } from "./components/case-display/case-display.component";
 import { CaseTableComponent } from "./components/case-table/case-table.component";
@@ -33,6 +32,10 @@ import { CaseOverviewComponent } from "./components/case-overview/case-overview.
 import { UserTableComponent } from "./components/user-table/user-table.component";
 import { RoleSelectComponent } from "./components/role-select/role-select.component";
 import { JudgeComponent } from "./components/judge/judge.component";
+import { PlaintiffComponent } from "./components/plaintiff/plaintiff.component";
+import { DefendantComponent } from "./components/defendant/defendant.component";
+import { WitnessComponent } from "./components/witness/witness.component";
+import { JuryComponent } from "./components/jury/jury.component";
 
 @NgModule({
   declarations: [
@@ -57,14 +60,17 @@ import { JudgeComponent } from "./components/judge/judge.component";
     IssueTableComponent,
     WitnessTableComponent,
     EvidenceTableComponent,
-    CourtroomComponent,
     UserOverviewComponent,
     CaseDisplayComponent,
     CaseTableComponent,
     CaseOverviewComponent,
     UserTableComponent,
     RoleSelectComponent,
-    JudgeComponent
+    JudgeComponent,
+    PlaintiffComponent,
+    DefendantComponent,
+    WitnessComponent,
+    JuryComponent
   ],
   imports: [
     BrowserModule,

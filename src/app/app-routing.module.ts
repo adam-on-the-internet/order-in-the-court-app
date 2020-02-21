@@ -15,12 +15,15 @@ import { IssueFormComponent } from "./components/issue-form/issue-form.component
 import { WitnessOverviewComponent } from "./components/witness-overview/witness-overview.component";
 import { WitnessDisplayComponent } from "./components/witness-display/witness-display.component";
 import { WitnessFormComponent } from "./components/witness-form/witness-form.component";
-import { CourtroomComponent } from "./components/courtroom/courtroom.component";
 import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
 import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
 import { CaseDisplayComponent } from "./components/case-display/case-display.component";
 import { RoleSelectComponent } from "./components/role-select/role-select.component";
 import { JudgeComponent } from "./components/judge/judge.component";
+import { PlaintiffComponent } from "./components/plaintiff/plaintiff.component";
+import { WitnessComponent } from "./components/witness/witness.component";
+import { JuryComponent } from "./components/jury/jury.component";
+import { DefendantComponent } from "./components/defendant/defendant.component";
 
 const routes: Routes = [
   // main
@@ -29,9 +32,13 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Login, component: LoginComponent },
   { path: ROUTES_ENUM.Profile, component: ProfileComponent },
   { path: ROUTES_ENUM.Admin, component: AdminComponent },
-  { path: ROUTES_ENUM.CourtRoom + "/:id", component: CourtroomComponent },
+  // courtroom
   { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },
   { path: ROUTES_ENUM.Judge + "/:id", component: JudgeComponent },
+  { path: ROUTES_ENUM.Plaintiff + "/:id", component: PlaintiffComponent },
+  { path: ROUTES_ENUM.Defendant + "/:id", component: DefendantComponent },
+  { path: ROUTES_ENUM.Witness + "/:id", component: WitnessComponent },
+  { path: ROUTES_ENUM.Jury + "/:id", component: JuryComponent },
   // evidence
   { path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent },
   { path: ROUTES_ENUM.EvidenceDetails + "/:id", component: EvidenceDisplayComponent },
