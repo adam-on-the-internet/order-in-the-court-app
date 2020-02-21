@@ -4,6 +4,7 @@ import { Evidence } from "./Evidence.model";
 
 export interface Case {
   _id: string;
+  name: string;
   issue: Issue;
   witnesses: Witness[];
   plaintiffEvidence: Evidence[];

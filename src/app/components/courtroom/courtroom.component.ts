@@ -30,7 +30,7 @@ export class CourtroomComponent implements OnInit {
     this.case = null;
     this.error = false;
     const id = this.route.snapshot.paramMap.get("id");
-    this.caseService.getCaseById(id)
+    this.caseService.getSingleCase(id)
       .subscribe((res) => this.case = res,
         (error) => {
           this.error = true;

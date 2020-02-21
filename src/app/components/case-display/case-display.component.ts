@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CaseService } from "src/app/services/case.service";
+import { Case } from "src/app/models/Case.model";
 import { ActivatedRoute } from "@angular/router";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
 
