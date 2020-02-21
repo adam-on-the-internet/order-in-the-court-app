@@ -41,7 +41,7 @@ export class CaseTableComponent implements OnInit {
   }
 
   public goToCourtroom(myCase: Case) {
-    this.navHelper.goToCourtroom(myCase._id);
+    this.navHelper.goToRoleSelect(myCase._id);
   }
 
   public generateCase() {

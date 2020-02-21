@@ -31,6 +31,8 @@ import { CaseDisplayComponent } from "./components/case-display/case-display.com
 import { CaseTableComponent } from "./components/case-table/case-table.component";
 import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
 import { UserTableComponent } from "./components/user-table/user-table.component";
+import { RoleSelectComponent } from "./components/role-select/role-select.component";
+import { JudgeComponent } from "./components/judge/judge.component";
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { UserTableComponent } from "./components/user-table/user-table.component
     CaseDisplayComponent,
     CaseTableComponent,
     CaseOverviewComponent,
-    UserTableComponent
+    UserTableComponent,
+    RoleSelectComponent,
+    JudgeComponent
   ],
   imports: [
     BrowserModule,

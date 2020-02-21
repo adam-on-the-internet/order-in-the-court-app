@@ -19,6 +19,8 @@ import { CourtroomComponent } from "./components/courtroom/courtroom.component";
 import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
 import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
 import { CaseDisplayComponent } from "./components/case-display/case-display.component";
+import { RoleSelectComponent } from "./components/role-select/role-select.component";
+import { JudgeComponent } from "./components/judge/judge.component";
 
 const routes: Routes = [
   // main
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Profile, component: ProfileComponent },
   { path: ROUTES_ENUM.Admin, component: AdminComponent },
   { path: ROUTES_ENUM.CourtRoom + "/:id", component: CourtroomComponent },
+  { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },
+  { path: ROUTES_ENUM.Judge + "/:id", component: JudgeComponent },
   // evidence
   { path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent },
   { path: ROUTES_ENUM.EvidenceDetails + "/:id", component: EvidenceDisplayComponent },

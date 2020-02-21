@@ -4,6 +4,8 @@ export const enum ROUTES_ENUM {
   Profile = "profile",
   Admin = "admin",
   CourtRoom = "courtroom",
+  Judge = "judge",
+  RoleSelect = "role-select",
   EvidenceOverview = "evidence-overview",
   EvidenceDetails = "evidence-details",
   EvidenceForm = "evidence-form",

@@ -31,8 +31,18 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.Login);
   }
 
+  // COURTROOM
+
   public goToCourtroom(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.CourtRoom, caseId]);
+  }
+
+  public goToRoleSelect(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.RoleSelect, caseId]);
+  }
+
+  public goToJudge(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Judge, caseId]);
   }
 
   // EVIDENCE
