@@ -21,7 +21,7 @@ export class EvidenceService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url) as Observable<Evidence[]>;
+    return this.http.get(url, CookieHelper.authHeaders) as Observable<Evidence[]>;
   }
 
   public getSingleEvidence(evienceId: string): Observable<Evidence> {
@@ -30,7 +30,7 @@ export class EvidenceService {
       controller,
       params: evienceId,
     });
-    return this.http.get(url) as Observable<Evidence>;
+    return this.http.get(url, CookieHelper.authHeaders) as Observable<Evidence>;
   }
 
   public createEvidence(evidence: any): Observable<any> {

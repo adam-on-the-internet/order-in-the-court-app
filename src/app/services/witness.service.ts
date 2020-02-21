@@ -21,7 +21,7 @@ export class WitnessService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url) as Observable<Witness[]>;
+    return this.http.get(url, CookieHelper.authHeaders) as Observable<Witness[]>;
   }
 
   public getSingleWitness(witnessId: string): Observable<Witness> {
@@ -30,7 +30,7 @@ export class WitnessService {
       controller,
       params: witnessId,
     });
-    return this.http.get(url) as Observable<Witness>;
+    return this.http.get(url, CookieHelper.authHeaders) as Observable<Witness>;
   }
 
   public createWitness(witness: any): Observable<any> {

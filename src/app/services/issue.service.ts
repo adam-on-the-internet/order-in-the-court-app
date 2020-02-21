@@ -21,7 +21,7 @@ export class IssueService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url) as Observable<Issue[]>;
+    return this.http.get(url, CookieHelper.authHeaders) as Observable<Issue[]>;
   }
 
   public getSingleIssue(issueId: string): Observable<Issue> {
@@ -30,7 +30,7 @@ export class IssueService {
       controller,
       params: issueId,
     });
-    return this.http.get(url) as Observable<Issue>;
+    return this.http.get(url, CookieHelper.authHeaders) as Observable<Issue>;
   }
 
   public createIssue(issue: any): Observable<any> {
