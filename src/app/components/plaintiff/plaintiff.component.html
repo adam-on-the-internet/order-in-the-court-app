@@ -6,6 +6,14 @@
     <p>
       You are the plaintiff.
     </p>
+    <p>
+      Here is the evidence you have for this case:
+    </p>
+    <ol>
+      <li *ngFor="let evidence of case.plaintiffEvidence">
+        {{ evidence.name }}
+      </li>
+    </ol>
   </div>
 </ng-container>
 
