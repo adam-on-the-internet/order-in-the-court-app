@@ -7,6 +7,7 @@
 <table *ngIf="cases.length > 0">
   <thead>
     <tr>
+      <th>#</th>
       <th>Case name</th>
       <th *ngIf="!adminMode">Enter</th>
       <ng-container *ngIf="adminMode">
@@ -16,7 +17,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let case of cases">
+    <tr *ngFor="let case of cases; let i = index">
+      <th>{{i + 1}}</th>
       <td>{{ case.name }}</td>
       <td *ngIf="!adminMode">
         <button (click)="goToCourtroom(case)">
