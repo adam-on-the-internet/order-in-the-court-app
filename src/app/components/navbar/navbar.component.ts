@@ -49,18 +49,6 @@ export class NavbarComponent {
     this.navHelper.goToLogin();
   }
 
-  public goToEvidenceOverview(): void {
-    this.navHelper.goToEvidenceOverview();
-  }
-
-  public goToWitnessOverview(): void {
-    this.navHelper.goToWitnessOverview();
-  }
-
-  public goToIssueOverview(): void {
-    this.navHelper.goToIssueOverview();
-  }
-
   public logout(): void {
     CookieHelper.removeToken();
     this.navHelper.goToLogin();
