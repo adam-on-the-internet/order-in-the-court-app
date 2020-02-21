@@ -1,1 +1,23 @@
-<p>case-table works!</p>
+<p>
+  <button (click)="generateCase()">
+    Generate a new case
+  </button>
+</p>
+<table *ngIf="ready; else loading">
+  <thead>
+    <tr>
+      <th>Case name</th>
+      <th>Enter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let case of cases">
+      <td>{{ case.name }}</td>
+      <td>
+        <button (click)="goToCourtroom(case)">
+          Enter the Courtroom
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
