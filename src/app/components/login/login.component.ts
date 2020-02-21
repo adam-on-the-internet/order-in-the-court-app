@@ -59,6 +59,13 @@ export class LoginComponent {
     }
   }
 
+  public startRegister() {
+    const registerEmail = prompt("What email would you like to register?");
+    if (registerEmail) {
+      this.register(registerEmail);
+    }
+  }
+
   private performReset(emailToReset: string) {
     let response;
     this.userService.resetPasswordAutomatic(emailToReset)
@@ -78,6 +85,17 @@ export class LoginComponent {
           this.loginFailure = true;
         }, () => {
           this.navHelper.goToProfile();
+        });
+  }
+
+  private register(email: string) {
+    let response;
+    this.userService.register(email)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("register failed");
+        }, () => {
+          this.navHelper.goToDashboard();
         });
   }
 
