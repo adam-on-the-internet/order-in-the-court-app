@@ -50,6 +50,13 @@ export class UserTableComponent implements OnInit {
     }
   }
 
+  public startRegister() {
+    const registerEmail = prompt("What email would you like to register?");
+    if (registerEmail) {
+      this.register(registerEmail);
+    }
+  }
+
   private editAccess(user: User, newAccess: string) {
     let response;
     this.userService.editAccess(user.email, newAccess)
@@ -92,6 +99,17 @@ export class UserTableComponent implements OnInit {
       .subscribe((res) => this.users = res,
         (error) => {
           console.log("get users failed");
+        });
+  }
+
+  private register(email: string) {
+    let response;
+    this.userService.register(email)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("register failed");
+        }, () => {
+          this.loadUsers();
         });
   }
 
