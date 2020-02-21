@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Case } from "src/app/models/Case.model";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { CaseService } from "src/app/services/case.service";
@@ -11,6 +11,8 @@ import { CaseOrder } from "src/app/models/CaseOrder.model";
   styleUrls: ["./case-table.component.css"]
 })
 export class CaseTableComponent implements OnInit {
+  @Input() public adminMode = false;
+
   public cases: Case[] = null;
   public error = false;
 
@@ -25,6 +27,17 @@ export class CaseTableComponent implements OnInit {
 
   public ngOnInit() {
     this.loadCases();
+  }
+
+  public goToCaseDetails(myCase: Case) {
+    this.navHelper.goToCaseDetails(myCase._id);
+  }
+
+  public requestDelete(myCase: Case): void {
+    const confirmDelete = confirm(`Are you sure you want to delete ${myCase.name}?`);
+    if (confirmDelete) {
+      this.deleteCase(myCase);
+    }
   }
 
   public goToCourtroom(myCase: Case) {
@@ -63,6 +76,18 @@ export class CaseTableComponent implements OnInit {
         (error) => {
           this.error = true;
           console.log("get case failed");
+        });
+  }
+
+  private deleteCase(myCase: Case) {
+    let response;
+    this.caseService.deleteCase(myCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          this.error = true;
+          console.log("delete case failed");
+        }, () => {
+          this.loadCases();
         });
   }
 

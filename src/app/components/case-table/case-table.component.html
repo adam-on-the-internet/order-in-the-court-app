@@ -7,17 +7,29 @@
   <thead>
     <tr>
       <th>Case name</th>
-      <th>Enter</th>
+      <th *ngIf="!adminMode">Enter</th>
+      <ng-container *ngIf="adminMode">
+        <th>Details</th>
+        <th>Delete</th>
+      </ng-container>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let case of cases">
       <td>{{ case.name }}</td>
-      <td>
+      <td *ngIf="!adminMode">
         <button (click)="goToCourtroom(case)">
           Enter the Courtroom
         </button>
       </td>
+      <ng-container *ngIf="adminMode">
+        <td>
+          <button (click)="goToCaseDetails(case)">Details</button>
+        </td>
+        <td>
+          <button (click)="requestDelete(case)">Delete</button>
+        </td>
+      </ng-container>
     </tr>
   </tbody>
 </table>

@@ -42,4 +42,13 @@ export class CaseService {
     });
     return this.http.post(url, caseOrder, CookieHelper.unauthHeaders) as Observable<Case>;
   }
+
+  public deleteCase(caseId: string): Observable<any> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      params: caseId,
+    });
+    return this.http.delete(url, CookieHelper.authHeaders) as Observable<any>;
+  }
 }
