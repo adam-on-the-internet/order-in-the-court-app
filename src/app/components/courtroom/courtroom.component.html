@@ -1,33 +1,35 @@
+<ng-container *ngIf="ready; else notReady">
 <div class="header">
   <h1>
-    Courtroom
+    Case: {{ case.name }}
   </h1>
 </div>
-<div class="content" *ngIf="ready; else notReady">
+<div class="content">
   <p>
     Welcome to the courtroom.
   </p>
-  <h2>{{ case.issue.name }}</h2>
+  <h2>Issue: {{ case.issue.name }}</h2>
   <p>{{ case.issue.description }}</p>
   <h2>Plaintiff Evidence</h2>
-  <ul>
+  <ol>
     <li *ngFor="let evidence of case.plaintiffEvidence">
       {{ evidence.name }}
     </li>
-  </ul>
+  </ol>
   <h2>Defendant Evidence</h2>
-  <ul>
+  <ol>
     <li *ngFor="let evidence of case.defendantEvidence">
       {{ evidence.name }}
     </li>
-  </ul>
+  </ol>
   <h2>Witnesses</h2>
-  <ul>
+  <ol>
     <li *ngFor="let witness of case.witnesses">
       {{ witness.name }}
     </li>
-  </ul>
+  </ol>
 </div>
+</ng-container>
 
 <ng-template #notReady>
   <p *ngIf="!error">Loading...</p>
