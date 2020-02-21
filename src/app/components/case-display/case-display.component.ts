@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { CaseService } from "src/app/services/case.service";
+import { ActivatedRoute } from "@angular/router";
+import { BooleanHelper } from "src/app/utilities/boolean.util";
 
 @Component({
   selector: "app-case-display",
@@ -6,10 +9,28 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./case-display.component.css"]
 })
 export class CaseDisplayComponent implements OnInit {
+  public case: Case = null;
 
-  constructor() { }
+  public get ready(): boolean {
+    return BooleanHelper.notNull(this.case);
+  }
 
-  ngOnInit() {
+  constructor(
+    private caseService: CaseService,
+    private route: ActivatedRoute,
+  ) { }
+
+  public ngOnInit() {
+    this.loadCase();
+  }
+
+  private loadCase(): void {
+    const id = this.route.snapshot.paramMap.get("id");
+    this.caseService.getSingleCase(id)
+      .subscribe((res) => this.case = res,
+        (error) => {
+          console.log("get case failed");
+        });
   }
 
 }

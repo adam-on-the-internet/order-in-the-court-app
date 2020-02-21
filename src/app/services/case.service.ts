@@ -26,7 +26,7 @@ export class CaseService {
     return this.http.get(url, CookieHelper.unauthHeaders) as Observable<Case[]>;
   }
 
-  public getCaseById(id: string): Observable<Case> {
+  public getSingleCase(id: string): Observable<Case> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,

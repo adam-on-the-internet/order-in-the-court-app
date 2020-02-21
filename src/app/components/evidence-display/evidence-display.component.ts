@@ -22,10 +22,10 @@ export class EvidenceDisplayComponent implements OnInit {
   ) { }
 
   public ngOnInit() {
-    this.loadContraption();
+    this.loadEvidence();
   }
 
-  private loadContraption(): void {
+  private loadEvidence(): void {
     const id = this.route.snapshot.paramMap.get("id");
     this.evidenceService.getSingleEvidence(id)
       .subscribe((res) => this.evidence = res,
