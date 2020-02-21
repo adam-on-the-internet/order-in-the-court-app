@@ -1,10 +1,14 @@
-<div class="header">
-  <h1>
-    Judge
-  </h1>
-</div>
-<div class="content">
-  <p>
-    You are the judge.
-  </p>
-</div>
+<ng-container *ngIf="ready; else loading">
+  <div class="header">
+    <h1>{{ case.name }}: Judge</h1>
+  </div>
+  <div class="content">
+    <p>
+      You are the judge.
+    </p>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
