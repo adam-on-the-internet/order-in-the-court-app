@@ -36,6 +36,7 @@ import { PlaintiffComponent } from "./components/plaintiff/plaintiff.component";
 import { DefendantComponent } from "./components/defendant/defendant.component";
 import { WitnessComponent } from "./components/witness/witness.component";
 import { JuryComponent } from "./components/jury/jury.component";
+import { IssueBlockComponent } from "./components/issue-block/issue-block.component";
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { JuryComponent } from "./components/jury/jury.component";
     PlaintiffComponent,
     DefendantComponent,
     WitnessComponent,
-    JuryComponent
+    JuryComponent,
+    IssueBlockComponent
   ],
   imports: [
     BrowserModule,

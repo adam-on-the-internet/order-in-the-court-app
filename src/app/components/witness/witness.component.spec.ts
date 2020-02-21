@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { WitnessComponent } from "./witness.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { IssueBlockComponent } from "../issue-block/issue-block.component";
 
 describe("WitnessComponent", () => {
   let component: WitnessComponent;
@@ -10,7 +11,7 @@ describe("WitnessComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [WitnessComponent],
+      declarations: [WitnessComponent, IssueBlockComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

@@ -8,10 +8,7 @@
       witnesses.
     </p>
     <hr />
-    <h2>Issue: {{ case.issue.name }}</h2>
-    <p>
-      {{ case.issue.description }}
-    </p>
+    <app-issue-block [issue]="case.issue"></app-issue-block>
     <hr />
     <h2>Witnesses</h2>
     <ol>
