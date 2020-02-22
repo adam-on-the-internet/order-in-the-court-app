@@ -20,6 +20,10 @@ export class CaseTableComponent implements OnInit {
     return BooleanHelper.hasValue(this.cases);
   }
 
+  public get hasCase(): boolean {
+    return this.cases.length > 0;
+  }
+
   constructor(
     private caseService: CaseService,
     private navHelper: NavHelperService,
