@@ -21,6 +21,10 @@ export class WitnessTableComponent implements OnInit {
     return this.witnesses !== null;
   }
 
+  public get hasWitness(): boolean {
+    return this.witnesses.length > 0;
+  }
+
   constructor(
     private witnessService: WitnessService,
     private navHelper: NavHelperService,
