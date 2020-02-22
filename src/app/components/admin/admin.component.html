@@ -2,28 +2,33 @@
   <h1>
     Admin Panel
   </h1>
-  <p>Here you can manage App Data.</p>
   <hr />
 </div>
 <div class="content">
-  <h2>Court Data</h2>
+  <h3>Court Data</h3>
   <button (click)="manageEvidence()">Manage evidence</button>
-  <br>
-  <br>
+  <br />
+  <br />
   <button (click)="manageWitnesses()">Manage witnesses</button>
-  <br>
-  <br>
+  <br />
+  <br />
   <button (click)="manageIssues()">Manage issues</button>
-  <br>
-  <br>
+  <br />
+  <br />
   <button (click)="manageCases()">Manage cases</button>
-  <br>
-  <br>
-  <hr>
-  <h2>Meta Data</h2>
+  <br />
+  <br />
+  <hr />
+  <h3>Meta Data</h3>
   <button (click)="manageUsers()">Manage users</button>
-  <br>
-  <br>
+  <br />
+  <br />
+  <hr />
+  <h3>Check Services</h3>
+  <app-actuator-report
+    [serviceUrl]="basicExpressServiceUrl"
+    [serviceName]="'Basic Express Service'"
+  ></app-actuator-report>
 </div>
 
 <ng-template #loading>
