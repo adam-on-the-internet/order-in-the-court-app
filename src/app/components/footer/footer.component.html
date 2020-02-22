@@ -1,6 +1,12 @@
 <hr />
 <p>© Adam on the Internet {{ year }}</p>
 <p>
+  <a (click)="goToInfo()">More info</a>
+</p>
+<p>
+  <a (click)="goToLogin()" *ngIf="!isLoggedIn">Login</a>
+</p>
+<p>
   <a href="http://adamontheinternet.com" target="_blank"
     >AdamOnTheInternet.com</a
   >

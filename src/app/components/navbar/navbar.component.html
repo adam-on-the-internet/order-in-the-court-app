@@ -1,13 +1,9 @@
 <p>
   <span (click)="goToDashboard()" id="app-title">order-in-the-court-app</span> //
-  <span (click)="goToInfo()">info</span> //
   <ng-container *ngIf="isLoggedIn">
-    <span (click)="goToProfile()">Hello, {{ userEmail }}</span> //
-    <span (click)="goToAdmin()" *ngIf="isAdmin">(ADMIN) //</span>
-    <span (click)="logout()">logout</span> //
-  </ng-container>
-  <ng-container *ngIf="!isLoggedIn">
-    <span (click)="goToLogin()">login</span> //
+    <span (click)="goToProfile()">Your profile</span> //
+    <span (click)="goToAdmin()" *ngIf="isAdmin">Admin panel //</span>
+    <span (click)="logout()">Logout</span> //
   </ng-container>
 </p>
 <hr />

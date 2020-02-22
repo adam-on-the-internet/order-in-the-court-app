@@ -33,20 +33,12 @@ export class NavbarComponent {
     this.navHelper.goToDashboard();
   }
 
-  public goToInfo(): void {
-    this.navHelper.goToInfo();
-  }
-
   public goToProfile(): void {
     this.navHelper.goToProfile();
   }
 
   public goToAdmin(): void {
     this.navHelper.goToAdmin();
-  }
-
-  public goToLogin(): void {
-    this.navHelper.goToLogin();
   }
 
   public logout(): void {
