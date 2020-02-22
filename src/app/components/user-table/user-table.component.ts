@@ -15,6 +15,10 @@ export class UserTableComponent implements OnInit {
     return BooleanHelper.hasValue(this.users);
   }
 
+  public get hasUser(): boolean {
+    return this.users.length > 0;
+  }
+
   constructor(
     private userService: UserService,
   ) { }
