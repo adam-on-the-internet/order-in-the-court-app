@@ -21,6 +21,10 @@ export class EvidenceTableComponent implements OnInit {
     return this.evidences !== null;
   }
 
+  public get hasEvidence(): boolean {
+    return this.evidences.length > 0;
+  }
+
   constructor(
     private evidenceService: EvidenceService,
     private navHelper: NavHelperService,

@@ -2,32 +2,40 @@
   <button (click)="createEvidence()" *ngIf="canEdit">
     Create Evidence
   </button>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Details</th>
-        <ng-container *ngIf="canEdit">
-          <th>Edit</th>
-          <th>Delete</th>
-        </ng-container>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let evidence of evidences">
-        <td>{{ evidence.name }}</td>
-        <td>
-          <button (click)="evidenceDetails(evidence)">Details</button>
-        </td>
-        <ng-container *ngIf="canEdit">
-          <td><button (click)="editEvidence(evidence)">Edit</button></td>
+  <ng-container *ngIf="!hasEvidence">
+    <p>No evidence available.</p>
+  </ng-container>
+  <ng-container *ngIf="hasEvidence">
+    <p>
+      <small>Showing {{ evidences.length }} piece(s) of evidence</small>
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Details</th>
+          <ng-container *ngIf="canEdit">
+            <th>Edit</th>
+            <th>Delete</th>
+          </ng-container>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let evidence of evidences">
+          <td>{{ evidence.name }}</td>
           <td>
-            <button (click)="requestDelete(evidence)">Delete</button>
+            <button (click)="evidenceDetails(evidence)">Details</button>
           </td>
-        </ng-container>
-      </tr>
-    </tbody>
-  </table>
+          <ng-container *ngIf="canEdit">
+            <td><button (click)="editEvidence(evidence)">Edit</button></td>
+            <td>
+              <button (click)="requestDelete(evidence)">Delete</button>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
 </ng-container>
 
 <ng-template #notReady>
