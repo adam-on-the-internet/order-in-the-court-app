@@ -21,6 +21,10 @@ export class IssueTableComponent implements OnInit {
     return this.issues !== null;
   }
 
+  public get hasIssue(): boolean {
+    return this.issues.length > 0;
+  }
+
   constructor(
     private issueService: IssueService,
     private navHelper: NavHelperService,

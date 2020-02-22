@@ -2,32 +2,40 @@
   <button (click)="createIssue()" *ngIf="canEdit">
     Create Issue
   </button>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Details</th>
-        <ng-container *ngIf="canEdit">
-          <th>Edit</th>
-          <th>Delete</th>
-        </ng-container>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let issue of issues">
-        <td>{{ issue.name }}</td>
-        <td>
-          <button (click)="issueDetails(issue)">Details</button>
-        </td>
-        <ng-container *ngIf="canEdit">
-          <td><button (click)="editIssue(issue)">Edit</button></td>
+  <ng-container *ngIf="!hasIssue">
+    <p>No issues available.</p>
+  </ng-container>
+  <ng-container *ngIf="hasIssue">
+    <p>
+      <small>Showing {{issues.length}} issue(s)</small>
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Details</th>
+          <ng-container *ngIf="canEdit">
+            <th>Edit</th>
+            <th>Delete</th>
+          </ng-container>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let issue of issues">
+          <td>{{ issue.name }}</td>
           <td>
-            <button (click)="requestDelete(issue)">Delete</button>
+            <button (click)="issueDetails(issue)">Details</button>
           </td>
-        </ng-container>
-      </tr>
-    </tbody>
-  </table>
+          <ng-container *ngIf="canEdit">
+            <td><button (click)="editIssue(issue)">Edit</button></td>
+            <td>
+              <button (click)="requestDelete(issue)">Delete</button>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
 </ng-container>
 
 <ng-template #notReady>
