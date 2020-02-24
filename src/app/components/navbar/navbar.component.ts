@@ -41,6 +41,10 @@ export class NavbarComponent {
     this.navHelper.goToAdmin();
   }
 
+  public goToRules(): void {
+    this.navHelper.goToRules();
+  }
+
   public logout(): void {
     CookieHelper.removeToken();
     this.navHelper.goToLogin();

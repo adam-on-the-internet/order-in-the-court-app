@@ -1,6 +1,8 @@
 <p>
   <span (click)="goToDashboard()" id="app-title">order-in-the-court-app</span>
   //
+  <span (click)="goToRules()">Rules</span>
+  //
   <ng-container *ngIf="isLoggedIn">
     <span (click)="goToProfile()">Your profile</span> //
     <span (click)="goToAdmin()" *ngIf="isAdmin">Admin panel // </span>

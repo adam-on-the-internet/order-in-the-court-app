@@ -38,6 +38,7 @@ import { WitnessComponent } from "./components/witness/witness.component";
 import { JuryComponent } from "./components/jury/jury.component";
 import { IssueBlockComponent } from "./components/issue-block/issue-block.component";
 import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
+import { RulesComponent } from "./components/rules/rules.component";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { CaseBuilderComponent } from "./components/case-builder/case-builder.com
     WitnessComponent,
     JuryComponent,
     IssueBlockComponent,
-    CaseBuilderComponent
+    CaseBuilderComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
