@@ -24,6 +24,7 @@ import { PlaintiffComponent } from "./components/plaintiff/plaintiff.component";
 import { WitnessComponent } from "./components/witness/witness.component";
 import { JuryComponent } from "./components/jury/jury.component";
 import { DefendantComponent } from "./components/defendant/defendant.component";
+import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
 
 const routes: Routes = [
   // main
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.IssueForm + "/:id", component: IssueFormComponent },
   // case
   { path: ROUTES_ENUM.CaseOverview, component: CaseOverviewComponent },
+  { path: ROUTES_ENUM.CaseBuilder, component: CaseBuilderComponent },
   { path: ROUTES_ENUM.CaseDetails + "/:id", component: CaseDisplayComponent },
   // user
   { path: ROUTES_ENUM.UserOverview, component: UserOverviewComponent },

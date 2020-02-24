@@ -26,6 +26,15 @@ export class CaseService {
     return this.http.get(url, CookieHelper.unauthHeaders) as Observable<Case[]>;
   }
 
+  public getAllCaseNames(): Observable<string[]> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: "names"
+    });
+    return this.http.get(url, CookieHelper.unauthHeaders) as Observable<string[]>;
+  }
+
   public getSingleCase(id: string): Observable<Case> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,

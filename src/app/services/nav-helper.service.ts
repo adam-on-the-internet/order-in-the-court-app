@@ -121,6 +121,10 @@ export class NavHelperService {
     this.goToRoutes([ROUTES_ENUM.CaseDetails, caseId]);
   }
 
+  public goToCaseBuilder(): void {
+    this.goToRoute(ROUTES_ENUM.CaseBuilder);
+  }
+
   // USER
 
   public goToUserOverview(): void {

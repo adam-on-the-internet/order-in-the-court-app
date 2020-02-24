@@ -1,0 +1,49 @@
+<div class="header">
+  <h1>
+    Build a Case
+  </h1>
+</div>
+<div class="content" *ngIf="ready; else loading">
+  <form>
+    <section id="case-name">
+      1. Case name:
+      <input
+        type="text"
+        name="caseName"
+        [(ngModel)]="caseOrder.name"
+      /><br /><br />
+    </section>
+    <section id="witness-count">
+      2. Witness count:
+      <input
+        type="number"
+        name="witnessCount"
+        [(ngModel)]="caseOrder.witnessCount"
+      /><br /><br />
+    </section>
+    <section id="evidence-count">
+      3. Evidence per side:
+      <input
+        type="text"
+        name="evidenceCount"
+        [(ngModel)]="caseOrder.evidenceCount"
+      /><br /><br />
+    </section>
+    <hr />
+    <div class="error-report" *ngIf="showErrors && !valid">
+      <p>Please correct the following errors:</p>
+      <ul>
+        <li *ngFor="let error of errors">
+          {{ error }}
+        </li>
+      </ul>
+    </div>
+    <button (click)="submit()">
+      Submit case
+    </button>
+  </form>
+</div>
+
+<ng-template #loading>
+  <p>Preparing case creation...</p>
+</ng-template>
