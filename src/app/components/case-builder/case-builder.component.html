@@ -4,6 +4,17 @@
   </h1>
 </div>
 <div class="content" *ngIf="ready; else loading">
+  <p>
+    <button (click)="setupThreePlayerStandard()">
+      Pick 3-Player standard
+    </button>
+    <button (click)="setupFourPlayerStandard()">
+      Pick 4-Player standard
+    </button>
+    <button (click)="setupFivePlayerStandard()">
+      Pick 5-Player standard
+    </button>
+  </p>
   <form>
     <section id="case-name">
       1. Case name:
@@ -13,20 +24,20 @@
         [(ngModel)]="caseOrder.name"
       /><br /><br />
     </section>
-    <section id="witness-count">
-      2. Witness count:
-      <input
-        type="number"
-        name="witnessCount"
-        [(ngModel)]="caseOrder.witnessCount"
-      /><br /><br />
-    </section>
     <section id="evidence-count">
-      3. Evidence per side:
+      2. Evidence per side:
       <input
         type="number"
         name="evidenceCount"
         [(ngModel)]="caseOrder.evidenceCount"
+      /><br /><br />
+    </section>
+    <section id="witness-count">
+      3. Witness count:
+      <input
+        type="number"
+        name="witnessCount"
+        [(ngModel)]="caseOrder.witnessCount"
       /><br /><br />
     </section>
     <hr />

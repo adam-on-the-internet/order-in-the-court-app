@@ -73,6 +73,21 @@ export class CaseBuilderComponent implements OnInit {
     this.setupCaseOrder();
   }
 
+  public setupThreePlayerStandard() {
+    this.caseOrder.evidenceCount = 4;
+    this.caseOrder.witnessCount = 0;
+  }
+
+  public setupFourPlayerStandard() {
+    this.caseOrder.evidenceCount = 3;
+    this.caseOrder.witnessCount = 2;
+  }
+
+  public setupFivePlayerStandard() {
+    this.caseOrder.evidenceCount = 3;
+    this.caseOrder.witnessCount = 4;
+  }
+
   public submit() {
     if (this.valid) {
       this.submitCase();
