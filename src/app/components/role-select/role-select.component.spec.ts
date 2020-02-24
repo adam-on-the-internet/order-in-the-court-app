@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { RoleSelectComponent } from "./role-select.component";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { IssueBlockComponent } from "../issue-block/issue-block.component";
 
 describe("RoleSelectComponent", () => {
   let component: RoleSelectComponent;
@@ -10,7 +11,7 @@ describe("RoleSelectComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RoleSelectComponent],
+      declarations: [RoleSelectComponent, IssueBlockComponent],
       imports: [RouterTestingModule, HttpClientTestingModule]
     })
       .compileComponents();

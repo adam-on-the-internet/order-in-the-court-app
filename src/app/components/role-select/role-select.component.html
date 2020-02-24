@@ -4,8 +4,11 @@
       {{ case.name }}:
       <small>Role Select</small>
     </h1>
+    <hr />
   </div>
   <div class="content">
+    <app-issue-block [issue]="case.issue"></app-issue-block>
+    <hr />
     <p>
       Select your role.
     </p>
