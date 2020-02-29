@@ -7,8 +7,11 @@ export interface Case {
   name: string;
   issue: Issue;
   witnesses: Witness[];
+  revealedWitnesses: Witness[];
   plaintiffEvidence: Evidence[];
+  revealedPlaintiffEvidence: Evidence[];
   defendantEvidence: Evidence[];
+  revealedDefendantEvidence: Evidence[];
   plaintiffScore: number;
   defendantScore: number;
   notes: string;
