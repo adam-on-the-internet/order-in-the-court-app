@@ -48,6 +48,10 @@ export class IssueFormComponent implements OnInit {
     this.setupForm();
   }
 
+  public updateDescription(event) {
+    this.issue.description = event.target.value;
+  }
+
   public submit() {
     this.showErrors = true;
     if (this.valid) {

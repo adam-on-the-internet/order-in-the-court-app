@@ -10,6 +10,7 @@
     <form>
       <section id="issue-name">
         1. Issue name:
+        <br />
         <input
           type="text"
           name="issueName"
@@ -18,11 +19,10 @@
       </section>
       <section id="issue-description">
         2. Issue description:
-        <input
-          type="text"
-          name="issueDescription"
-          [(ngModel)]="issue.description"
-        /><br /><br />
+        <br />
+        <textarea rows="20" cols="50" (change)="updateDescription($event)"
+          >{{ issue.description }}</textarea
+        ><br /><br />
       </section>
       <hr />
       <div class="error-report" *ngIf="showErrors && !valid">
