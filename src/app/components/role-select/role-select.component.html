@@ -1,41 +1,57 @@
 <ng-container *ngIf="ready; else loading">
-  <div class="header">
-    <h1>
-      {{ case.name }}:
-      <small>Role Select</small>
-    </h1>
-    <hr />
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">
+        {{ case.name }}:
+        <small>Role Select</small>
+      </h1>
+    </div>
   </div>
-  <div class="content">
-    <app-issue-block [issue]="case.issue"></app-issue-block>
-    <hr />
-    <p>This case has:</p>
-    <p *ngIf="showWitness">{{ witnessCount }} witnesses</p>
-    <p>{{ evidenceCount }} evidence per side</p>
-    <hr />
-    <p>
-      Select your role.
-    </p>
-    <button (click)="beJudge()">Judge</button>
-    <br />
-    <br />
-    <button (click)="bePlaintiff()">Plaintiff</button>
-    <br />
-    <br />
-    <button (click)="beDefendant()">Defendant</button>
-    <br />
-    <br />
-    <ng-container *ngIf="showWitness">
-      <button (click)="beWitness()">Witness</button>
-      <br />
-      <br />
-    </ng-container>
-    <button (click)="beJury()">Jury</button>
-    <br />
-    <br />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <app-issue-block [issue]="case.issue"></app-issue-block>
+        <hr />
+        <p *ngIf="showWitness">
+          There are {{ witnessCount }} witnesses in this case.
+        </p>
+        <p>Each side has {{ evidenceCount }} pieces of evidence to use</p>
+      </div>
+      <div class="col-md-6 mb-3">
+        <h2>
+          Select your role
+        </h2>
+        <p>
+          <button class="btn btn-primary" (click)="beJudge()">Judge</button>
+        </p>
+        <p>
+          <button class="btn btn-primary" (click)="bePlaintiff()">
+            Plaintiff
+          </button>
+        </p>
+        <p>
+          <button class="btn btn-primary" (click)="beDefendant()">
+            Defendant
+          </button>
+        </p>
+        <p *ngIf="showWitness">
+          <button class="btn btn-primary" (click)="beWitness()">Witness</button>
+        </p>
+        <p>
+          <button class="btn btn-primary" (click)="beJury()">Jury</button>
+        </p>
+      </div>
+    </div>
   </div>
 </ng-container>
 
 <ng-template #loading>
-  <p>Loading...</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="spinner-border"></div>
+        <p>Preparing role selection...</p>
+      </div>
+    </div>
+  </div>
 </ng-template>
