@@ -18,10 +18,16 @@ export class RoleSelectComponent implements OnInit {
     return BooleanHelper.hasValue(this.case);
   }
 
+  public get witnessCount(): number {
+    return this.case.witnesses.length + this.case.revealedWitnesses.length;
+  }
+
+  public get evidenceCount(): number {
+    return this.case.defendantEvidence.length + this.case.plaintiffEvidence.length;
+  }
+
   public get showWitness(): boolean {
-    const unrevealedWitnessesRemain = this.case.witnesses.length > 0;
-    const witnessesHaveBeenRevealed = this.case.revealedWitnesses.length > 0;
-    return unrevealedWitnessesRemain || witnessesHaveBeenRevealed;
+    return this.witnessCount > 0;
   }
 
   constructor(

@@ -9,6 +9,10 @@
   <div class="content">
     <app-issue-block [issue]="case.issue"></app-issue-block>
     <hr />
+    <p>This case has:</p>
+    <p *ngIf="showWitness">{{ witnessCount }} witnesses</p>
+    <p>{{ evidenceCount }} evidence per side</p>
+    <hr />
     <p>
       Select your role.
     </p>
