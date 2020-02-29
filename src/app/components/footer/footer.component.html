@@ -1,8 +1,24 @@
-<hr />
-<p>© Adam on the Internet {{ year }}</p>
-<p>
-  <button (click)="goToInfo()">More info</button>
-</p>
-<p *ngIf="!isLoggedIn">
-  <button (click)="goToLogin()">Login</button>
-</p>
+<div class="bg-dark">
+  <div class="row">
+    <div class="col-md-12 my-3 text-center">
+      <p>
+        <button
+          class="btn btn-link text-white"
+          (click)="goToAdamOnTheInternet()"
+        >
+          © Adam on the Internet {{ year }}
+        </button>
+      </p>
+      <p>
+        <button class="btn btn-link text-white" (click)="goToInfo()">
+          More info
+        </button>
+      </p>
+      <p *ngIf="!isLoggedIn">
+        <button class="btn btn-link text-white" (click)="goToLogin()">
+          Login
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
