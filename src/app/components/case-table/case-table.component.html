@@ -32,7 +32,7 @@
               <th *ngIf="!adminMode">{{ i + 1 }}</th>
               <td>{{ case.name }}</td>
               <td *ngIf="!adminMode">
-                <button (click)="goToCourtroom(case)">
+                <button class="btn btn-primary" (click)="goToCourtroom(case)">
                   Select case
                 </button>
               </td>
