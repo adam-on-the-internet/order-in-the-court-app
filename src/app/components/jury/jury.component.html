@@ -2,19 +2,15 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">{{ case.name }}: Jury</h1>
+      <p>
+        You are in the jury. You are just a spectator til the end, when the
+        judge will ask your opinion before making a verdict.
+      </p>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-md-12 mb-3">
-        <p>
-          You are in the jury.
-        </p>
-        <p>
-          You are just a spectator til the end, when the judge will ask your
-          opinion.
-        </p>
-        <hr />
         <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
