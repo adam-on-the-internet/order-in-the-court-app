@@ -1,49 +1,80 @@
 <ng-container *ngIf="ready; else loading">
-  <h3>Issue: {{ case.issue.name }}</h3>
-  <p>
-    {{ case.issue.description }}
-  </p>
-  <hr />
-  <ng-container *ngIf="case.revealedWitnesses.length > 0">
-    <h3>
-      Revealed Witnesses ({{ case.revealedWitnesses.length }} of
-      {{ case.revealedWitnesses.length + case.witnesses.length }})
-    </h3>
-    <p *ngIf="case.revealedWitnesses.length === 0">
-      No witnesses have been revealed yet.
-    </p>
-    <ol>
-      <li *ngFor="let witness of case.revealedWitnesses">
-        {{ witness.name }}
-      </li>
-    </ol>
-    <hr />
-  </ng-container>
-  <h3>
-    Revealed Plaintiff Evidence ({{ case.revealedPlaintiffEvidence.length }} of
-    {{ case.revealedPlaintiffEvidence.length + case.plaintiffEvidence.length }})
-  </h3>
-  <p *ngIf="case.revealedPlaintiffEvidence.length === 0">
-    No plaintiff evidence has been revealed yet.
-  </p>
-  <ol>
-    <li *ngFor="let evidence of case.revealedPlaintiffEvidence">
-      {{ evidence.name }}
-    </li>
-  </ol>
-  <hr />
-  <h3>
-    Revealed Defendant Evidence ({{ case.revealedDefendantEvidence.length }} of
-    {{ case.revealedDefendantEvidence.length + case.defendantEvidence.length }})
-  </h3>
-  <p *ngIf="case.revealedDefendantEvidence.length === 0">
-    No defendant evidence has been revealed yet.
-  </p>
-  <ol>
-    <li *ngFor="let evidence of case.revealedDefendantEvidence">
-      {{ evidence.name }}
-    </li>
-  </ol>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Issue: {{ case.issue.name }}</h5>
+      <p class="card-text">
+        {{ case.issue.description }}
+      </p>
+    </div>
+  </div>
+  <div
+    class="card mb-3"
+    *ngIf="case.revealedWitnesses.length + case.witnesses.length > 0"
+  >
+    <div class="card-body">
+      <h5 class="card-title">
+        Witnesses
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ case.revealedWitnesses.length }} of
+        {{ case.revealedWitnesses.length + case.witnesses.length }} revealed
+      </h6>
+      <div class="card-text">
+        <p *ngIf="case.revealedWitnesses.length === 0">
+          No witnesses revealed yet.
+        </p>
+        <ol>
+          <li *ngFor="let witness of case.revealedWitnesses">
+            {{ witness.name }}
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Plaintiff Evidence</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ case.revealedPlaintiffEvidence.length }} of
+        {{
+          case.revealedPlaintiffEvidence.length + case.plaintiffEvidence.length
+        }}
+        revealed
+      </h6>
+      <div class="card-text">
+        <p *ngIf="case.revealedPlaintiffEvidence.length === 0">
+          No plaintiff evidence has been revealed yet.
+        </p>
+        <ol>
+          <li *ngFor="let evidence of case.revealedPlaintiffEvidence">
+            {{ evidence.name }}
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Defendant Evidence</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ case.revealedDefendantEvidence.length }} of
+        {{
+          case.revealedDefendantEvidence.length + case.defendantEvidence.length
+        }}
+        revealed
+      </h6>
+      <div class="card-text">
+        <p *ngIf="case.revealedDefendantEvidence.length === 0">
+          No defendant evidence has been revealed yet.
+        </p>
+        <ol>
+          <li *ngFor="let evidence of case.revealedDefendantEvidence">
+            {{ evidence.name }}
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
 </ng-container>
 
 <ng-template #loading>
