@@ -32,7 +32,7 @@
                 [(ngModel)]="password"
               />
             </div>
-            <div class="error-report" *ngIf="showErrors && !valid">
+            <div class="alert alert-warning" *ngIf="showErrors && !valid">
               <p>Please correct the following errors:</p>
               <ul>
                 <li *ngFor="let error of errors">
