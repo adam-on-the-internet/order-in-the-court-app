@@ -17,31 +17,80 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <app-revelations [caseId]="case._id"></app-revelations>
+        <h3>
+          Select your role
+        </h3>
+        <div class="card mb-3 border-primary">
+          <div class="card-body">
+            <h5 class="card-title">
+              Judge
+            </h5>
+            <p class="card-text">
+              The judge runs the case and makes a verdict at the end.
+            </p>
+            <button class="btn btn-primary" (click)="beJudge()">Choose</button>
+          </div>
+        </div>
+        <div class="card mb-3 border-primary">
+          <div class="card-body">
+            <h5 class="card-title">
+              Plaintiff
+            </h5>
+            <p class="card-text">
+              The plaintiff uses evidence to accuse the defendant of some
+              wrongdoing.
+            </p>
+            <button class="btn btn-primary" (click)="bePlaintiff()">
+              Choose
+            </button>
+          </div>
+        </div>
+        <div class="card mb-3 border-primary">
+          <div class="card-body">
+            <h5 class="card-title">
+              Defendant
+            </h5>
+            <p class="card-text">
+              The defendant uses evidence to deny the accusation from the
+              plaintiff.
+            </p>
+            <button class="btn btn-primary" (click)="beDefendant()">
+              Choose
+            </button>
+          </div>
+        </div>
+        <div class="card mb-3 border-primary" *ngIf="showWitness">
+          <div class="card-body">
+            <h5 class="card-title">
+              Witness
+            </h5>
+            <p class="card-text">
+              The witness comes in to court to connect their backstory to the
+              case.
+            </p>
+            <button class="btn btn-primary" (click)="beWitness()">
+              Choose
+            </button>
+          </div>
+        </div>
+        <div class="card mb-3 border-primary">
+          <div class="card-body">
+            <h5 class="card-title">
+              Jury
+            </h5>
+            <p class="card-text">
+              The jury spectates and is consulted by the judge before making a
+              verdict.
+            </p>
+            <button class="btn btn-primary" (click)="beJury()">
+              Choose
+            </button>
+          </div>
+        </div>
       </div>
       <div class="col-md-6 mb-3">
-        <h2>
-          Select your role
-        </h2>
-        <p>
-          <button class="btn btn-primary" (click)="beJudge()">Judge</button>
-        </p>
-        <p>
-          <button class="btn btn-primary" (click)="bePlaintiff()">
-            Plaintiff
-          </button>
-        </p>
-        <p>
-          <button class="btn btn-primary" (click)="beDefendant()">
-            Defendant
-          </button>
-        </p>
-        <p *ngIf="showWitness">
-          <button class="btn btn-primary" (click)="beWitness()">Witness</button>
-        </p>
-        <p>
-          <button class="btn btn-primary" (click)="beJury()">Jury</button>
-        </p>
+        <h3>Case details</h3>
+        <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
   </div>
