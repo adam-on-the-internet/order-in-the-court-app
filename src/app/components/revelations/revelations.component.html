@@ -1,17 +1,19 @@
 <ng-container *ngIf="ready; else loading">
-  <h3>
-    Revealed Witnesses ({{ case.revealedWitnesses.length }} of
-    {{ case.revealedWitnesses.length + case.witnesses.length }})
-  </h3>
-  <p *ngIf="case.revealedWitnesses.length === 0">
-    No witnesses have been revealed yet.
-  </p>
-  <ol>
-    <li *ngFor="let witness of case.revealedWitnesses">
-      {{ witness.name }}
-    </li>
-  </ol>
-  <hr />
+  <ng-container *ngIf="case.revealedWitnesses.length > 0">
+    <h3>
+      Revealed Witnesses ({{ case.revealedWitnesses.length }} of
+      {{ case.revealedWitnesses.length + case.witnesses.length }})
+    </h3>
+    <p *ngIf="case.revealedWitnesses.length === 0">
+      No witnesses have been revealed yet.
+    </p>
+    <ol>
+      <li *ngFor="let witness of case.revealedWitnesses">
+        {{ witness.name }}
+      </li>
+    </ol>
+    <hr />
+  </ng-container>
   <h3>
     Revealed Plaintiff Evidence ({{ case.revealedPlaintiffEvidence.length }} of
     {{ case.revealedPlaintiffEvidence.length + case.plaintiffEvidence.length }})
