@@ -1,11 +1,13 @@
 <ng-container *ngIf="showReport; else error">
-  <p>
-    Status of {{ serviceName }}:
-    <ng-container *ngIf="ready; else loading">
+  <ng-container *ngIf="ready; else loading">
+    <p>
+      <button class="btn btn-primary" (click)="checkActuator()">
+        REFRESH
+      </button>
+      Status of {{ serviceName }}:
       {{ status.status }}
-      <button (click)="checkActuator()">REFRESH</button>
-    </ng-container>
-  </p>
+    </p>
+  </ng-container>
 </ng-container>
 
 <ng-template #loading>

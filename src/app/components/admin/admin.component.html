@@ -1,34 +1,39 @@
-<div class="header">
-  <h1>
-    Admin Panel
-  </h1>
-  <hr />
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Admin Panel</h1>
+  </div>
 </div>
-<div class="content">
-  <h3>Court Data</h3>
-  <button (click)="manageEvidence()">Manage evidence</button>
-  <br />
-  <br />
-  <button (click)="manageWitnesses()">Manage witnesses</button>
-  <br />
-  <br />
-  <button (click)="manageIssues()">Manage issues</button>
-  <br />
-  <br />
-  <button (click)="manageCases()">Manage cases</button>
-  <br />
-  <br />
-  <hr />
-  <h3>Meta Data</h3>
-  <button (click)="manageUsers()">Manage users</button>
-  <br />
-  <br />
-  <hr />
-  <h3>Check Services</h3>
-  <app-actuator-report
-    [serviceUrl]="basicExpressServiceUrl"
-    [serviceName]="'Basic Express Service'"
-  ></app-actuator-report>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <h3>Court Data</h3>
+      <p>
+        <button class="btn btn-primary" (click)="manageEvidence()">Manage evidence</button>
+      </p>
+      <p>
+        <button class="btn btn-primary"  (click)="manageWitnesses()">Manage witnesses</button>
+      </p>
+      <p>
+        <button class="btn btn-primary"  (click)="manageIssues()">Manage issues</button>
+      </p>
+      <p>
+        <button class="btn btn-primary"  (click)="manageCases()">Manage cases</button>
+      </p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h3>Meta Data</h3>
+      <p>
+        <button class="btn btn-primary"  (click)="manageUsers()">Manage users</button>
+      </p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h3>Check Services</h3>
+      <app-actuator-report
+        [serviceUrl]="basicExpressServiceUrl"
+        [serviceName]="'Basic Express Service'"
+      ></app-actuator-report>
+    </div>
+  </div>
 </div>
 
 <ng-template #loading>
