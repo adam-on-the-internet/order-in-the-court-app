@@ -1,31 +1,45 @@
 <ng-container *ngIf="ready; else loading">
-  <div class="header">
-    <h1>{{ case.name }}: Witness</h1>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">{{ case.name }}: Witness</h1>
+    </div>
   </div>
-  <div class="content">
-    <p>
-      You are the witness.
-    </p>
-    <hr />
-    <app-issue-block [issue]="case.issue"></app-issue-block>
-    <hr />
-    <p *ngIf="case.witnesses.length === 0">
-      No witnesses left to be revealed.
-    </p>
-    <p *ngIf="case.witnesses.length > 0">
-      Here are the witnesses for this case you have not revealed yet:
-    </p>
-    <ol>
-      <li *ngFor="let witness of case.witnesses">
-        {{ witness.name }}
-        <button (click)="revealWitness(witness)">Reveal</button>
-      </li>
-    </ol>
-    <hr />
-    <app-revelations [caseId]="case._id"></app-revelations>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <p>
+          You are the witness.
+        </p>
+        <hr />
+        <app-issue-block [issue]="case.issue"></app-issue-block>
+        <hr />
+        <p *ngIf="case.witnesses.length === 0">
+          No witnesses left to be revealed.
+        </p>
+        <p *ngIf="case.witnesses.length > 0">
+          Here are the witnesses for this case you have not revealed yet:
+        </p>
+        <ol>
+          <li *ngFor="let witness of case.witnesses">
+            {{ witness.name }}
+            <button (click)="revealWitness(witness)">Reveal</button>
+          </li>
+        </ol>
+        <hr />
+        <app-revelations [caseId]="case._id"></app-revelations>
+      </div>
+    </div>
   </div>
+  <div class="content"></div>
 </ng-container>
 
 <ng-template #loading>
-  <p>Loading...</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="spinner-border"></div>
+        <p>Loading...</p>
+      </div>
+    </div>
+  </div>
 </ng-template>
