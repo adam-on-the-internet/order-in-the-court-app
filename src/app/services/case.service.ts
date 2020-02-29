@@ -61,6 +61,33 @@ export class CaseService {
     return this.http.put(url, myCase, CookieHelper.unauthHeaders) as Observable<Case>;
   }
 
+  public revealWitness(caseId: string, witnessId: string): Observable<Case> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: `revealWitness/case/${caseId}/witness/${witnessId}`
+    });
+    return this.http.put(url, CookieHelper.unauthHeaders) as Observable<Case>;
+  }
+
+  public revealDefendantEvidence(caseId: string, evidenceId: string): Observable<Case> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: `revealDefendantEvidence/case/${caseId}/evidence/${evidenceId}`
+    });
+    return this.http.put(url, CookieHelper.unauthHeaders) as Observable<Case>;
+  }
+
+  public revealPlaintiffEvidence(caseId: string, evidenceId: string): Observable<Case> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: `revealPlaintiffEvidence/case/${caseId}/evidence/${evidenceId}`
+    });
+    return this.http.put(url, CookieHelper.unauthHeaders) as Observable<Case>;
+  }
+
   public deleteCase(caseId: string): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
