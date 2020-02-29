@@ -1,7 +1,7 @@
 <div class="bg-dark">
   <div class="row">
     <div class="col-md-12 my-3 text-center">
-      <p>
+      <p class="my-0">
         <button
           class="btn btn-link text-white"
           (click)="goToAdamOnTheInternet()"
@@ -9,12 +9,12 @@
           © Adam on the Internet {{ year }}
         </button>
       </p>
-      <p>
+      <p class="my-0">
         <button class="btn btn-link text-white" (click)="goToInfo()">
           More info
         </button>
       </p>
-      <p *ngIf="!isLoggedIn">
+      <p class="my-0" *ngIf="!isLoggedIn">
         <button class="btn btn-link text-white" (click)="goToLogin()">
           Login
         </button>
