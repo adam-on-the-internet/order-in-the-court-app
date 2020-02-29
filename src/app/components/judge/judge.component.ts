@@ -11,6 +11,7 @@ import { Case } from "src/app/models/Case.model";
 })
 export class JudgeComponent implements OnInit {
   public case: Case = null;
+  public saveInProgress = false;
   public error = false;
 
   public get ready(): boolean {
@@ -24,6 +25,19 @@ export class JudgeComponent implements OnInit {
 
   public ngOnInit() {
     this.loadCase();
+  }
+
+  public save() {
+    this.saveInProgress = true;
+    this.caseService.updateJudgeCaseNotes(this.case)
+      .subscribe((res) => this.case = res,
+        (error) => {
+          this.saveInProgress = false;
+          this.error = true;
+          console.log("update case failed");
+        }, () => {
+          this.saveInProgress = false;
+        });
   }
 
   public updateNotes(event) {
@@ -47,10 +61,6 @@ export class JudgeComponent implements OnInit {
         (error) => {
           this.error = true;
           console.log("get case failed");
-        }, () => {
-          this.case.notes = "";
-          this.case.plaintiffScore = 0;
-          this.case.defendantScore = 0;
         });
   }
 

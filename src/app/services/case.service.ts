@@ -52,6 +52,15 @@ export class CaseService {
     return this.http.post(url, caseOrder, CookieHelper.unauthHeaders) as Observable<Case>;
   }
 
+  public updateJudgeCaseNotes(myCase: Case): Observable<Case> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: "judge"
+    });
+    return this.http.put(url, myCase, CookieHelper.unauthHeaders) as Observable<Case>;
+  }
+
   public deleteCase(caseId: string): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,

@@ -32,6 +32,14 @@
       case.notes
     }}</textarea
     ><br /><br />
+    <p>
+      <span *ngIf="saveInProgress">
+        Saving...
+      </span>
+      <button (click)="save()" *ngIf="!saveInProgress">
+        Save case notes and score
+      </button>
+    </p>
     <hr />
     <app-issue-block [issue]="case.issue"></app-issue-block>
     <hr />
