@@ -10,7 +10,7 @@
     <app-issue-block [issue]="case.issue"></app-issue-block>
     <hr />
     <p *ngIf="case.defendantEvidence.length === 0">
-      No defendant evidence left to reveal.
+      You have no evidence left to reveal.
     </p>
     <p *ngIf="case.defendantEvidence.length > 0">
       Here is the evidence you have for this case:

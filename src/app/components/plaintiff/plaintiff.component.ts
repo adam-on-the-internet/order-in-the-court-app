@@ -3,6 +3,7 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { CaseService } from "src/app/services/case.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
+import { Evidence } from 'src/app/models/Evidence.model';
 
 @Component({
   selector: "app-plaintiff",
@@ -24,6 +25,15 @@ export class PlaintiffComponent implements OnInit {
 
   public ngOnInit() {
     this.loadCase();
+  }
+
+  public revealEvidence(evidence: Evidence) {
+    this.caseService.revealPlaintiffEvidence(this.case._id, evidence._id)
+      .subscribe((res) => this.case = res,
+        (error) => {
+          this.error = true;
+          console.log("reveal evidence failed");
+        });
   }
 
   private loadCase() {

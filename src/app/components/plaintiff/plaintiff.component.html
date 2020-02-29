@@ -9,15 +9,20 @@
     <hr />
     <app-issue-block [issue]="case.issue"></app-issue-block>
     <hr />
-    <p>
+    <p *ngIf="case.plaintiffEvidence.length === 0">
+      You have no evidence left to reveal.
+    </p>
+    <p *ngIf="case.plaintiffEvidence.length > 0">
       Here is the evidence you have for this case:
     </p>
     <ol>
       <li *ngFor="let evidence of case.plaintiffEvidence">
         {{ evidence.name }}
-        <button disabled>Reveal</button>
+        <button (click)="revealEvidence(evidence)">Reveal</button>
       </li>
     </ol>
+    <hr />
+    <app-revelations [case]="case"></app-revelations>
   </div>
 </ng-container>
 
