@@ -2,28 +2,34 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">{{ case.name }}: Plaintiff</h1>
+      <p>
+        You are the plaintiff. Use evidence to prove your accusation against the
+        defendant.
+      </p>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 mb-3">
-        <p>
-          You are the plaintiff.
-        </p>
-        <hr />
+      <div class="col-md-6 mb-3">
         <p *ngIf="case.plaintiffEvidence.length === 0">
           You have no evidence left to reveal.
         </p>
         <p *ngIf="case.plaintiffEvidence.length > 0">
           Here is the evidence you have for this case:
         </p>
-        <ol>
-          <li *ngFor="let evidence of case.plaintiffEvidence">
-            {{ evidence.name }}
-            <button (click)="revealEvidence(evidence)">Reveal</button>
-          </li>
-        </ol>
-        <hr />
+        <div class="card mb-1" *ngFor="let evidence of case.plaintiffEvidence">
+          <div class="card-body">
+            <h5 class="card-title">{{ evidence.name }}</h5>
+            <button
+              class="btn btn-secondary"
+              (click)="revealEvidence(evidence)"
+            >
+              Reveal
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
         <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
