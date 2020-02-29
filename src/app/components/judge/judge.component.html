@@ -2,51 +2,46 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">{{ case.name }}: Judge</h1>
+      <p>
+        You are the judge. You get to decide who wins the case and when to call
+        witnesses.
+      </p>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 mb-3">
-        <p>
-          You are the judge. You get to decide who wins the case and when to
-          call witnesses.
-        </p>
-        <hr />
-        <h2>Judge Controls</h2>
+      <div class="col-md-6 mb-3">
+        <h3>Judge Controls</h3>
         <p>
           <strong>PLAINTIFF SCORE</strong>
         </p>
         <p>
-          <button (click)="updatePlaintiffScore(-1)">-</button>
+          <button class="btn btn-secondary" (click)="updatePlaintiffScore(-1)">
+            -
+          </button>
           {{ case.plaintiffScore }}
-          <button (click)="updatePlaintiffScore(1)">+</button>
+          <button class="btn btn-secondary" (click)="updatePlaintiffScore(1)">
+            +
+          </button>
         </p>
         <p>
           <strong>DEFENDANT SCORE</strong>
         </p>
         <p>
-          <button (click)="updateDefendantScore(-1)">-</button>
+          <button class="btn btn-secondary" (click)="updateDefendantScore(-1)">-</button>
           {{ case.defendantScore }}
-          <button (click)="updateDefendantScore(1)">+</button>
+          <button class="btn btn-secondary" (click)="updateDefendantScore(1)">+</button>
         </p>
         <p>
           <strong>NOTES</strong>
         </p>
-        <textarea rows="10" cols="50" (change)="updateNotes($event)">{{
+        <textarea rows="5" cols="30" (change)="updateNotes($event)">{{
           case.notes
         }}</textarea
         ><br /><br />
-        <p>
-          <span *ngIf="saveInProgress">
-            Saving...
-          </span>
-          <button (click)="save()" *ngIf="!saveInProgress">
-            Save case notes and score
-          </button>
-        </p>
-        <hr />
+      </div>
+      <div class="col-md-6 mb-3">
         <app-issue-block [issue]="case.issue"></app-issue-block>
-        <hr />
         <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>

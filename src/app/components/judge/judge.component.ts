@@ -1,18 +1,19 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { CaseService } from "src/app/services/case.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
+import { interval, Subscription } from "rxjs";
 
 @Component({
   selector: "app-judge",
   templateUrl: "./judge.component.html",
   styleUrls: ["./judge.component.css"]
 })
-export class JudgeComponent implements OnInit {
+export class JudgeComponent implements OnInit, OnDestroy {
   public case: Case = null;
-  public saveInProgress = false;
   public error = false;
+  private autoSaver: Subscription;
 
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.case);
@@ -27,16 +28,16 @@ export class JudgeComponent implements OnInit {
     this.loadCase();
   }
 
+  public ngOnDestroy() {
+    this.autoSaver.unsubscribe();
+  }
+
   public save() {
-    this.saveInProgress = true;
     this.caseService.updateJudgeCaseNotes(this.case)
       .subscribe((res) => this.case = res,
         (error) => {
-          this.saveInProgress = false;
           this.error = true;
           console.log("update case failed");
-        }, () => {
-          this.saveInProgress = false;
         });
   }
 
@@ -61,7 +62,14 @@ export class JudgeComponent implements OnInit {
         (error) => {
           this.error = true;
           console.log("get case failed");
+        }, () => {
+          this.setupAutosave();
         });
+  }
+
+  private setupAutosave() {
+    const source = interval(5000);
+    this.autoSaver = source.subscribe(() => this.save());
   }
 
 }
