@@ -38,7 +38,7 @@ export class RevelationsComponent implements OnInit, OnDestroy {
   }
 
   private setupCaseRefresh() {
-    const source = interval(800);
+    const source = interval(1000);
     this.caseRefresher = source.subscribe(() => this.loadCase());
   }
 
