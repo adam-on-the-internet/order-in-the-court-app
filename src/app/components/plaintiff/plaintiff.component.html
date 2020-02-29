@@ -1,31 +1,44 @@
 <ng-container *ngIf="ready; else loading">
-  <div class="header">
-    <h1>{{ case.name }}: Plaintiff</h1>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">{{ case.name }}: Plaintiff</h1>
+    </div>
   </div>
-  <div class="content">
-    <p>
-      You are the plaintiff.
-    </p>
-    <hr />
-    <app-issue-block [issue]="case.issue"></app-issue-block>
-    <hr />
-    <p *ngIf="case.plaintiffEvidence.length === 0">
-      You have no evidence left to reveal.
-    </p>
-    <p *ngIf="case.plaintiffEvidence.length > 0">
-      Here is the evidence you have for this case:
-    </p>
-    <ol>
-      <li *ngFor="let evidence of case.plaintiffEvidence">
-        {{ evidence.name }}
-        <button (click)="revealEvidence(evidence)">Reveal</button>
-      </li>
-    </ol>
-    <hr />
-    <app-revelations [caseId]="case._id"></app-revelations>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <p>
+          You are the plaintiff.
+        </p>
+        <hr />
+        <app-issue-block [issue]="case.issue"></app-issue-block>
+        <hr />
+        <p *ngIf="case.plaintiffEvidence.length === 0">
+          You have no evidence left to reveal.
+        </p>
+        <p *ngIf="case.plaintiffEvidence.length > 0">
+          Here is the evidence you have for this case:
+        </p>
+        <ol>
+          <li *ngFor="let evidence of case.plaintiffEvidence">
+            {{ evidence.name }}
+            <button (click)="revealEvidence(evidence)">Reveal</button>
+          </li>
+        </ol>
+        <hr />
+        <app-revelations [caseId]="case._id"></app-revelations>
+      </div>
+    </div>
   </div>
 </ng-container>
 
 <ng-template #loading>
-  <p>Loading...</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="spinner-border"></div>
+        <p>Loading...</p>
+      </div>
+    </div>
+  </div>
 </ng-template>
