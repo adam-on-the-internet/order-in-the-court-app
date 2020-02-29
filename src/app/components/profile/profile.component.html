@@ -1,31 +1,37 @@
-<div class="header">
-  <h1>
-    Your Profile
-  </h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Your Profile</h1>
+  </div>
 </div>
-<div class="content">
-  <p>
-    <strong>
-      email:
-    </strong>
-    {{ email }}
-  </p>
-  <p>
-    <strong>
-      admin:
-    </strong>
-    {{ admin }}
-  </p>
-  <p>
-    <strong>
-      special access:
-    </strong>
-    {{ specialAccess }}
-  </p>
-  <p>
-    <button (click)="editEmail()">Edit your email</button>
-  </p>
-  <p>
-    <button (click)="editPassword()">Edit your password</button>
-  </p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <p>
+        <strong>
+          email:
+        </strong>
+        {{ email }}
+      </p>
+      <p>
+        <strong>
+          admin:
+        </strong>
+        {{ admin }}
+      </p>
+      <p>
+        <strong>
+          special access:
+        </strong>
+        {{ specialAccess }}
+      </p>
+    </div>
+    <div class="col-md-6 mb-3">
+      <p>
+        <button class="btn btn-primary" (click)="editEmail()">Edit your email</button>
+      </p>
+      <p>
+        <button class="btn btn-primary"  (click)="editPassword()">Edit your password</button>
+      </p>
+    </div>
+  </div>
 </div>
