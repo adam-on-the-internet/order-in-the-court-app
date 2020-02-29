@@ -2,28 +2,31 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">{{ case.name }}: Witness</h1>
+      <p>
+        You are the witness. When the judge summons you, reveal a witness and
+        connect their backstory to the case.
+      </p>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 mb-3">
-        <p>
-          You are the witness.
-        </p>
-        <hr />
+      <div class="col-md-6 mb-3">
         <p *ngIf="case.witnesses.length === 0">
           No witnesses left to be revealed.
         </p>
         <p *ngIf="case.witnesses.length > 0">
           Here are the witnesses for this case you have not revealed yet:
         </p>
-        <ol>
-          <li *ngFor="let witness of case.witnesses">
-            {{ witness.name }}
-            <button (click)="revealWitness(witness)">Reveal</button>
-          </li>
-        </ol>
-        <hr />
+        <div class="card mb-1" *ngFor="let witness of case.witnesses">
+          <div class="card-body">
+            <h5 class="card-title">{{ witness.name }}</h5>
+            <button class="btn btn-secondary" (click)="revealWitness(witness)">
+              Reveal
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
         <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
