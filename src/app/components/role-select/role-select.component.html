@@ -10,12 +10,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <app-issue-block [issue]="case.issue"></app-issue-block>
-        <hr />
+        <h3>Case details</h3>
         <p *ngIf="showWitness">
           There are {{ witnessCount }} witnesses in this case.
         </p>
         <p>Each side has {{ evidenceCount }} pieces of evidence to use</p>
+        <hr />
+        <app-revelations [caseId]="case._id"></app-revelations>
       </div>
       <div class="col-md-6 mb-3">
         <h2>

@@ -28,9 +28,13 @@
           <strong>DEFENDANT SCORE</strong>
         </p>
         <p>
-          <button class="btn btn-secondary" (click)="updateDefendantScore(-1)">-</button>
+          <button class="btn btn-secondary" (click)="updateDefendantScore(-1)">
+            -
+          </button>
           {{ case.defendantScore }}
-          <button class="btn btn-secondary" (click)="updateDefendantScore(1)">+</button>
+          <button class="btn btn-secondary" (click)="updateDefendantScore(1)">
+            +
+          </button>
         </p>
         <p>
           <strong>NOTES</strong>
@@ -41,7 +45,6 @@
         ><br /><br />
       </div>
       <div class="col-md-6 mb-3">
-        <app-issue-block [issue]="case.issue"></app-issue-block>
         <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>

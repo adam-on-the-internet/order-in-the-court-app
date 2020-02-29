@@ -11,8 +11,6 @@
           You are the defendant.
         </p>
         <hr />
-        <app-issue-block [issue]="case.issue"></app-issue-block>
-        <hr />
         <p *ngIf="case.defendantEvidence.length === 0">
           You have no evidence left to reveal.
         </p>

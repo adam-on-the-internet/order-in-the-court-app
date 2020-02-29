@@ -1,4 +1,9 @@
 <ng-container *ngIf="ready; else loading">
+  <h3>Issue: {{ case.issue.name }}</h3>
+  <p>
+    {{ case.issue.description }}
+  </p>
+  <hr />
   <ng-container *ngIf="case.revealedWitnesses.length > 0">
     <h3>
       Revealed Witnesses ({{ case.revealedWitnesses.length }} of
