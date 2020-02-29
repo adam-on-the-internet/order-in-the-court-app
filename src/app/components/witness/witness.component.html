@@ -9,8 +9,11 @@
     <hr />
     <app-issue-block [issue]="case.issue"></app-issue-block>
     <hr />
-    <p>
-      Here are the witnesses for this case:
+    <p *ngIf="case.witnesses.length === 0">
+      No witnesses left to be revealed.
+    </p>
+    <p *ngIf="case.witnesses.length > 0">
+      Here are the witnesses for this case you have not revealed yet:
     </p>
     <ol>
       <li *ngFor="let witness of case.witnesses">

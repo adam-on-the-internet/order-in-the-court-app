@@ -21,7 +21,7 @@
     <button (click)="beDefendant()">Defendant</button>
     <br />
     <br />
-    <ng-container *ngIf="case.witnesses.length > 0">
+    <ng-container *ngIf="showWitness">
       <button (click)="beWitness()">Witness</button>
       <br />
       <br />

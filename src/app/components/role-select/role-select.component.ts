@@ -18,6 +18,12 @@ export class RoleSelectComponent implements OnInit {
     return BooleanHelper.hasValue(this.case);
   }
 
+  public get showWitness(): boolean {
+    const unrevealedWitnessesRemain = this.case.witnesses.length > 0;
+    const witnessesHaveBeenRevealed = this.case.revealedWitnesses.length > 0;
+    return unrevealedWitnessesRemain || witnessesHaveBeenRevealed;
+  }
+
   constructor(
     private caseService: CaseService,
     private navHelper: NavHelperService,
