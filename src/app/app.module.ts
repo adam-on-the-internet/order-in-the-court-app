@@ -39,6 +39,7 @@ import { JuryComponent } from "./components/jury/jury.component";
 import { IssueBlockComponent } from "./components/issue-block/issue-block.component";
 import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
 import { RulesComponent } from "./components/rules/rules.component";
+import { RevelationsComponent } from "./components/revelations/revelations.component";
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { RulesComponent } from "./components/rules/rules.component";
     JuryComponent,
     IssueBlockComponent,
     CaseBuilderComponent,
-    RulesComponent
+    RulesComponent,
+    RevelationsComponent
   ],
   imports: [
     BrowserModule,

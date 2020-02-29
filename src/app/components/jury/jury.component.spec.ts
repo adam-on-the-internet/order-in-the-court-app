@@ -4,6 +4,7 @@ import { JuryComponent } from "./jury.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { IssueBlockComponent } from "../issue-block/issue-block.component";
+import { RevelationsComponent } from "../revelations/revelations.component";
 
 describe("JuryComponent", () => {
   let component: JuryComponent;
@@ -11,7 +12,7 @@ describe("JuryComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [JuryComponent, IssueBlockComponent],
+      declarations: [JuryComponent, IssueBlockComponent, RevelationsComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

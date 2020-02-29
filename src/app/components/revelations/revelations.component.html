@@ -1,0 +1,31 @@
+<ng-container *ngIf="show">
+  <h3>Revealed Witnesses</h3>
+  <p *ngIf="case.revealedWitnesses.length === 0">
+    No witnesses have been revealed yet.
+  </p>
+  <ol>
+    <li *ngFor="let witness of case.revealedWitnesses">
+      {{ witness.name }}
+    </li>
+  </ol>
+  <hr />
+  <h3>Revealed Plaintiff Evidence</h3>
+  <p *ngIf="case.revealedPlaintiffEvidence.length === 0">
+    No plaintiff evidence has been revealed yet.
+  </p>
+  <ol>
+    <li *ngFor="let evidence of case.revealedPlaintiffEvidence">
+      {{ evidence.name }}
+    </li>
+  </ol>
+  <hr />
+  <h3>Revealed Defendant Evidence</h3>
+  <p *ngIf="case.revealedDefendantEvidence.length === 0">
+    No defendant evidence has been revealed yet.
+  </p>
+  <ol>
+    <li *ngFor="let evidence of case.revealedDefendantEvidence">
+      {{ evidence.name }}
+    </li>
+  </ol>
+</ng-container>
