@@ -9,4 +9,7 @@ export interface Case {
   witnesses: Witness[];
   plaintiffEvidence: Evidence[];
   defendantEvidence: Evidence[];
+  plaintiffScore: number;
+  defendantScore: number;
+  notes: string;
 }

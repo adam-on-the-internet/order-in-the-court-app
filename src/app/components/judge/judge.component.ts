@@ -26,6 +26,18 @@ export class JudgeComponent implements OnInit {
     this.loadCase();
   }
 
+  public updateNotes(event) {
+    this.case.notes = event.target.value;
+  }
+
+  public updatePlaintiffScore(amount: number) {
+    this.case.plaintiffScore = this.case.plaintiffScore + amount;
+  }
+
+  public updateDefendantScore(amount: number) {
+    this.case.defendantScore = this.case.defendantScore + amount;
+  }
+
   private loadCase() {
     this.case = null;
     this.error = false;
@@ -35,6 +47,10 @@ export class JudgeComponent implements OnInit {
         (error) => {
           this.error = true;
           console.log("get case failed");
+        }, () => {
+          this.case.notes = "";
+          this.case.plaintiffScore = 0;
+          this.case.defendantScore = 0;
         });
   }
 

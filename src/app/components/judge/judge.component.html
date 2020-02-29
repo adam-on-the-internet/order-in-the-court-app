@@ -8,6 +8,31 @@
       witnesses.
     </p>
     <hr />
+    <h2>Judge Controls</h2>
+    <p>
+      <strong>PLAINTIFF SCORE</strong>
+    </p>
+    <p>
+      <button (click)="updatePlaintiffScore(-1)">-</button>
+      {{ case.plaintiffScore }}
+      <button (click)="updatePlaintiffScore(1)">+</button>
+    </p>
+    <p>
+      <strong>DEFENDANT SCORE</strong>
+    </p>
+    <p>
+      <button (click)="updateDefendantScore(-1)">-</button>
+      {{ case.defendantScore }}
+      <button (click)="updateDefendantScore(1)">+</button>
+    </p>
+    <p>
+      <strong>NOTES</strong>
+    </p>
+    <textarea rows="20" cols="50" (change)="updateNotes($event)">{{
+      case.notes
+    }}</textarea
+    ><br /><br />
+    <hr />
     <app-issue-block [issue]="case.issue"></app-issue-block>
     <hr />
     <h2>Witnesses</h2>
