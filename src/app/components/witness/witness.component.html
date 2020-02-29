@@ -15,9 +15,11 @@
     <ol>
       <li *ngFor="let witness of case.witnesses">
         {{ witness.name }}
-        <button disabled>Reveal</button>
+        <button (click)="revealWitness(witness)">Reveal</button>
       </li>
     </ol>
+    <hr />
+    <app-revelations [case]="case"></app-revelations>
   </div>
 </ng-container>
 

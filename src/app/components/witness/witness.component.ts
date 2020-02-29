@@ -3,6 +3,7 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { CaseService } from "src/app/services/case.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
+import { Witness } from 'src/app/models/Witness.model';
 
 @Component({
   selector: "app-witness",
@@ -24,6 +25,15 @@ export class WitnessComponent implements OnInit {
 
   public ngOnInit() {
     this.loadCase();
+  }
+
+  public revealWitness(witness: Witness) {
+    this.caseService.revealWitness(this.case._id, witness._id)
+      .subscribe((res) => this.case = res,
+        (error) => {
+          this.error = true;
+          console.log("reveal witness failed");
+        });
   }
 
   private loadCase() {
