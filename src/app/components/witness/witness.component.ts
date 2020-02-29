@@ -3,7 +3,7 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { CaseService } from "src/app/services/case.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
-import { Witness } from 'src/app/models/Witness.model';
+import { Witness } from "src/app/models/Witness.model";
 
 @Component({
   selector: "app-witness",

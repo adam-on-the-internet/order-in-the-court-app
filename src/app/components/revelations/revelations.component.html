@@ -1,4 +1,4 @@
-<ng-container *ngIf="show">
+<ng-container *ngIf="ready; else loading">
   <h3>Revealed Witnesses</h3>
   <p *ngIf="case.revealedWitnesses.length === 0">
     No witnesses have been revealed yet.
@@ -29,3 +29,7 @@
     </li>
   </ol>
 </ng-container>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

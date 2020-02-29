@@ -4,6 +4,7 @@ import { PlaintiffComponent } from "./plaintiff.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { IssueBlockComponent } from "../issue-block/issue-block.component";
+import { RevelationsComponent } from "../revelations/revelations.component";
 
 describe("PlaintiffComponent", () => {
   let component: PlaintiffComponent;
@@ -11,7 +12,7 @@ describe("PlaintiffComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PlaintiffComponent, IssueBlockComponent],
+      declarations: [PlaintiffComponent, IssueBlockComponent, RevelationsComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

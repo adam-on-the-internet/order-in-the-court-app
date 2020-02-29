@@ -1,16 +1,53 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit, OnDestroy } from "@angular/core";
 import { Case } from "src/app/models/Case.model";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { CaseService } from "src/app/services/case.service";
+import { interval, Subscription } from "rxjs";
 
 @Component({
   selector: "app-revelations",
   templateUrl: "./revelations.component.html",
   styleUrls: ["./revelations.component.css"]
 })
-export class RevelationsComponent {
-  @Input() case: Case = null;
+export class RevelationsComponent implements OnInit, OnDestroy {
+  @Input() public caseId: string = null;
 
-  public get show(): boolean {
+  public case: Case = null;
+  private caseRefresher: Subscription;
+
+  public get ready(): boolean {
     return BooleanHelper.hasValue(this.case);
+  }
+
+  constructor(
+    private caseService: CaseService,
+  ) { }
+
+  public ngOnInit() {
+    this.initialCaseLoad();
+    this.setupCaseRefresh();
+  }
+
+  public ngOnDestroy() {
+    this.caseRefresher.unsubscribe();
+  }
+
+  private initialCaseLoad() {
+    this.case = null;
+    this.loadCase();
+  }
+
+  private setupCaseRefresh() {
+    const source = interval(800);
+    this.caseRefresher = source.subscribe(() => this.loadCase());
+  }
+
+  private loadCase() {
+    this.caseService.getSingleCase(this.caseId)
+      .subscribe((res) => this.case = res,
+        (error) => {
+          this.caseRefresher.unsubscribe();
+          console.log("get case failed");
+        });
   }
 }
