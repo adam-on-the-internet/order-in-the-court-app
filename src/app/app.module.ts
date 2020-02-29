@@ -40,7 +40,7 @@ import { IssueBlockComponent } from "./components/issue-block/issue-block.compon
 import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
 import { RulesComponent } from "./components/rules/rules.component";
 import { RevelationsComponent } from "./components/revelations/revelations.component";
-import { CaseSelectComponent } from './components/case-select/case-select.component';
+import { CaseSelectComponent } from "./components/case-select/case-select.component";
 
 @NgModule({
   declarations: [
