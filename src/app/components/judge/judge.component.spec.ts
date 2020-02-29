@@ -4,6 +4,7 @@ import { JudgeComponent } from "./judge.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { IssueBlockComponent } from "../issue-block/issue-block.component";
+import { FormsModule } from "@angular/forms";
 
 describe("JudgeComponent", () => {
   let component: JudgeComponent;
@@ -12,7 +13,7 @@ describe("JudgeComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [JudgeComponent, IssueBlockComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, FormsModule]
     })
       .compileComponents();
   }));
