@@ -20,9 +20,9 @@ export class JudgeComponent implements OnInit, OnDestroy {
   }
 
   public get readyToClose(): boolean {
-    const allWitnessRevealed = this.case.witnesses.length === 0;
-    const allPEvidenceRevealed = this.case.plaintiffEvidence.length === 0;
-    const allDEvidenceRevealed = this.case.defendantEvidence.length === 0;
+    const allWitnessRevealed = this.case.unrevealedWitnesses.length === 0;
+    const allPEvidenceRevealed = this.case.unrevealedPlaintiffEvidence.length === 0;
+    const allDEvidenceRevealed = this.case.unreavledDefendantEvidence.length === 0;
     return allWitnessRevealed && allPEvidenceRevealed && allDEvidenceRevealed;
   }
 

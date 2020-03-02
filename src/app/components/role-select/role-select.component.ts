@@ -19,11 +19,11 @@ export class RoleSelectComponent implements OnInit {
   }
 
   public get witnessCount(): number {
-    return this.case.witnesses.length + this.case.revealedWitnesses.length;
+    return this.case.unrevealedWitnesses.length + this.case.revealedWitnesses.length;
   }
 
   public get evidenceCount(): number {
-    return this.case.defendantEvidence.length + this.case.revealedDefendantEvidence.length;
+    return this.case.unreavledDefendantEvidence.length + this.case.revealedDefendantEvidence.length;
   }
 
   public get showWitness(): boolean {

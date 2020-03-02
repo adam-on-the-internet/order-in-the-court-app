@@ -55,7 +55,7 @@ export class CaseTableComponent implements OnInit {
     this.cases = null;
     this.error = false;
     this.caseService.getAllCases()
-      .subscribe((res) => this.cases = res,
+      .subscribe((res) => this.cases = res.openCases,
         (error) => {
           this.error = true;
           console.log("get case failed");

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
-import { Case } from "../models/Case.model";
+import { Case, SortedCases } from "../models/Case.model";
 import { CaseOrder } from "../models/CaseOrder.model";
 import { HttpClient } from "@angular/common/http";
 import { RestUrlBuilder } from "../utilities/rest-url-builder.util";
@@ -18,12 +18,12 @@ export class CaseService {
     private http: HttpClient,
   ) { }
 
-  public getAllCases(): Observable<Case[]> {
+  public getAllCases(): Observable<SortedCases> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url, CookieHelper.unauthHeaders) as Observable<Case[]>;
+    return this.http.get(url, CookieHelper.unauthHeaders) as Observable<SortedCases>;
   }
 
   public getAllCaseNames(): Observable<string[]> {

@@ -6,15 +6,20 @@ export interface Case {
   _id: string;
   name: string;
   issue: Issue;
-  witnesses: Witness[];
+  unrevealedWitnesses: Witness[];
   revealedWitnesses: Witness[];
-  plaintiffEvidence: Evidence[];
+  unrevealedPlaintiffEvidence: Evidence[];
   revealedPlaintiffEvidence: Evidence[];
-  defendantEvidence: Evidence[];
+  unreavledDefendantEvidence: Evidence[];
   revealedDefendantEvidence: Evidence[];
   plaintiffScore: number;
   defendantScore: number;
   notes: string;
   verdict: string;
   closed: boolean;
+}
+
+export interface SortedCases {
+  openCases: Case[];
+  closedCases: Case[];
 }
