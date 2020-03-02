@@ -11,13 +11,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <p *ngIf="case.witnesses.length === 0">
+        <p *ngIf="case.unrevealedWitnesses.length === 0">
           No witnesses left to be revealed.
         </p>
-        <p *ngIf="case.witnesses.length > 0">
+        <p *ngIf="case.unrevealedWitnesses.length > 0">
           Here are the witnesses for this case you have not revealed yet:
         </p>
-        <div class="card mb-1" *ngFor="let witness of case.witnesses">
+        <div class="card mb-1" *ngFor="let witness of case.unrevealedWitnesses">
           <div class="card-body">
             <h5 class="card-title">{{ witness.name }}</h5>
             <button class="btn btn-secondary" (click)="revealWitness(witness)">

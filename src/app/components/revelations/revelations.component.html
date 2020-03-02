@@ -17,7 +17,7 @@
   </div>
   <div
     class="card mb-3"
-    *ngIf="case.revealedWitnesses.length + case.witnesses.length > 0"
+    *ngIf="case.revealedWitnesses.length + case.unrevealedWitnesses.length > 0"
   >
     <div class="card-body">
       <h5 class="card-title">
@@ -25,7 +25,7 @@
       </h5>
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedWitnesses.length }} of
-        {{ case.revealedWitnesses.length + case.witnesses.length }} revealed
+        {{ case.revealedWitnesses.length + case.unrevealedWitnesses.length }} revealed
       </h6>
       <div class="card-text">
         <p *ngIf="case.revealedWitnesses.length === 0">
@@ -45,7 +45,7 @@
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedPlaintiffEvidence.length }} of
         {{
-          case.revealedPlaintiffEvidence.length + case.plaintiffEvidence.length
+          case.revealedPlaintiffEvidence.length + case.unrevealedPlaintiffEvidence.length
         }}
         revealed
       </h6>
@@ -67,7 +67,7 @@
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedDefendantEvidence.length }} of
         {{
-          case.revealedDefendantEvidence.length + case.defendantEvidence.length
+          case.revealedDefendantEvidence.length + case.unrevealedDefendantEvidence.length
         }}
         revealed
       </h6>

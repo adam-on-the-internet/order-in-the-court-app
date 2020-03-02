@@ -10,7 +10,7 @@ export interface Case {
   revealedWitnesses: Witness[];
   unrevealedPlaintiffEvidence: Evidence[];
   revealedPlaintiffEvidence: Evidence[];
-  unreavledDefendantEvidence: Evidence[];
+  unrevealedDefendantEvidence: Evidence[];
   revealedDefendantEvidence: Evidence[];
   plaintiffScore: number;
   defendantScore: number;

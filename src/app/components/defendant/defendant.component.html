@@ -11,13 +11,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <p *ngIf="case.defendantEvidence.length === 0">
+        <p *ngIf="case.unrevealedDefendantEvidence.length === 0">
           You have no evidence left to reveal.
         </p>
-        <p *ngIf="case.defendantEvidence.length > 0">
+        <p *ngIf="case.unrevealedDefendantEvidence.length > 0">
           Here is the evidence you have for this case:
         </p>
-        <div class="card mb-1" *ngFor="let evidence of case.defendantEvidence">
+        <div class="card mb-1" *ngFor="let evidence of case.unrevealedDefendantEvidence">
           <div class="card-body">
             <h5 class="card-title">{{ evidence.name }}</h5>
             <button

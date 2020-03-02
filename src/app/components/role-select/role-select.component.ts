@@ -23,7 +23,7 @@ export class RoleSelectComponent implements OnInit {
   }
 
   public get evidenceCount(): number {
-    return this.case.unreavledDefendantEvidence.length + this.case.revealedDefendantEvidence.length;
+    return this.case.unrevealedDefendantEvidence.length + this.case.revealedDefendantEvidence.length;
   }
 
   public get showWitness(): boolean {
