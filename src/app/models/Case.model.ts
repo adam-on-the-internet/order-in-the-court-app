@@ -17,4 +17,6 @@ export interface Case {
   notes: string;
   verdict: string;
   closed: boolean;
+  closedDate: string;
+  openedDate: string;
 }
