@@ -38,7 +38,10 @@ export class CaseBuilderComponent implements OnInit {
       myErrors.push("Please provide a count of evidence for each side.");
     }
     if (this.evidenceCountError) {
-      myErrors.push("Evidence count must be more than zero.");
+      myErrors.push("Evidence count must be more than 0 and at most 10.");
+    }
+    if (this.witnessCountError) {
+      myErrors.push("Witness count must be 10 or less.");
     }
     return myErrors;
   }
@@ -60,7 +63,13 @@ export class CaseBuilderComponent implements OnInit {
   }
 
   private get evidenceCountError(): boolean {
-    return !this.evidencePerSideNotSetError && this.caseOrder.evidenceCount === 0;
+    return !this.evidencePerSideNotSetError &&
+      (this.caseOrder.evidenceCount === 0 || this.caseOrder.evidenceCount > 10);
+  }
+
+  private get witnessCountError(): boolean {
+    return !this.witnessCountNotSetError &&
+      (this.caseOrder.witnessCount > 10);
   }
 
   constructor(
