@@ -16,11 +16,19 @@
           <strong>PLAINTIFF SCORE</strong>
         </p>
         <p>
-          <button class="btn btn-secondary" (click)="updatePlaintiffScore(-1)">
+          <button
+            *ngIf="!case.closed"
+            class="btn btn-secondary"
+            (click)="updatePlaintiffScore(-1)"
+          >
             -
           </button>
           {{ case.plaintiffScore }}
-          <button class="btn btn-secondary" (click)="updatePlaintiffScore(1)">
+          <button
+            *ngIf="!case.closed"
+            class="btn btn-secondary"
+            (click)="updatePlaintiffScore(1)"
+          >
             +
           </button>
         </p>
@@ -28,28 +36,50 @@
           <strong>DEFENDANT SCORE</strong>
         </p>
         <p>
-          <button class="btn btn-secondary" (click)="updateDefendantScore(-1)">
+          <button
+            *ngIf="!case.closed"
+            class="btn btn-secondary"
+            (click)="updateDefendantScore(-1)"
+          >
             -
           </button>
           {{ case.defendantScore }}
-          <button class="btn btn-secondary" (click)="updateDefendantScore(1)">
+          <button
+            *ngIf="!case.closed"
+            class="btn btn-secondary"
+            (click)="updateDefendantScore(1)"
+          >
             +
           </button>
         </p>
         <p>
           <strong>NOTES</strong>
         </p>
-        <textarea rows="5" cols="30" (change)="updateNotes($event)">{{
-          case.notes
-        }}</textarea>
+        <textarea
+          [disabled]="case.closed"
+          rows="5"
+          cols="30"
+          (change)="updateNotes($event)"
+          >{{ case.notes }}</textarea
+        >
         <ng-container *ngIf="readyToClose">
           <p>
             <strong>VERDICT</strong>
           </p>
-          <textarea rows="5" cols="30" (change)="updateVerdict($event)">{{
-            case.verdict
-          }}</textarea>
-          <button class="btn btn-primary btn-block" (click)="closeCase()">Close case</button>
+          <textarea
+            [disabled]="case.closed"
+            rows="5"
+            cols="30"
+            (change)="updateVerdict($event)"
+            >{{ case.verdict }}</textarea
+          >
+          <button
+            class="btn btn-primary btn-block"
+            (click)="closeCase()"
+            *ngIf="!case.closed"
+          >
+            Close case
+          </button>
         </ng-container>
       </div>
       <div class="col-md-6 mb-3">
