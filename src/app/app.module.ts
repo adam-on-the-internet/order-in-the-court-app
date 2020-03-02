@@ -41,6 +41,7 @@ import { RulesComponent } from "./components/rules/rules.component";
 import { RevelationsComponent } from "./components/revelations/revelations.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
 import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
+import { ClosedCaseTableComponent } from './components/closed-case-table/closed-case-table.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { CaseArchiveComponent } from "./components/case-archive/case-archive.com
     RulesComponent,
     RevelationsComponent,
     CaseSelectComponent,
-    CaseArchiveComponent
+    CaseArchiveComponent,
+    ClosedCaseTableComponent
   ],
   imports: [
     BrowserModule,
