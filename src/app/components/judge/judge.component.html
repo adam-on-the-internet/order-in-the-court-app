@@ -63,6 +63,10 @@
           >{{ case.notes }}</textarea
         >
         <ng-container *ngIf="readyToClose">
+          <div class="alert alert-info" *ngIf="!case.closed">
+            All witnesses and evidence have been revealed. When you're ready,
+            write your verdict and close the case.
+          </div>
           <p>
             <strong>VERDICT</strong>
           </p>
@@ -73,10 +77,17 @@
             (change)="updateVerdict($event)"
             >{{ case.verdict }}</textarea
           >
+          <div
+            class="alert alert-warning"
+            *ngIf="!case.verdict || case.verdict.length === 0"
+          >
+            You must write a verdict before you submit.
+          </div>
           <button
             class="btn btn-primary btn-block"
             (click)="closeCase()"
             *ngIf="!case.closed"
+            [disabled]="!case.verdict || case.verdict.length === 0"
           >
             Close case
           </button>
