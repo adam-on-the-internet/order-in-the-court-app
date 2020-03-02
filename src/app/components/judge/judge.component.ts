@@ -39,6 +39,10 @@ export class JudgeComponent implements OnInit, OnDestroy {
     this.closeAutosaver();
   }
 
+  public setGuilty(guilty: boolean) {
+    this.case.isDefendantGuilty = guilty;
+  }
+
   public closeCase() {
     this.saveCaseNotes(true);
   }

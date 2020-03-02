@@ -11,25 +11,23 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <div class="card my-3" *ngIf="readyToClose">
+        <div class="card mb-3" *ngIf="readyToClose">
           <div class="card-body">
             <h5 class="card-title">Verdict</h5>
             <div class="alert alert-info" *ngIf="!case.closed">
               All witnesses and evidence have been revealed. When you're ready,
               write your verdict and close the case.
             </div>
-            <div class="form-check" *ngIf="!case.closed">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                [(ngModel)]="case.isDefendantGuilty"
-                name="isDefendantGuilty"
-                id="isDefendantGuilty"
-              />
-              <label class="form-check-label" for="isDefendantGuilty">
+            <ng-container *ngIf="!case.closed">
+              <button class="btn btn-primary mx-2" (click)="setGuilty(true)">
+                <i class="fa fa-check" *ngIf="case.isDefendantGuilty"></i>
                 Defendant is GUILTY
-              </label>
-            </div>
+              </button>
+              <button class="btn btn-primary mx-2" (click)="setGuilty(false)">
+                <i class="fa fa-check" *ngIf="!case.isDefendantGuilty"></i>
+                Defendant is NOT GUILTY
+              </button>
+            </ng-container>
             <p *ngIf="case.closed && case.isDefendantGuilty">
               The defendant was found GUILTY.
             </p>
@@ -37,7 +35,7 @@
               The defendant was found NOT GUILTY.
             </p>
             <hr />
-            <p>Verdict Explanation:</p>
+            <p *ngIf="!case.closed">Verdict Explanation:</p>
             <textarea
               *ngIf="!case.closed"
               rows="5"
