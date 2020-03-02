@@ -1,11 +1,6 @@
 <div class="container">
   <div class="row" *ngIf="ready; else loading">
     <div class="col-md-12 mb-3">
-      <p *ngIf="adminMode">
-        <button class="btn btn-primary" (click)="buildCase()">
-          Create a new case
-        </button>
-      </p>
       <ng-container *ngIf="!hasCase">
         <p>
           No cases available.

@@ -5,11 +5,11 @@ import { CaseService } from "src/app/services/case.service";
 import { NavHelperService } from "src/app/services/nav-helper.service";
 
 @Component({
-  selector: "app-case-table",
-  templateUrl: "./case-table.component.html",
-  styleUrls: ["./case-table.component.css"]
+  selector: "app-open-case-table",
+  templateUrl: "./open-case-table.component.html",
+  styleUrls: ["./open-case-table.component.css"]
 })
-export class CaseTableComponent implements OnInit {
+export class OpenCaseTableComponent implements OnInit {
   @Input() public adminMode = false;
 
   public cases: Case[] = null;
@@ -30,10 +30,6 @@ export class CaseTableComponent implements OnInit {
 
   public ngOnInit() {
     this.loadCases();
-  }
-
-  public buildCase() {
-    this.navHelper.goToCaseBuilder();
   }
 
   public goToCaseDetails(myCase: Case) {

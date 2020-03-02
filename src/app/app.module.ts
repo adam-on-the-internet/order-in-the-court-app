@@ -27,7 +27,7 @@ import { WitnessTableComponent } from "./components/witness-table/witness-table.
 import { EvidenceTableComponent } from "./components/evidence-table/evidence-table.component";
 import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
 import { CaseDisplayComponent } from "./components/case-display/case-display.component";
-import { CaseTableComponent } from "./components/case-table/case-table.component";
+import { OpenCaseTableComponent } from "./components/open-case-table/open-case-table.component";
 import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
 import { UserTableComponent } from "./components/user-table/user-table.component";
 import { RoleSelectComponent } from "./components/role-select/role-select.component";
@@ -41,7 +41,7 @@ import { RulesComponent } from "./components/rules/rules.component";
 import { RevelationsComponent } from "./components/revelations/revelations.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
 import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
-import { ClosedCaseTableComponent } from './components/closed-case-table/closed-case-table.component';
+import { ClosedCaseTableComponent } from "./components/closed-case-table/closed-case-table.component";
 
 @NgModule({
   declarations: [
@@ -68,7 +68,7 @@ import { ClosedCaseTableComponent } from './components/closed-case-table/closed-
     EvidenceTableComponent,
     UserOverviewComponent,
     CaseDisplayComponent,
-    CaseTableComponent,
+    OpenCaseTableComponent,
     CaseOverviewComponent,
     UserTableComponent,
     RoleSelectComponent,

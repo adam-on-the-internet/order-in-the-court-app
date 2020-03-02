@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ClosedCaseTableComponent } from './closed-case-table.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ClosedCaseTableComponent } from "./closed-case-table.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('ClosedCaseTableComponent', () => {
+describe("ClosedCaseTableComponent", () => {
   let component: ClosedCaseTableComponent;
   let fixture: ComponentFixture<ClosedCaseTableComponent>;
 
@@ -22,7 +22,7 @@ describe('ClosedCaseTableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

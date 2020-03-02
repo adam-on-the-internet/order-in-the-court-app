@@ -1,23 +1,23 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CaseTableComponent } from "./case-table.component";
+import { OpenCaseTableComponent } from "./open-case-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 
 describe("CaseTableComponent", () => {
-  let component: CaseTableComponent;
-  let fixture: ComponentFixture<CaseTableComponent>;
+  let component: OpenCaseTableComponent;
+  let fixture: ComponentFixture<OpenCaseTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CaseTableComponent],
+      declarations: [OpenCaseTableComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CaseTableComponent);
+    fixture = TestBed.createComponent(OpenCaseTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

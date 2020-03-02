@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { CaseOverviewComponent } from "./case-overview.component";
-import { CaseTableComponent } from "../case-table/case-table.component";
+import { OpenCaseTableComponent } from "../open-case-table/open-case-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
-import { ClosedCaseTableComponent } from '../closed-case-table/closed-case-table.component';
+import { ClosedCaseTableComponent } from "../closed-case-table/closed-case-table.component";
 
 describe("CaseOverviewComponent", () => {
   let component: CaseOverviewComponent;
@@ -12,7 +12,7 @@ describe("CaseOverviewComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CaseOverviewComponent, CaseTableComponent, ClosedCaseTableComponent],
+      declarations: [CaseOverviewComponent, OpenCaseTableComponent, ClosedCaseTableComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

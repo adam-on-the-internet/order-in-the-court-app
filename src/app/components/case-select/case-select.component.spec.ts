@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { CaseSelectComponent } from "./case-select.component";
-import { CaseTableComponent } from "../case-table/case-table.component";
+import { OpenCaseTableComponent } from "../open-case-table/open-case-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 
@@ -11,7 +11,7 @@ describe("CaseSelectComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CaseSelectComponent, CaseTableComponent],
+      declarations: [CaseSelectComponent, OpenCaseTableComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

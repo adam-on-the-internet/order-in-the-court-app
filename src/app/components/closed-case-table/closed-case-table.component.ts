@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Case } from 'src/app/models/Case.model';
-import { CaseService } from 'src/app/services/case.service';
-import { NavHelperService } from 'src/app/services/nav-helper.service';
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
+import { Component, OnInit, Input } from "@angular/core";
+import { Case } from "src/app/models/Case.model";
+import { CaseService } from "src/app/services/case.service";
+import { NavHelperService } from "src/app/services/nav-helper.service";
+import { BooleanHelper } from "src/app/utilities/boolean.util";
 
 @Component({
-  selector: 'app-closed-case-table',
-  templateUrl: './closed-case-table.component.html',
-  styleUrls: ['./closed-case-table.component.css']
+  selector: "app-closed-case-table",
+  templateUrl: "./closed-case-table.component.html",
+  styleUrls: ["./closed-case-table.component.css"]
 })
 export class ClosedCaseTableComponent implements OnInit {
   @Input() public adminMode = false;
