@@ -11,41 +11,29 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <div class="card mb-3" *ngIf="readyToClose">
+        <div class="card mb-3" *ngIf="readyToClose && !case.closed">
           <div class="card-body">
             <h5 class="card-title">Verdict</h5>
-            <div class="alert alert-info" *ngIf="!case.closed">
+            <div class="alert alert-info">
               All witnesses and evidence have been revealed. When you're ready,
               write your verdict and close the case.
             </div>
-            <ng-container *ngIf="!case.closed">
-              <button class="btn btn-primary mx-2" (click)="setGuilty(true)">
-                <i class="fa fa-check" *ngIf="case.isDefendantGuilty"></i>
-                Defendant is GUILTY
-              </button>
-              <button class="btn btn-primary mx-2" (click)="setGuilty(false)">
-                <i class="fa fa-check" *ngIf="!case.isDefendantGuilty"></i>
-                Defendant is NOT GUILTY
-              </button>
-            </ng-container>
-            <p *ngIf="case.closed && case.isDefendantGuilty">
-              The defendant was found GUILTY.
-            </p>
-            <p *ngIf="case.closed && !case.isDefendantGuilty">
-              The defendant was found NOT GUILTY.
-            </p>
-            <hr />
-            <p *ngIf="!case.closed">Verdict Explanation:</p>
-            <textarea
-              *ngIf="!case.closed"
-              rows="5"
-              cols="30"
-              (change)="updateVerdict($event)"
-              >{{ case.verdict }}</textarea
+            <button class="btn btn-primary mx-2 mb-1" (click)="setGuilty(true)">
+              <i class="fa fa-check" *ngIf="case.isDefendantGuilty"></i>
+              Defendant is GUILTY
+            </button>
+            <button
+              class="btn btn-primary mx-2 mb-1"
+              (click)="setGuilty(false)"
             >
-            <p *ngIf="case.closed">
-              {{ case.verdict }}
-            </p>
+              <i class="fa fa-check" *ngIf="!case.isDefendantGuilty"></i>
+              Defendant is NOT GUILTY
+            </button>
+            <hr />
+            <p>Verdict Explanation:</p>
+            <textarea rows="5" cols="30" (change)="updateVerdict($event)">{{
+              case.verdict
+            }}</textarea>
             <div
               class="alert alert-warning"
               *ngIf="!case.verdict || case.verdict.length === 0"
@@ -55,7 +43,6 @@
             <button
               class="btn btn-primary btn-block"
               (click)="closeCase()"
-              *ngIf="!case.closed"
               [disabled]="!case.verdict || case.verdict.length === 0"
             >
               Close case

@@ -2,6 +2,12 @@
   <div class="card mb-3" *ngIf="case.closed">
     <div class="card-body">
       <h5 class="card-title">Verdict</h5>
+      <p *ngIf="case.closed && case.isDefendantGuilty">
+        The defendant was found GUILTY.
+      </p>
+      <p *ngIf="case.closed && !case.isDefendantGuilty">
+        The defendant was found NOT GUILTY.
+      </p>
       <p class="card-text">
         {{ case.verdict }}
       </p>
@@ -25,7 +31,10 @@
       </h5>
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedWitnesses.length }} of
-        {{ case.revealedWitnesses.length + case.unrevealedWitnesses.length }} revealed
+        {{
+          case.revealedWitnesses.length + case.unrevealedWitnesses.length
+        }}
+        revealed
       </h6>
       <div class="card-text">
         <p *ngIf="case.revealedWitnesses.length === 0">
@@ -45,7 +54,8 @@
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedPlaintiffEvidence.length }} of
         {{
-          case.revealedPlaintiffEvidence.length + case.unrevealedPlaintiffEvidence.length
+          case.revealedPlaintiffEvidence.length +
+            case.unrevealedPlaintiffEvidence.length
         }}
         revealed
       </h6>
@@ -67,7 +77,8 @@
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedDefendantEvidence.length }} of
         {{
-          case.revealedDefendantEvidence.length + case.unrevealedDefendantEvidence.length
+          case.revealedDefendantEvidence.length +
+            case.unrevealedDefendantEvidence.length
         }}
         revealed
       </h6>
