@@ -18,8 +18,3 @@ export interface Case {
   verdict: string;
   closed: boolean;
 }
-
-export interface SortedCases {
-  openCases: Case[];
-  closedCases: Case[];
-}

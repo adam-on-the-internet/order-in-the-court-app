@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { Case, SortedCases } from "../models/Case.model";
+import { Observable } from "rxjs";
+import { Case } from "../models/Case.model";
 import { CaseOrder } from "../models/CaseOrder.model";
 import { HttpClient } from "@angular/common/http";
 import { RestUrlBuilder } from "../utilities/rest-url-builder.util";
@@ -18,12 +18,22 @@ export class CaseService {
     private http: HttpClient,
   ) { }
 
-  public getAllCases(): Observable<SortedCases> {
+  public getOpenCases(): Observable<Case[]> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
-      controller
+      controller,
+      collection: "open",
     });
-    return this.http.get(url, CookieHelper.unauthHeaders) as Observable<SortedCases>;
+    return this.http.get(url, CookieHelper.unauthHeaders) as Observable<Case[]>;
+  }
+
+  public getClosedCases(): Observable<Case[]> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: "closed",
+    });
+    return this.http.get(url, CookieHelper.unauthHeaders) as Observable<Case[]>;
   }
 
   public getAllCaseNames(): Observable<string[]> {

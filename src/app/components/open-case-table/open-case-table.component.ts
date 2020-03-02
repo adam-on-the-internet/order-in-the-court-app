@@ -50,8 +50,8 @@ export class OpenCaseTableComponent implements OnInit {
   private loadCases() {
     this.cases = null;
     this.error = false;
-    this.caseService.getAllCases()
-      .subscribe((res) => this.cases = res.openCases,
+    this.caseService.getOpenCases()
+      .subscribe((res) => this.cases = res,
         (error) => {
           this.error = true;
           console.log("get case failed");
