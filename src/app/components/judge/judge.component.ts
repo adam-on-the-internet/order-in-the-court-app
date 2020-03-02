@@ -19,6 +19,13 @@ export class JudgeComponent implements OnInit, OnDestroy {
     return BooleanHelper.hasValue(this.case);
   }
 
+  public get readyToClose(): boolean {
+    const allWitnessRevealed = this.case.witnesses.length === 0;
+    const allPEvidenceRevealed = this.case.plaintiffEvidence.length === 0;
+    const allDEvidenceRevealed = this.case.defendantEvidence.length === 0;
+    return allWitnessRevealed && allPEvidenceRevealed && allDEvidenceRevealed;
+  }
+
   constructor(
     private caseService: CaseService,
     private route: ActivatedRoute
@@ -32,6 +39,15 @@ export class JudgeComponent implements OnInit, OnDestroy {
     this.autoSaver.unsubscribe();
   }
 
+  public closeCase() {
+    this.caseService.closeCase(this.case._id)
+    .subscribe((res) => this.case = res,
+      (error) => {
+        this.error = true;
+        console.log("close case failed");
+      });
+  }
+
   public save() {
     this.caseService.updateJudgeCaseNotes(this.case)
       .subscribe((res) => this.case = res,
@@ -43,6 +59,10 @@ export class JudgeComponent implements OnInit, OnDestroy {
 
   public updateNotes(event) {
     this.case.notes = event.target.value;
+  }
+
+  public updateVerdict(event) {
+    this.case.verdict = event.target.value;
   }
 
   public updatePlaintiffScore(amount: number) {

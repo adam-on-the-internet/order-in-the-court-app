@@ -15,4 +15,6 @@ export interface Case {
   plaintiffScore: number;
   defendantScore: number;
   notes: string;
+  verdict: string;
+  closed: boolean;
 }

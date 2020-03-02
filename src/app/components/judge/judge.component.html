@@ -41,8 +41,16 @@
         </p>
         <textarea rows="5" cols="30" (change)="updateNotes($event)">{{
           case.notes
-        }}</textarea
-        ><br /><br />
+        }}</textarea>
+        <ng-container *ngIf="readyToClose">
+          <p>
+            <strong>VERDICT</strong>
+          </p>
+          <textarea rows="5" cols="30" (change)="updateVerdict($event)">{{
+            case.verdict
+          }}</textarea>
+          <button class="btn btn-primary btn-block" (click)="closeCase()">Close case</button>
+        </ng-container>
       </div>
       <div class="col-md-6 mb-3">
         <app-revelations [caseId]="case._id"></app-revelations>
