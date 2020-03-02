@@ -29,7 +29,7 @@ export class RevelationsComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.caseRefresher.unsubscribe();
+    this.closeAutoloader();
   }
 
   private initialCaseLoad() {
@@ -46,12 +46,18 @@ export class RevelationsComponent implements OnInit, OnDestroy {
     this.caseService.getSingleCase(this.caseId)
       .subscribe((res) => this.case = res,
         (error) => {
-          this.caseRefresher.unsubscribe();
+          this.closeAutoloader();
           console.log("get case failed");
         }, () => {
           if (this.case.closed) {
-            this.caseRefresher.unsubscribe();
+            this.closeAutoloader();
           }
         });
+  }
+
+  private closeAutoloader() {
+    if (BooleanHelper.hasValue(this.caseRefresher)) {
+      this.caseRefresher.unsubscribe();
+    }
   }
 }

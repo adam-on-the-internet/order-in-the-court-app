@@ -36,7 +36,7 @@ export class JudgeComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.autoSaver.unsubscribe();
+    this.closeAutosaver();
   }
 
   public closeCase() {
@@ -46,7 +46,7 @@ export class JudgeComponent implements OnInit, OnDestroy {
           this.error = true;
           console.log("close case failed");
         }, () => {
-          this.autoSaver.unsubscribe();
+          this.closeAutosaver();
         });
   }
 
@@ -93,6 +93,12 @@ export class JudgeComponent implements OnInit, OnDestroy {
     if (!this.case.closed) {
       const source = interval(5000);
       this.autoSaver = source.subscribe(() => this.save());
+    }
+  }
+
+  private closeAutosaver() {
+    if (BooleanHelper.hasValue(this.autoSaver)) {
+      this.autoSaver.unsubscribe();
     }
   }
 
