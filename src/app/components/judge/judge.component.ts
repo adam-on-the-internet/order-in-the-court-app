@@ -40,6 +40,7 @@ export class JudgeComponent implements OnInit, OnDestroy {
   }
 
   public closeCase() {
+    this.save();
     this.caseService.closeCase(this.case._id)
       .subscribe((res) => this.case = res,
         (error) => {

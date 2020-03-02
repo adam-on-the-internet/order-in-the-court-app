@@ -11,14 +11,49 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
+        <div class="card my-3" *ngIf="readyToClose">
+          <div class="card-body">
+            <h5 class="card-title">Verdict</h5>
+            <div class="alert alert-info" *ngIf="!case.closed">
+              All witnesses and evidence have been revealed. When you're ready,
+              write your verdict and close the case.
+            </div>
+            <textarea
+              *ngIf="!case.closed"
+              rows="5"
+              cols="30"
+              (change)="updateVerdict($event)"
+              >{{ case.verdict }}</textarea
+            >
+            <p *ngIf="case.closed">
+              {{ case.verdict }}
+            </p>
+            <div
+              class="alert alert-warning"
+              *ngIf="!case.verdict || case.verdict.length === 0"
+            >
+              You must write a verdict before you submit.
+            </div>
+            <button
+              class="btn btn-primary btn-block"
+              (click)="closeCase()"
+              *ngIf="!case.closed"
+              [disabled]="!case.verdict || case.verdict.length === 0"
+            >
+              Close case
+            </button>
+          </div>
+        </div>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Case File</h5>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              As a judge, you can take notes and keep score. Only you can see
-              this information, and its entirely optional.
+              <div class="alert alert-info" *ngIf="!case.closed">
+                As a judge, you can take notes and keep score. Only you can see
+                this information, and its entirely optional.
+              </div>
             </li>
             <li class="list-group-item">
               <button
@@ -72,36 +107,6 @@
             </li>
           </ul>
         </div>
-        <ng-container *ngIf="readyToClose">
-          <div class="alert alert-info" *ngIf="!case.closed">
-            All witnesses and evidence have been revealed. When you're ready,
-            write your verdict and close the case.
-          </div>
-          <p>
-            <strong>VERDICT</strong>
-          </p>
-          <textarea
-            [disabled]="case.closed"
-            rows="5"
-            cols="30"
-            (change)="updateVerdict($event)"
-            >{{ case.verdict }}</textarea
-          >
-          <div
-            class="alert alert-warning"
-            *ngIf="!case.verdict || case.verdict.length === 0"
-          >
-            You must write a verdict before you submit.
-          </div>
-          <button
-            class="btn btn-primary btn-block"
-            (click)="closeCase()"
-            *ngIf="!case.closed"
-            [disabled]="!case.verdict || case.verdict.length === 0"
-          >
-            Close case
-          </button>
-        </ng-container>
       </div>
       <div class="col-md-6 mb-3">
         <app-revelations [caseId]="case._id"></app-revelations>
