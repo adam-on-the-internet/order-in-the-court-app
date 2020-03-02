@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CaseArchiveComponent } from './case-archive.component';
+import { CaseArchiveComponent } from "./case-archive.component";
 
-describe('CaseArchiveComponent', () => {
+describe("CaseArchiveComponent", () => {
   let component: CaseArchiveComponent;
   let fixture: ComponentFixture<CaseArchiveComponent>;
 
@@ -19,7 +19,7 @@ describe('CaseArchiveComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

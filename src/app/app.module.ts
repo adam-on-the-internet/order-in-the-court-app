@@ -40,7 +40,7 @@ import { CaseBuilderComponent } from "./components/case-builder/case-builder.com
 import { RulesComponent } from "./components/rules/rules.component";
 import { RevelationsComponent } from "./components/revelations/revelations.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
-import { CaseArchiveComponent } from './components/case-archive/case-archive.component';
+import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
 
 @NgModule({
   declarations: [

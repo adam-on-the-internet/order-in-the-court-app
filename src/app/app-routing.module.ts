@@ -27,7 +27,7 @@ import { DefendantComponent } from "./components/defendant/defendant.component";
 import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
 import { RulesComponent } from "./components/rules/rules.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
-import { CaseArchiveComponent } from './components/case-archive/case-archive.component';
+import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
 
 const routes: Routes = [
   // main
