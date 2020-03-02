@@ -41,11 +41,13 @@ export class JudgeComponent implements OnInit, OnDestroy {
 
   public closeCase() {
     this.caseService.closeCase(this.case._id)
-    .subscribe((res) => this.case = res,
-      (error) => {
-        this.error = true;
-        console.log("close case failed");
-      });
+      .subscribe((res) => this.case = res,
+        (error) => {
+          this.error = true;
+          console.log("close case failed");
+        }, () => {
+          this.autoSaver.unsubscribe();
+        });
   }
 
   public save() {
@@ -88,8 +90,10 @@ export class JudgeComponent implements OnInit, OnDestroy {
   }
 
   private setupAutosave() {
-    const source = interval(5000);
-    this.autoSaver = source.subscribe(() => this.save());
+    if (!this.case.closed) {
+      const source = interval(5000);
+      this.autoSaver = source.subscribe(() => this.save());
+    }
   }
 
 }
