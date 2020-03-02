@@ -16,6 +16,7 @@ export interface Case {
   defendantScore: number;
   notes: string;
   verdict: string;
+  isDefendantGuilty: boolean;
   closed: boolean;
   closedDate: string;
   openedDate: string;

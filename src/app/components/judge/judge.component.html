@@ -18,6 +18,26 @@
               All witnesses and evidence have been revealed. When you're ready,
               write your verdict and close the case.
             </div>
+            <div class="form-check" *ngIf="!case.closed">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [(ngModel)]="case.isDefendantGuilty"
+                name="isDefendantGuilty"
+                id="isDefendantGuilty"
+              />
+              <label class="form-check-label" for="isDefendantGuilty">
+                Defendant is GUILTY
+              </label>
+            </div>
+            <p *ngIf="case.closed && case.isDefendantGuilty">
+              The defendant was found GUILTY.
+            </p>
+            <p *ngIf="case.closed && !case.isDefendantGuilty">
+              The defendant was found NOT GUILTY.
+            </p>
+            <hr />
+            <p>Verdict Explanation:</p>
             <textarea
               *ngIf="!case.closed"
               rows="5"
@@ -32,7 +52,7 @@
               class="alert alert-warning"
               *ngIf="!case.verdict || case.verdict.length === 0"
             >
-              You must write a verdict before you submit.
+              You must make a verdict before you submit.
             </div>
             <button
               class="btn btn-primary btn-block"

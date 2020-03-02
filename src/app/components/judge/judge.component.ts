@@ -40,23 +40,30 @@ export class JudgeComponent implements OnInit, OnDestroy {
   }
 
   public closeCase() {
-    this.save();
-    this.caseService.closeCase(this.case._id)
+    this.saveCaseNotes(true);
+  }
+
+  public saveCaseNotes(closeCaseOnSuccess: boolean = false) {
+    this.caseService.updateJudgeCaseNotes(this.case)
+      .subscribe((res) => this.case = res,
+        (error) => {
+          this.error = true;
+          console.log("update case failed");
+        }, () => {
+          if (closeCaseOnSuccess) {
+            this.submitCloseCase();
+          }
+        });
+  }
+
+  private submitCloseCase() {
+    this.caseService.closeCase(this.case._id, this.case.isDefendantGuilty)
       .subscribe((res) => this.case = res,
         (error) => {
           this.error = true;
           console.log("close case failed");
         }, () => {
           this.closeAutosaver();
-        });
-  }
-
-  public save() {
-    this.caseService.updateJudgeCaseNotes(this.case)
-      .subscribe((res) => this.case = res,
-        (error) => {
-          this.error = true;
-          console.log("update case failed");
         });
   }
 
@@ -93,7 +100,7 @@ export class JudgeComponent implements OnInit, OnDestroy {
   private setupAutosave() {
     if (!this.case.closed) {
       const source = interval(5000);
-      this.autoSaver = source.subscribe(() => this.save());
+      this.autoSaver = source.subscribe(() => this.saveCaseNotes());
     }
   }
 
