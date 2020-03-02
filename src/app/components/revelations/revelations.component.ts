@@ -48,6 +48,10 @@ export class RevelationsComponent implements OnInit, OnDestroy {
         (error) => {
           this.caseRefresher.unsubscribe();
           console.log("get case failed");
+        }, () => {
+          if (this.case.closed) {
+            this.caseRefresher.unsubscribe();
+          }
         });
   }
 }
