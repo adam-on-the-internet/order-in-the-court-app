@@ -11,57 +11,67 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <h3>Judge Controls</h3>
-        <p>
-          <strong>PLAINTIFF SCORE</strong>
-        </p>
-        <p>
-          <button
-            *ngIf="!case.closed"
-            class="btn btn-secondary"
-            (click)="updatePlaintiffScore(-1)"
-          >
-            -
-          </button>
-          {{ case.plaintiffScore }}
-          <button
-            *ngIf="!case.closed"
-            class="btn btn-secondary"
-            (click)="updatePlaintiffScore(1)"
-          >
-            +
-          </button>
-        </p>
-        <p>
-          <strong>DEFENDANT SCORE</strong>
-        </p>
-        <p>
-          <button
-            *ngIf="!case.closed"
-            class="btn btn-secondary"
-            (click)="updateDefendantScore(-1)"
-          >
-            -
-          </button>
-          {{ case.defendantScore }}
-          <button
-            *ngIf="!case.closed"
-            class="btn btn-secondary"
-            (click)="updateDefendantScore(1)"
-          >
-            +
-          </button>
-        </p>
-        <p>
-          <strong>NOTES</strong>
-        </p>
-        <textarea
-          [disabled]="case.closed"
-          rows="5"
-          cols="30"
-          (change)="updateNotes($event)"
-          >{{ case.notes }}</textarea
-        >
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Case File</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              As a judge, you can take notes and keep score. Only you can see
+              this information, and its entirely optional.
+            </li>
+            <li class="list-group-item">
+              <button
+                *ngIf="!case.closed"
+                class="btn btn-secondary"
+                (click)="updatePlaintiffScore(-1)"
+              >
+                -
+              </button>
+              {{ case.plaintiffScore }}
+              <button
+                *ngIf="!case.closed"
+                class="btn btn-secondary"
+                (click)="updatePlaintiffScore(1)"
+              >
+                +
+              </button>
+              points for the Plaintiff
+            </li>
+            <li class="list-group-item">
+              <button
+                *ngIf="!case.closed"
+                class="btn btn-secondary"
+                (click)="updateDefendantScore(-1)"
+              >
+                -
+              </button>
+              {{ case.defendantScore }}
+              <button
+                *ngIf="!case.closed"
+                class="btn btn-secondary"
+                (click)="updateDefendantScore(1)"
+              >
+                +
+              </button>
+              points for the defendant
+            </li>
+            <li class="list-group-item">
+              Notes:
+              <br />
+              <p *ngIf="case.closed">
+                {{ case.notes }}
+              </p>
+              <textarea
+                *ngIf="!case.closed"
+                rows="5"
+                cols="30"
+                (change)="updateNotes($event)"
+                >{{ case.notes }}</textarea
+              >
+            </li>
+          </ul>
+        </div>
         <ng-container *ngIf="readyToClose">
           <div class="alert alert-info" *ngIf="!case.closed">
             All witnesses and evidence have been revealed. When you're ready,
