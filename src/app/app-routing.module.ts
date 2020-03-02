@@ -27,6 +27,7 @@ import { DefendantComponent } from "./components/defendant/defendant.component";
 import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
 import { RulesComponent } from "./components/rules/rules.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
+import { CaseArchiveComponent } from './components/case-archive/case-archive.component';
 
 const routes: Routes = [
   // main
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Admin, component: AdminComponent },
   { path: ROUTES_ENUM.Rules, component: RulesComponent },
   { path: ROUTES_ENUM.CaseSelect, component: CaseSelectComponent },
+  { path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent },
   // courtroom
   { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },
   { path: ROUTES_ENUM.Judge + "/:id", component: JudgeComponent },

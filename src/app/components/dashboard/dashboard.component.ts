@@ -20,5 +20,8 @@ export class DashboardComponent {
     this.navHelper.goToCaseBuilder();
   }
 
+  public goToArchive() {
+    this.navHelper.goToCaseArchive();
+  }
 
 }

@@ -39,6 +39,10 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.CaseSelect);
   }
 
+  public goToCaseArchive(): void {
+    this.goToRoute(ROUTES_ENUM.CaseArchive);
+  }
+
   // COURTROOM
 
   public goToRoleSelect(caseId: string): void {
