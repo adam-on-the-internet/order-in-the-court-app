@@ -5,19 +5,12 @@
         {{ case.name }}:
         <small>Role Select</small>
       </h1>
-      <p *ngIf="showWitness">
-        There are {{ witnessCount }} witness(es) in this case.
-      </p>
-      <p *ngIf="!showWitness">
-        There are no witnesses in this case.
-      </p>
-      <p>Each side has {{ evidenceCount }} piece(s) of evidence to use</p>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <h3>
+        <h3 class="text-center">
           Select your role
         </h3>
         <div class="card mb-3 border-primary">
@@ -89,7 +82,7 @@
         </div>
       </div>
       <div class="col-md-6 mb-3">
-        <h3>Case details</h3>
+        <h3 class="text-center">Case details</h3>
         <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
