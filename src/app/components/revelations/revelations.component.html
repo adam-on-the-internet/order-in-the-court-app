@@ -1,7 +1,10 @@
 <ng-container *ngIf="ready; else loading">
   <div class="card mb-3" *ngIf="case.closed">
     <div class="card-body">
-      <h5 class="card-title">Verdict</h5>
+      <h5 class="card-title">
+        <i class="fa fa-gavel"></i>
+        Verdict
+      </h5>
       <p *ngIf="case.closed && case.isDefendantGuilty">
         The defendant was found GUILTY.
       </p>
@@ -15,7 +18,10 @@
   </div>
   <div class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title">Issue: {{ case.issue.name }}</h5>
+      <h5 class="card-title">
+        <i class="fa fa-book"></i>
+        Issue: {{ case.issue.name }}
+      </h5>
       <p class="card-text">
         {{ case.issue.description }}
       </p>
@@ -27,13 +33,12 @@
   >
     <div class="card-body">
       <h5 class="card-title">
+        <i class="fa fa-users"></i>
         Witnesses
       </h5>
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedWitnesses.length }} of
-        {{
-          case.revealedWitnesses.length + case.unrevealedWitnesses.length
-        }}
+        {{ case.revealedWitnesses.length + case.unrevealedWitnesses.length }}
         revealed
       </h6>
       <div class="card-text">
@@ -50,7 +55,10 @@
   </div>
   <div class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title">Plaintiff Evidence</h5>
+      <h5 class="card-title">
+        <i class="fa fa-search"></i>
+        Plaintiff Evidence
+      </h5>
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedPlaintiffEvidence.length }} of
         {{
@@ -73,7 +81,10 @@
   </div>
   <div class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title">Defendant Evidence</h5>
+      <h5 class="card-title">
+        <i class="fa fa-search"></i>
+        Defendant Evidence
+      </h5>
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedDefendantEvidence.length }} of
         {{
