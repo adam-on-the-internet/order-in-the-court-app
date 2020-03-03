@@ -6,6 +6,17 @@
 <div class="container">
   <div class="row" *ngIf="ready; else loading">
     <div class="col-md-12 mb-3">
+      <div class="alert alert-info">
+        <p>
+          To make a case, pick a case name and decide how much evidence and how
+          many witnesses to have. The more witnesses and evidence, the longer
+          the game will last. You can also pick a standard 3, 4, or 5 person
+          game so you don't have to decide how many witnesses and evidence to
+          use.
+        </p>
+        <p>Evidence per side must be 1 to 11.</p>
+        <p>Witnesses must be 0 to 11.</p>
+      </div>
       <form>
         <div class="btn-group mb-3" role="group" aria-label="Basic example">
           <button
@@ -32,7 +43,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="evidencePerSide">2. Evidence per side:</label>
+          <label for="evidencePerSide">2. Evidence per side: (1-10)</label>
           <input
             type="number"
             class="form-control"
@@ -42,7 +53,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="witnessCount">3. Witness count:</label>
+          <label for="witnessCount">3. Witness count: (0-10)</label>
           <input
             type="number"
             class="form-control"
@@ -63,7 +74,7 @@
             </li>
           </ul>
         </div>
-        <button class="btn btn-primary" (click)="submit()">
+        <button class="btn btn-primary btn-block" (click)="submit()">
           Submit case
         </button>
       </form>
