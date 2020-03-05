@@ -1,52 +1,54 @@
 <div class="container">
   <div class="row" *ngIf="ready; else loading">
-    <div class="col-md-12 mb-3">
-      <ng-container *ngIf="!hasCase">
-        <p>
-          No cases available.
-        </p>
-      </ng-container>
-      <ng-container *ngIf="hasCase">
-        <p *ngIf="adminMode">
-          <small>Showing {{ cases.length }} case(s)</small>
-        </p>
-        <table class="table">
-          <thead>
-            <tr>
-              <th *ngIf="!adminMode">#</th>
-              <th>Case name</th>
-              <th *ngIf="!adminMode">Select</th>
-              <th>Opened Date</th>
-              <th>Closed Date</th>
-              <ng-container *ngIf="adminMode">
-                <th>Details</th>
-                <th>Delete</th>
-              </ng-container>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let case of cases; let i = index">
-              <th *ngIf="!adminMode">{{ i + 1 }}</th>
-              <td>{{ case.name }}</td>
-              <td *ngIf="!adminMode">
-                <button class="btn btn-primary" (click)="goToCourtroom(case)">
-                  Select case
-                </button>
-              </td>
-              <td>{{ case.openedDate | date }}</td>
-              <td>{{ case.closedDate | date }}</td>
-              <ng-container *ngIf="adminMode">
-                <td>
-                  <button (click)="goToCaseDetails(case)">Details</button>
+    <div class="col-md-12 my-3">
+      <div class="card border-primary">
+        <ng-container *ngIf="!hasCase">
+          <p>
+            No cases available.
+          </p>
+        </ng-container>
+        <ng-container *ngIf="hasCase">
+          <p *ngIf="adminMode">
+            <small>Showing {{ cases.length }} case(s)</small>
+          </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th *ngIf="!adminMode">#</th>
+                <th>Case name</th>
+                <th *ngIf="!adminMode">Select</th>
+                <th>Opened Date</th>
+                <th>Closed Date</th>
+                <ng-container *ngIf="adminMode">
+                  <th>Details</th>
+                  <th>Delete</th>
+                </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let case of cases; let i = index">
+                <th *ngIf="!adminMode">{{ i + 1 }}</th>
+                <td>{{ case.name }}</td>
+                <td *ngIf="!adminMode">
+                  <button class="btn btn-primary" (click)="goToCourtroom(case)">
+                    Select case
+                  </button>
                 </td>
-                <td>
-                  <button (click)="requestDelete(case)">Delete</button>
-                </td>
-              </ng-container>
-            </tr>
-          </tbody>
-        </table>
-      </ng-container>
+                <td>{{ case.openedDate | date }}</td>
+                <td>{{ case.closedDate | date }}</td>
+                <ng-container *ngIf="adminMode">
+                  <td>
+                    <button (click)="goToCaseDetails(case)">Details</button>
+                  </td>
+                  <td>
+                    <button (click)="requestDelete(case)">Delete</button>
+                  </td>
+                </ng-container>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+      </div>
     </div>
   </div>
 </div>
