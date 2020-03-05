@@ -11,13 +11,34 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <div class="card mb-3" *ngIf="readyToClose && !case.closed">
+        <div
+          class="card border-primary mb-3"
+          *ngIf="readyToClose && !case.closed"
+        >
           <div class="card-body">
-            <h5 class="card-title">Verdict</h5>
+            <h5 class="card-title">
+              <i class="fa fa-gavel"></i>
+              Verdict
+            </h5>
             <div class="alert alert-info">
               All witnesses and evidence have been revealed. When you're ready,
               write your verdict and close the case.
             </div>
+            <hr />
+            <div class="form-group">
+              <label for="verdict-explanation"
+                >1. Verdict Explanation: (write your verdict)</label
+              >
+              <textarea
+                (change)="updateVerdict($event)"
+                class="form-control"
+                rows="5"
+                id="verdict-explanation"
+              ></textarea>
+            </div>
+            <hr />
+            <label>2. Final Decision</label>
+            <br />
             <button class="btn btn-primary mx-2 mb-1" (click)="setGuilty(true)">
               <i class="fa fa-check" *ngIf="case.isDefendantGuilty"></i>
               Defendant is GUILTY
@@ -30,16 +51,6 @@
               Defendant is NOT GUILTY
             </button>
             <hr />
-            <p>Verdict Explanation:</p>
-            <textarea rows="5" cols="30" (change)="updateVerdict($event)">{{
-              case.verdict
-            }}</textarea>
-            <div
-              class="alert alert-warning"
-              *ngIf="!case.verdict || case.verdict.length === 0"
-            >
-              You must make a verdict before you submit.
-            </div>
             <button
               class="btn btn-primary btn-block"
               (click)="closeCase()"
@@ -49,9 +60,12 @@
             </button>
           </div>
         </div>
-        <div class="card">
+        <div class="card border-primary">
           <div class="card-body">
-            <h5 class="card-title">Case File</h5>
+            <h5 class="card-title">
+              <i class="fa fa-file"></i>
+              Case File
+            </h5>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -97,18 +111,19 @@
               points for the defendant
             </li>
             <li class="list-group-item">
-              Notes:
-              <br />
-              <p *ngIf="case.closed">
-                {{ case.notes }}
-              </p>
-              <textarea
-                *ngIf="!case.closed"
-                rows="5"
-                cols="30"
-                (change)="updateNotes($event)"
-                >{{ case.notes }}</textarea
-              >
+              <div class="form-group">
+                <label for="notes">Notes:</label>
+                <p *ngIf="case.closed">
+                  {{ case.notes }}
+                </p>
+                <textarea
+                  *ngIf="!case.closed"
+                  (change)="updateNotes($event)"
+                  class="form-control"
+                  rows="5"
+                  id="notes"
+                ></textarea>
+              </div>
             </li>
           </ul>
         </div>
