@@ -3,12 +3,12 @@
     <div class="col-md-12 my-3">
       <div class="card border-primary">
         <ng-container *ngIf="!hasCase">
-          <p>
+          <p class="mx-2 my-2">
             No cases available.
           </p>
         </ng-container>
         <ng-container *ngIf="hasCase">
-          <p *ngIf="adminMode">
+          <p *ngIf="adminMode" class="mx-2 my-2">
             <small>Showing {{ cases.length }} case(s)</small>
           </p>
           <table class="table">
