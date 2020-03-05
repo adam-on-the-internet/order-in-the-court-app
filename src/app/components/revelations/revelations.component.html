@@ -1,5 +1,5 @@
 <ng-container *ngIf="ready; else loading">
-  <div class="card mb-3" *ngIf="case.closed">
+  <div class="card border-dark mb-3" *ngIf="case.closed">
     <div class="card-body">
       <h5 class="card-title">
         <i class="fa fa-gavel"></i>
@@ -16,7 +16,7 @@
       </p>
     </div>
   </div>
-  <div class="card mb-3">
+  <div class="card border-dark mb-3">
     <div class="card-body">
       <h5 class="card-title">
         <i class="fa fa-book"></i>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div
-    class="card mb-3"
+    class="card border-dark mb-3"
     *ngIf="case.revealedWitnesses.length + case.unrevealedWitnesses.length > 0"
   >
     <div class="card-body">
@@ -53,7 +53,7 @@
       </div>
     </div>
   </div>
-  <div class="card mb-3">
+  <div class="card border-dark mb-3">
     <div class="card-body">
       <h5 class="card-title">
         <i class="fa fa-search"></i>
@@ -79,7 +79,7 @@
       </div>
     </div>
   </div>
-  <div class="card mb-3">
+  <div class="card border-dark mb-3">
     <div class="card-body">
       <h5 class="card-title">
         <i class="fa fa-search"></i>
