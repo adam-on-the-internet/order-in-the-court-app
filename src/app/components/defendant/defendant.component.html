@@ -1,5 +1,5 @@
 <ng-container *ngIf="ready; else loading">
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron jumbotron-fluid bg-tan mb-0">
     <div class="container">
       <h1 class="display-4">{{ case.name }}: Defendant</h1>
       <p>
@@ -8,29 +8,34 @@
       </p>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <p *ngIf="case.unrevealedDefendantEvidence.length === 0">
-          You have no evidence left to reveal.
-        </p>
-        <p *ngIf="case.unrevealedDefendantEvidence.length > 0">
-          Here is the evidence you have for this case:
-        </p>
-        <div class="card mb-1" *ngFor="let evidence of case.unrevealedDefendantEvidence">
-          <div class="card-body">
-            <h5 class="card-title">{{ evidence.name }}</h5>
-            <button
-              class="btn btn-secondary"
-              (click)="revealEvidence(evidence)"
-            >
-              Reveal
-            </button>
+  <div class="bg-off">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 my-3">
+          <p *ngIf="case.unrevealedDefendantEvidence.length === 0">
+            You have no evidence left to reveal.
+          </p>
+          <p *ngIf="case.unrevealedDefendantEvidence.length > 0">
+            Here is the evidence you have for this case:
+          </p>
+          <div
+            class="card my-2 border-primary"
+            *ngFor="let evidence of case.unrevealedDefendantEvidence"
+          >
+            <div class="card-body">
+              <h5 class="card-title">{{ evidence.name }}</h5>
+              <button
+                class="btn btn-secondary"
+                (click)="revealEvidence(evidence)"
+              >
+                Reveal
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 mb-3">
-        <app-revelations [caseId]="case._id"></app-revelations>
+        <div class="col-md-6 my-3">
+          <app-revelations [caseId]="case._id"></app-revelations>
+        </div>
       </div>
     </div>
   </div>
