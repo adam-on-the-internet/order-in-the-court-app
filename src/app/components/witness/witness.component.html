@@ -23,7 +23,10 @@
             *ngFor="let witness of case.unrevealedWitnesses"
           >
             <div class="card-body">
-              <h5 class="card-title">{{ witness.name }}</h5>
+              <h5 class="card-title">
+                <i class="fa fa-users"></i>
+                {{ witness.name }}
+              </h5>
               <button
                 class="btn btn-secondary"
                 (click)="revealWitness(witness)"

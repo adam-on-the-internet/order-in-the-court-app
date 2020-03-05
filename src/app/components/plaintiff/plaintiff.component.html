@@ -23,7 +23,10 @@
             *ngFor="let evidence of case.unrevealedPlaintiffEvidence"
           >
             <div class="card-body">
-              <h5 class="card-title">{{ evidence.name }}</h5>
+              <h5 class="card-title">
+                <i class="fa fa-search"></i>
+                {{ evidence.name }}
+              </h5>
               <button
                 class="btn btn-secondary"
                 (click)="revealEvidence(evidence)"
