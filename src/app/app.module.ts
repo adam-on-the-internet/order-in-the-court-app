@@ -25,11 +25,9 @@ import { IssueDisplayComponent } from "./components/issue-display/issue-display.
 import { IssueTableComponent } from "./components/issue-table/issue-table.component";
 import { WitnessTableComponent } from "./components/witness-table/witness-table.component";
 import { EvidenceTableComponent } from "./components/evidence-table/evidence-table.component";
-import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
 import { CaseDisplayComponent } from "./components/case-display/case-display.component";
 import { OpenCaseTableComponent } from "./components/open-case-table/open-case-table.component";
 import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
-import { UserTableComponent } from "./components/user-table/user-table.component";
 import { RoleSelectComponent } from "./components/role-select/role-select.component";
 import { JudgeComponent } from "./components/judge/judge.component";
 import { PlaintiffComponent } from "./components/plaintiff/plaintiff.component";
@@ -66,11 +64,9 @@ import { ClosedCaseTableComponent } from "./components/closed-case-table/closed-
     IssueTableComponent,
     WitnessTableComponent,
     EvidenceTableComponent,
-    UserOverviewComponent,
     CaseDisplayComponent,
     OpenCaseTableComponent,
     CaseOverviewComponent,
-    UserTableComponent,
     RoleSelectComponent,
     JudgeComponent,
     PlaintiffComponent,

@@ -30,8 +30,4 @@ export class AdminComponent {
     this.navHelper.goToCaseOverview();
   }
 
-  public manageUsers() {
-    this.navHelper.goToUserOverview();
-  }
-
 }

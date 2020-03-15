@@ -15,7 +15,6 @@ import { IssueFormComponent } from "./components/issue-form/issue-form.component
 import { WitnessOverviewComponent } from "./components/witness-overview/witness-overview.component";
 import { WitnessDisplayComponent } from "./components/witness-display/witness-display.component";
 import { WitnessFormComponent } from "./components/witness-form/witness-form.component";
-import { UserOverviewComponent } from "./components/user-overview/user-overview.component";
 import { CaseOverviewComponent } from "./components/case-overview/case-overview.component";
 import { CaseDisplayComponent } from "./components/case-display/case-display.component";
 import { RoleSelectComponent } from "./components/role-select/role-select.component";
@@ -65,8 +64,6 @@ const routes: Routes = [
   { path: ROUTES_ENUM.CaseOverview, component: CaseOverviewComponent },
   { path: ROUTES_ENUM.CaseBuilder, component: CaseBuilderComponent },
   { path: ROUTES_ENUM.CaseDetails + "/:id", component: CaseDisplayComponent },
-  // user
-  { path: ROUTES_ENUM.UserOverview, component: UserOverviewComponent },
   // default
   { path: "**", redirectTo: "dashboard" },
 ];

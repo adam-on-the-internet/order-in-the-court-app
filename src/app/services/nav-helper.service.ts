@@ -137,12 +137,6 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.CaseBuilder);
   }
 
-  // USER
-
-  public goToUserOverview(): void {
-    this.goToRoute(ROUTES_ENUM.UserOverview);
-  }
-
   // GENERAL
 
   private goToRoute(route: string): void {
