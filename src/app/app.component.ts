@@ -18,6 +18,6 @@ export class AppComponent implements OnInit {
   }
 
   private logStart() {
-    this.logService.log("info", "App visited").subscribe();
+    this.logService.log("info", "application visited").subscribe();
   }
 }
