@@ -5,33 +5,40 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4 mb-3">
+    <div class="col-md-6 mb-3">
       <h3>Court Data</h3>
       <p>
-        <button class="btn btn-primary" (click)="manageEvidence()">Manage evidence</button>
+        <button class="btn btn-primary" (click)="manageEvidence()">
+          Manage evidence
+        </button>
       </p>
       <p>
-        <button class="btn btn-primary"  (click)="manageWitnesses()">Manage witnesses</button>
+        <button class="btn btn-primary" (click)="manageWitnesses()">
+          Manage witnesses
+        </button>
       </p>
       <p>
-        <button class="btn btn-primary"  (click)="manageIssues()">Manage issues</button>
+        <button class="btn btn-primary" (click)="manageIssues()">
+          Manage issues
+        </button>
       </p>
       <p>
-        <button class="btn btn-primary"  (click)="manageCases()">Manage cases</button>
+        <button class="btn btn-primary" (click)="manageCases()">
+          Manage cases
+        </button>
       </p>
     </div>
-    <div class="col-md-4 mb-3">
-      <h3>Meta Data</h3>
+    <div class="col-md-6 mb-3">
+      <h3>Advanced Settings</h3>
       <p>
-        <button class="btn btn-primary"  (click)="manageUsers()">Manage users</button>
+        <a
+          class="btn btn-primary"
+          href="https://aoti-user-management-ui.herokuapp.com/dashboard"
+          target="_blank"
+        >
+          User Management
+        </a>
       </p>
-    </div>
-    <div class="col-md-4 mb-3">
-      <h3>Check Services</h3>
-      <app-actuator-report
-        [serviceUrl]="basicExpressServiceUrl"
-        [serviceName]="'Basic Express Service'"
-      ></app-actuator-report>
     </div>
   </div>
 </div>
