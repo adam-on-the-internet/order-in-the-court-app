@@ -4,6 +4,8 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { Case } from "src/app/models/Case.model";
 import { CaseService } from "src/app/services/case.service";
 import { NavHelperService } from "src/app/services/nav-helper.service";
+import { LogService } from "src/app/services/log.service";
+import { Log } from "src/app/models/Log.model";
 
 @Component({
   selector: "app-case-builder",
@@ -74,6 +76,7 @@ export class CaseBuilderComponent implements OnInit {
 
   constructor(
     private caseService: CaseService,
+    private logService: LogService,
     private navHelper: NavHelperService,
   ) { }
 
@@ -120,6 +123,7 @@ export class CaseBuilderComponent implements OnInit {
         (error) => {
           console.log("make case failed");
         }, () => {
+          this.logService.log("info", "Case Opened: " + this.caseOrder.name).subscribe();
           this.navHelper.goToRoleSelect(newCase._id);
         });
   }

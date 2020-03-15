@@ -3,6 +3,8 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { AuthService } from "src/app/services/auth.service";
 import { NavHelperService } from "src/app/services/nav-helper.service";
 import { UserService } from "src/app/services/user.service";
+import { Log } from "src/app/models/Log.model";
+import { LogService } from "src/app/services/log.service";
 
 @Component({
   selector: "app-login",
@@ -41,6 +43,7 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
+    private logService: LogService,
     private userService: UserService,
     private navHelper: NavHelperService,
   ) { }
@@ -84,6 +87,7 @@ export class LoginComponent {
         (error) => {
           this.loginFailure = true;
         }, () => {
+          this.logService.log("info", "Login: " + this.email).subscribe();
           this.navHelper.goToProfile();
         });
   }

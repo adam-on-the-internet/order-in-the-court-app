@@ -15,7 +15,12 @@ export class LogService {
     private http: HttpClient,
   ) { }
 
-  public log(log: Log): Observable<any> {
+  public log(level: string, message: string): Observable<any> {
+    const log: Log = {
+      level,
+      message,
+      application: "order-in-the-court-ui"
+    };
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller: "log"

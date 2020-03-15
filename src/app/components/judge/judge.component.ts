@@ -4,6 +4,8 @@ import { CaseService } from "src/app/services/case.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { interval, Subscription } from "rxjs";
+import { LogService } from "src/app/services/log.service";
+import { Log } from "src/app/models/Log.model";
 
 @Component({
   selector: "app-judge",
@@ -28,6 +30,7 @@ export class JudgeComponent implements OnInit, OnDestroy {
 
   constructor(
     private caseService: CaseService,
+    private logService: LogService,
     private route: ActivatedRoute
   ) { }
 
@@ -67,6 +70,7 @@ export class JudgeComponent implements OnInit, OnDestroy {
           this.error = true;
           console.log("close case failed");
         }, () => {
+          this.logService.log("info", "Case Closed: " + this.case.name).subscribe();
           this.closeAutosaver();
         });
   }
