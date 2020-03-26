@@ -43,6 +43,10 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.CaseArchive);
   }
 
+  public goToDonate(): void {
+    this.goToRoute(ROUTES_ENUM.Donate);
+  }
+
   // COURTROOM
 
   public goToRoleSelect(caseId: string): void {

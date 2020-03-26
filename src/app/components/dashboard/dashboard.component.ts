@@ -24,4 +24,8 @@ export class DashboardComponent {
     this.navHelper.goToCaseArchive();
   }
 
+  public goToDonate() {
+    this.navHelper.goToDonate();
+  }
+
 }
