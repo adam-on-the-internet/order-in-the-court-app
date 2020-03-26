@@ -28,4 +28,8 @@ export class DashboardComponent {
     this.navHelper.goToDonate();
   }
 
+  public goToInfo() {
+    this.navHelper.goToInfo();
+  }
+
 }
