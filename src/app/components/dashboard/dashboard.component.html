@@ -2,78 +2,75 @@
   [title]="'Order in the Court'"
   [subtitle]="'Welcome! Please select a case or create a new one.'"
 ></app-header>
-<app-body></app-body>
-<div class="bg-off">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 my-3">
-        <div class="card border-primary h-100">
-          <div class="card-body">
-            <h5 class="card-title">Create a Case</h5>
-            <p class="card-text">
-              Start a new case that your friends can join!
-            </p>
-            <button class="btn btn-primary" (click)="createCase()">
-              Create
-            </button>
-          </div>
+<app-body>
+  <div class="row">
+    <div class="col-md-6 my-3">
+      <div class="card border-primary h-100">
+        <div class="card-body">
+          <h5 class="card-title">Create a Case</h5>
+          <p class="card-text">
+            Start a new case that your friends can join!
+          </p>
+          <button class="btn btn-primary" (click)="createCase()">
+            Create
+          </button>
         </div>
       </div>
-      <div class="col-md-6 my-3">
-        <div class="card border-primary h-100">
-          <div class="card-body">
-            <h5 class="card-title">Join a Case</h5>
-            <p class="card-text">Join an existing case!</p>
-            <button class="btn btn-primary" (click)="joinCase()">Join</button>
-          </div>
+    </div>
+    <div class="col-md-6 my-3">
+      <div class="card border-primary h-100">
+        <div class="card-body">
+          <h5 class="card-title">Join a Case</h5>
+          <p class="card-text">Join an existing case!</p>
+          <button class="btn btn-primary" (click)="joinCase()">Join</button>
         </div>
       </div>
-      <div class="col-md-6 my-3">
-        <div class="card border-secondary h-100">
-          <div class="card-body">
-            <h5 class="card-title">View the Case Archive</h5>
-            <p class="card-text">Look at past cases.</p>
-            <button class="btn btn-secondary" (click)="goToArchive()">
-              View
-            </button>
-          </div>
+    </div>
+    <div class="col-md-6 my-3">
+      <div class="card border-secondary h-100">
+        <div class="card-body">
+          <h5 class="card-title">View the Case Archive</h5>
+          <p class="card-text">Look at past cases.</p>
+          <button class="btn btn-secondary" (click)="goToArchive()">
+            View
+          </button>
         </div>
       </div>
-      <div class="col-md-6 my-3">
-        <div class="card border-secondary h-100">
-          <div class="card-body">
-            <h5 class="card-title">Donate</h5>
-            <p class="card-text">
-              Like this free website? Pay it forward to a charity I support.
-            </p>
-            <button class="btn btn-secondary" (click)="goToDonate()">
-              Donate
-            </button>
-          </div>
+    </div>
+    <div class="col-md-6 my-3">
+      <div class="card border-secondary h-100">
+        <div class="card-body">
+          <h5 class="card-title">Donate</h5>
+          <p class="card-text">
+            Like this free website? Pay it forward to a charity I support.
+          </p>
+          <button class="btn btn-secondary" (click)="goToDonate()">
+            Donate
+          </button>
         </div>
       </div>
-      <div class="col-md-6 my-3">
-        <div class="card border-secondary h-100">
-          <div class="card-body">
-            <h5 class="card-title">Make Suggestions</h5>
-            <p class="card-text">
-              Suggest evidence, witnesses, and issues to add to the pool!
-            </p>
-            <button class="btn btn-secondary" disabled>Coming soon</button>
-          </div>
+    </div>
+    <div class="col-md-6 my-3">
+      <div class="card border-secondary h-100">
+        <div class="card-body">
+          <h5 class="card-title">Make Suggestions</h5>
+          <p class="card-text">
+            Suggest evidence, witnesses, and issues to add to the pool!
+          </p>
+          <button class="btn btn-secondary" disabled>Coming soon</button>
         </div>
       </div>
-      <div class="col-md-6 my-3">
-        <div class="card border-secondary h-100">
-          <div class="card-body">
-            <h5 class="card-title">More Info</h5>
-            <p class="card-text">
-              Get more information about this website.
-            </p>
-            <button class="btn btn-secondary" (click)="goToInfo()">Info</button>
-          </div>
+    </div>
+    <div class="col-md-6 my-3">
+      <div class="card border-secondary h-100">
+        <div class="card-body">
+          <h5 class="card-title">More Info</h5>
+          <p class="card-text">
+            Get more information about this website.
+          </p>
+          <button class="btn btn-secondary" (click)="goToInfo()">Info</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</app-body>
