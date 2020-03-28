@@ -41,6 +41,8 @@ import { CaseSelectComponent } from "./components/case-select/case-select.compon
 import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
 import { ClosedCaseTableComponent } from "./components/closed-case-table/closed-case-table.component";
 import { DonateComponent } from "./components/donate/donate.component";
+import { HeaderComponent } from './components/header/header.component';
+import { BodyComponent } from './components/body/body.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { DonateComponent } from "./components/donate/donate.component";
     CaseSelectComponent,
     CaseArchiveComponent,
     ClosedCaseTableComponent,
-    DonateComponent
+    DonateComponent,
+    HeaderComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
