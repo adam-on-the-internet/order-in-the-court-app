@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
+import { Component, Input } from "@angular/core";
+import { BooleanHelper } from "src/app/utilities/boolean.util";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent {
   @Input() public title = "Title";
