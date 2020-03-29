@@ -1,11 +1,7 @@
 <ng-container *ngIf="ready; else loading">
   <h3 class="text-center">Case Details</h3>
-  <div class="card border-dark mb-3" *ngIf="case.closed">
-    <div class="card-body">
-      <h5 class="card-title">
-        <i class="fa fa-gavel"></i>
-        Verdict
-      </h5>
+  <div class="mb-3" *ngIf="case.closed">
+    <app-card [title]="'Verdict'" [icon]="'fa-gavel'">
       <p *ngIf="case.closed && case.isDefendantGuilty">
         The defendant was found GUILTY.
       </p>
@@ -15,42 +11,29 @@
       <p class="card-text">
         {{ case.verdict }}
       </p>
-    </div>
+    </app-card>
   </div>
-  <div class="card border-dark mb-3">
-    <div class="card-body">
-      <h5 class="card-title">
-        <i class="fa fa-tag"></i>
-        Name: {{ case.name }}
-      </h5>
-    </div>
+  <div class="mb-3">
+    <app-card [title]="'Name: ' + case.name" [icon]="'fa-tag'"> </app-card>
   </div>
-  <div class="card border-dark mb-3">
-    <div class="card-body">
-      <h5 class="card-title">
-        <i class="fa fa-book"></i>
-        Issue: {{ case.issue.name }}
-      </h5>
+  <div class="mb-3">
+    <app-card [title]="'Issue: ' + case.issue.name" [icon]="'fa-book'">
       <p class="card-text">
         {{ case.issue.description }}
       </p>
-    </div>
+    </app-card>
   </div>
   <div
-    class="card border-dark mb-3"
+    class="mb-3"
     *ngIf="case.revealedWitnesses.length + case.unrevealedWitnesses.length > 0"
   >
-    <div class="card-body">
-      <h5 class="card-title">
-        <i class="fa fa-users"></i>
-        Witnesses
-      </h5>
+    <app-card [title]="'Witnesses'" [icon]="'fa-users'">
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedWitnesses.length }} of
         {{ case.revealedWitnesses.length + case.unrevealedWitnesses.length }}
         revealed
       </h6>
-      <div class="card-text">
+      <div>
         <p *ngIf="case.revealedWitnesses.length === 0">
           No witnesses revealed yet.
         </p>
@@ -60,14 +43,10 @@
           </li>
         </ol>
       </div>
-    </div>
+    </app-card>
   </div>
-  <div class="card border-dark mb-3">
-    <div class="card-body">
-      <h5 class="card-title">
-        <i class="fa fa-search"></i>
-        Plaintiff Evidence
-      </h5>
+  <div class="mb-3">
+    <app-card [title]="'Plaintiff Evidence'" [icon]="'fa-search'">
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedPlaintiffEvidence.length }} of
         {{
@@ -86,14 +65,10 @@
           </li>
         </ol>
       </div>
-    </div>
+    </app-card>
   </div>
-  <div class="card border-dark mb-3">
-    <div class="card-body">
-      <h5 class="card-title">
-        <i class="fa fa-search"></i>
-        Defendant Evidence
-      </h5>
+  <div class="mb-3">
+    <app-card [title]="'Defendant Evidence'" [icon]="'fa-search'">
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedDefendantEvidence.length }} of
         {{
@@ -112,7 +87,7 @@
           </li>
         </ol>
       </div>
-    </div>
+    </app-card>
   </div>
 </ng-container>
 
