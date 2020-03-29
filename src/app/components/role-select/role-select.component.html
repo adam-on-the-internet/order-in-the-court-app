@@ -1,79 +1,79 @@
 <ng-container *ngIf="ready; else loading">
-  <app-header [title]="case.name + ': Role Select'"></app-header>
+  <app-header
+    [title]="case.name + ': Role Select'"
+    [subtitle]="'To play, you must select what role you are playing.'"
+  ></app-header>
   <app-body>
     <div class="row">
       <div class="col-md-6 my-3">
         <h3 class="text-center">
-          Select your role
+          Roles
         </h3>
-        <div class="card mb-3 border-primary">
-          <div class="card-body">
-            <h5 class="card-title">
-              Judge
-            </h5>
-            <p class="card-text">
+        <div class="my-3">
+          <app-card [title]="'Judge'" [autoHeight]="false" [icon]="'fa-gavel'">
+            <p>
               The judge runs the case and makes a verdict at the end.
             </p>
             <button class="btn btn-primary" (click)="beJudge()">
               Choose
             </button>
-          </div>
+          </app-card>
         </div>
-        <div class="card mb-3 border-primary">
-          <div class="card-body">
-            <h5 class="card-title">
-              Plaintiff
-            </h5>
-            <p class="card-text">
+        <div class="my-3">
+          <app-card
+            [title]="'Plaintiff'"
+            [autoHeight]="false"
+            [icon]="'fa-balance-scale'"
+          >
+            <p>
               The plaintiff uses evidence to accuse the defendant of some
               wrongdoing.
             </p>
             <button class="btn btn-primary" (click)="bePlaintiff()">
               Choose
             </button>
-          </div>
+          </app-card>
         </div>
-        <div class="card mb-3 border-primary">
-          <div class="card-body">
-            <h5 class="card-title">
-              Defendant
-            </h5>
-            <p class="card-text">
+        <div class="my-3">
+          <app-card
+            [title]="'Defendant'"
+            [autoHeight]="false"
+            [icon]="'fa-balance-scale'"
+          >
+            <p>
               The defendant uses evidence to deny the accusation from the
               plaintiff.
             </p>
             <button class="btn btn-primary" (click)="beDefendant()">
               Choose
             </button>
-          </div>
+          </app-card>
         </div>
-        <div class="card mb-3 border-primary" *ngIf="showWitness">
-          <div class="card-body">
-            <h5 class="card-title">
-              Witness
-            </h5>
-            <p class="card-text">
+        <div class="my-3">
+          <app-card
+            [title]="'Witness'"
+            [autoHeight]="false"
+            [icon]="'fa-users'"
+          >
+            <p>
               The witness comes in to court to connect their backstory to the
               case.
             </p>
             <button class="btn btn-primary" (click)="beWitness()">
               Choose
             </button>
-          </div>
+          </app-card>
         </div>
-        <div class="card mb-3 border-primary">
-          <div class="card-body">
-            <h5 class="card-title">
-              Jury
-            </h5>
-            <p class="card-text">
+        <div class="my-3">
+          <app-card [title]="'Jury'" [autoHeight]="false" [icon]="'fa-eye'">
+            <p>
               The jury spectates and is consulted by the judge before making a
               verdict.
             </p>
             <button class="btn btn-primary" (click)="beJury()">
               Choose
             </button>
-          </div>
+          </app-card>
         </div>
       </div>
       <div class="col-md-6 my-3">
@@ -84,11 +84,11 @@
 </ng-container>
 
 <ng-template #loading>
-  <div class="container">
+  <app-body>
     <div class="row">
       <div class="col-md-12">
         <app-loading [message]="'Preparing role selection...'"></app-loading>
       </div>
     </div>
-  </div>
+  </app-body>
 </ng-template>
