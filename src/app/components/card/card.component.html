@@ -1,6 +1,11 @@
 <div class="card border-primary h-100">
   <div class="card-body">
-    <h5 class="card-title" *ngIf="hasTitle">{{ title }}</h5>
+    <h5 class="card-title" *ngIf="hasTitle">
+      <span *ngIf="hasIcon">
+        <i class="fa" [ngClass]="icon"></i>
+      </span>
+      {{ title }}
+    </h5>
     <ng-content></ng-content>
   </div>
 </div>

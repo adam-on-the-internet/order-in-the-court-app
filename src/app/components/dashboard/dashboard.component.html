@@ -5,13 +5,13 @@
 <app-body>
   <div class="row">
     <div class="col-md-6 my-3">
-      <app-card [title]="'Join a Case'">
+      <app-card [title]="'Join a Case'" [icon]="'fa-sign-in'">
         <p>Join an existing case!</p>
         <button class="btn btn-primary" (click)="joinCase()">Join</button>
       </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <app-card [title]="'Create a Case'">
+      <app-card [title]="'Create a Case'" [icon]="'fa-plus'">
         <p>
           Start a new case that your friends can join!
         </p>
@@ -22,13 +22,13 @@
     </div>
 
     <div class="col-md-6 my-3">
-      <app-card [title]="'Read the Rules'">
+      <app-card [title]="'Read the Rules'" [icon]="'fa-book'">
         <p>Read the rules for the game.</p>
         <button class="btn btn-secondary" (click)="readRules()">Rules</button>
       </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <app-card [title]="'View the Case Archive'">
+      <app-card [title]="'View the Case Archive'" [icon]="'fa-archive'">
         <p>Look at past cases.</p>
         <button class="btn btn-secondary" (click)="goToArchive()">
           View
@@ -36,7 +36,7 @@
       </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <app-card [title]="'Donate to Charity'">
+      <app-card [title]="'Donate to Charity'" [icon]="'fa-money'">
         <p>
           Like this free website? Pay it forward to a charity I support.
         </p>
@@ -46,7 +46,7 @@
       </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <app-card [title]="'More Information'">
+      <app-card [title]="'More Information'" [icon]="'fa-info-circle'">
         <p>
           Get more information about this website.
         </p>
