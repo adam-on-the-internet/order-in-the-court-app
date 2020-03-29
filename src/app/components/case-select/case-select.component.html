@@ -1,7 +1,17 @@
 <app-header
-  [title]="'Select a Case'"
-  [subtitle]="'Select a case to join.'"
-></app-header>
+  [title]="'Join a Case'"
+  [subtitle]="'Find the name of the case you want to join in the list below.'"
+>
+</app-header>
 <app-body>
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      Don't have a case ready to join?
+      <button class="btn btn-secondary btn-small" (click)="createCase()">
+        <i class="fa fa-plus"></i>
+        Create a Case
+      </button>
+    </div>
+  </div>
   <app-open-case-table [adminMode]="false"></app-open-case-table>
 </app-body>
