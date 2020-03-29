@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NavHelperService } from 'src/app/services/nav-helper.service';
+import { NavHelperService } from "src/app/services/nav-helper.service";
 
 @Component({
   selector: "app-case-select",

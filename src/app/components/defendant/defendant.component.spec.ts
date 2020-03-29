@@ -7,6 +7,7 @@ import { RevelationsComponent } from "../revelations/revelations.component";
 import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
+import { CardComponent } from "../card/card.component";
 
 describe("DefendantComponent", () => {
   let component: DefendantComponent;
@@ -16,7 +17,8 @@ describe("DefendantComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         DefendantComponent, RevelationsComponent,
-        HeaderComponent, BodyComponent, LoadingComponent
+        HeaderComponent, BodyComponent, LoadingComponent,
+        CardComponent
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
