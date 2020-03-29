@@ -1,7 +1,7 @@
 <ng-container *ngIf="ready; else loading">
   <app-header
-    [title]="case.name + ': Role Select'"
-    [subtitle]="'To play, you must select what role you are playing.'"
+    [title]="'Role Select'"
+    [subtitle]="'To begin, please select a role.'"
   ></app-header>
   <app-body>
     <div class="row">
@@ -12,10 +12,10 @@
         <div class="my-3">
           <app-card [title]="'Judge'" [autoHeight]="false" [icon]="'fa-gavel'">
             <p>
-              The judge runs the case and makes a verdict at the end.
+              The judge runs the case. They decide a verdict to close the case.
             </p>
             <button class="btn btn-primary" (click)="beJudge()">
-              Choose
+              Select
             </button>
           </app-card>
         </div>
@@ -26,11 +26,12 @@
             [icon]="'fa-balance-scale'"
           >
             <p>
-              The plaintiff uses evidence to accuse the defendant of some
-              wrongdoing.
+              The plaintiff reveals evidence
+              <span *ngIf="showWitness">and questions witnesses</span> to accuse
+              the defendant of something.
             </p>
             <button class="btn btn-primary" (click)="bePlaintiff()">
-              Choose
+              Select
             </button>
           </app-card>
         </div>
@@ -41,37 +42,38 @@
             [icon]="'fa-balance-scale'"
           >
             <p>
-              The defendant uses evidence to deny the accusation from the
-              plaintiff.
+              The defendant reveals evidence
+              <span *ngIf="showWitness">and questions witnesses</span> to deny
+              the plaintiff's accusation.
             </p>
             <button class="btn btn-primary" (click)="beDefendant()">
-              Choose
+              Select
             </button>
           </app-card>
         </div>
-        <div class="my-3">
+        <div class="my-3" *ngIf="showWitness">
           <app-card
             [title]="'Witness'"
             [autoHeight]="false"
             [icon]="'fa-users'"
           >
             <p>
-              The witness comes in to court to connect their backstory to the
-              case.
+              The witnesses are called into court by the judge to connect their
+              backstory to the case. Multiple players can have this role.
             </p>
             <button class="btn btn-primary" (click)="beWitness()">
-              Choose
+              Select
             </button>
           </app-card>
         </div>
         <div class="my-3">
           <app-card [title]="'Jury'" [autoHeight]="false" [icon]="'fa-eye'">
             <p>
-              The jury spectates and is consulted by the judge before making a
-              verdict.
+              The jury spectates the case. Optionally, the judge may ask them
+              for their opinion. Multiple players can have this role.
             </p>
             <button class="btn btn-primary" (click)="beJury()">
-              Choose
+              Select
             </button>
           </app-card>
         </div>
