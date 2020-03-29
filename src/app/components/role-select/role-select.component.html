@@ -12,7 +12,13 @@
         <div class="my-3">
           <app-card [title]="'Judge'" [autoHeight]="false" [icon]="'fa-gavel'">
             <p>
-              The judge runs the case. They decide a verdict to close the case.
+              The judge runs the case.
+              <span *ngIf="showWitness"
+                >They decide when to call witnesses.</span
+              >
+              Once all pieces of evidence
+              <span *ngIf="showWitness"> and witnesses</span> are revealed, the
+              judge rules a verdict.
             </p>
             <button class="btn btn-primary" (click)="beJudge()">
               Select
