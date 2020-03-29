@@ -4,6 +4,9 @@ import { RoleSelectComponent } from "./role-select.component";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RevelationsComponent } from "../revelations/revelations.component";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("RoleSelectComponent", () => {
   let component: RoleSelectComponent;
@@ -11,7 +14,10 @@ describe("RoleSelectComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RoleSelectComponent, RevelationsComponent],
+      declarations: [
+        RoleSelectComponent, RevelationsComponent,
+        HeaderComponent, BodyComponent, LoadingComponent
+      ],
       imports: [RouterTestingModule, HttpClientTestingModule]
     })
       .compileComponents();

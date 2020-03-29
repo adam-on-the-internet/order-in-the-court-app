@@ -1,30 +1,24 @@
 <ng-container *ngIf="ready; else loading">
-  <div class="jumbotron jumbotron-fluid bg-tan mb-0">
-    <div class="container">
-      <h1 class="display-4">{{ case.name }}: Jury</h1>
-      <p>
-        You are in the jury. You are just a spectator til the end, when the
-        judge will ask your opinion before making a verdict.
-      </p>
-    </div>
-  </div>
-  <div class="bg-off">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 my-3">
-          <app-revelations [caseId]="case._id"></app-revelations>
-        </div>
+  <app-header
+    [title]="case.name + ': Jury'"
+    [subtitle]="
+      'You are in the jury. You are just a spectator til the end, when the judge will ask your opinion before making a verdict.'
+    "
+  ></app-header>
+  <app-body>
+    <div class="row">
+      <div class="col-md-12 my-3">
+        <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
-  </div>
+  </app-body>
 </ng-container>
 
 <ng-template #loading>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="spinner-border"></div>
-        <p>Loading...</p>
+        <app-loading></app-loading>
       </div>
     </div>
   </div>

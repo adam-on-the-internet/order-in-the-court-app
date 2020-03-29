@@ -1,44 +1,69 @@
-<ng-container *ngIf="ready; else notReady">
-  <button (click)="createEvidence()" *ngIf="canEdit">
-    Create Evidence
-  </button>
-  <ng-container *ngIf="!hasEvidence">
-    <p>No evidence available.</p>
-  </ng-container>
-  <ng-container *ngIf="hasEvidence">
-    <p>
-      <small>Showing {{ evidences.length }} piece(s) of evidence</small>
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Details</th>
-          <ng-container *ngIf="canEdit">
-            <th>Edit</th>
-            <th>Delete</th>
-          </ng-container>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let evidence of evidences">
-          <td>{{ evidence.name }}</td>
-          <td>
-            <button (click)="evidenceDetails(evidence)">Details</button>
-          </td>
-          <ng-container *ngIf="canEdit">
-            <td><button (click)="editEvidence(evidence)">Edit</button></td>
-            <td>
-              <button (click)="requestDelete(evidence)">Delete</button>
-            </td>
-          </ng-container>
-        </tr>
-      </tbody>
-    </table>
-  </ng-container>
-</ng-container>
+<div class="row">
+  <div class="col-md-12 my-3">
+    <ng-container *ngIf="ready; else notReady">
+      <button
+        class="btn btn-secondary"
+        (click)="createEvidence()"
+        *ngIf="canEdit"
+      >
+        Create Evidence
+      </button>
+      <ng-container *ngIf="!hasEvidence">
+        <p>No evidence available.</p>
+      </ng-container>
+      <ng-container *ngIf="hasEvidence">
+        <p>
+          <small>Showing {{ evidences.length }} piece(s) of evidence</small>
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Details</th>
+              <ng-container *ngIf="canEdit">
+                <th>Edit</th>
+                <th>Delete</th>
+              </ng-container>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let evidence of evidences">
+              <td>{{ evidence.name }}</td>
+              <td>
+                <button
+                  class="btn btn-secondary"
+                  (click)="evidenceDetails(evidence)"
+                >
+                  Details
+                </button>
+              </td>
+              <ng-container *ngIf="canEdit">
+                <td>
+                  <button
+                    class="btn btn-secondary"
+                    (click)="editEvidence(evidence)"
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td>
+                  <button
+                    class="btn btn-secondary"
+                    (click)="requestDelete(evidence)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
 
 <ng-template #notReady>
   <p *ngIf="error">Error occured :(</p>
-  <p *ngIf="!error">Loading...</p>
+  <app-loading *ngIf="!error"></app-loading>
 </ng-template>

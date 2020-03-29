@@ -35,10 +35,20 @@
               <td>{{ case.openedDate | date }}</td>
               <ng-container *ngIf="adminMode">
                 <td>
-                  <button (click)="goToCaseDetails(case)">Details</button>
+                  <button
+                    class="btn btn-secondary"
+                    (click)="goToCaseDetails(case)"
+                  >
+                    Details
+                  </button>
                 </td>
                 <td>
-                  <button (click)="requestDelete(case)">Delete</button>
+                  <button
+                    class="btn btn-secondary"
+                    (click)="requestDelete(case)"
+                  >
+                    Delete
+                  </button>
                 </td>
               </ng-container>
             </tr>

@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { IssueDisplayComponent } from "./issue-display.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { BodyComponent } from "../body/body.component";
+import { HeaderComponent } from "../header/header.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("IssueDisplayComponent", () => {
   let component: IssueDisplayComponent;
@@ -10,7 +13,7 @@ describe("IssueDisplayComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [IssueDisplayComponent],
+      declarations: [IssueDisplayComponent, BodyComponent, HeaderComponent, LoadingComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

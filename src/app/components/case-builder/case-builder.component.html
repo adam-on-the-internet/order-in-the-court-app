@@ -1,100 +1,87 @@
-<div class="jumbotron jumbotron-fluid bg-tan mb-0">
-  <div class="container">
-    <h1 class="display-4">Create a case</h1>
-  </div>
-</div>
-<div class="bg-off">
-  <div class="container">
-    <div class="row" *ngIf="ready; else loading">
-      <div class="col-md-12 my-3">
-        <div class="alert alert-info">
-          <p>
-            To make a case, pick a case name and decide how much evidence and
-            how many witnesses to have. The more witnesses and evidence, the
-            longer the game will last. You can also pick a standard 3, 4, or 5
-            person game so you don't have to decide how many witnesses and
-            evidence to use.
-          </p>
-          <p>Evidence per side must be 1 to 11.</p>
-          <p>Witnesses must be 0 to 11.</p>
-        </div>
-        <form>
-          <div class="btn-group mb-3" role="group" aria-label="Basic example">
-            <button
-              (click)="setupThreePlayerStandard()"
-              class="btn btn-secondary"
-            >
-              Pick 3-Player standard
-            </button>
-            <button
-              (click)="setupFourPlayerStandard()"
-              class="btn btn-secondary"
-            >
-              Pick 4-Player standard
-            </button>
-            <button
-              (click)="setupFivePlayerStandard()"
-              class="btn btn-secondary"
-            >
-              Pick 5-Player standard
-            </button>
-          </div>
-          <div class="form-group">
-            <label for="caseName">1. Case name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="case-name"
-              name="caseName"
-              [(ngModel)]="caseOrder.name"
-            />
-          </div>
-          <div class="form-group">
-            <label for="evidencePerSide">2. Evidence per side: (1-10)</label>
-            <input
-              type="number"
-              class="form-control"
-              id="evidence-per-side"
-              name="evidenceCount"
-              [(ngModel)]="caseOrder.evidenceCount"
-            />
-          </div>
-          <div class="form-group">
-            <label for="witnessCount">3. Witness count: (0-10)</label>
-            <input
-              type="number"
-              class="form-control"
-              id="witness-count"
-              name="witnessCount"
-              [(ngModel)]="caseOrder.witnessCount"
-            />
-          </div>
-          <div
-            class="alert alert-warning"
-            role="alert"
-            *ngIf="showErrors && !valid"
-          >
-            <p>Please correct the following errors:</p>
-            <ul>
-              <li *ngFor="let error of errors">
-                {{ error }}
-              </li>
-            </ul>
-          </div>
-          <button class="btn btn-primary btn-block" (click)="submit()">
-            Submit case
-          </button>
-        </form>
+<app-header [title]="'Create a Case'"></app-header>
+<app-body>
+  <div class="row" *ngIf="ready; else loading">
+    <div class="col-md-12 my-3">
+      <div class="alert alert-info">
+        <p>
+          To make a case, pick a case name and decide how much evidence and how
+          many witnesses to have. The more witnesses and evidence, the longer
+          the game will last. You can also pick a standard 3, 4, or 5 person
+          game so you don't have to decide how many witnesses and evidence to
+          use.
+        </p>
+        <p>Evidence per side must be 1 to 11.</p>
+        <p>Witnesses must be 0 to 11.</p>
       </div>
+      <form>
+        <div class="btn-group mb-3" role="group" aria-label="Basic example">
+          <button
+            (click)="setupThreePlayerStandard()"
+            class="btn btn-secondary"
+          >
+            Pick 3-Player standard
+          </button>
+          <button (click)="setupFourPlayerStandard()" class="btn btn-secondary">
+            Pick 4-Player standard
+          </button>
+          <button (click)="setupFivePlayerStandard()" class="btn btn-secondary">
+            Pick 5-Player standard
+          </button>
+        </div>
+        <div class="form-group">
+          <label for="caseName">1. Case name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="case-name"
+            name="caseName"
+            [(ngModel)]="caseOrder.name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="evidencePerSide">2. Evidence per side: (1-10)</label>
+          <input
+            type="number"
+            class="form-control"
+            id="evidence-per-side"
+            name="evidenceCount"
+            [(ngModel)]="caseOrder.evidenceCount"
+          />
+        </div>
+        <div class="form-group">
+          <label for="witnessCount">3. Witness count: (0-10)</label>
+          <input
+            type="number"
+            class="form-control"
+            id="witness-count"
+            name="witnessCount"
+            [(ngModel)]="caseOrder.witnessCount"
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          role="alert"
+          *ngIf="showErrors && !valid"
+        >
+          <p>Please correct the following errors:</p>
+          <ul>
+            <li *ngFor="let error of errors">
+              {{ error }}
+            </li>
+          </ul>
+        </div>
+        <button class="btn btn-primary btn-block" (click)="submit()">
+          Submit case
+        </button>
+      </form>
     </div>
   </div>
-</div>
+</app-body>
 
 <ng-template #loading>
   <div class="row">
     <div class="col-md-12">
-      <div class="spinner-border"></div>
-      <p>Preparing case creation...</p>
+      <app-loading [message]="'Preparing case creation...'"></app-loading>
     </div>
   </div>
 </ng-template>

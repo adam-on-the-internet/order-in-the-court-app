@@ -4,6 +4,9 @@ import { IssueFormComponent } from "./issue-form.component";
 import { FormsModule } from "@angular/forms";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("IssueFormComponent", () => {
   let component: IssueFormComponent;
@@ -11,7 +14,7 @@ describe("IssueFormComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [IssueFormComponent],
+      declarations: [IssueFormComponent, HeaderComponent, BodyComponent, LoadingComponent],
       imports: [FormsModule, RouterTestingModule, HttpClientTestingModule]
     })
       .compileComponents();

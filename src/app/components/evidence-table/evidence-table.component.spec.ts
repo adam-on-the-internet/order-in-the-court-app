@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { EvidenceTableComponent } from "./evidence-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("EvidenceTableComponent", () => {
   let component: EvidenceTableComponent;
@@ -10,7 +11,7 @@ describe("EvidenceTableComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EvidenceTableComponent],
+      declarations: [EvidenceTableComponent, LoadingComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

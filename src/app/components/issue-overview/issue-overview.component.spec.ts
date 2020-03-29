@@ -4,6 +4,9 @@ import { IssueOverviewComponent } from "./issue-overview.component";
 import { IssueTableComponent } from "../issue-table/issue-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("IssueOverviewComponent", () => {
   let component: IssueOverviewComponent;
@@ -11,7 +14,10 @@ describe("IssueOverviewComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [IssueOverviewComponent, IssueTableComponent],
+      declarations: [
+        IssueOverviewComponent, IssueTableComponent,
+        HeaderComponent, BodyComponent, LoadingComponent
+      ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

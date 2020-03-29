@@ -1,44 +1,69 @@
-<ng-container *ngIf="ready; else notReady">
-  <button (click)="createWitness()" *ngIf="canEdit">
-    Create Witness
-  </button>
-  <ng-container *ngIf="!hasWitness">
-    <p>No witnesses available.</p>
-  </ng-container>
-  <ng-container *ngIf="hasWitness">
-    <p>
-      <small>Showing {{ witnesses.length }} witness(es)</small>
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Details</th>
-          <ng-container *ngIf="canEdit">
-            <th>Edit</th>
-            <th>Delete</th>
-          </ng-container>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let witness of witnesses">
-          <td>{{ witness.name }}</td>
-          <td>
-            <button (click)="witnessDetails(witness)">Details</button>
-          </td>
-          <ng-container *ngIf="canEdit">
-            <td><button (click)="editWitness(witness)">Edit</button></td>
-            <td>
-              <button (click)="requestDelete(witness)">Delete</button>
-            </td>
-          </ng-container>
-        </tr>
-      </tbody>
-    </table>
-  </ng-container>
-</ng-container>
+<div class="row">
+  <div class="col-md-12 my-3">
+    <ng-container *ngIf="ready; else notReady">
+      <button
+        class="btn btn-secondary"
+        (click)="createWitness()"
+        *ngIf="canEdit"
+      >
+        Create Witness
+      </button>
+      <ng-container *ngIf="!hasWitness">
+        <p>No witnesses available.</p>
+      </ng-container>
+      <ng-container *ngIf="hasWitness">
+        <p>
+          <small>Showing {{ witnesses.length }} witness(es)</small>
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Details</th>
+              <ng-container *ngIf="canEdit">
+                <th>Edit</th>
+                <th>Delete</th>
+              </ng-container>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let witness of witnesses">
+              <td>{{ witness.name }}</td>
+              <td>
+                <button
+                  class="btn btn-secondary"
+                  (click)="witnessDetails(witness)"
+                >
+                  Details
+                </button>
+              </td>
+              <ng-container *ngIf="canEdit">
+                <td>
+                  <button
+                    class="btn btn-secondary"
+                    (click)="editWitness(witness)"
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td>
+                  <button
+                    class="btn btn-secondary"
+                    (click)="requestDelete(witness)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
 
 <ng-template #notReady>
   <p *ngIf="error">Error occured :(</p>
-  <p *ngIf="!error">Loading...</p>
+  <app-loading *ngIf="!error">Loading...</app-loading>
 </ng-template>

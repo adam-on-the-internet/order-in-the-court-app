@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { CaseDisplayComponent } from "./case-display.component";
 import { RouterTestingModule } from "@angular/router/testing";
+import { BodyComponent } from "../body/body.component";
+import { HeaderComponent } from "../header/header.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("CaseDisplayComponent", () => {
   let component: CaseDisplayComponent;
@@ -9,10 +12,10 @@ describe("CaseDisplayComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CaseDisplayComponent],
+      declarations: [CaseDisplayComponent, BodyComponent, HeaderComponent, LoadingComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

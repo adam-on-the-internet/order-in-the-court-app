@@ -4,6 +4,9 @@ import { EvidenceOverviewComponent } from "./evidence-overview.component";
 import { EvidenceTableComponent } from "../evidence-table/evidence-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("EvidenceOverviewComponent", () => {
   let component: EvidenceOverviewComponent;
@@ -11,7 +14,10 @@ describe("EvidenceOverviewComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EvidenceOverviewComponent, EvidenceTableComponent],
+      declarations: [
+        EvidenceOverviewComponent, EvidenceTableComponent, HeaderComponent, BodyComponent,
+        LoadingComponent
+      ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

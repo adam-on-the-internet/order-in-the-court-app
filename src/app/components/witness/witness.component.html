@@ -1,55 +1,46 @@
 <ng-container *ngIf="ready; else loading">
-  <div class="jumbotron jumbotron-fluid bg-tan mb-0">
-    <div class="container">
-      <h1 class="display-4">{{ case.name }}: Witness</h1>
-      <p>
-        You are the witness. When the judge summons you, reveal a witness and
-        connect their backstory to the case.
-      </p>
-    </div>
-  </div>
-  <div class="bg-off">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 my-3">
-          <p *ngIf="case.unrevealedWitnesses.length === 0">
-            No witnesses left to be revealed.
-          </p>
-          <p *ngIf="case.unrevealedWitnesses.length > 0">
-            Here are the witnesses for this case you have not revealed yet:
-          </p>
-          <div
-            class="card my-2 border-primary"
-            *ngFor="let witness of case.unrevealedWitnesses"
-          >
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="fa fa-users"></i>
-                {{ witness.name }}
-              </h5>
-              <button
-                class="btn btn-secondary"
-                (click)="revealWitness(witness)"
-              >
-                Reveal
-              </button>
-            </div>
+  <app-header
+    [title]="case.name + ': Witness'"
+    [subtitle]="
+      'You are the witness. When the judge summons you, reveal a witness and connect their backstory to the case.'
+    "
+  ></app-header>
+  <app-body>
+    <div class="row">
+      <div class="col-md-6 my-3">
+        <p *ngIf="case.unrevealedWitnesses.length === 0">
+          No witnesses left to be revealed.
+        </p>
+        <p *ngIf="case.unrevealedWitnesses.length > 0">
+          Here are the witnesses for this case you have not revealed yet:
+        </p>
+        <div
+          class="card my-2 border-primary"
+          *ngFor="let witness of case.unrevealedWitnesses"
+        >
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fa fa-users"></i>
+              {{ witness.name }}
+            </h5>
+            <button class="btn btn-secondary" (click)="revealWitness(witness)">
+              Reveal
+            </button>
           </div>
         </div>
-        <div class="col-md-6 my-3">
-          <app-revelations [caseId]="case._id"></app-revelations>
-        </div>
+      </div>
+      <div class="col-md-6 my-3">
+        <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
-  </div>
+  </app-body>
 </ng-container>
 
 <ng-template #loading>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="spinner-border"></div>
-        <p>Loading...</p>
+        <app-loading></app-loading>
       </div>
     </div>
   </div>

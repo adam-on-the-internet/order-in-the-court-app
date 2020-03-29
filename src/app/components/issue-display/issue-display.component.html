@@ -1,15 +1,21 @@
 <ng-container *ngIf="ready; else notReady">
-  <h1>
-    {{ issue.name }}
-  </h1>
-  <p>
-    {{ issue.description }}
-  </p>
-  <p>
-    <small>{{ issue._id }}</small>
-  </p>
+  <app-body>
+    <div class="row">
+      <div class="col-md-12 my-3">
+        <h1>
+          {{ issue.name }}
+        </h1>
+        <p>
+          {{ issue.description }}
+        </p>
+        <p>
+          <small>{{ issue._id }}</small>
+        </p>
+      </div>
+    </div>
+  </app-body>
 </ng-container>
 
 <ng-template #notReady>
-  <p>Loading...</p>
+  <app-loading></app-loading>
 </ng-template>

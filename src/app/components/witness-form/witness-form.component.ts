@@ -14,6 +14,13 @@ export class WitnessFormComponent implements OnInit {
   public witness: Witness = null;
   public showErrors = false;
 
+  public get title(): string {
+    if (this.editMode) {
+      return "Edit Witness";
+    }
+    return "Create Witness";
+  }
+
   public get errors(): string[] {
     const myErrors = [];
     if (this.nameInvalid) {

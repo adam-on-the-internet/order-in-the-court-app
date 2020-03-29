@@ -14,6 +14,13 @@ export class EvidenceFormComponent implements OnInit {
   public evidence: Evidence = null;
   public showErrors = false;
 
+  public get title(): string {
+    if (this.editMode) {
+      return "Edit Evidence";
+    }
+    return "Create Evidence";
+  }
+
   public get errors(): string[] {
     const myErrors = [];
     if (this.nameInvalid) {

@@ -14,6 +14,13 @@ export class IssueFormComponent implements OnInit {
   public issue: Issue = null;
   public showErrors = false;
 
+  public get title(): string {
+    if (this.editMode) {
+      return "Edit Issue";
+    }
+    return "Create Issue";
+  }
+
   public get errors(): string[] {
     const myErrors = [];
     if (this.nameInvalid) {

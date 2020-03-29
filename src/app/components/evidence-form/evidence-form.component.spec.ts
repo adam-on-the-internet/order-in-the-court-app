@@ -4,6 +4,9 @@ import { EvidenceFormComponent } from "./evidence-form.component";
 import { FormsModule } from "@angular/forms";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("EvidenceFormComponent", () => {
   let component: EvidenceFormComponent;
@@ -11,7 +14,7 @@ describe("EvidenceFormComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EvidenceFormComponent],
+      declarations: [EvidenceFormComponent, HeaderComponent, BodyComponent, LoadingComponent],
       imports: [FormsModule, RouterTestingModule, HttpClientTestingModule]
     })
       .compileComponents();

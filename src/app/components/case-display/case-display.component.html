@@ -1,67 +1,73 @@
 <ng-container *ngIf="ready; else notReady">
-  <h1>Name: {{ case.name }}</h1>
-  <hr />
-  <h2>Issue</h2>
-  <p>
-    <strong>
-      Name:
-    </strong>
-    {{ case.issue.name }}
-  </p>
-  <p>
-    <strong>
-      Description:
-    </strong>
-    {{ case.issue.description }}
-  </p>
-  <hr />
-  <h2>Unrevealed Witnesses</h2>
-  <ol>
-    <li *ngFor="let witness of case.unrevealedWitnesses">
-      {{ witness.name }}
-    </li>
-  </ol>
-  <hr />
-  <h2>Revealed Witnesses</h2>
-  <ol>
-    <li *ngFor="let witness of case.revealedWitnesses">
-      {{ witness.name }}
-    </li>
-  </ol>
-  <hr />
-  <h2>Unrevealed Plaintiff Evidence</h2>
-  <ol>
-    <li *ngFor="let evidence of case.unrevealedPlaintiffEvidence">
-      {{ evidence.name }}
-    </li>
-  </ol>
-  <hr />
-  <h2>Revealed Plaintiff Evidence</h2>
-  <ol>
-    <li *ngFor="let evidence of case.revealedPlaintiffEvidence">
-      {{ evidence.name }}
-    </li>
-  </ol>
-  <hr />
-  <h2>Unrevealed Defendant Evidence</h2>
-  <ol>
-    <li *ngFor="let evidence of case.unrevealedDefendantEvidence">
-      {{ evidence.name }}
-    </li>
-  </ol>
-  <hr />
-  <h2>Revealed Defendant Evidence</h2>
-  <ol>
-    <li *ngFor="let evidence of case.revealedDefendantEvidence">
-      {{ evidence.name }}
-    </li>
-  </ol>
-  <hr />
-  <p>
-    <small>id: {{ case._id }}</small>
-  </p>
+  <app-body>
+    <div class="row">
+      <div class="col-md-12 my-3">
+        <h1>Name: {{ case.name }}</h1>
+        <hr />
+        <h2>Issue</h2>
+        <p>
+          <strong>
+            Name:
+          </strong>
+          {{ case.issue.name }}
+        </p>
+        <p>
+          <strong>
+            Description:
+          </strong>
+          {{ case.issue.description }}
+        </p>
+        <hr />
+        <h2>Unrevealed Witnesses</h2>
+        <ol>
+          <li *ngFor="let witness of case.unrevealedWitnesses">
+            {{ witness.name }}
+          </li>
+        </ol>
+        <hr />
+        <h2>Revealed Witnesses</h2>
+        <ol>
+          <li *ngFor="let witness of case.revealedWitnesses">
+            {{ witness.name }}
+          </li>
+        </ol>
+        <hr />
+        <h2>Unrevealed Plaintiff Evidence</h2>
+        <ol>
+          <li *ngFor="let evidence of case.unrevealedPlaintiffEvidence">
+            {{ evidence.name }}
+          </li>
+        </ol>
+        <hr />
+        <h2>Revealed Plaintiff Evidence</h2>
+        <ol>
+          <li *ngFor="let evidence of case.revealedPlaintiffEvidence">
+            {{ evidence.name }}
+          </li>
+        </ol>
+        <hr />
+        <h2>Unrevealed Defendant Evidence</h2>
+        <ol>
+          <li *ngFor="let evidence of case.unrevealedDefendantEvidence">
+            {{ evidence.name }}
+          </li>
+        </ol>
+        <hr />
+        <h2>Revealed Defendant Evidence</h2>
+        <ol>
+          <li *ngFor="let evidence of case.revealedDefendantEvidence">
+            {{ evidence.name }}
+          </li>
+        </ol>
+        <hr />
+        <p>
+          <small>id: {{ case._id }}</small>
+        </p>
+      </div>
+    </div>
+  </app-body>
 </ng-container>
 
 <ng-template #notReady>
-  <p>Loading...</p>
+  <app-loading></app-loading>
 </ng-template>

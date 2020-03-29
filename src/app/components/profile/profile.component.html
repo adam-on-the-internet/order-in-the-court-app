@@ -1,11 +1,7 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Your Profile</h1>
-  </div>
-</div>
-<div class="container">
+<app-header [title]="'Your Profile'"></app-header>
+<app-body>
   <div class="row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6 my-3">
       <p>
         <strong>
           email:
@@ -25,13 +21,17 @@
         {{ specialAccess }}
       </p>
     </div>
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6 my-3">
       <p>
-        <button class="btn btn-primary" (click)="editEmail()">Edit your email</button>
+        <button class="btn btn-primary" (click)="editEmail()">
+          Edit your email
+        </button>
       </p>
       <p>
-        <button class="btn btn-primary"  (click)="editPassword()">Edit your password</button>
+        <button class="btn btn-primary" (click)="editPassword()">
+          Edit your password
+        </button>
       </p>
     </div>
   </div>
-</div>
+</app-body>

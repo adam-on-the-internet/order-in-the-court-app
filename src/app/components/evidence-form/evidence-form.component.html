@@ -1,37 +1,35 @@
 <ng-container *ngIf="ready; else notReady">
-  <div class="header">
-    <h1>
-      <span *ngIf="editMode">Edit Evidence</span>
-      <span *ngIf="!editMode">Create Evidence</span>
-    </h1>
-    <hr />
-  </div>
-  <div class="body">
-    <form>
-      <section id="evidence-name">
-        1. Evidence name:
-        <input
-          type="text"
-          name="evidenceName"
-          [(ngModel)]="evidence.name"
-        /><br /><br />
-      </section>
-      <hr />
-      <div class="error-report" *ngIf="showErrors && !valid">
-        <p>Please correct the following errors:</p>
-        <ul>
-          <li *ngFor="let error of errors">
-            {{ error }}
-          </li>
-        </ul>
+  <app-header [title]="title"></app-header>
+  <app-body>
+    <div class="row">
+      <div class="col-md-12 my-3">
+        <form>
+          <section id="evidence-name">
+            1. Evidence name:
+            <input
+              type="text"
+              name="evidenceName"
+              [(ngModel)]="evidence.name"
+            /><br /><br />
+          </section>
+          <hr />
+          <div class="error-report" *ngIf="showErrors && !valid">
+            <p>Please correct the following errors:</p>
+            <ul>
+              <li *ngFor="let error of errors">
+                {{ error }}
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" (click)="submit()">
+            Save Evidence
+          </button>
+        </form>
       </div>
-      <button (click)="submit()">
-        Save Evidence
-      </button>
-    </form>
-  </div>
+    </div>
+  </app-body>
 </ng-container>
 
 <ng-template #notReady>
-  <p>Loading...</p>
+  <app-loading></app-loading>
 </ng-template>
