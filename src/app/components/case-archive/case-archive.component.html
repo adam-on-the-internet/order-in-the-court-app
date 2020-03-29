@@ -1,9 +1,7 @@
-<div class="jumbotron jumbotron-fluid bg-tan mb-0">
-  <div class="container">
-    <h1 class="display-4">Case Archive</h1>
-    <p>Here you can view past cases and their verdicts.</p>
-  </div>
-</div>
-<div class="bg-off">
+<app-header
+  [title]="'Case Archive'"
+  [subtitle]="'Here you can view past cases and their verdicts.'"
+></app-header>
+<app-body>
   <app-closed-case-table></app-closed-case-table>
-</div>
+</app-body>

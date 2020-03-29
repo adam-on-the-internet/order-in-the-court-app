@@ -3,14 +3,15 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { OpenCaseTableComponent } from "./open-case-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { LoadingComponent } from "../loading/loading.component";
 
-describe("CaseTableComponent", () => {
+describe("OpenCaseTableComponent", () => {
   let component: OpenCaseTableComponent;
   let fixture: ComponentFixture<OpenCaseTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [OpenCaseTableComponent],
+      declarations: [OpenCaseTableComponent, LoadingComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

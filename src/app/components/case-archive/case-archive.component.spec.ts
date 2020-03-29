@@ -4,6 +4,9 @@ import { CaseArchiveComponent } from "./case-archive.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { ClosedCaseTableComponent } from "../closed-case-table/closed-case-table.component";
+import { LoadingComponent } from "../loading/loading.component";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
 
 describe("CaseArchiveComponent", () => {
   let component: CaseArchiveComponent;
@@ -11,7 +14,10 @@ describe("CaseArchiveComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CaseArchiveComponent, ClosedCaseTableComponent],
+      declarations: [
+        CaseArchiveComponent, ClosedCaseTableComponent,
+        LoadingComponent, HeaderComponent, BodyComponent
+      ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

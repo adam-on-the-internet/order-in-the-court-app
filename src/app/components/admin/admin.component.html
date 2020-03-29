@@ -1,9 +1,5 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Admin Panel</h1>
-  </div>
-</div>
-<div class="container">
+<app-header [title]="'Admin Panel'"></app-header>
+<app-body>
   <div class="row">
     <div class="col-md-6 mb-3">
       <h3>Court Data</h3>
@@ -41,8 +37,4 @@
       </p>
     </div>
   </div>
-</div>
-
-<ng-template #loading>
-  <p>Loading...</p>
-</ng-template>
+</app-body>

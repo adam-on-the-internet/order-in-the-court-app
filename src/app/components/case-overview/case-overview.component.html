@@ -1,9 +1,8 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Case Overview</h1>
-  </div>
-</div>
-<h3>Open Cases</h3>
-<app-open-case-table [adminMode]="true"></app-open-case-table>
-<h3>Closed Cases</h3>
-<app-closed-case-table [adminMode]="true"></app-closed-case-table>
+<app-header [title]="'Case Overview'"></app-header>
+<app-body>
+  <h3>Open Cases</h3>
+  <app-open-case-table [adminMode]="true"></app-open-case-table>
+  <hr />
+  <h3>Closed Cases</h3>
+  <app-closed-case-table [adminMode]="true"></app-closed-case-table>
+</app-body>

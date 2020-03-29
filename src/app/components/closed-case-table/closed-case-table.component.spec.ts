@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ClosedCaseTableComponent } from "./closed-case-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("ClosedCaseTableComponent", () => {
   let component: ClosedCaseTableComponent;
@@ -10,7 +11,7 @@ describe("ClosedCaseTableComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ClosedCaseTableComponent],
+      declarations: [ClosedCaseTableComponent, LoadingComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

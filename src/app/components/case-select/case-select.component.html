@@ -1,9 +1,7 @@
-<div class="jumbotron jumbotron-fluid bg-tan mb-0">
-  <div class="container">
-    <h1 class="display-4">Select a case</h1>
-    <p class="lead">Select a case to join.</p>
-  </div>
-</div>
-<div class="bg-off">
+<app-header
+  [title]="'Select a Case'"
+  [subtitle]="'Select a case to join.'"
+></app-header>
+<app-body>
   <app-open-case-table [adminMode]="false"></app-open-case-table>
-</div>
+</app-body>

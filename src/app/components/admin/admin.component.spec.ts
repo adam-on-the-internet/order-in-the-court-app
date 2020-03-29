@@ -4,6 +4,8 @@ import { AdminComponent } from "./admin.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { ActuatorReportComponent } from "../actuator-report/actuator-report.component";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
 
 describe("AdminComponent", () => {
   let component: AdminComponent;
@@ -11,7 +13,7 @@ describe("AdminComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminComponent, ActuatorReportComponent],
+      declarations: [AdminComponent, ActuatorReportComponent, HeaderComponent, BodyComponent],
       imports: [HttpClientTestingModule, RouterTestingModule],
     })
       .compileComponents();

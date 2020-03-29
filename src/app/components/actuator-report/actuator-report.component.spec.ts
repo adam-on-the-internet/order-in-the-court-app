@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { ActuatorReportComponent } from "./actuator-report.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { LoadingComponent } from "../loading/loading.component";
 
 describe("ActuatorReportComponent", () => {
   let component: ActuatorReportComponent;
@@ -9,7 +10,7 @@ describe("ActuatorReportComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ActuatorReportComponent],
+      declarations: [ActuatorReportComponent, LoadingComponent],
       imports: [HttpClientTestingModule]
     })
       .compileComponents();
