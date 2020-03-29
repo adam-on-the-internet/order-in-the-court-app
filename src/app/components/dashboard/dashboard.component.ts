@@ -32,4 +32,8 @@ export class DashboardComponent {
     this.navHelper.goToInfo();
   }
 
+  public readRules() {
+    this.navHelper.goToRules();
+  }
+
 }

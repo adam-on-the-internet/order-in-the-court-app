@@ -44,6 +44,7 @@ import { DonateComponent } from "./components/donate/donate.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { BodyComponent } from "./components/body/body.component";
 import { LoadingComponent } from "./components/loading/loading.component";
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { LoadingComponent } from "./components/loading/loading.component";
     DonateComponent,
     HeaderComponent,
     BodyComponent,
-    LoadingComponent
+    LoadingComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

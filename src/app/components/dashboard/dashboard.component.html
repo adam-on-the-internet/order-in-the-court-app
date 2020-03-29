@@ -5,72 +5,53 @@
 <app-body>
   <div class="row">
     <div class="col-md-6 my-3">
-      <div class="card border-primary h-100">
-        <div class="card-body">
-          <h5 class="card-title">Create a Case</h5>
-          <p class="card-text">
-            Start a new case that your friends can join!
-          </p>
-          <button class="btn btn-primary" (click)="createCase()">
-            Create
-          </button>
-        </div>
-      </div>
+      <app-card [title]="'Join a Case'">
+        <p>Join an existing case!</p>
+        <button class="btn btn-primary" (click)="joinCase()">Join</button>
+      </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <div class="card border-primary h-100">
-        <div class="card-body">
-          <h5 class="card-title">Join a Case</h5>
-          <p class="card-text">Join an existing case!</p>
-          <button class="btn btn-primary" (click)="joinCase()">Join</button>
-        </div>
-      </div>
+      <app-card [title]="'Create a Case'">
+        <p>
+          Start a new case that your friends can join!
+        </p>
+        <button class="btn btn-primary" (click)="createCase()">
+          Create
+        </button>
+      </app-card>
+    </div>
+
+    <div class="col-md-6 my-3">
+      <app-card [title]="'Read the Rules'">
+        <p>Read the rules for the game.</p>
+        <button class="btn btn-secondary" (click)="readRules()">Rules</button>
+      </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <div class="card border-secondary h-100">
-        <div class="card-body">
-          <h5 class="card-title">View the Case Archive</h5>
-          <p class="card-text">Look at past cases.</p>
-          <button class="btn btn-secondary" (click)="goToArchive()">
-            View
-          </button>
-        </div>
-      </div>
+      <app-card [title]="'View the Case Archive'">
+        <p>Look at past cases.</p>
+        <button class="btn btn-secondary" (click)="goToArchive()">
+          View
+        </button>
+      </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <div class="card border-secondary h-100">
-        <div class="card-body">
-          <h5 class="card-title">Donate</h5>
-          <p class="card-text">
-            Like this free website? Pay it forward to a charity I support.
-          </p>
-          <button class="btn btn-secondary" (click)="goToDonate()">
-            Donate
-          </button>
-        </div>
-      </div>
+      <app-card [title]="'Donate to Charity'">
+        <p>
+          Like this free website? Pay it forward to a charity I support.
+        </p>
+        <button class="btn btn-secondary" (click)="goToDonate()">
+          Donate
+        </button>
+      </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <div class="card border-secondary h-100">
-        <div class="card-body">
-          <h5 class="card-title">Make Suggestions</h5>
-          <p class="card-text">
-            Suggest evidence, witnesses, and issues to add to the pool!
-          </p>
-          <button class="btn btn-secondary" disabled>Coming soon</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 my-3">
-      <div class="card border-secondary h-100">
-        <div class="card-body">
-          <h5 class="card-title">More Info</h5>
-          <p class="card-text">
-            Get more information about this website.
-          </p>
-          <button class="btn btn-secondary" (click)="goToInfo()">Info</button>
-        </div>
-      </div>
+      <app-card [title]="'More Information'">
+        <p>
+          Get more information about this website.
+        </p>
+        <button class="btn btn-secondary" (click)="goToInfo()">Info</button>
+      </app-card>
     </div>
   </div>
 </app-body>
