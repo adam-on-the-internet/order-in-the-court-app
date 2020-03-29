@@ -4,6 +4,7 @@ import { DashboardComponent } from "./dashboard.component";
 import { RouterTestingModule } from "@angular/router/testing";
 import { BodyComponent } from "../body/body.component";
 import { HeaderComponent } from "../header/header.component";
+import { CardComponent } from "../card/card.component";
 
 describe("DashboardComponent", () => {
   let component: DashboardComponent;
@@ -11,7 +12,7 @@ describe("DashboardComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent, BodyComponent, HeaderComponent],
+      declarations: [DashboardComponent, BodyComponent, HeaderComponent, CardComponent],
       imports: [RouterTestingModule]
     })
       .compileComponents();
