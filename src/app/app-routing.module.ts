@@ -28,6 +28,7 @@ import { RulesComponent } from "./components/rules/rules.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
 import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
 import { DonateComponent } from "./components/donate/donate.component";
+import { ArchivedCaseComponent } from './components/archived-case/archived-case.component';
 
 const routes: Routes = [
   // main
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Donate, component: DonateComponent },
   // courtroom
   { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },
+  { path: ROUTES_ENUM.ArchivedCase + "/:id", component: ArchivedCaseComponent },
   { path: ROUTES_ENUM.Judge + "/:id", component: JudgeComponent },
   { path: ROUTES_ENUM.Plaintiff + "/:id", component: PlaintiffComponent },
   { path: ROUTES_ENUM.Defendant + "/:id", component: DefendantComponent },

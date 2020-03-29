@@ -53,6 +53,10 @@ export class NavHelperService {
     this.goToRoutes([ROUTES_ENUM.RoleSelect, caseId]);
   }
 
+  public goToArchivedCase(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.ArchivedCase, caseId]);
+  }
+
   public goToJudge(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.Judge, caseId]);
   }

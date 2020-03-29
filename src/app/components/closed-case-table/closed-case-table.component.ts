@@ -48,7 +48,7 @@ export class ClosedCaseTableComponent implements OnInit {
   }
 
   public goToCourtroom(myCase: Case) {
-    this.navHelper.goToRoleSelect(myCase._id);
+    this.navHelper.goToArchivedCase(myCase._id);
   }
 
   private loadCases() {

@@ -15,7 +15,7 @@
             <tr>
               <th *ngIf="!adminMode">#</th>
               <th>Case name</th>
-              <th *ngIf="!adminMode">Select</th>
+              <th *ngIf="!adminMode">View</th>
               <th>Case Created On:</th>
               <th>Case Closed On:</th>
               <ng-container *ngIf="adminMode">
@@ -30,7 +30,7 @@
               <td>{{ case.name }}</td>
               <td *ngIf="!adminMode">
                 <button class="btn btn-primary" (click)="goToCourtroom(case)">
-                  Select case
+                  View Case
                 </button>
               </td>
               <td>{{ case.openedDate | date }}</td>
