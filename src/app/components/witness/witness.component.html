@@ -1,19 +1,33 @@
 <ng-container *ngIf="ready; else loading">
-  <app-header
-    [title]="case.name + ': Witness'"
-    [subtitle]="
-      'You are a witness. When the judge summons you, reveal a witness and connect their backstory to the case.'
-    "
-  ></app-header>
+  <app-header [title]="case.name + ': Witness'"></app-header>
   <app-body>
     <div class="row">
       <div class="col-md-6 my-3">
-        <p *ngIf="case.unrevealedWitnesses.length === 0">
-          No witnesses left to be revealed.
-        </p>
-        <p *ngIf="case.unrevealedWitnesses.length > 0">
-          Here are the witnesses for this case you have not revealed yet:
-        </p>
+        <div class="mb-3">
+          <app-card
+            [autoHeight]="false"
+            [title]="'Witness Role Explanation'"
+            [icon]="'fa-book'"
+          >
+            <ul>
+              <li>
+                When the judge orders you to reveal a witness, choose a witness
+                to reveal and then act as that witness!
+              </li>
+              <li>
+                As a witness, you must provide a reason for being in court.
+                Usually, this involves connecting your backstory to the case.
+              </li>
+              <li>
+                You can pick a side, remain neutral, or just cause chaos. Up to
+                you!
+              </li>
+            </ul>
+          </app-card>
+        </div>
+        <h3 class="text-center" *ngIf="case.unrevealedWitnesses.length > 0">
+          Unrevealed Witnesses
+        </h3>
         <div
           class="card my-2 border-primary"
           *ngFor="let witness of case.unrevealedWitnesses"
