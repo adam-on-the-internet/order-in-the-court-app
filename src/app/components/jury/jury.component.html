@@ -1,8 +1,9 @@
 <ng-container *ngIf="ready; else loading">
-  <app-header [title]="case.name + ': Jury'"></app-header>
+  <app-header [title]="'Jury'"></app-header>
   <app-body>
     <div class="row">
       <div class="col-md-6 my-3">
+        <h3 class="text-center">Role</h3>
         <div class="mb-3">
           <app-card
             [autoHeight]="false"
