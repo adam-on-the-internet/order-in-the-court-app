@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { DonateComponent } from "./donate.component";
 import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
+import { CardComponent } from "../card/card.component";
 
 describe("DonateComponent", () => {
   let component: DonateComponent;
@@ -10,7 +11,7 @@ describe("DonateComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DonateComponent, HeaderComponent, BodyComponent]
+      declarations: [DonateComponent, HeaderComponent, BodyComponent, CardComponent]
     })
       .compileComponents();
   }));

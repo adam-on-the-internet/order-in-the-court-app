@@ -18,7 +18,7 @@
               >
               Once all pieces of evidence
               <span *ngIf="showWitness"> and witnesses</span> are revealed, the
-              judge rules a verdict.
+              judge rules a verdict. Just one player should have this role.
             </p>
             <button class="btn btn-primary" (click)="beJudge()">
               Select
@@ -34,7 +34,7 @@
             <p>
               The plaintiff reveals evidence
               <span *ngIf="showWitness">and questions witnesses</span> to accuse
-              the defendant of something.
+              the defendant of something. Just one player should have this role.
             </p>
             <button class="btn btn-primary" (click)="bePlaintiff()">
               Select
@@ -50,7 +50,7 @@
             <p>
               The defendant reveals evidence
               <span *ngIf="showWitness">and questions witnesses</span> to deny
-              the plaintiff's accusation.
+              the plaintiff's accusation. Just one player should have this role.
             </p>
             <button class="btn btn-primary" (click)="beDefendant()">
               Select

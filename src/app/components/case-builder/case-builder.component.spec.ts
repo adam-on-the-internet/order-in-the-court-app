@@ -7,7 +7,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
-import { CardComponent } from '../card/card.component';
+import { CardComponent } from "../card/card.component";
 
 describe("CaseBuilderComponent", () => {
   let component: CaseBuilderComponent;
