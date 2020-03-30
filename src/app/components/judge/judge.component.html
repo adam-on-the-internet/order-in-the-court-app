@@ -1,60 +1,92 @@
 <ng-container *ngIf="ready; else loading">
-  <app-header
-    [title]="case.name + ': Judge'"
-    [subtitle]="
-      'You are the judge. You get to decide who wins the case and when to call witnesses.'
-    "
-  ></app-header>
+  <app-header [title]="case.name + ': Judge'"></app-header>
   <app-body>
     <div class="row">
       <div class="col-md-6 my-3">
-        <div
-          class="card border-primary mb-3"
-          *ngIf="readyToClose && !case.closed"
-        >
+        <div class="mb-3">
+          <app-card
+            [autoHeight]="false"
+            [title]="'Judge Role Explanation'"
+            [icon]="'fa-book'"
+          >
+            <ul>
+              <li>
+                You are in charge of directing the case. How you do this is up
+                to you!
+              </li>
+              <li>
+                After all evidence and witnesses are revealed, you will make a
+                verdict.
+              </li>
+              <li>
+                Optionally, you can use the "Case File" below to keep score and
+                take notes.
+              </li>
+              <li>
+                If there are witnesses in this case, you can decide to call them
+                at any time. Do this by telling the witness player(s) to reveal
+                a witness.
+              </li>
+              <li>
+                If there is a jury in this case, you can allow them to have an
+                input on the verdict at the end of the case.
+              </li>
+            </ul>
+          </app-card>
+        </div>
+        <div class="card border-primary mb-3" *ngIf="!case.closed">
           <div class="card-body">
             <h5 class="card-title">
               <i class="fa fa-gavel"></i>
               Verdict
             </h5>
-            <div class="alert alert-info">
-              All witnesses and evidence have been revealed. When you're ready,
-              write your verdict and close the case.
-            </div>
-            <hr />
-            <div class="form-group">
-              <label for="verdict-explanation"
-                >1. Verdict Explanation: (write your verdict)</label
+            <p *ngIf="!readyToClose">
+              You cannot make your verdict until all witnesses and evidence have
+              been revealed.
+            </p>
+            <div id="verdict-controls" *ngIf="readyToClose">
+              <div class="alert alert-info">
+                All witnesses and evidence have been revealed. When you're
+                ready, write your verdict and close the case.
+              </div>
+              <hr />
+              <div class="form-group">
+                <label for="verdict-explanation"
+                  >1. Verdict Explanation: (write your verdict)</label
+                >
+                <textarea
+                  (change)="updateVerdict($event)"
+                  class="form-control"
+                  rows="5"
+                  id="verdict-explanation"
+                ></textarea>
+              </div>
+              <hr />
+              <label>2. Final Decision</label>
+              <br />
+              <button
+                class="btn btn-primary mx-2 mb-1"
+                (click)="setGuilty(true)"
               >
-              <textarea
-                (change)="updateVerdict($event)"
-                class="form-control"
-                rows="5"
-                id="verdict-explanation"
-              ></textarea>
+                <i class="fa fa-check" *ngIf="case.isDefendantGuilty"></i>
+                Defendant is GUILTY
+              </button>
+              <button
+                class="btn btn-primary mx-2 mb-1"
+                (click)="setGuilty(false)"
+              >
+                <i class="fa fa-check" *ngIf="!case.isDefendantGuilty"></i>
+                Defendant is NOT GUILTY
+              </button>
+              <hr />
+              <button
+                class="btn btn-primary btn-block"
+                (click)="closeCase()"
+                [disabled]="!case.verdict || case.verdict.length === 0"
+              >
+                Close case
+              </button>
             </div>
-            <hr />
-            <label>2. Final Decision</label>
-            <br />
-            <button class="btn btn-primary mx-2 mb-1" (click)="setGuilty(true)">
-              <i class="fa fa-check" *ngIf="case.isDefendantGuilty"></i>
-              Defendant is GUILTY
-            </button>
-            <button
-              class="btn btn-primary mx-2 mb-1"
-              (click)="setGuilty(false)"
-            >
-              <i class="fa fa-check" *ngIf="!case.isDefendantGuilty"></i>
-              Defendant is NOT GUILTY
-            </button>
-            <hr />
-            <button
-              class="btn btn-primary btn-block"
-              (click)="closeCase()"
-              [disabled]="!case.verdict || case.verdict.length === 0"
-            >
-              Close case
-            </button>
           </div>
         </div>
         <div class="card border-primary">

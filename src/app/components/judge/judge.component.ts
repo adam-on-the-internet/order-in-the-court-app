@@ -5,7 +5,6 @@ import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { interval, Subscription } from "rxjs";
 import { LogService } from "src/app/services/log.service";
-import { Log } from "src/app/models/Log.model";
 
 @Component({
   selector: "app-judge",
