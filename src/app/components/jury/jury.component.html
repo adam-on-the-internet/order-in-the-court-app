@@ -1,13 +1,28 @@
 <ng-container *ngIf="ready; else loading">
-  <app-header
-    [title]="case.name + ': Jury'"
-    [subtitle]="
-      'You are in the jury. You are just a spectator til the end, when the judge will ask your opinion before making a verdict.'
-    "
-  ></app-header>
+  <app-header [title]="case.name + ': Jury'"></app-header>
   <app-body>
     <div class="row">
-      <div class="col-md-12 my-3">
+      <div class="col-md-6 my-3">
+        <div class="mb-3">
+          <app-card
+            [autoHeight]="false"
+            [title]="'Jury Role Explanation'"
+            [icon]="'fa-book'"
+          >
+            <ul>
+              <li>
+                You are a spectator! Just watch the case unfold and react
+                dramatically.
+              </li>
+              <li>
+                Optionally, the judge may ask for you opinion when making a
+                verdict.
+              </li>
+            </ul>
+          </app-card>
+        </div>
+      </div>
+      <div class="col-md-6 my-3">
         <app-revelations [caseId]="case._id"></app-revelations>
       </div>
     </div>
