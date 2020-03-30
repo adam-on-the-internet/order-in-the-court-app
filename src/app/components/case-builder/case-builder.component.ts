@@ -5,7 +5,6 @@ import { Case } from "src/app/models/Case.model";
 import { CaseService } from "src/app/services/case.service";
 import { NavHelperService } from "src/app/services/nav-helper.service";
 import { LogService } from "src/app/services/log.service";
-import { Log } from "src/app/models/Log.model";
 
 @Component({
   selector: "app-case-builder",
@@ -16,6 +15,7 @@ export class CaseBuilderComponent implements OnInit {
   public caseNames: string[] = null;
   public caseOrder: CaseOrder = null;
   public showErrors = false;
+  public typeChosen = false;
 
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.caseNames) && BooleanHelper.hasValue(this.caseOrder);
@@ -48,30 +48,52 @@ export class CaseBuilderComponent implements OnInit {
     return myErrors;
   }
 
-  private get duplicateNameError(): boolean {
+  public get duplicateNameError(): boolean {
     return !this.caseNameNotSetError && this.caseNames.includes(this.caseOrder.name);
   }
 
-  private get caseNameNotSetError(): boolean {
+  public get caseNameNotSetError(): boolean {
     return !BooleanHelper.hasValue(this.caseOrder.name);
   }
 
-  private get witnessCountNotSetError(): boolean {
+  public get witnessCountNotSetError(): boolean {
     return !BooleanHelper.hasValue(this.caseOrder.witnessCount);
   }
 
-  private get evidencePerSideNotSetError(): boolean {
+  public get evidencePerSideNotSetError(): boolean {
     return !BooleanHelper.hasValue(this.caseOrder.evidenceCount);
   }
 
-  private get evidenceCountError(): boolean {
+  public get evidenceCountError(): boolean {
     return !this.evidencePerSideNotSetError &&
       (this.caseOrder.evidenceCount === 0 || this.caseOrder.evidenceCount > 10);
   }
 
-  private get witnessCountError(): boolean {
+  public get witnessCountError(): boolean {
     return !this.witnessCountNotSetError &&
       (this.caseOrder.witnessCount > 10);
+  }
+
+  public get showStepOne(): boolean {
+    return this.ready;
+  }
+
+  public get showStepTwo(): boolean {
+    return this.showStepOne && !this.caseNameNotSetError && !this.duplicateNameError;
+  }
+
+  public get showStepThree(): boolean {
+    return this.showStepOne && this.showStepTwo && this.typeChosen;
+  }
+
+  public get showStepFour(): boolean {
+    return this.showStepOne && this.showStepTwo && this.showStepThree
+      && !this.evidencePerSideNotSetError && !this.evidenceCountError;
+  }
+
+  public get showSubmit(): boolean {
+    return this.showStepOne && this.showStepTwo && this.showStepThree && this.showStepFour
+      && !this.witnessCountNotSetError && !this.witnessCountError;
   }
 
   constructor(
@@ -85,19 +107,34 @@ export class CaseBuilderComponent implements OnInit {
     this.setupCaseOrder();
   }
 
+  public useCustomSetup() {
+    this.caseOrder.evidenceCount = null;
+    this.caseOrder.witnessCount = null;
+    this.typeChosen = true;
+  }
+
   public setupThreePlayerStandard() {
     this.caseOrder.evidenceCount = 4;
     this.caseOrder.witnessCount = 0;
+    this.typeChosen = true;
   }
 
   public setupFourPlayerStandard() {
     this.caseOrder.evidenceCount = 3;
     this.caseOrder.witnessCount = 2;
+    this.typeChosen = true;
   }
 
   public setupFivePlayerStandard() {
     this.caseOrder.evidenceCount = 3;
     this.caseOrder.witnessCount = 4;
+    this.typeChosen = true;
+  }
+
+  public setupSixPlayerStandard() {
+    this.caseOrder.evidenceCount = 2;
+    this.caseOrder.witnessCount = 6;
+    this.typeChosen = true;
   }
 
   public submit() {

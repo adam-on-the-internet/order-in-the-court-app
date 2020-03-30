@@ -1,79 +1,145 @@
-<app-header [title]="'Create a Case'"></app-header>
+<app-header
+  [title]="'Create a Case'"
+  [subtitle]="'Complete steps 1-4 below to create your case.'"
+></app-header>
 <app-body>
   <div class="row" *ngIf="ready; else loading">
     <div class="col-md-12 my-3">
-      <div class="alert alert-info">
-        <p>
-          To make a case, pick a case name and decide how much evidence and how
-          many witnesses to have. The more witnesses and evidence, the longer
-          the game will last. You can also pick a standard 3, 4, or 5 person
-          game so you don't have to decide how many witnesses and evidence to
-          use.
-        </p>
-        <p>Evidence per side must be 1 to 11.</p>
-        <p>Witnesses must be 0 to 11.</p>
-      </div>
-      <form>
-        <div class="btn-group mb-3" role="group" aria-label="Basic example">
-          <button
-            (click)="setupThreePlayerStandard()"
-            class="btn btn-secondary"
-          >
-            Pick 3-Player standard
-          </button>
-          <button (click)="setupFourPlayerStandard()" class="btn btn-secondary">
-            Pick 4-Player standard
-          </button>
-          <button (click)="setupFivePlayerStandard()" class="btn btn-secondary">
-            Pick 5-Player standard
-          </button>
-        </div>
-        <div class="form-group">
-          <label for="caseName">1. Case name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="case-name"
-            name="caseName"
-            [(ngModel)]="caseOrder.name"
-          />
-        </div>
-        <div class="form-group">
-          <label for="evidencePerSide">2. Evidence per side: (1-10)</label>
-          <input
-            type="number"
-            class="form-control"
-            id="evidence-per-side"
-            name="evidenceCount"
-            [(ngModel)]="caseOrder.evidenceCount"
-          />
-        </div>
-        <div class="form-group">
-          <label for="witnessCount">3. Witness count: (0-10)</label>
-          <input
-            type="number"
-            class="form-control"
-            id="witness-count"
-            name="witnessCount"
-            [(ngModel)]="caseOrder.witnessCount"
-          />
-        </div>
-        <div
-          class="alert alert-warning"
-          role="alert"
-          *ngIf="showErrors && !valid"
-        >
-          <p>Please correct the following errors:</p>
-          <ul>
-            <li *ngFor="let error of errors">
-              {{ error }}
-            </li>
-          </ul>
-        </div>
-        <button class="btn btn-primary btn-block" (click)="submit()">
-          Submit case
-        </button>
-      </form>
+      <app-card [autoHeight]="false">
+        <form>
+          <!-- BEGIN STEP ONE -->
+          <div id="step-one" *ngIf="showStepOne">
+            <div class="form-group">
+              <label for="caseName">Step 1: Name Your Case</label>
+              <input
+                type="text"
+                class="form-control"
+                id="case-name"
+                name="caseName"
+                [(ngModel)]="caseOrder.name"
+              />
+            </div>
+            <div class="alert alert-danger" *ngIf="duplicateNameError">
+              This case name has already been taken. Please pick something else,
+              or try adding random numbers on to it.
+            </div>
+            <div class="alert alert-info" *ngIf="!showStepTwo">
+              Pick a name for your case! The name must be one that hasn't
+              already been taken.
+            </div>
+          </div>
+          <!-- END STEP ONE -->
+
+          <!-- BEGIN STEP TWO  -->
+          <div id="step-two" *ngIf="showStepTwo">
+            <hr />
+            <p>
+              Step 2: Pick Game Setup
+            </p>
+            <div class="mb-3">
+              <button
+                (click)="setupThreePlayerStandard()"
+                class="btn btn-secondary mx-2"
+              >
+                3 Player Standard
+              </button>
+              <button
+                (click)="setupFourPlayerStandard()"
+                class="btn btn-secondary mx-2"
+              >
+                4 Player Standard
+              </button>
+              <button
+                (click)="setupFivePlayerStandard()"
+                class="btn btn-secondary mx-2"
+              >
+                5 Player Standard
+              </button>
+              <button
+                (click)="setupSixPlayerStandard()"
+                class="btn btn-secondary mx-2"
+              >
+                6 Player Standard
+              </button>
+              <button (click)="useCustomSetup()" class="btn btn-secondary mx-2">
+                Custom
+              </button>
+            </div>
+            <div class="alert alert-info" *ngIf="!showStepThree">
+              Pick a standard setup to skip ahead past configuring evidence and
+              witness counts.
+              <br />
+              Pick custom setup if you would rather manually configure evidence
+              and witness counts.
+            </div>
+          </div>
+          <!-- END STEP TWO -->
+
+          <!-- BEGIN STEP THREE  -->
+          <div id="step-three" *ngIf="showStepThree">
+            <hr />
+            <div class="form-group">
+              <label for="evidencePerSide">Step 3: Pick Evidence Count</label>
+              <input
+                type="number"
+                class="form-control"
+                id="evidence-per-side"
+                name="evidenceCount"
+                [(ngModel)]="caseOrder.evidenceCount"
+              />
+            </div>
+            <div class="alert alert-danger" *ngIf="evidenceCountError">
+              The evidence count must be at least 1.
+            </div>
+            <div class="alert alert-info" *ngIf="!showStepFour">
+              Choose how much evidence the plaintiff and defendant should both
+              get.
+              <br />
+              The evidence count must be at least 1.
+            </div>
+          </div>
+          <!-- END STEP THREE -->
+
+          <!-- BEGIN STEP FOUR  -->
+          <div id="step-four" *ngIf="showStepFour">
+            <hr />
+            <div class="form-group">
+              <label for="witnessCount">Step 4: Pick Witness Count</label>
+              <input
+                type="number"
+                class="form-control"
+                id="witness-count"
+                name="witnessCount"
+                [(ngModel)]="caseOrder.witnessCount"
+              />
+            </div>
+            <div class="alert alert-danger" *ngIf="witnessCountError">
+              The witness count must not exceed 10.
+            </div>
+            <div class="alert alert-info" *ngIf="!showSubmit">
+              Choose how many witnesses will be in the case.
+              <br />
+              For a case without witnesses, enter 0.
+              <br />
+              The witness count must not exceed 10.
+            </div>
+          </div>
+          <!-- END STEP FOUR -->
+
+          <!-- BEGIN SUBMIT  -->
+          <div id="step-submit" *ngIf="showSubmit">
+            <hr />
+            <button class="btn btn-primary btn-block my-3" (click)="submit()">
+              Create Case
+            </button>
+            <div class="alert alert-info">
+              If everything looks like you want it, click "Create Case" to open
+              up the courtroom!
+            </div>
+          </div>
+          <!-- END SUBMIT -->
+        </form>
+      </app-card>
     </div>
   </div>
 </app-body>
