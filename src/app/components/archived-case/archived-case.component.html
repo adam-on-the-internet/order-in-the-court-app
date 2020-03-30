@@ -1,1 +1,23 @@
-<p>archived-case works!</p>
+<ng-container *ngIf="ready; else loading">
+  <app-header
+    [title]="'Archived Case'"
+    [subtitle]="'Details of a past case.'"
+  ></app-header>
+  <app-body>
+    <div class="row">
+      <div class="col-md-12 my-3">
+        <app-revelations [caseId]="case._id"></app-revelations>
+      </div>
+    </div>
+  </app-body>
+</ng-container>
+
+<ng-template #loading>
+  <app-body>
+    <div class="row">
+      <div class="col-md-12">
+        <app-loading [message]="'Loading case details...'"></app-loading>
+      </div>
+    </div>
+  </app-body>
+</ng-template>

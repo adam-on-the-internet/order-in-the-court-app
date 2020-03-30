@@ -1,16 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ArchivedCaseComponent } from './archived-case.component';
+import { ArchivedCaseComponent } from "./archived-case.component";
+import { HeaderComponent } from "../header/header.component";
+import { BodyComponent } from "../body/body.component";
+import { LoadingComponent } from "../loading/loading.component";
+import { RevelationsComponent } from "../revelations/revelations.component";
+import { CardComponent } from "../card/card.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('ArchivedCaseComponent', () => {
+describe("ArchivedCaseComponent", () => {
   let component: ArchivedCaseComponent;
   let fixture: ComponentFixture<ArchivedCaseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArchivedCaseComponent ]
+      declarations: [
+        ArchivedCaseComponent, HeaderComponent, BodyComponent, LoadingComponent, CardComponent,
+        RevelationsComponent
+      ],
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +30,7 @@ describe('ArchivedCaseComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

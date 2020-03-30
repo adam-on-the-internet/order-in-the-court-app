@@ -28,7 +28,7 @@ import { RulesComponent } from "./components/rules/rules.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
 import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
 import { DonateComponent } from "./components/donate/donate.component";
-import { ArchivedCaseComponent } from './components/archived-case/archived-case.component';
+import { ArchivedCaseComponent } from "./components/archived-case/archived-case.component";
 
 const routes: Routes = [
   // main
