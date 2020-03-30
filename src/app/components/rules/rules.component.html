@@ -1,70 +1,90 @@
 <app-header [title]="'Rules'"></app-header>
 <app-body>
   <div class="row">
-    <div class="col-md-12 mb-3">
-      <h2>Overview</h2>
-      <p>
-        <strong>Players:</strong>
-        3+
-      </p>
-      <p>
-        Order in the Court is a story-building improv game where players assume
-        the roles of various people in a court case and argue to reveal the
-        truth using witnesses, evidence, and wit. The rules are fairly loose and
-        can be changed depending on how your group would like to play.
-      </p>
-      <hr />
-      <h2>Roles</h2>
-      <p>
-        <strong>THE JUDGE:</strong>
-        The judge calls the shots. It is up to the judge to decide what
-        questions to ask, who gets to talk, who is successful at making their
-        case, and when to introduce witnesses. They can decide whether they'd
-        like to keep score based on evidence / witness impressions or whether
-        they'd rather leave the scoring more loose and pick a winner at the end.
-        If there is a jury present, the judge should consult them at the end of
-        the case before making a verdict.
-      </p>
-      <p>
-        <strong>THE PLAINTIFF / THE DEFENDANT:</strong>
-        The plaintiff has filed a law suit against the defendant over a certain
-        ISSUE. Both sides will make their case in a handful of ways:
-      </p>
-      <ol>
-        <li>
-          <strong>EVIDENCE:</strong>
-          Each side (P & D) has some amount of evidence. They can use this
-          evidence to prove their case - if they can find ways to connect their
-          evidence to their argument.
-        </li>
-        <li>
-          <strong>WITNESSES:</strong>
-          You may ask the witnesses questions to help defend your argument. For
-          more information, see the Witness Role explanation.
-        </li>
-        <li>
-          <strong>WIT:</strong>
-          When the floor is yours to speak, you can make your case however you
-          want! It is best to stick to evidence and witnesses, but any other
-          points are also worth making (especially puns).
-        </li>
-      </ol>
-      <p>
-        <strong>WITNESSES:</strong>
-        In a game of at least 4 people, witnesses may be brought into court.
-        Witnesses can stay neutral or pick a side, but must find a way to
-        connect their identity to the case at hand, offering some sort of
-        insight. The judge picks when to call witnesses. When a witness is
-        called, any witness players pick a witness to reveal. The judge and the
-        two sides (P & D) can ask the witness questions, and the judge decides
-        what to believe.
-      </p>
-      <p>
-        <strong>JURY:</strong>
-        Spectators may join the jury. Here they will have a view of any revealed
-        evidence and witnesses. They have no specific role til the end, when the
-        judge will ask them their opinion on the case.
-      </p>
+    <div class="col-md-12 my-3">
+      <div class="mb-3">
+        <app-card [title]="'Overview'" [autoHeight]="false">
+          <hr />
+          <p>
+            <strong>PLAYERS:</strong>
+            3+
+          </p>
+          <p>
+            <strong>SUMMARY:</strong>
+            Order in the Court is a story-building improv game where players
+            assume the roles of various characters in a court case and argue to
+            reveal the truth using witnesses, evidence, and wit. The rules are
+            fairly loose, please feel free to play however your group would like
+            to!
+          </p>
+          <p>
+            <strong>GAME START:</strong>
+            It is up to the judge to determine how to start the game. Usually,
+            the plaintiff and defendant make opening statements.
+          </p>
+          <p>
+            <strong>GAME END:</strong>
+            The game ends anytime after all witnesses and evidence have been revealed. It is up to the judge to determine when the ending happens after all is revealed. Usually, the plaintiff and defendant make closing statements.
+          </p>
+        </app-card>
+      </div>
+      <div class="mb-3">
+        <app-card [title]="'Roles'" [autoHeight]="false">
+          <hr />
+          <p>
+            <strong>JUDGE:</strong>
+            The judge directs the case. It is up to the judge to decide what
+            questions to ask, who gets to talk, who is successful at making
+            their case, and when to introduce witnesses. After all evidence and
+            witnesses are revealed, they will make a verdict.They can use any
+            method they want to rule a verdict. If there is a jury playing, the
+            judge might consult them before their final ruling.
+          </p>
+          <hr />
+          <p>
+            <strong>PLAINTIFF / DEFENDANT:</strong>
+            The plaintiff has made an accusation against the defendant, as
+            described in the case's issue. Both sides will make their case in a
+            handful of ways:
+          </p>
+          <ol>
+            <li>
+              <strong>EVIDENCE:</strong>
+              Each side (Plaintiff & Defendant) has some amount of evidence.
+              They can reveal this evidence to prove their case - if they can
+              find ways to connect their evidence to their argument.
+            </li>
+            <li>
+              <strong>WITNESSES:</strong>
+              Some cases feature witnesses. You may ask the witnesses questions
+              to help make your argument.
+            </li>
+            <li>
+              <strong>WIT:</strong>
+              When the floor is yours to speak, you can make your case however
+              you want! It is best to stick to evidence and witnesses, but any
+              other points are also worth making.
+            </li>
+          </ol>
+          <hr />
+          <p>
+            <strong>WITNESSES:</strong>
+            In a game 4 or more players, witnesses may be brought into court.
+            Witnesses can stay neutral or pick a side, but must find a way to
+            connect their identity to the case at hand, offering some sort of
+            insight. The judge picks when to call witnesses. When a witness is
+            called, any witness players pick a witness to reveal. The judge and
+            the two sides (Plaintiff & Defendant) can ask the witness questions.
+          </p>
+          <hr />
+          <p>
+            <strong>JURY:</strong>
+            Spectators may join the jury. Here they will have a view of any
+            revealed evidence and witnesses. They have no specific role, though
+            the judge may ask for their input on the case.
+          </p>
+        </app-card>
+      </div>
     </div>
   </div>
 </app-body>
