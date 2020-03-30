@@ -1,19 +1,38 @@
 <ng-container *ngIf="ready; else loading">
-  <app-header
-    [title]="case.name + ': Plaintiff'"
-    [subtitle]="
-      'You are the plaintiff. Use evidence to prove your accusation against the defendant.'
-    "
-  ></app-header>
+  <app-header [title]="case.name + ': Plaintiff'"></app-header>
   <app-body>
     <div class="row">
       <div class="col-md-6 my-3">
-        <p *ngIf="case.unrevealedPlaintiffEvidence.length === 0">
-          You have no evidence left to reveal.
-        </p>
-        <p *ngIf="case.unrevealedPlaintiffEvidence.length > 0">
-          Here is the evidence you have for this case:
-        </p>
+        <div class="mb-3">
+          <app-card
+            [autoHeight]="false"
+            [title]="'Plaintiff Role Explanation'"
+            [icon]="'fa-book'"
+          >
+            <ul>
+              <li>
+                As the plaintiff, you must prove your accusation against the
+                defendant. Your accusation is explained in the "Issue" shown in
+                "Case Details".
+              </li>
+              <li>
+                Use your evidence to prove your side.
+              </li>
+              <li>
+                If there are witnesses, ask them questions to prove your side.
+              </li>
+              <li>
+                Make up any argument you can to prove your side!
+              </li>
+            </ul>
+          </app-card>
+        </div>
+        <h3
+          class="text-center"
+          *ngIf="case.unrevealedPlaintiffEvidence.length > 0"
+        >
+          Unrevealed Evidence
+        </h3>
         <div
           class="card my-2 border-primary"
           *ngFor="let evidence of case.unrevealedPlaintiffEvidence"
