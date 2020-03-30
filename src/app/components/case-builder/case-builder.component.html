@@ -89,13 +89,13 @@
               />
             </div>
             <div class="alert alert-danger" *ngIf="evidenceCountError">
-              The evidence count must be at least 1.
+              The evidence count must be at least 1 and at most 10.
             </div>
             <div class="alert alert-info" *ngIf="!showStepFour">
               Choose how much evidence the plaintiff and defendant should both
               get.
               <br />
-              The evidence count must be at least 1.
+              The evidence count must be at least 1 and at most 10.
             </div>
           </div>
           <!-- END STEP THREE -->
@@ -114,14 +114,14 @@
               />
             </div>
             <div class="alert alert-danger" *ngIf="witnessCountError">
-              The witness count must not exceed 10.
+              The witness count must be at least 0 and at most 10.
             </div>
             <div class="alert alert-info" *ngIf="!showSubmit">
               Choose how many witnesses will be in the case.
               <br />
               For a case without witnesses, enter 0.
               <br />
-              The witness count must not exceed 10.
+              The witness count must be at least 0 and at most 10.
             </div>
           </div>
           <!-- END STEP FOUR -->

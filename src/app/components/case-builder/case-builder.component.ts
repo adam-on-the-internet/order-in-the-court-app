@@ -66,12 +66,12 @@ export class CaseBuilderComponent implements OnInit {
 
   public get evidenceCountError(): boolean {
     return !this.evidencePerSideNotSetError &&
-      (this.caseOrder.evidenceCount === 0 || this.caseOrder.evidenceCount > 10);
+      (this.caseOrder.evidenceCount <= 0 || this.caseOrder.evidenceCount > 10);
   }
 
   public get witnessCountError(): boolean {
     return !this.witnessCountNotSetError &&
-      (this.caseOrder.witnessCount > 10);
+      (this.caseOrder.witnessCount < 0 || this.caseOrder.witnessCount > 10);
   }
 
   public get showStepOne(): boolean {
