@@ -40,7 +40,6 @@ import { RevelationsComponent } from "./components/revelations/revelations.compo
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
 import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
 import { ClosedCaseTableComponent } from "./components/closed-case-table/closed-case-table.component";
-import { DonateComponent } from "./components/donate/donate.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { BodyComponent } from "./components/body/body.component";
 import { LoadingComponent } from "./components/loading/loading.component";
@@ -85,7 +84,6 @@ import { ArchivedCaseComponent } from "./components/archived-case/archived-case.
     CaseSelectComponent,
     CaseArchiveComponent,
     ClosedCaseTableComponent,
-    DonateComponent,
     HeaderComponent,
     BodyComponent,
     LoadingComponent,

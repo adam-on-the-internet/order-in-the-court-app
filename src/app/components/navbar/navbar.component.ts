@@ -53,10 +53,6 @@ export class NavbarComponent {
     this.navHelper.goToRules();
   }
 
-  public goToDonate(): void {
-    this.navHelper.goToDonate();
-  }
-
   public logout(): void {
     CookieHelper.removeToken();
     this.navHelper.goToLogin();

@@ -28,7 +28,12 @@
         <a class="nav-link" (click)="goToRules()">Rules</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" (click)="goToDonate()">Donate</a>
+        <a
+          class="nav-link"
+          href="https://aoti-app-hub.herokuapp.com/donate"
+          target="_blank"
+          >Donate</a
+        >
       </li>
       <ng-container *ngIf="isLoggedIn">
         <li class="nav-item">

@@ -27,5 +27,4 @@ export const enum ROUTES_ENUM {
   CaseDetails = "case-details",
   CaseBuilder = "case-builder",
   Login = "login",
-  Donate = "donate",
 }
