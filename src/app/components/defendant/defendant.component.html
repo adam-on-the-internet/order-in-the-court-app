@@ -27,7 +27,10 @@
             </ul>
           </app-card>
         </div>
-        <h3 class="text-center" *ngIf="case.unrevealedDefendantEvidence.length > 0">
+        <h3
+          class="text-center"
+          *ngIf="case.unrevealedDefendantEvidence.length > 0"
+        >
           Unrevealed Evidence
         </h3>
         <div
@@ -43,7 +46,7 @@
               class="btn btn-secondary"
               (click)="revealEvidence(evidence)"
             >
-              Reveal
+              Reveal to the Court
             </button>
           </div>
         </div>
