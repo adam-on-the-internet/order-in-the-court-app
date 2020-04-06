@@ -27,9 +27,4 @@ export class FooterComponent {
   public goToLogin() {
     this.navHelper.goToLogin();
   }
-
-  public goToAdamOnTheInternet() {
-    const url = "http://adamontheinternet.com";
-    window.open(url);
-  }
 }
