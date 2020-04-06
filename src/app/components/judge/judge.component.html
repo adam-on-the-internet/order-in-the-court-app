@@ -48,22 +48,10 @@
             <div id="verdict-controls" *ngIf="readyToClose">
               <div class="alert alert-info">
                 All witnesses and evidence have been revealed. When you're
-                ready, write your verdict and close the case.
+                ready, choose your verdict and close the case.
               </div>
               <hr />
-              <div class="form-group">
-                <label for="verdict-explanation"
-                  >1. Verdict Explanation: (write your verdict)</label
-                >
-                <textarea
-                  (change)="updateVerdict($event)"
-                  class="form-control"
-                  rows="5"
-                  id="verdict-explanation"
-                ></textarea>
-              </div>
-              <hr />
-              <label>2. Final Decision</label>
+              <label>VERDICT</label>
               <br />
               <button
                 class="btn btn-primary mx-2 mb-1"
@@ -83,7 +71,6 @@
               <button
                 class="btn btn-primary btn-block"
                 (click)="closeCase()"
-                [disabled]="!case.verdict || case.verdict.length === 0"
               >
                 Close case
               </button>

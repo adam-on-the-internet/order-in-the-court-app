@@ -78,10 +78,6 @@ export class JudgeComponent implements OnInit, OnDestroy {
     this.case.notes = event.target.value;
   }
 
-  public updateVerdict(event) {
-    this.case.verdict = event.target.value;
-  }
-
   public updatePlaintiffScore(amount: number) {
     this.case.plaintiffScore = this.case.plaintiffScore + amount;
   }
