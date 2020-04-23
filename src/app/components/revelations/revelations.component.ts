@@ -19,6 +19,30 @@ export class RevelationsComponent implements OnInit, OnDestroy {
     return BooleanHelper.hasValue(this.case);
   }
 
+  public get judgeName(): string {
+    return "???";
+  }
+
+  public get defendantName(): string {
+    return "???";
+  }
+
+  public get plaintiffName(): string {
+    return "???";
+  }
+
+  public get witnesses() {
+    const myWitnesses = [];
+    const allWitnesses = this.case.revealedWitnesses.concat(this.case.unrevealedWitnesses);
+    allWitnesses.forEach((witness) => {
+      myWitnesses.push({
+        name: "???",
+        character: witness.name
+      });
+    });
+    return myWitnesses;
+  }
+
   constructor(
     private caseService: CaseService,
   ) { }

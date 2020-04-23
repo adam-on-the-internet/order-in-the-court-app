@@ -10,7 +10,11 @@
           Roles
         </h3>
         <div class="mb-3">
-          <app-card [title]="'Judge'" [autoHeight]="false" [icon]="'fa-gavel'">
+          <app-card
+            [title]="'Judge'"
+            [autoHeight]="false"
+            [icon]="'fa-balance-scale'"
+          >
             <p>
               The judge runs the case.
               <span *ngIf="showWitness"
@@ -29,7 +33,7 @@
           <app-card
             [title]="'Plaintiff'"
             [autoHeight]="false"
-            [icon]="'fa-balance-scale'"
+            [icon]="'fa-user-circle-o'"
           >
             <p>
               The plaintiff reveals evidence
@@ -45,7 +49,7 @@
           <app-card
             [title]="'Defendant'"
             [autoHeight]="false"
-            [icon]="'fa-balance-scale'"
+            [icon]="'fa-user-circle'"
           >
             <p>
               The defendant reveals evidence

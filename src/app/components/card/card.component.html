@@ -1,14 +1,14 @@
 <div class="card border-primary" [class.h-100]="autoHeight">
   <div class="card-body">
-    <h5 class="card-title" *ngIf="hasTitle">
+    <h4 class="card-title" *ngIf="hasTitle">
       <span *ngIf="hasIcon">
         <i class="fa" [ngClass]="icon"></i>
       </span>
       {{ title }}
-    </h5>
-    <h6 class="card-subtitle" *ngIf="hasSubtitle">
+    </h4>
+    <h5 class="card-subtitle" *ngIf="hasSubtitle">
       {{ subtitle }}
-    </h6>
+    </h5>
     <ng-content></ng-content>
   </div>
 </div>
