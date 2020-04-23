@@ -136,6 +136,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "order-in-the-court-app"
+    }
+  },
+  "defaultProject": "order-in-the-court-app",
+  "cli": {
+    "analytics": false
+  }
 }

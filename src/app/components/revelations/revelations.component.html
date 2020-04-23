@@ -1,7 +1,7 @@
 <ng-container *ngIf="ready; else loading">
   <h3 class="text-center">Case Details</h3>
   <div class="mb-3">
-    <app-card [title]="'Case Name: ' + case.name" [icon]="'fa-tag'">
+    <app-card [title]="'The Case of the ' + case.name" [icon]="'fa-tag'">
       <p>Case opened on {{ case.openedDate | date }}.</p>
       <p *ngIf="case.closedDate">
         Case closed on {{ case.closedDate | date }}.
