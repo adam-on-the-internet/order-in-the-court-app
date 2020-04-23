@@ -15,12 +15,35 @@ export class OpenCaseTableComponent implements OnInit {
   public cases: Case[] = null;
   public error = false;
 
+  public get topCases(): Case[] {
+    return this.cases.slice(0, 2);
+  }
+
+  public get casesForTable(): Case[] {
+    if (this.adminMode) {
+      return this.cases;
+    }
+    return this.olderCases;
+  }
+
+  public get olderCases(): Case[] {
+    return this.cases.slice(2);
+  }
+
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.cases);
   }
 
   public get hasCase(): boolean {
     return this.cases.length > 0;
+  }
+
+  public get showTopCases(): boolean {
+    return !this.adminMode;
+  }
+
+  public get showTableCases(): boolean {
+    return this.adminMode || this.cases.length > 2;
   }
 
   constructor(

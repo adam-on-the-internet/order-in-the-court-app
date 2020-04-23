@@ -8,11 +8,16 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 })
 export class CardComponent {
   @Input() public title: string = null;
+  @Input() public subtitle: string = null;
   @Input() public icon: string = null;
   @Input() public autoHeight = true;
 
   public get hasTitle(): boolean {
     return BooleanHelper.hasValue(this.title);
+  }
+
+  public get hasSubtitle(): boolean {
+    return BooleanHelper.hasValue(this.subtitle);
   }
 
   public get hasIcon(): boolean {

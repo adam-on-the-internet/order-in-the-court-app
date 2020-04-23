@@ -4,6 +4,7 @@ import { OpenCaseTableComponent } from "./open-case-table.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { LoadingComponent } from "../loading/loading.component";
+import { CardComponent } from "../card/card.component";
 
 describe("OpenCaseTableComponent", () => {
   let component: OpenCaseTableComponent;
@@ -11,7 +12,7 @@ describe("OpenCaseTableComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [OpenCaseTableComponent, LoadingComponent],
+      declarations: [OpenCaseTableComponent, LoadingComponent, CardComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

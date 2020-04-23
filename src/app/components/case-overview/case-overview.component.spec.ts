@@ -8,6 +8,7 @@ import { ClosedCaseTableComponent } from "../closed-case-table/closed-case-table
 import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
+import { CardComponent } from "../card/card.component";
 
 describe("CaseOverviewComponent", () => {
   let component: CaseOverviewComponent;
@@ -17,7 +18,7 @@ describe("CaseOverviewComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         CaseOverviewComponent, OpenCaseTableComponent, ClosedCaseTableComponent,
-        HeaderComponent, BodyComponent, LoadingComponent
+        HeaderComponent, BodyComponent, LoadingComponent, CardComponent
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })

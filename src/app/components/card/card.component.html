@@ -6,6 +6,9 @@
       </span>
       {{ title }}
     </h5>
+    <h6 class="card-subtitle" *ngIf="hasSubtitle">
+      {{ subtitle }}
+    </h6>
     <ng-content></ng-content>
   </div>
 </div>
