@@ -1,8 +1,6 @@
 import { Component } from "@angular/core";
 import { NavHelperService } from "src/app/services/nav-helper.service";
-import { Case } from "src/app/models/Case.model";
-import { CaseService } from "src/app/services/case.service";
-import { LogService } from "src/app/services/log.service";
+import { CaseManagerService } from "src/app/services/case-manager.service";
 
 @Component({
   selector: "app-dashboard",
@@ -13,8 +11,7 @@ export class DashboardComponent {
 
   constructor(
     private navHelper: NavHelperService,
-    private caseService: CaseService,
-    private logService: LogService,
+    private caseManager: CaseManagerService,
   ) { }
 
   public joinCase() {
@@ -22,15 +19,7 @@ export class DashboardComponent {
   }
 
   public createCase() {
-    let newCase: Case;
-    this.caseService.create()
-      .subscribe((res) => newCase = res,
-        (error) => {
-          console.log("make case failed");
-        }, () => {
-          this.logService.log("info", "Case Opened: The Case of the " + newCase.name).subscribe();
-          this.navHelper.goToRoleSelect(newCase._id);
-        });
+    this.caseManager.createNewCase();
   }
 
   public goToArchive() {

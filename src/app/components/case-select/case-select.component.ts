@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { NavHelperService } from "src/app/services/nav-helper.service";
+import { Component } from "@angular/core";
+import { CaseManagerService } from "src/app/services/case-manager.service";
 
 @Component({
   selector: "app-case-select",
@@ -9,11 +9,11 @@ import { NavHelperService } from "src/app/services/nav-helper.service";
 export class CaseSelectComponent {
 
   constructor(
-    private navHelper: NavHelperService,
+    private caseManager: CaseManagerService,
   ) { }
 
   public createCase() {
-    this.navHelper.goToCaseBuilder();
+    this.caseManager.createNewCase();
   }
 
 }

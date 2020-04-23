@@ -29,14 +29,6 @@ export class NavbarComponent {
     private navHelper: NavHelperService,
   ) { }
 
-  public joinCase() {
-    this.navHelper.goToCaseSelect();
-  }
-
-  public createCase() {
-    this.navHelper.goToCaseBuilder();
-  }
-
   public goToDashboard(): void {
     this.navHelper.goToDashboard();
   }

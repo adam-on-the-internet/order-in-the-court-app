@@ -23,7 +23,6 @@ import { PlaintiffComponent } from "./components/plaintiff/plaintiff.component";
 import { WitnessComponent } from "./components/witness/witness.component";
 import { JuryComponent } from "./components/jury/jury.component";
 import { DefendantComponent } from "./components/defendant/defendant.component";
-import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
 import { RulesComponent } from "./components/rules/rules.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
 import { CaseArchiveComponent } from "./components/case-archive/case-archive.component";
@@ -64,7 +63,6 @@ const routes: Routes = [
   { path: ROUTES_ENUM.IssueForm + "/:id", component: IssueFormComponent },
   // case
   { path: ROUTES_ENUM.CaseOverview, component: CaseOverviewComponent },
-  { path: ROUTES_ENUM.CaseBuilder, component: CaseBuilderComponent },
   { path: ROUTES_ENUM.CaseDetails + "/:id", component: CaseDisplayComponent },
   // default
   { path: "**", redirectTo: "dashboard" },

@@ -3,6 +3,7 @@ import { Case } from "src/app/models/Case.model";
 import { CaseService } from "src/app/services/case.service";
 import { NavHelperService } from "src/app/services/nav-helper.service";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
+import { CaseManagerService } from "src/app/services/case-manager.service";
 
 @Component({
   selector: "app-closed-case-table",
@@ -30,10 +31,6 @@ export class ClosedCaseTableComponent implements OnInit {
 
   public ngOnInit() {
     this.loadCases();
-  }
-
-  public buildCase() {
-    this.navHelper.goToCaseBuilder();
   }
 
   public goToCaseDetails(myCase: Case) {

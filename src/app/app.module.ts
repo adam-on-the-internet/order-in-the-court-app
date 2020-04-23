@@ -34,7 +34,6 @@ import { PlaintiffComponent } from "./components/plaintiff/plaintiff.component";
 import { DefendantComponent } from "./components/defendant/defendant.component";
 import { WitnessComponent } from "./components/witness/witness.component";
 import { JuryComponent } from "./components/jury/jury.component";
-import { CaseBuilderComponent } from "./components/case-builder/case-builder.component";
 import { RulesComponent } from "./components/rules/rules.component";
 import { RevelationsComponent } from "./components/revelations/revelations.component";
 import { CaseSelectComponent } from "./components/case-select/case-select.component";
@@ -78,7 +77,6 @@ import { ArchivedCaseComponent } from "./components/archived-case/archived-case.
     DefendantComponent,
     WitnessComponent,
     JuryComponent,
-    CaseBuilderComponent,
     RulesComponent,
     RevelationsComponent,
     CaseSelectComponent,
