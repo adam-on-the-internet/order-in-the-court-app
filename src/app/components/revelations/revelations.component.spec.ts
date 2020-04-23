@@ -4,6 +4,7 @@ import { RevelationsComponent } from "./revelations.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe("RevelationsComponent", () => {
   let component: RevelationsComponent;
@@ -12,7 +13,7 @@ describe("RevelationsComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RevelationsComponent, LoadingComponent, CardComponent],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();
   }));
