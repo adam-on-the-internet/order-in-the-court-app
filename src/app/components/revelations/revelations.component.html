@@ -48,55 +48,13 @@
       </h5>
     </app-card>
   </div>
-  <div class="CASE-TIMELINE mb-3">
-    <app-card [title]="'Case Timeline'" [icon]="'fa-calendar'">
-      <p>Case opened on {{ case.openedDate | date }}.</p>
-      <p *ngIf="case.closedDate">
-        Case closed on {{ case.closedDate | date }}.
-      </p>
-    </app-card>
-  </div>
-  <div class="mb-3" *ngIf="case.closed">
-    <app-card [title]="'Verdict'" [icon]="'fa-gavel'">
-      <p *ngIf="case.closed && case.isDefendantGuilty">
-        The defendant was found GUILTY.
-      </p>
-      <p *ngIf="case.closed && !case.isDefendantGuilty">
-        The defendant was found NOT GUILTY.
-      </p>
-    </app-card>
-  </div>
-  <div class="mb-3">
-    <app-card [title]="'Issue: ' + case.issue.name" [icon]="'fa-book'">
-      <p class="card-text">
-        {{ case.issue.description }}
-      </p>
-    </app-card>
-  </div>
-  <div
-    class="mb-3"
-    *ngIf="case.revealedWitnesses.length + case.unrevealedWitnesses.length > 0"
-  >
-    <app-card [title]="'Witnesses'" [icon]="'fa-users'">
-      <h6 class="card-subtitle mb-2 text-muted">
-        {{ case.revealedWitnesses.length }} of
-        {{ case.revealedWitnesses.length + case.unrevealedWitnesses.length }}
-        revealed
-      </h6>
-      <div>
-        <p *ngIf="case.revealedWitnesses.length === 0">
-          No witnesses revealed yet.
-        </p>
-        <ol>
-          <li *ngFor="let witness of case.revealedWitnesses">
-            {{ witness.name }}
-          </li>
-        </ol>
-      </div>
-    </app-card>
-  </div>
-  <div class="mb-3">
-    <app-card [title]="'Plaintiff Evidence'" [icon]="'fa-search'">
+  <div class="CASE-EVIDENCE mb-3">
+    <app-card [title]="'Case Evidence'" [icon]="'fa-search'">
+      <hr />
+      <h5>
+        <i class="fa fa-user-circle-o"></i>
+        Plaintiff Evidence
+      </h5>
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedPlaintiffEvidence.length }} of
         {{
@@ -115,10 +73,11 @@
           </li>
         </ol>
       </div>
-    </app-card>
-  </div>
-  <div class="mb-3">
-    <app-card [title]="'Defendant Evidence'" [icon]="'fa-search'">
+      <hr />
+      <h5>
+        <i class="fa fa-user-circle"></i>
+        Defendant Evidence
+      </h5>
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedDefendantEvidence.length }} of
         {{
@@ -137,6 +96,14 @@
           </li>
         </ol>
       </div>
+    </app-card>
+  </div>
+  <div class="CASE-TIMELINE mb-3">
+    <app-card [title]="'Case Timeline'" [icon]="'fa-calendar'">
+      <p>Case opened on {{ case.openedDate | date }}.</p>
+      <p *ngIf="case.closedDate">
+        Case closed on {{ case.closedDate | date }}.
+      </p>
     </app-card>
   </div>
 </ng-container>
