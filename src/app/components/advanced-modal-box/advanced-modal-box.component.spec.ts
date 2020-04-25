@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AdvancedModalBoxComponent } from './advanced-modal-box.component';
+import { AdvancedModalBoxComponent } from "./advanced-modal-box.component";
 
-describe('AdvancedModalBoxComponent', () => {
+describe("AdvancedModalBoxComponent", () => {
   let component: AdvancedModalBoxComponent;
   let fixture: ComponentFixture<AdvancedModalBoxComponent>;
 
@@ -19,7 +19,7 @@ describe('AdvancedModalBoxComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

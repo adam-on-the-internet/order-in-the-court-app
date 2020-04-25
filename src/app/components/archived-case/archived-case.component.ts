@@ -11,13 +11,13 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ArchivedCaseComponent implements OnInit {
   public case: Case = null;
+  public caseId: string = null;
 
   public get ready(): boolean {
-    return BooleanHelper.hasValue(this.case);
+    return BooleanHelper.hasValue(this.caseId);
   }
 
   constructor(
-    private caseService: CaseService,
     private route: ActivatedRoute
   ) { }
 
@@ -26,14 +26,7 @@ export class ArchivedCaseComponent implements OnInit {
   }
 
   private loadCase() {
-    this.case = null;
-    const id = this.route.snapshot.paramMap.get("id");
-    this.caseService.getSingleCase(id)
-      .subscribe((res) => this.case = res,
-        (error) => {
-          this.error = true;
-          console.log("get case failed");
-        });
+    this.caseId = this.route.snapshot.paramMap.get("id");
   }
 
 }

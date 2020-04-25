@@ -8,6 +8,9 @@ import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
+import { ModalTriggerButtonComponent } from "../modal-trigger-button/modal-trigger-button.component";
+import { AdvancedModalBoxComponent } from "../advanced-modal-box/advanced-modal-box.component";
+import { FormsModule } from "@angular/forms";
 
 describe("RoleSelectComponent", () => {
   let component: RoleSelectComponent;
@@ -18,9 +21,9 @@ describe("RoleSelectComponent", () => {
       declarations: [
         RoleSelectComponent, RevelationsComponent,
         HeaderComponent, BodyComponent, LoadingComponent,
-        CardComponent
+        CardComponent, ModalTriggerButtonComponent, AdvancedModalBoxComponent,
       ],
-      imports: [RouterTestingModule, HttpClientTestingModule]
+      imports: [RouterTestingModule, HttpClientTestingModule, FormsModule]
     })
       .compileComponents();
   }));

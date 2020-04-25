@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CaseUnstartedComponent } from './case-unstarted.component';
+import { CaseUnstartedComponent } from "./case-unstarted.component";
 
-describe('CaseUnstartedComponent', () => {
+describe("CaseUnstartedComponent", () => {
   let component: CaseUnstartedComponent;
   let fixture: ComponentFixture<CaseUnstartedComponent>;
 
@@ -19,7 +19,7 @@ describe('CaseUnstartedComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

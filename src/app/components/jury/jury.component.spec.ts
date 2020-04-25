@@ -8,6 +8,7 @@ import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
+import { CaseUnstartedComponent } from "../case-unstarted/case-unstarted.component";
 
 describe("JuryComponent", () => {
   let component: JuryComponent;
@@ -17,7 +18,7 @@ describe("JuryComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         JuryComponent, RevelationsComponent, HeaderComponent, BodyComponent, LoadingComponent,
-        CardComponent
+        CardComponent, CaseUnstartedComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })

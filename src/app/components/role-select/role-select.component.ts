@@ -3,7 +3,7 @@ import { NavHelperService } from "src/app/services/nav-helper.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
-import { BooleanHelper } from 'src/app/utilities/boolean.util';
+import { BooleanHelper } from "src/app/utilities/boolean.util";
 
 @Component({
   selector: "app-role-select",

@@ -1,12 +1,12 @@
 <ng-container *ngIf="ready; else loading">
   <app-header
     [title]="'Archived Case'"
-    [subtitle]="'Details of a past case.'"
+    [subtitle]="'This case has been closed.'"
   ></app-header>
   <app-body>
     <div class="row">
       <div class="col-md-12 my-3">
-        <app-revelations [caseId]="case._id"></app-revelations>
+        <app-revelations [caseId]="caseId"></app-revelations>
       </div>
     </div>
   </app-body>

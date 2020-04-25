@@ -44,9 +44,9 @@ import { BodyComponent } from "./components/body/body.component";
 import { LoadingComponent } from "./components/loading/loading.component";
 import { CardComponent } from "./components/card/card.component";
 import { ArchivedCaseComponent } from "./components/archived-case/archived-case.component";
-import { AdvancedModalBoxComponent } from './components/advanced-modal-box/advanced-modal-box.component';
-import { ModalTriggerButtonComponent } from './components/modal-trigger-button/modal-trigger-button.component';
-import { CaseUnstartedComponent } from './components/case-unstarted/case-unstarted.component';
+import { AdvancedModalBoxComponent } from "./components/advanced-modal-box/advanced-modal-box.component";
+import { ModalTriggerButtonComponent } from "./components/modal-trigger-button/modal-trigger-button.component";
+import { CaseUnstartedComponent } from "./components/case-unstarted/case-unstarted.component";
 
 @NgModule({
   declarations: [

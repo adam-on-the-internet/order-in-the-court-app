@@ -8,6 +8,7 @@ import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
+import { CaseUnstartedComponent } from "../case-unstarted/case-unstarted.component";
 
 describe("WitnessComponent", () => {
   let component: WitnessComponent;
@@ -18,7 +19,7 @@ describe("WitnessComponent", () => {
       declarations: [
         WitnessComponent, RevelationsComponent,
         HeaderComponent, BodyComponent, LoadingComponent,
-        CardComponent
+        CardComponent, CaseUnstartedComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
