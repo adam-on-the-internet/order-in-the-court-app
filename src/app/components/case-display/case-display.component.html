@@ -18,16 +18,9 @@
           {{ case.issue.description }}
         </p>
         <hr />
-        <h2>Unrevealed Witnesses</h2>
+        <h2>Witnesses Witnesses</h2>
         <ol>
-          <li *ngFor="let witness of case.unrevealedWitnesses">
-            {{ witness.name }}
-          </li>
-        </ol>
-        <hr />
-        <h2>Revealed Witnesses</h2>
-        <ol>
-          <li *ngFor="let witness of case.revealedWitnesses">
+          <li *ngFor="let witness of case.witnesses">
             {{ witness.name }}
           </li>
         </ol>
