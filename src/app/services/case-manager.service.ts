@@ -5,6 +5,7 @@ import { LogService } from "./log.service";
 import { NavHelperService } from "./nav-helper.service";
 import { interval, Subscription } from "rxjs";
 import { BooleanHelper } from "../utilities/boolean.util";
+import { WitnessPlayer } from "../models/WitnessPlayer.model";
 
 @Injectable({
   providedIn: "root"
@@ -59,7 +60,7 @@ export class CaseManagerService {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
   }
 
-  public get witnesses(): any[] {
+  public get witnesses(): WitnessPlayer[] {
     const myWitnesses = [];
     this.activeCase.witnessNames.forEach((witness, i) => {
       myWitnesses.push({

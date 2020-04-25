@@ -3,6 +3,7 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
+import { WitnessPlayer } from "src/app/models/WitnessPlayer.model";
 
 @Component({
   selector: "app-witness",
@@ -22,7 +23,7 @@ export class WitnessComponent implements OnInit {
     return BooleanHelper.hasValue(this.case);
   }
 
-  public get witnesses(): any[] {
+  public get witnesses(): WitnessPlayer[] {
     return this.caseManager.witnesses;
   }
 

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Case } from "src/app/models/Case.model";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { CaseManagerService } from "src/app/services/case-manager.service";
+import { WitnessPlayer } from "src/app/models/WitnessPlayer.model";
 
 @Component({
   selector: "app-revelations",
@@ -59,7 +60,7 @@ export class RevelationsComponent implements OnInit {
     return this.caseManager.hasMaxWitnesses;
   }
 
-  public get witnesses() {
+  public get witnesses(): WitnessPlayer[] {
     return this.caseManager.witnesses;
   }
 
