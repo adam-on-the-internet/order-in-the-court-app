@@ -195,6 +195,7 @@ export class CaseManagerService {
     this.caseService.getSingleCase(this.caseId)
       .subscribe((res) => this.activeCase = res,
         (error) => {
+          this.caseRefresher.unsubscribe();
           console.log("get case failed");
         }, () => {
           if (this.caseClosed) {
