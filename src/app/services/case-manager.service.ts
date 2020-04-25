@@ -55,7 +55,7 @@ export class CaseManagerService {
     return this.witnesses.length > 4;
   }
 
-  public get allNamesSet(): boolean {
+  public get canBeStarted(): boolean {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
   }
 
@@ -139,7 +139,12 @@ export class CaseManagerService {
   }
 
   public startCase() {
-
+    let response;
+    this.caseService.startCase(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("start case failed");
+        });
   }
 
   public closeCase(isDefendantGuilty: boolean) {

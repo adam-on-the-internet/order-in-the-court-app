@@ -4,6 +4,24 @@
     <div class="row">
       <div class="col-md-6 my-3">
         <h3 class="text-center">Role</h3>
+        <div class="card border-primary mb-3" *ngIf="caseUnstarted">
+          <div class="card-body">
+            <h5 class="card-title">
+              Start Case
+            </h5>
+            <div class="alert alert-info" *ngIf="!canBeStarted">
+              You can start the case once The Judge, The Plaintiff, and The
+              Defendant have picked their names.
+            </div>
+            <button
+              class="btn btn-primary"
+              [disabled]="!canBeStarted"
+              (click)="startCase()"
+            >
+              Start the Case
+            </button>
+          </div>
+        </div>
         <div class="mb-3">
           <app-card
             [autoHeight]="false"
@@ -35,15 +53,15 @@
             </ul>
           </app-card>
         </div>
-        <div class="card border-primary mb-3" *ngIf="!case.closed">
+        <div class="card border-primary mb-3" *ngIf="caseStarted">
           <div class="card-body">
             <h5 class="card-title">
               <i class="fa fa-gavel"></i>
               Verdict
             </h5>
-            <p *ngIf="!readyToClose">
+            <div class="alert alert-info" *ngIf="!readyToClose">
               You cannot make your verdict until all evidence has been revealed.
-            </p>
+            </div>
             <div id="verdict-controls" *ngIf="readyToClose">
               <div class="alert alert-info">
                 All witnesses and evidence have been revealed. When you're

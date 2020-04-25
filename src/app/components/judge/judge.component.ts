@@ -28,6 +28,18 @@ export class JudgeComponent implements OnInit {
     return this.caseManager.activeCase;
   }
 
+  public get caseUnstarted(): boolean {
+    return this.caseManager.caseUnstarted;
+  }
+
+  public get caseStarted(): boolean {
+    return this.caseManager.caseStarted;
+  }
+
+  public get canBeStarted(): boolean {
+    return this.caseManager.canBeStarted;
+  }
+
   constructor(
     private caseManager: CaseManagerService,
     private route: ActivatedRoute
@@ -35,6 +47,10 @@ export class JudgeComponent implements OnInit {
 
   public ngOnInit() {
     this.loadCase();
+  }
+
+  public startCase() {
+    this.caseManager.startCase();
   }
 
   public verdictGuilty(guilty: boolean) {

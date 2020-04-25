@@ -122,6 +122,18 @@ export class CaseService {
     return this.http.put(url, params, CookieHelper.unauthHeaders) as Observable<Case>;
   }
 
+  public startCase(caseId: string): Observable<Case> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: "start"
+    });
+    const params = {
+      caseId
+    };
+    return this.http.put(url, params, CookieHelper.unauthHeaders) as Observable<Case>;
+  }
+
   public closeCase(caseId: string, isDefendantGuilty: boolean): Observable<Case> {
     const body = {
       caseId,
