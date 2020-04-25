@@ -59,6 +59,26 @@ export class CaseManagerService {
     }
   }
 
+  public assignJudgeName(name: string) {
+
+  }
+
+  public assignPlaintiffName(name: string) {
+
+  }
+
+  public assignDefendantName(name: string) {
+
+  }
+
+  public assignWitnessName(name: string) {
+
+  }
+
+  public startCase() {
+
+  }
+
   public closeCase(isDefendantGuilty: boolean) {
     let response;
     this.caseService.closeCase(this.activeCase._id, isDefendantGuilty)
