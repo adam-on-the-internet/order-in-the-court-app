@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { Evidence } from "src/app/models/Evidence.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
+import { DEFENDANT_ROLE, EVIDENCE_HELP } from 'src/app/constants/rule.constants';
 
 @Component({
   selector: "app-defendant",
@@ -11,6 +12,14 @@ import { CaseManagerService } from "src/app/services/case-manager.service";
   styleUrls: ["./defendant.component.css"]
 })
 export class DefendantComponent implements OnInit {
+  public get defendantRole(): string {
+    return DEFENDANT_ROLE;
+  }
+
+  public get evidenceHelp(): string {
+    return EVIDENCE_HELP;
+  }
+
   public get case(): Case {
     return this.caseManager.activeCase;
   }

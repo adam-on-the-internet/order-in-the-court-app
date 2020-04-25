@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
 import { WitnessPlayer } from "src/app/models/WitnessPlayer.model";
+import { WITNESS_ROLE } from 'src/app/constants/rule.constants';
 
 @Component({
   selector: "app-witness",
@@ -11,6 +12,10 @@ import { WitnessPlayer } from "src/app/models/WitnessPlayer.model";
   styleUrls: ["./witness.component.css"]
 })
 export class WitnessComponent implements OnInit {
+  public get witnessRole(): string {
+    return WITNESS_ROLE;
+  }
+
   public get case(): Case {
     return this.caseManager.activeCase;
   }

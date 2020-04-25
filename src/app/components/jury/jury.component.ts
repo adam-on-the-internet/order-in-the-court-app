@@ -3,6 +3,7 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
+import { JURY_ROLE } from 'src/app/constants/rule.constants';
 
 @Component({
   selector: "app-jury",
@@ -10,6 +11,10 @@ import { CaseManagerService } from "src/app/services/case-manager.service";
   styleUrls: ["./jury.component.css"]
 })
 export class JuryComponent implements OnInit {
+  public get juryRole(): string {
+    return JURY_ROLE;
+  }
+
   public get case(): Case {
     return this.caseManager.activeCase;
   }

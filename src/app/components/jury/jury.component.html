@@ -4,23 +4,13 @@
     <div class="row">
       <div class="col-md-12 my-3">
         <h3 class="text-center">Role</h3>
-        <app-case-unstarted *ngIf="caseUnstarted"></app-case-unstarted>
         <div class="mb-3">
           <app-card
             [autoHeight]="false"
             [title]="'Jury Role Explanation'"
             [icon]="'fa-book'"
           >
-            <ul>
-              <li>
-                You are a spectator! Just watch the case unfold and react
-                dramatically.
-              </li>
-              <li>
-                Optionally, the judge may ask for you opinion when making a
-                verdict.
-              </li>
-            </ul>
+            {{ juryRole }}
           </app-card>
         </div>
       </div>

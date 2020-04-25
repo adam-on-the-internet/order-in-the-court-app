@@ -4,27 +4,13 @@
     <div class="row">
       <div class="col-md-6 my-3">
         <h3 class="text-center">Role</h3>
-        <app-case-unstarted *ngIf="caseUnstarted"></app-case-unstarted>
         <div class="mb-3">
           <app-card
             [autoHeight]="false"
             [title]="'Witness Role Explanation'"
             [icon]="'fa-book'"
           >
-            <ul>
-              <li>
-                When the judge orders you to reveal a witness, choose a witness
-                to reveal and then act as that witness!
-              </li>
-              <li>
-                As a witness, you must provide a reason for being in court.
-                Usually, this involves connecting your backstory to the case.
-              </li>
-              <li>
-                You can pick a side, remain neutral, or just cause chaos. Up to
-                you!
-              </li>
-            </ul>
+            <p>{{ witnessRole }}</p>
           </app-card>
         </div>
         <h3 class="text-center">

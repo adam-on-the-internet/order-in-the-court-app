@@ -4,28 +4,13 @@
     <div class="row">
       <div class="col-md-6 my-3">
         <h3 class="text-center">Role</h3>
-        <app-case-unstarted *ngIf="caseUnstarted"></app-case-unstarted>
         <div class="mb-3">
           <app-card
             [autoHeight]="false"
             [title]="'Defendant Role Explanation'"
             [icon]="'fa-book'"
           >
-            <ul>
-              <li>
-                As the defendant, you must defend yourself from the plaintiff's
-                accusation.
-              </li>
-              <li>
-                Use your evidence to prove your side.
-              </li>
-              <li>
-                If there are witnesses, ask them questions to prove your side.
-              </li>
-              <li>
-                Make up any argument you can to prove your side!
-              </li>
-            </ul>
+          <p>{{defendantRole}}</p>
           </app-card>
         </div>
         <div class="evidence" *ngIf="showEvidence">
@@ -37,6 +22,7 @@
           >
             Unrevealed Evidence
           </h3>
+          <p>{{evidenceHelp}}</p>
           <div
             class="card my-2 border-primary"
             *ngFor="let evidence of case.unrevealedDefendantEvidence"

@@ -19,3 +19,5 @@ The Judge, Plaintiff, and Defendant may ask the Witnesses questions.`;
 
 export const JURY_ROLE = `Anyone may join the Jury to spectate. They have no specific role, though
 the Judge may ask for their input on the case.`;
+
+export const EVIDENCE_HELP = `While making arguments, use this evidence when you can! Find ways to connect it to your story and Reveal it when the moment comes!`;

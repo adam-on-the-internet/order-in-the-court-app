@@ -4,9 +4,13 @@
     <app-card [title]="'The Case of the ' + case.name" [icon]="'fa-tag'">
       <hr />
       <ng-container *ngIf="caseUnstarted">
-        <h5>
+        <h5 class="card-title">
+          <i class="fa fa-hourglass fa-spin"></i>
           The Case will begin shortly...
         </h5>
+        <div class="alert alert-info">
+          The Judge will start the case once all players have joined.
+        </div>
       </ng-container>
       <ng-container *ngIf="!caseUnstarted">
         <h5>
