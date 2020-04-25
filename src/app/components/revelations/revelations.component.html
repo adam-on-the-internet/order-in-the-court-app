@@ -8,12 +8,12 @@
         Issue: {{ case.issue.name }}
       </h5>
       <p>{{ case.issue.description }}</p>
-      <ng-container *ngIf="case.closed">
+      <ng-container *ngIf="caseClosed">
         <hr />
         <h5>
           <i class="fa fa-gavel"></i>
           The defendant was found
-          <span *ngIf="case.closed && !case.isDefendantGuilty">
+          <span *ngIf="caseClosed && !case.isDefendantGuilty">
             NOT
           </span>
           GUILTY.
@@ -37,17 +37,19 @@
         <i class="fa fa-user-circle"></i>
         Starring {{ defendantName }} as THE DEFENDANT
       </h5>
-      <hr />
-      <h5>
-        <i class="fa fa-users"></i>
-        And THE WITNESSES
-      </h5>
-      <h5 *ngFor="let witness of witnesses">
-        {{ witness.name }} as {{ witness.character }}
-      </h5>
+      <ng-container *ngIf="witnessesPresent">
+        <hr />
+        <h5>
+          <i class="fa fa-users"></i>
+          And THE WITNESSES
+        </h5>
+        <h5 *ngFor="let witness of witnesses">
+          {{ witness.name }} as {{ witness.character }}
+        </h5>
+      </ng-container>
     </app-card>
   </div>
-  <div class="CASE-EVIDENCE mb-3">
+  <div class="CASE-EVIDENCE mb-3" *ngIf="caseStarted">
     <app-card>
       <h5>
         <i class="fa fa-user-circle-o"></i>

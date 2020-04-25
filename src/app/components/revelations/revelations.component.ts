@@ -15,6 +15,14 @@ export class RevelationsComponent implements OnInit {
     return this.caseManager.activeCase;
   }
 
+  public get caseClosed(): boolean {
+    return this.caseManager.caseClosed;
+  }
+
+  public get caseStarted(): boolean {
+    return this.caseManager.caseStarted;
+  }
+
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.case);
   }
@@ -31,13 +39,16 @@ export class RevelationsComponent implements OnInit {
     return "???";
   }
 
+  public get witnessesPresent(): boolean {
+    return this.witnesses.length > 0;
+  }
+
   public get witnesses() {
     const myWitnesses = [];
-    const allWitnesses = this.case.revealedWitnesses.concat(this.case.unrevealedWitnesses);
-    allWitnesses.forEach((witness) => {
+    this.case.witnessNames.forEach((witness, i) => {
       myWitnesses.push({
-        name: "???",
-        character: witness.name
+        name: witness,
+        character: this.case.witnesses[i],
       });
     });
     return myWitnesses;

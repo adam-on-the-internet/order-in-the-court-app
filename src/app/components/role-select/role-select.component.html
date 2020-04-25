@@ -16,13 +16,9 @@
             [icon]="'fa-balance-scale'"
           >
             <p>
-              The judge runs the case.
-              <span *ngIf="showWitness"
-                >They decide when to call witnesses.</span
-              >
-              Once all pieces of evidence
-              <span *ngIf="showWitness"> and witnesses</span> are revealed, the
-              judge rules a verdict. Just one player should have this role.
+              The judge runs the case. They decide when to call witnesses. Once
+              all pieces of evidence are revealed, the judge rules a verdict.
+              Just one player should have this role.
             </p>
             <button class="btn btn-primary" (click)="beJudge()">
               Select
@@ -37,7 +33,7 @@
           >
             <p>
               The plaintiff reveals evidence
-              <span *ngIf="showWitness">and questions witnesses</span> to accuse
+              and questions witnesses to accuse
               the defendant of something. Just one player should have this role.
             </p>
             <button class="btn btn-primary" (click)="bePlaintiff()">
@@ -52,16 +48,15 @@
             [icon]="'fa-user-circle'"
           >
             <p>
-              The defendant reveals evidence
-              <span *ngIf="showWitness">and questions witnesses</span> to deny
-              the plaintiff's accusation. Just one player should have this role.
+              The defendant reveals evidence and questions witnesses to deny the
+              plaintiff's accusation. Just one player should have this role.
             </p>
             <button class="btn btn-primary" (click)="beDefendant()">
               Select
             </button>
           </app-card>
         </div>
-        <div class="my-3" *ngIf="showWitness">
+        <div class="my-3">
           <app-card
             [title]="'Witness'"
             [autoHeight]="false"

@@ -17,11 +17,7 @@ export class RoleSelectComponent implements OnInit {
   }
 
   public get witnessCount(): number {
-    return this.case.unrevealedWitnesses.length + this.case.revealedWitnesses.length;
-  }
-
-  public get showWitness(): boolean {
-    return this.witnessCount > 0;
+    return this.case.witnessNames.length;
   }
 
   public get case(): Case {

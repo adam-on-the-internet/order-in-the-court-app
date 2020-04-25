@@ -19,6 +19,22 @@ export class CaseManagerService {
     return this.activeCase !== null;
   }
 
+  public get caseUnstarted(): boolean {
+    return this.activeCase.status === 0;
+  }
+
+  public get caseStarted(): boolean {
+    return this.activeCase.status === 1;
+  }
+
+  public get caseClosed(): boolean {
+    return this.activeCase.status === 2;
+  }
+
+  public get caseOpen(): boolean {
+    return !this.caseClosed;
+  }
+
   constructor(
     private caseService: CaseService,
     private logService: LogService,
@@ -63,8 +79,6 @@ export class CaseManagerService {
       .subscribe((res) => this.activeCase = res,
         (error) => {
           console.log("get case failed");
-        }, () => {
-          console.log(`The Case of the ${this.activeCase.name} refreshed`);
         });
   }
 
