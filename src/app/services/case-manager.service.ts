@@ -59,7 +59,7 @@ export class CaseManagerService {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
   }
 
-  public get witnesses() {
+  public get witnesses(): any[] {
     const myWitnesses = [];
     this.activeCase.witnessNames.forEach((witness, i) => {
       myWitnesses.push({
