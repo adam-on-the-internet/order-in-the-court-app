@@ -60,7 +60,14 @@ export class CaseManagerService {
   }
 
   public assignJudgeName(name: string) {
-
+    let response;
+    this.caseService.assignJudgeName(this.activeCase._id, name)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("assign judge name failed");
+        }, () => {
+          this.navHelper.goToJudge(this.activeCase._id);
+        });
   }
 
   public assignPlaintiffName(name: string) {

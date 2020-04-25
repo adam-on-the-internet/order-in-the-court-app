@@ -70,13 +70,17 @@ export class CaseService {
     return this.http.post(url, null, CookieHelper.unauthHeaders) as Observable<Case>;
   }
 
-  public updateJudgeCaseNotes(myCase: Case): Observable<Case> {
+  public assignJudgeName(caseId: string, judgeName: string): Observable<Case> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: "judge"
+      collection: "judgename"
     });
-    return this.http.put(url, myCase, CookieHelper.unauthHeaders) as Observable<Case>;
+    const params = {
+      judgeName,
+      caseId
+    };
+    return this.http.put(url, params, CookieHelper.unauthHeaders) as Observable<Case>;
   }
 
   public closeCase(caseId: string, isDefendantGuilty: boolean): Observable<Case> {

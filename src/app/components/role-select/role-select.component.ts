@@ -3,6 +3,7 @@ import { NavHelperService } from "src/app/services/nav-helper.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
+import { BooleanHelper } from 'src/app/utilities/boolean.util';
 
 @Component({
   selector: "app-role-select",
@@ -10,7 +11,12 @@ import { CaseManagerService } from "src/app/services/case-manager.service";
   styleUrls: ["./role-select.component.css"]
 })
 export class RoleSelectComponent implements OnInit {
+  public playerName: string = null;
   private caseId: string = null;
+
+  public get hasPlayerName(): boolean {
+    return BooleanHelper.hasValue(this.playerName);
+  }
 
   public get ready(): boolean {
     return this.caseId && this.caseManager.caseReady && this.caseId === this.caseManager.activeCase._id;
@@ -35,7 +41,7 @@ export class RoleSelectComponent implements OnInit {
   }
 
   public beJudge() {
-    this.navHelper.goToJudge(this.case._id);
+    this.caseManager.assignJudgeName(this.playerName);
   }
 
   public beDefendant() {

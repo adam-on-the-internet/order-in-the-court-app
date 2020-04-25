@@ -44,6 +44,8 @@ import { BodyComponent } from "./components/body/body.component";
 import { LoadingComponent } from "./components/loading/loading.component";
 import { CardComponent } from "./components/card/card.component";
 import { ArchivedCaseComponent } from "./components/archived-case/archived-case.component";
+import { AdvancedModalBoxComponent } from './components/advanced-modal-box/advanced-modal-box.component';
+import { ModalTriggerButtonComponent } from './components/modal-trigger-button/modal-trigger-button.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { ArchivedCaseComponent } from "./components/archived-case/archived-case.
     BodyComponent,
     LoadingComponent,
     CardComponent,
-    ArchivedCaseComponent
+    ArchivedCaseComponent,
+    AdvancedModalBoxComponent,
+    ModalTriggerButtonComponent
   ],
   imports: [
     BrowserModule,

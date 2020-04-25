@@ -27,8 +27,12 @@ export class RevelationsComponent implements OnInit {
     return BooleanHelper.hasValue(this.case);
   }
 
+  public get hasJudgeName(): boolean {
+    return BooleanHelper.hasValue(this.case.judgeName);
+  }
+
   public get judgeName(): string {
-    return "???";
+    return this.case.judgeName;
   }
 
   public get defendantName(): string {

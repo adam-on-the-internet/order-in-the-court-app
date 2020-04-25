@@ -16,13 +16,14 @@
             [icon]="'fa-balance-scale'"
           >
             <p>
-              The judge runs the case. They decide when to call witnesses. Once
-              all pieces of evidence are revealed, the judge rules a verdict.
-              Just one player should have this role.
+              The judge runs the case. Once all pieces of evidence are revealed,
+              the judge rules a verdict. Just one player should have this role.
             </p>
-            <button class="btn btn-primary" (click)="beJudge()">
-              Select
-            </button>
+            <app-modal-trigger-button
+              [text]="'Become the Judge'"
+              [boxId]="'judge'"
+            >
+            </app-modal-trigger-button>
           </app-card>
         </div>
         <div class="my-3">
@@ -32,8 +33,7 @@
             [icon]="'fa-user-circle-o'"
           >
             <p>
-              The plaintiff reveals evidence
-              and questions witnesses to accuse
+              The plaintiff reveals evidence and questions witnesses to accuse
               the defendant of something. Just one player should have this role.
             </p>
             <button class="btn btn-primary" (click)="bePlaintiff()">
@@ -99,3 +99,26 @@
     </div>
   </app-body>
 </ng-template>
+
+<app-advanced-modal-box [boxId]="'judge'" [title]="'Judge'">
+  <label for="playername">Your Name</label>
+  <br />
+  <br />
+  <input
+    type="text"
+    id="playerName"
+    name="playerName"
+    [(ngModel)]="playerName"
+  /><br /><br />
+  <div class="alert alert-warning" *ngIf="!hasPlayerName">
+    You must enter a name to continue.
+  </div>
+  <button
+    data-dismiss="modal"
+    class="btn btn-primary"
+    (click)="beJudge()"
+    [disabled]="!hasPlayerName"
+  >
+    Join
+  </button>
+</app-advanced-modal-box>
