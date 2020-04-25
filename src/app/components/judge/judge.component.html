@@ -42,8 +42,7 @@
               Verdict
             </h5>
             <p *ngIf="!readyToClose">
-              You cannot make your verdict until all witnesses and evidence have
-              been revealed.
+              You cannot make your verdict until all evidence has been revealed.
             </p>
             <div id="verdict-controls" *ngIf="readyToClose">
               <div class="alert alert-info">
@@ -78,7 +77,8 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="alert alert-info" *ngIf="!case.closed">
-                As a judge, you can take notes and keep score. This is only visible to you.
+                As a judge, you can take notes and keep score. This is only
+                visible to you.
               </div>
             </li>
             <li class="list-group-item">
