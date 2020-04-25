@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
-import { CaseService } from "src/app/services/case.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { Evidence } from "src/app/models/Evidence.model";
+import { CaseManagerService } from 'src/app/services/case-manager.service';
 
 @Component({
   selector: "app-defendant",
@@ -11,15 +11,20 @@ import { Evidence } from "src/app/models/Evidence.model";
   styleUrls: ["./defendant.component.css"]
 })
 export class DefendantComponent implements OnInit {
-  public case: Case = null;
-  public error = false;
+  public get case(): Case {
+    return this.caseManager.activeCase;
+  }
 
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.case);
   }
 
+  public get caseUnstarted(): boolean {
+    return this.caseManager.caseUnstarted;
+  }
+
   constructor(
-    private caseService: CaseService,
+    private caseManager: CaseManagerService,
     private route: ActivatedRoute
   ) { }
 
@@ -28,24 +33,12 @@ export class DefendantComponent implements OnInit {
   }
 
   public revealEvidence(evidence: Evidence) {
-    this.caseService.revealDefendantEvidence(this.case._id, evidence._id)
-      .subscribe((res) => this.case = res,
-        (error) => {
-          this.error = true;
-          console.log("reveal evidence failed");
-        });
+    this.caseManager.revealDefendantEvidence(evidence._id);
   }
 
   private loadCase() {
-    this.case = null;
-    this.error = false;
     const id = this.route.snapshot.paramMap.get("id");
-    this.caseService.getSingleCase(id)
-      .subscribe((res) => this.case = res,
-        (error) => {
-          this.error = true;
-          console.log("get case failed");
-        });
+    this.caseManager.loadExistingCase(id);
   }
 
 }
