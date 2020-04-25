@@ -199,6 +199,7 @@ export class CaseManagerService {
         }, () => {
           if (this.caseClosed) {
             this.caseRefresher.unsubscribe();
+            this.navHelper.goToArchivedCase(this.activeCase._id);
           }
         });
   }

@@ -11,14 +11,9 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ArchivedCaseComponent implements OnInit {
   public case: Case = null;
-  public error = false;
 
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.case);
-  }
-
-  public get witnessCount(): number {
-    return this.case.witnessNames.length;
   }
 
   constructor(
@@ -32,7 +27,6 @@ export class ArchivedCaseComponent implements OnInit {
 
   private loadCase() {
     this.case = null;
-    this.error = false;
     const id = this.route.snapshot.paramMap.get("id");
     this.caseService.getSingleCase(id)
       .subscribe((res) => this.case = res,
