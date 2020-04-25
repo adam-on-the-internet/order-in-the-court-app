@@ -79,7 +79,7 @@
       </div>
     </app-card>
   </div>
-  <div class="CASE-ROLES mb-3">
+  <div class="CASE-ROLES mb-3" *ngIf="showRoles">
     <app-card>
       <p class="my-0 py-0">
         <em>Starring...</em>
@@ -120,12 +120,12 @@
           <em>
             And THE WITNESSES...
           </em>
-          <i class="fa fa-users pull-right"></i>
         </h5>
         <br />
         <h5 *ngFor="let witness of witnesses">
           {{ witness.name }}
           <em> as {{ witness.character.name }} </em>
+          <i class="fa fa-user pull-right"></i>
         </h5>
       </ng-container>
     </app-card>

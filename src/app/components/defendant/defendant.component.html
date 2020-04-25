@@ -28,27 +28,31 @@
             </ul>
           </app-card>
         </div>
-        <h3
-          class="text-center"
-          *ngIf="case.unrevealedDefendantEvidence.length > 0 && !caseUnstarted"
-        >
-          Unrevealed Evidence
-        </h3>
-        <div
-          class="card my-2 border-primary"
-          *ngFor="let evidence of case.unrevealedDefendantEvidence"
-        >
-          <div class="card-body">
-            <h5 class="card-title">
-              <i class="fa fa-search"></i>
-              {{ evidence.name }}
-            </h5>
-            <button
-              class="btn btn-secondary"
-              (click)="revealEvidence(evidence)"
-            >
-              Reveal to the Court
-            </button>
+        <div class="evidence" *ngIf="showEvidence">
+          <h3
+            class="text-center"
+            *ngIf="
+              case.unrevealedDefendantEvidence.length > 0 && !caseUnstarted
+            "
+          >
+            Unrevealed Evidence
+          </h3>
+          <div
+            class="card my-2 border-primary"
+            *ngFor="let evidence of case.unrevealedDefendantEvidence"
+          >
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fa fa-search"></i>
+                {{ evidence.name }}
+              </h5>
+              <button
+                class="btn btn-secondary"
+                (click)="revealEvidence(evidence)"
+              >
+                Reveal to the Court
+              </button>
+            </div>
           </div>
         </div>
       </div>

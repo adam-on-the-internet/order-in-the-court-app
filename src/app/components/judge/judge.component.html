@@ -12,9 +12,15 @@
             <div class="alert alert-info" *ngIf="!canBeStarted">
               You can start the case once The Judge, The Plaintiff, and The
               Defendant have picked their names.
+              <hr />
+              Do not start until any Witnesses you are expecting have joined as
+              well.
+              <hr />
+              You can see all of the players who have joined on the right side
+              under Case Details.
             </div>
             <button
-              class="btn btn-primary"
+              class="btn btn-primary btn-block"
               [disabled]="!canBeStarted"
               (click)="startCase()"
             >
@@ -68,8 +74,6 @@
                 ready, choose your verdict and close the case.
               </div>
               <hr />
-              <label>VERDICT</label>
-              <br />
               <button
                 class="btn btn-primary mx-2 mb-1"
                 (click)="verdictGuilty(true)"

@@ -52,11 +52,11 @@ export class RevelationsComponent implements OnInit {
   }
 
   public get witnessesPresent(): boolean {
-    return this.witnesses.length > 0;
+    return this.caseManager.hasAWitness;
   }
 
   public get hasMaxWitnesses(): boolean {
-    return this.witnesses.length > 4;
+    return this.caseManager.hasMaxWitnesses;
   }
 
   public get witnesses() {
@@ -65,6 +65,10 @@ export class RevelationsComponent implements OnInit {
 
   public get caseUnstarted(): boolean {
     return this.caseManager.caseUnstarted;
+  }
+
+  public get showRoles(): boolean {
+    return this.hasJudgeName || this.hasPlaintiffName || this.hasDefendantName || this.witnessesPresent;
   }
 
   constructor(

@@ -23,6 +23,10 @@ export class DefendantComponent implements OnInit {
     return this.caseManager.caseUnstarted;
   }
 
+  public get showEvidence(): boolean {
+    return this.case.unrevealedDefendantEvidence.length > 0 && !this.caseUnstarted;
+  }
+
   constructor(
     private caseManager: CaseManagerService,
     private route: ActivatedRoute

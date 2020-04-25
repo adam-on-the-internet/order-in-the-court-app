@@ -42,6 +42,10 @@ export class RoleSelectComponent implements OnInit {
     return this.caseManager.hasMaxWitnesses;
   }
 
+  public get allowWitnessToJoin(): boolean {
+    return !this.hasMaxWitnesses && this.caseManager.caseUnstarted;
+  }
+
   public get showRejoin(): boolean {
     return this.hasJudgeName;
   }
