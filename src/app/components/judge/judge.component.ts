@@ -40,6 +40,10 @@ export class JudgeComponent implements OnInit {
     return this.caseManager.canBeStarted;
   }
 
+  public get caseClosed(): boolean {
+    return this.caseManager.caseClosed;
+  }
+
   constructor(
     private caseManager: CaseManagerService,
     private route: ActivatedRoute

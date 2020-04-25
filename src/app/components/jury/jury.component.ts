@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
-import { CaseService } from "src/app/services/case.service";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
+import { CaseManagerService } from 'src/app/services/case-manager.service';
 
 @Component({
   selector: "app-jury",
@@ -10,15 +10,20 @@ import { Case } from "src/app/models/Case.model";
   styleUrls: ["./jury.component.css"]
 })
 export class JuryComponent implements OnInit {
-  public case: Case = null;
-  public error = false;
+  public get case(): Case {
+    return this.caseManager.activeCase;
+  }
+
+  public get caseUnstarted(): boolean {
+    return this.caseManager.caseUnstarted;
+  }
 
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.case);
   }
 
   constructor(
-    private caseService: CaseService,
+    private caseManager: CaseManagerService,
     private route: ActivatedRoute
   ) { }
 
@@ -27,14 +32,7 @@ export class JuryComponent implements OnInit {
   }
 
   private loadCase() {
-    const caseId = this.route.snapshot.paramMap.get("id");
-    this.case = null;
-    this.error = false;
-    this.caseService.getSingleCase(caseId)
-      .subscribe((res) => this.case = res,
-        (error) => {
-          this.error = true;
-          console.log("get case failed");
-        });
+    const id = this.route.snapshot.paramMap.get("id");
+    this.caseManager.loadExistingCase(id);
   }
 }

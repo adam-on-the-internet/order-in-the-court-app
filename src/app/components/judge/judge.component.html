@@ -89,19 +89,19 @@
           <div class="card-body">
             <h5 class="card-title">
               <i class="fa fa-file"></i>
-              Case File
+              Judge's Case File
             </h5>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <div class="alert alert-info" *ngIf="!case.closed">
+              <div class="alert alert-info" *ngIf="!caseClosed">
                 As a judge, you can take notes and keep score. This is only
                 visible to you.
               </div>
             </li>
             <li class="list-group-item">
               <button
-                *ngIf="!case.closed"
+                *ngIf="!caseClosed"
                 class="btn btn-secondary"
                 (click)="updatePlaintiffScore(-1)"
               >
@@ -109,7 +109,7 @@
               </button>
               {{ plaintiffScore }}
               <button
-                *ngIf="!case.closed"
+                *ngIf="!caseClosed"
                 class="btn btn-secondary"
                 (click)="updatePlaintiffScore(1)"
               >
@@ -119,7 +119,7 @@
             </li>
             <li class="list-group-item">
               <button
-                *ngIf="!case.closed"
+                *ngIf="!caseClosed"
                 class="btn btn-secondary"
                 (click)="updateDefendantScore(-1)"
               >
@@ -127,7 +127,7 @@
               </button>
               {{ defendantScore }}
               <button
-                *ngIf="!case.closed"
+                *ngIf="!caseClosed"
                 class="btn btn-secondary"
                 (click)="updateDefendantScore(1)"
               >
@@ -138,11 +138,11 @@
             <li class="list-group-item">
               <div class="form-group">
                 <label for="notes">Notes:</label>
-                <p *ngIf="case.closed">
+                <p *ngIf="caseClosed">
                   {{ notes }}
                 </p>
                 <textarea
-                  *ngIf="!case.closed"
+                  *ngIf="!caseClosed"
                   (change)="updateNotes($event)"
                   class="form-control"
                   rows="5"

@@ -46,6 +46,7 @@ import { CardComponent } from "./components/card/card.component";
 import { ArchivedCaseComponent } from "./components/archived-case/archived-case.component";
 import { AdvancedModalBoxComponent } from './components/advanced-modal-box/advanced-modal-box.component';
 import { ModalTriggerButtonComponent } from './components/modal-trigger-button/modal-trigger-button.component';
+import { CaseUnstartedComponent } from './components/case-unstarted/case-unstarted.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { ModalTriggerButtonComponent } from './components/modal-trigger-button/m
     CardComponent,
     ArchivedCaseComponent,
     AdvancedModalBoxComponent,
-    ModalTriggerButtonComponent
+    ModalTriggerButtonComponent,
+    CaseUnstartedComponent
   ],
   imports: [
     BrowserModule,
