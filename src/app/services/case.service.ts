@@ -65,8 +65,7 @@ export class CaseService {
   public create(): Observable<Case> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
-      controller,
-      collection: "automatic",
+      controller
     });
     return this.http.post(url, null, CookieHelper.unauthHeaders) as Observable<Case>;
   }
