@@ -63,6 +63,10 @@ export class RevelationsComponent implements OnInit {
     return this.caseManager.witnesses;
   }
 
+  public get caseUnstarted(): boolean {
+    return this.caseManager.caseUnstarted;
+  }
+
   constructor(
     private caseManager: CaseManagerService,
   ) { }

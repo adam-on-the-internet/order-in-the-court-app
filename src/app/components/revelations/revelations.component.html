@@ -3,11 +3,19 @@
   <div class="CASE-OVERVIEW mb-3">
     <app-card [title]="'The Case of the ' + case.name" [icon]="'fa-tag'">
       <hr />
-      <h5>
-        <i class="fa fa-book"></i>
-        Issue: {{ case.issue.name }}
-      </h5>
-      <p>{{ case.issue.description }}</p>
+      <ng-container *ngIf="caseUnstarted">
+        <h5>
+          <i class="fa fa-book"></i>
+          The Issue will be revealed once the case starts.
+        </h5>
+      </ng-container>
+      <ng-container *ngIf="!caseUnstarted">
+        <h5>
+          <i class="fa fa-book"></i>
+          Issue: {{ case.issue.name }}
+        </h5>
+        <p>{{ case.issue.description }}</p>
+      </ng-container>
       <ng-container *ngIf="caseClosed">
         <hr />
         <h5>
