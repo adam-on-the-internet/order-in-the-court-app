@@ -22,8 +22,28 @@ export class RoleSelectComponent implements OnInit {
     return this.caseId && this.caseManager.caseReady && this.caseId === this.caseManager.activeCase._id;
   }
 
-  public get witnessCount(): number {
-    return this.case.witnessNames.length;
+  public get hasJudgeName(): boolean {
+    return this.caseManager.hasJudgeName;
+  }
+
+  public get hasPlaintiffName(): boolean {
+    return this.caseManager.hasPlaintiffName;
+  }
+
+  public get hasDefendantName(): boolean {
+    return this.caseManager.hasDefendantName;
+  }
+
+  public get hasAWitness(): boolean {
+    return this.caseManager.hasAWitness;
+  }
+
+  public get hasMaxWitnesses(): boolean {
+    return this.caseManager.hasMaxWitnesses;
+  }
+
+  public get showRejoin(): boolean {
+    return this.hasJudgeName;
   }
 
   public get case(): Case {
@@ -44,20 +64,36 @@ export class RoleSelectComponent implements OnInit {
     this.caseManager.assignJudgeName(this.playerName);
   }
 
-  public beDefendant() {
-    this.navHelper.goToDefendant(this.case._id);
+  public bePlaintiff() {
+    this.caseManager.assignPlaintiffName(this.playerName);
   }
 
-  public bePlaintiff() {
-    this.navHelper.goToPlaintiff(this.case._id);
+  public beDefendant() {
+    this.caseManager.assignDefendantName(this.playerName);
   }
 
   public beWitness() {
-    this.navHelper.goToWitness(this.case._id);
+    this.caseManager.assignWitnessName(this.playerName);
   }
 
   public beJury() {
     this.navHelper.goToJury(this.case._id);
+  }
+
+  public returnJudge() {
+    this.navHelper.goToJudge(this.case._id);
+  }
+
+  public returnDefendant() {
+    this.navHelper.goToDefendant(this.case._id);
+  }
+
+  public returnPlaintiff() {
+    this.navHelper.goToPlaintiff(this.case._id);
+  }
+
+  public returnWitness() {
+    this.navHelper.goToWitness(this.case._id);
   }
 
   private loadCase() {

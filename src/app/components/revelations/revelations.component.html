@@ -60,13 +60,14 @@
         <hr />
         <h5>
           <em>
-            And THE WITNESSES
+            And THE WITNESSES...
           </em>
           <i class="fa fa-users pull-right"></i>
         </h5>
+        <br />
         <h5 *ngFor="let witness of witnesses">
           {{ witness.name }}
-          <em> as {{ witness.character }} </em>
+          <em> as {{ witness.character.name }} </em>
         </h5>
       </ng-container>
     </app-card>

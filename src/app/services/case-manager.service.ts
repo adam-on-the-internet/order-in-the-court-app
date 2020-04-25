@@ -35,6 +35,41 @@ export class CaseManagerService {
     return !this.caseClosed;
   }
 
+  public get hasJudgeName(): boolean {
+    return BooleanHelper.hasValue(this.activeCase.judgeName);
+  }
+
+  public get hasPlaintiffName(): boolean {
+    return BooleanHelper.hasValue(this.activeCase.plaintiffName);
+  }
+
+  public get hasDefendantName(): boolean {
+    return BooleanHelper.hasValue(this.activeCase.defendantName);
+  }
+
+  public get hasAWitness(): boolean {
+    return this.witnesses.length > 0;
+  }
+
+  public get hasMaxWitnesses(): boolean {
+    return this.witnesses.length > 4;
+  }
+
+  public get allNamesSet(): boolean {
+    return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
+  }
+
+  public get witnesses() {
+    const myWitnesses = [];
+    this.activeCase.witnessNames.forEach((witness, i) => {
+      myWitnesses.push({
+        name: witness,
+        character: this.activeCase.witnesses[i],
+      });
+    });
+    return myWitnesses;
+  }
+
   constructor(
     private caseService: CaseService,
     private logService: LogService,
@@ -71,15 +106,36 @@ export class CaseManagerService {
   }
 
   public assignPlaintiffName(name: string) {
-
+    let response;
+    this.caseService.assignPlaintiffName(this.activeCase._id, name)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("assign plaintiff name failed");
+        }, () => {
+          this.navHelper.goToPlaintiff(this.activeCase._id);
+        });
   }
 
   public assignDefendantName(name: string) {
-
+    let response;
+    this.caseService.assignDefendantName(this.activeCase._id, name)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("assign defendant name failed");
+        }, () => {
+          this.navHelper.goToDefendant(this.activeCase._id);
+        });
   }
 
   public assignWitnessName(name: string) {
-
+    let response;
+    this.caseService.assignWitnessName(this.activeCase._id, name)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("assign witness name failed");
+        }, () => {
+          this.navHelper.goToWitness(this.activeCase._id);
+        });
   }
 
   public startCase() {

@@ -28,34 +28,39 @@ export class RevelationsComponent implements OnInit {
   }
 
   public get hasJudgeName(): boolean {
-    return BooleanHelper.hasValue(this.case.judgeName);
+    return this.caseManager.hasJudgeName;
   }
 
   public get judgeName(): string {
     return this.case.judgeName;
   }
 
-  public get defendantName(): string {
-    return "???";
+  public get hasPlaintiffName(): boolean {
+    return this.caseManager.hasPlaintiffName;
   }
 
   public get plaintiffName(): string {
-    return "???";
+    return this.case.plaintiffName;
+  }
+
+  public get hasDefendantName(): boolean {
+    return this.caseManager.hasDefendantName;
+  }
+
+  public get defendantName(): string {
+    return this.case.defendantName;
   }
 
   public get witnessesPresent(): boolean {
     return this.witnesses.length > 0;
   }
 
+  public get hasMaxWitnesses(): boolean {
+    return this.witnesses.length > 4;
+  }
+
   public get witnesses() {
-    const myWitnesses = [];
-    this.case.witnessNames.forEach((witness, i) => {
-      myWitnesses.push({
-        name: witness,
-        character: this.case.witnesses[i],
-      });
-    });
-    return myWitnesses;
+    return this.caseManager.witnesses;
   }
 
   constructor(

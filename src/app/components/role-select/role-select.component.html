@@ -9,8 +9,9 @@
         <h3 class="text-center">
           Roles
         </h3>
-        <div class="mb-3">
+        <div class="my-3">
           <app-card
+            *ngIf="!hasJudgeName"
             [title]="'Judge'"
             [autoHeight]="false"
             [icon]="'fa-balance-scale'"
@@ -26,7 +27,7 @@
             </app-modal-trigger-button>
           </app-card>
         </div>
-        <div class="my-3">
+        <div class="my-3" *ngIf="!hasPlaintiffName">
           <app-card
             [title]="'Plaintiff'"
             [autoHeight]="false"
@@ -36,12 +37,14 @@
               The plaintiff reveals evidence and questions witnesses to accuse
               the defendant of something. Just one player should have this role.
             </p>
-            <button class="btn btn-primary" (click)="bePlaintiff()">
-              Select
-            </button>
+            <app-modal-trigger-button
+              [text]="'Become the Plaintiff'"
+              [boxId]="'plaintiff'"
+            >
+            </app-modal-trigger-button>
           </app-card>
         </div>
-        <div class="my-3">
+        <div class="my-3" *ngIf="!hasDefendantName">
           <app-card
             [title]="'Defendant'"
             [autoHeight]="false"
@@ -51,12 +54,14 @@
               The defendant reveals evidence and questions witnesses to deny the
               plaintiff's accusation. Just one player should have this role.
             </p>
-            <button class="btn btn-primary" (click)="beDefendant()">
-              Select
-            </button>
+            <app-modal-trigger-button
+              [text]="'Become the Defendant'"
+              [boxId]="'defendant'"
+            >
+            </app-modal-trigger-button>
           </app-card>
         </div>
-        <div class="my-3">
+        <div class="my-3" *ngIf="!hasMaxWitnesses">
           <app-card
             [title]="'Witness'"
             [autoHeight]="false"
@@ -66,9 +71,11 @@
               The witnesses are called into court by the judge to connect their
               backstory to the case. Multiple players can have this role.
             </p>
-            <button class="btn btn-primary" (click)="beWitness()">
-              Select
-            </button>
+            <app-modal-trigger-button
+              [text]="'Become a Witness'"
+              [boxId]="'witness'"
+            >
+            </app-modal-trigger-button>
           </app-card>
         </div>
         <div class="my-3">
@@ -81,6 +88,48 @@
               Select
             </button>
           </app-card>
+        </div>
+        <div id="rejoin" *ngIf="showRejoin">
+          <hr />
+          <h3 class="text-center" *ngIf="showRejoin">
+            Rejoin
+          </h3>
+          <div class="my-3">
+            <app-card [autoHeight]="false">
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnJudge()"
+                *ngIf="hasJudgeName"
+              >
+                <i class="fa fa-balance-scale"></i>
+                Return as the Judge
+              </button>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnPlaintiff()"
+                *ngIf="hasPlaintiffName"
+              >
+                <i class="fa fa-user-circle-o"></i>
+                Return as the Plaintiff
+              </button>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnDefendant()"
+                *ngIf="hasDefendantName"
+              >
+                <i class="fa fa-user-circle"></i>
+                Return as the Defendant
+              </button>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnWitness()"
+                *ngIf="hasAWitness"
+              >
+                <i class="fa fa-users"></i>
+                Return as a Witness
+              </button>
+            </app-card>
+          </div>
         </div>
       </div>
       <div class="col-md-6 my-3">
@@ -100,23 +149,58 @@
   </app-body>
 </ng-template>
 
-<app-advanced-modal-box [boxId]="'judge'" [title]="'Judge'">
-  <label for="playername">Your Name</label>
+<ng-template #nameInput>
+  <label>Your Name</label>
   <br />
   <br />
-  <input
-    type="text"
-    id="playerName"
-    name="playerName"
-    [(ngModel)]="playerName"
-  /><br /><br />
+  <input type="text" name="playerName" [(ngModel)]="playerName" /><br /><br />
   <div class="alert alert-warning" *ngIf="!hasPlayerName">
     You must enter a name to continue.
   </div>
+</ng-template>
+
+<app-advanced-modal-box [boxId]="'judge'" [title]="'Judge'">
+  <ng-container *ngTemplateOutlet="nameInput"></ng-container>
   <button
     data-dismiss="modal"
     class="btn btn-primary"
     (click)="beJudge()"
+    [disabled]="!hasPlayerName"
+  >
+    Join
+  </button>
+</app-advanced-modal-box>
+
+<app-advanced-modal-box [boxId]="'plaintiff'" [title]="'Plaintiff'">
+  <ng-container *ngTemplateOutlet="nameInput"></ng-container>
+  <button
+    data-dismiss="modal"
+    class="btn btn-primary"
+    (click)="bePlaintiff()"
+    [disabled]="!hasPlayerName"
+  >
+    Join
+  </button>
+</app-advanced-modal-box>
+
+<app-advanced-modal-box [boxId]="'defendant'" [title]="'Defendant'">
+  <ng-container *ngTemplateOutlet="nameInput"></ng-container>
+  <button
+    data-dismiss="modal"
+    class="btn btn-primary"
+    (click)="beDefendant()"
+    [disabled]="!hasPlayerName"
+  >
+    Join
+  </button>
+</app-advanced-modal-box>
+
+<app-advanced-modal-box [boxId]="'witness'" [title]="'Witness'">
+  <ng-container *ngTemplateOutlet="nameInput"></ng-container>
+  <button
+    data-dismiss="modal"
+    class="btn btn-primary"
+    (click)="beWitness()"
     [disabled]="!hasPlayerName"
   >
     Join
