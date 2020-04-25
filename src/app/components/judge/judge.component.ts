@@ -3,6 +3,7 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
+import { JUDGE_ROLE } from 'src/app/constants/rule.constants';
 
 @Component({
   selector: "app-judge",
@@ -13,6 +14,10 @@ export class JudgeComponent implements OnInit {
   public plaintiffScore = 0;
   public defendantScore = 0;
   public notes: string = null;
+
+  public get judgeRole(): string {
+    return JUDGE_ROLE;
+  }
 
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.case);
