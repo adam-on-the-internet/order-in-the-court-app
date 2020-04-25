@@ -17,8 +17,7 @@
             [icon]="'fa-balance-scale'"
           >
             <p>
-              The judge runs the case. Once all pieces of evidence are revealed,
-              the judge rules a verdict. Just one player should have this role.
+              {{ judgeRole }}
             </p>
             <app-modal-trigger-button
               [text]="'Become the Judge'"
@@ -34,8 +33,7 @@
             [icon]="'fa-user-circle-o'"
           >
             <p>
-              The plaintiff reveals evidence and questions witnesses to accuse
-              the defendant of something. Just one player should have this role.
+              {{ plaintiffRole }}
             </p>
             <app-modal-trigger-button
               [text]="'Become the Plaintiff'"
@@ -51,8 +49,7 @@
             [icon]="'fa-user-circle'"
           >
             <p>
-              The defendant reveals evidence and questions witnesses to deny the
-              plaintiff's accusation. Just one player should have this role.
+              {{ defendantRole }}
             </p>
             <app-modal-trigger-button
               [text]="'Become the Defendant'"
@@ -68,8 +65,7 @@
             [icon]="'fa-users'"
           >
             <p>
-              The witnesses are called into court by the judge to connect their
-              backstory to the case. Multiple players can have this role.
+              {{ witnessRole }}
             </p>
             <app-modal-trigger-button
               [text]="'Become a Witness'"
@@ -81,11 +77,10 @@
         <div class="my-3">
           <app-card [title]="'Jury'" [autoHeight]="false" [icon]="'fa-eye'">
             <p>
-              The jury spectates the case. Optionally, the judge may ask them
-              for their opinion. Multiple players can have this role.
+              {{ juryRole }}
             </p>
             <button class="btn btn-primary" (click)="beJury()">
-              Select
+              Become a Juror
             </button>
           </app-card>
         </div>

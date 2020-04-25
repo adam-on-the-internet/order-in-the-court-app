@@ -4,6 +4,13 @@ import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
 import { BooleanHelper } from "src/app/utilities/boolean.util";
+import {
+  JUDGE_ROLE,
+  PLAINTIFF_ROLE,
+  DEFENDANT_ROLE,
+  WITNESS_ROLE,
+  JURY_ROLE
+} from 'src/app/constants/rule.constants';
 
 @Component({
   selector: "app-role-select",
@@ -13,6 +20,26 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 export class RoleSelectComponent implements OnInit {
   public playerName: string = null;
   private caseId: string = null;
+
+  public get judgeRole(): string {
+    return JUDGE_ROLE;
+  }
+
+  public get plaintiffRole(): string {
+    return PLAINTIFF_ROLE;
+  }
+
+  public get defendantRole(): string {
+    return DEFENDANT_ROLE;
+  }
+
+  public get witnessRole(): string {
+    return WITNESS_ROLE;
+  }
+
+  public get juryRole(): string {
+    return JURY_ROLE;
+  }
 
   public get hasPlayerName(): boolean {
     return BooleanHelper.hasValue(this.playerName);
