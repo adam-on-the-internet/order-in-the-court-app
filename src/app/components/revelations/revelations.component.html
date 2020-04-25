@@ -28,57 +28,6 @@
       </ng-container>
     </app-card>
   </div>
-  <div class="CASE-ROLES mb-3">
-    <app-card>
-      <p class="my-0 py-0">
-        <em>Starring...</em>
-      </p>
-      <ng-container *ngIf="hasJudgeName">
-        <hr />
-        <h5>
-          {{ judgeName }}
-          <em>
-            as THE JUDGE
-          </em>
-          <i class="fa fa-balance-scale pull-right"></i>
-        </h5>
-      </ng-container>
-      <ng-container *ngIf="hasPlaintiffName">
-        <hr />
-        <h5>
-          {{ plaintiffName }}
-          <em>
-            as THE PLAINTIFF
-          </em>
-          <i class="fa fa-user-circle-o pull-right"></i>
-        </h5>
-      </ng-container>
-      <ng-container *ngIf="hasDefendantName">
-        <hr />
-        <h5>
-          {{ defendantName }}
-          <em>
-            as THE DEFENDANT
-          </em>
-          <i class="fa fa-user-circle pull-right"></i>
-        </h5>
-      </ng-container>
-      <ng-container *ngIf="witnessesPresent">
-        <hr />
-        <h5>
-          <em>
-            And THE WITNESSES...
-          </em>
-          <i class="fa fa-users pull-right"></i>
-        </h5>
-        <br />
-        <h5 *ngFor="let witness of witnesses">
-          {{ witness.name }}
-          <em> as {{ witness.character.name }} </em>
-        </h5>
-      </ng-container>
-    </app-card>
-  </div>
   <div class="CASE-EVIDENCE mb-3" *ngIf="caseStarted">
     <app-card>
       <h5>
@@ -128,6 +77,57 @@
           </li>
         </ol>
       </div>
+    </app-card>
+  </div>
+  <div class="CASE-ROLES mb-3">
+    <app-card>
+      <p class="my-0 py-0">
+        <em>Starring...</em>
+      </p>
+      <ng-container *ngIf="hasJudgeName">
+        <hr />
+        <h5>
+          {{ judgeName }}
+          <em>
+            as THE JUDGE
+          </em>
+          <i class="fa fa-balance-scale pull-right"></i>
+        </h5>
+      </ng-container>
+      <ng-container *ngIf="hasPlaintiffName">
+        <hr />
+        <h5>
+          {{ plaintiffName }}
+          <em>
+            as THE PLAINTIFF
+          </em>
+          <i class="fa fa-user-circle-o pull-right"></i>
+        </h5>
+      </ng-container>
+      <ng-container *ngIf="hasDefendantName">
+        <hr />
+        <h5>
+          {{ defendantName }}
+          <em>
+            as THE DEFENDANT
+          </em>
+          <i class="fa fa-user-circle pull-right"></i>
+        </h5>
+      </ng-container>
+      <ng-container *ngIf="witnessesPresent">
+        <hr />
+        <h5>
+          <em>
+            And THE WITNESSES...
+          </em>
+          <i class="fa fa-users pull-right"></i>
+        </h5>
+        <br />
+        <h5 *ngFor="let witness of witnesses">
+          {{ witness.name }}
+          <em> as {{ witness.character.name }} </em>
+        </h5>
+      </ng-container>
     </app-card>
   </div>
   <div class="CASE-TIMELINE mb-3">
