@@ -5,7 +5,7 @@ import {
   DEFENDANT_ROLE,
   WITNESS_ROLE,
   JURY_ROLE
-} from 'src/app/constants/rule.constants';
+} from "src/app/constants/rule.constants";
 
 @Component({
   selector: "app-rules",

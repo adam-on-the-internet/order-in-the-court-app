@@ -4,7 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { Evidence } from "src/app/models/Evidence.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
-import { PLAINTIFF_ROLE, EVIDENCE_HELP } from 'src/app/constants/rule.constants';
+import { PLAINTIFF_ROLE, EVIDENCE_HELP } from "src/app/constants/rule.constants";
 
 @Component({
   selector: "app-plaintiff",

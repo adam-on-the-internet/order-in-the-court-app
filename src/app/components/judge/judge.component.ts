@@ -3,7 +3,7 @@ import { BooleanHelper } from "src/app/utilities/boolean.util";
 import { ActivatedRoute } from "@angular/router";
 import { Case } from "src/app/models/Case.model";
 import { CaseManagerService } from "src/app/services/case-manager.service";
-import { JUDGE_ROLE } from 'src/app/constants/rule.constants';
+import { JUDGE_ROLE } from "src/app/constants/rule.constants";
 
 @Component({
   selector: "app-judge",
