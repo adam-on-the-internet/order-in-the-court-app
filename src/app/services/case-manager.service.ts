@@ -59,6 +59,17 @@ export class CaseManagerService {
     }
   }
 
+  public closeCase(isDefendantGuilty: boolean) {
+    let response;
+    this.caseService.closeCase(this.activeCase._id, isDefendantGuilty)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("close case failed");
+        }, () => {
+          this.logService.log("info", "Case Closed: " + this.activeCase.name).subscribe();
+        });
+  }
+
   public reset() {
     this.activeCase = null;
     if (BooleanHelper.hasValue(this.caseRefresher)) {
@@ -79,6 +90,10 @@ export class CaseManagerService {
       .subscribe((res) => this.activeCase = res,
         (error) => {
           console.log("get case failed");
+        }, () => {
+          if (this.caseClosed) {
+            this.caseRefresher.unsubscribe();
+          }
         });
   }
 

@@ -55,24 +55,15 @@
               <br />
               <button
                 class="btn btn-primary mx-2 mb-1"
-                (click)="setGuilty(true)"
+                (click)="verdictGuilty(true)"
               >
-                <i class="fa fa-check" *ngIf="case.isDefendantGuilty"></i>
                 Defendant is GUILTY
               </button>
               <button
                 class="btn btn-primary mx-2 mb-1"
-                (click)="setGuilty(false)"
+                (click)="verdictGuilty(false)"
               >
-                <i class="fa fa-check" *ngIf="!case.isDefendantGuilty"></i>
                 Defendant is NOT GUILTY
-              </button>
-              <hr />
-              <button
-                class="btn btn-primary btn-block"
-                (click)="closeCase()"
-              >
-                Close case
               </button>
             </div>
           </div>
@@ -87,8 +78,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="alert alert-info" *ngIf="!case.closed">
-                As a judge, you can take notes and keep score. Only you can see
-                this information, and its entirely optional.
+                As a judge, you can take notes and keep score. This is only visible to you.
               </div>
             </li>
             <li class="list-group-item">
@@ -99,7 +89,7 @@
               >
                 -
               </button>
-              {{ case.plaintiffScore }}
+              {{ plaintiffScore }}
               <button
                 *ngIf="!case.closed"
                 class="btn btn-secondary"
@@ -117,7 +107,7 @@
               >
                 -
               </button>
-              {{ case.defendantScore }}
+              {{ defendantScore }}
               <button
                 *ngIf="!case.closed"
                 class="btn btn-secondary"
@@ -131,7 +121,7 @@
               <div class="form-group">
                 <label for="notes">Notes:</label>
                 <p *ngIf="case.closed">
-                  {{ case.notes }}
+                  {{ notes }}
                 </p>
                 <textarea
                   *ngIf="!case.closed"

@@ -15,9 +15,6 @@ export interface Case {
   revealedPlaintiffEvidence: Evidence[];
   unrevealedDefendantEvidence: Evidence[];
   revealedDefendantEvidence: Evidence[];
-  plaintiffScore: number;
-  defendantScore: number;
-  notes: string;
   isDefendantGuilty: boolean;
   status: number;
   closedDate: string;
