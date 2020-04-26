@@ -6,43 +6,52 @@
 ></app-header>
 <app-body>
   <div class="row">
-    <div class="col-md-6 my-3">
-      <app-card [title]="'Join a Case'" [icon]="'fa-sign-in'">
-        <p>
-          Are you here to play a game with a friend who has setup a case? Then
-          join an existing case!
-        </p>
-        <button class="btn btn-primary" (click)="joinCase()">Join</button>
-      </app-card>
+    <div class="col-md-4 my-4 text-center">
+      <i class="fa fa-sign-in fa-4x"></i>
+      <h3>
+        Join a Case
+      </h3>
+      <p>
+        Are you here to play a game with a friend who has setup a case? Then
+        join an existing case!
+      </p>
+      <button class="btn btn-primary" (click)="joinCase()">Join</button>
     </div>
-    <div class="col-md-6 my-3">
-      <app-card [title]="'Create a Case'" [icon]="'fa-plus'">
-        <p>
-          Are you here to setup a case to play with friends? Then create a new
-          case!
-        </p>
-        <button class="btn btn-primary" (click)="createCase()">
-          Create
-        </button>
-      </app-card>
+    <div class="col-md-4 my-4 text-center">
+      <i class="fa fa-plus fa-4x"></i>
+      <h3>
+        Create a Case
+      </h3>
+      <p>
+        Are you here to setup a case to play with friends? Then create a new
+        case!
+      </p>
+      <button class="btn btn-primary" (click)="createCase()">
+        Create
+      </button>
     </div>
-
-    <div class="col-md-6 my-3">
-      <app-card [title]="'Read the Rules'" [icon]="'fa-book'">
-        <p>
-          New here? Not sure how the game works? Read the rules for the game.
-        </p>
-        <button class="btn btn-secondary" (click)="readRules()">Rules</button>
-      </app-card>
+    <div class="col-md-4 my-4 text-center">
+      <i class="fa fa-book fa-4x"></i>
+      <h3>
+        Learn to Play
+      </h3>
+      <p>
+        New here? Not sure how the game works? Read the rules for the game.
+      </p>
+      <button class="btn btn-primary" (click)="readRules()">Rules</button>
     </div>
+  </div>
+</app-body>
+<app-body [alt]="true">
+  <div class="row">
     <div class="col-md-6 my-3">
       <app-card [title]="'View the Case Archive'" [icon]="'fa-archive'">
         <p>
-          Full of nostalgia for the past games you've played here? Look at
+          Are you full of nostalgia for the past games you've played here? Look at
           archived cases.
         </p>
         <button class="btn btn-secondary" (click)="goToArchive()">
-          View
+          Open the Archive
         </button>
       </app-card>
     </div>
@@ -61,11 +70,24 @@
       </app-card>
     </div>
     <div class="col-md-6 my-3">
-      <app-card [title]="'More Information'" [icon]="'fa-info-circle'">
+      <app-card [title]="'App Information'" [icon]="'fa-info-circle'">
         <p>
-          Just curious about this site? Get more information about this website.
+          Just curious about this site? Get more information about the technology this site uses.
         </p>
         <button class="btn btn-secondary" (click)="goToInfo()">Info</button>
+      </app-card>
+    </div>
+    <div class="col-md-6 my-3">
+      <app-card [title]="'Give Feedback'" [icon]="'fa-comments'">
+        <p>
+          Have thoughts or ideas for the game? Send me some feedback!
+        </p>
+        <a
+          class="btn btn-secondary"
+          href="http://www.adamontheinternet.com/contact"
+          target="_blank"
+          >Info</a
+        >
       </app-card>
     </div>
   </div>
