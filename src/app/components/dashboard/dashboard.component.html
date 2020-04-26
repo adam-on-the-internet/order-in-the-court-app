@@ -15,7 +15,9 @@
         Are you here to play a game with a friend who has setup a case? Then
         join an existing case!
       </p>
-      <button class="btn btn-primary" (click)="joinCase()">Join</button>
+      <button class="btn btn-primary btn-block" (click)="joinCase()">
+        Join
+      </button>
     </div>
     <div class="col-md-4 my-4 text-center">
       <i class="fa fa-plus fa-4x"></i>
@@ -24,9 +26,9 @@
       </h3>
       <p>
         Are you here to setup a case to play with friends? Then create a new
-        case!
+        case for your group to join!
       </p>
-      <button class="btn btn-primary" (click)="createCase()">
+      <button class="btn btn-primary btn-block" (click)="createCase()">
         Create
       </button>
     </div>
@@ -36,9 +38,12 @@
         Learn to Play
       </h3>
       <p>
-        New here? Not sure how the game works? Read the rules for the game.
+        Are you new here? Are you unsure of how to play? Read the rules for the
+        game to get up to speed.
       </p>
-      <button class="btn btn-primary" (click)="readRules()">Rules</button>
+      <button class="btn btn-primary btn-block" (click)="readRules()">
+        Rules
+      </button>
     </div>
   </div>
 </app-body>
@@ -47,10 +52,10 @@
     <div class="col-md-6 my-3">
       <app-card [title]="'View the Case Archive'" [icon]="'fa-archive'">
         <p>
-          Are you full of nostalgia for the past games you've played here? Look at
-          archived cases.
+          Are you full of nostalgia for the past games you've played here? Look
+          at archived cases.
         </p>
-        <button class="btn btn-secondary" (click)="goToArchive()">
+        <button class="btn btn-secondary btn-block" (click)="goToArchive()">
           Open the Archive
         </button>
       </app-card>
@@ -61,7 +66,7 @@
           Like this free website? Pay it forward to a charity I support.
         </p>
         <a
-          class="btn btn-secondary"
+          class="btn btn-secondary btn-block"
           href="https://aoti-app-hub.herokuapp.com/donate"
           target="_blank"
         >
@@ -72,9 +77,12 @@
     <div class="col-md-6 my-3">
       <app-card [title]="'App Information'" [icon]="'fa-info-circle'">
         <p>
-          Just curious about this site? Get more information about the technology this site uses.
+          Just curious about this site? Get more information about the
+          technology this site uses.
         </p>
-        <button class="btn btn-secondary" (click)="goToInfo()">Info</button>
+        <button class="btn btn-secondary btn-block" (click)="goToInfo()">
+          Info
+        </button>
       </app-card>
     </div>
     <div class="col-md-6 my-3">
@@ -83,7 +91,7 @@
           Have thoughts or ideas for the game? Send me some feedback!
         </p>
         <a
-          class="btn btn-secondary"
+          class="btn btn-secondary btn-block"
           href="http://www.adamontheinternet.com/contact"
           target="_blank"
           >Info</a
