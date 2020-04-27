@@ -57,11 +57,11 @@ export class CaseManagerService {
   }
 
   public get allPlaintiffEvidenceSelected(): boolean {
-    return this.activeCase.revealedPlaintiffEvidence.length > 4;
+    return this.activeCase.unrevealedPlaintiffEvidence.length > 4;
   }
 
   public get allDefendantEvidenceSelected(): boolean {
-    return this.activeCase.revealedDefendantEvidence.length > 4;
+    return this.activeCase.unrevealedDefendantEvidence.length > 4;
   }
 
   public get allEvidenceSelected(): boolean {
@@ -169,7 +169,7 @@ export class CaseManagerService {
     this.caseService.selectPlaintiffEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
-          console.log("reveal plaintiff evidence failed");
+          console.log("select plaintiff evidence failed");
         });
   }
 
@@ -178,7 +178,7 @@ export class CaseManagerService {
     this.caseService.selectDefendantEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
-          console.log("reveal defendant evidence failed");
+          console.log("select defendant evidence failed");
         });
   }
 

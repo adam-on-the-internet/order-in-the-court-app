@@ -151,7 +151,7 @@ export class CaseService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `revealDefendantEvidence/case/${caseId}/evidence/${evidenceId}`
+      collection: `selectDefendantEvidence/case/${caseId}/evidence/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.unauthHeaders) as Observable<Case>;
   }

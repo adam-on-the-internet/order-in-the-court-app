@@ -33,7 +33,11 @@ export class DefendantComponent implements OnInit {
   }
 
   public get showEvidence(): boolean {
-    return this.case.unrevealedDefendantEvidence.length > 0 && !this.caseUnstarted;
+    return this.case.unrevealedDefendantEvidence.concat(this.case.revealedDefendantEvidence).length > 0;
+  }
+
+  public get showEvidencePool(): boolean {
+    return this.case.unrevealedDefendantEvidence.length < 5 && this.caseUnstarted;
   }
 
   constructor(
@@ -47,6 +51,10 @@ export class DefendantComponent implements OnInit {
 
   public revealEvidence(evidence: Evidence) {
     this.caseManager.revealDefendantEvidence(evidence._id);
+  }
+
+  public selectEvidence(evidence: Evidence) {
+    this.caseManager.selectDefendantEvidence(evidence._id);
   }
 
   private loadCase() {

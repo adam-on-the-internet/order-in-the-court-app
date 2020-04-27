@@ -13,11 +13,34 @@
             <p>{{ plaintiffRole }}</p>
           </app-card>
         </div>
+        <div class="evidence-pool" *ngIf="showEvidencePool">
+          <h3 class="text-center">
+            Select Your Evidence
+          </h3>
+          <p>Select 5 pieces of evidence to use in this case.</p>
+          <div
+            class="card my-2 border-primary"
+            *ngFor="let evidence of case.poolPlaintiffEvidence"
+          >
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fa fa-search"></i>
+                {{ evidence.name }}
+              </h5>
+              <button
+                class="btn btn-secondary"
+                (click)="selectEvidence(evidence)"
+              >
+                Select Evidence
+              </button>
+            </div>
+          </div>
+        </div>
         <div class="evidence" *ngIf="showEvidence">
           <h3 class="text-center">
-            Unrevealed Evidence
+            Your Evidence
           </h3>
-          <p>{{evidenceHelp}}</p>
+          <p>{{ evidenceHelp }}</p>
           <div
             class="card my-2 border-primary"
             *ngFor="let evidence of case.unrevealedPlaintiffEvidence"
@@ -28,11 +51,23 @@
                 {{ evidence.name }}
               </h5>
               <button
+                *ngIf="!caseUnstarted"
                 class="btn btn-secondary"
                 (click)="revealEvidence(evidence)"
               >
                 Reveal to the Court
               </button>
+            </div>
+          </div>
+          <div
+            class="card my-2 border-primary"
+            *ngFor="let evidence of case.revealedPlaintiffEvidence"
+          >
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fa fa-search"></i>
+                {{ evidence.name }}
+              </h5>
             </div>
           </div>
         </div>
