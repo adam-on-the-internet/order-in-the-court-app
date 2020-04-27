@@ -2,23 +2,11 @@
   <h3 class="text-center">Case Details</h3>
   <div class="CASE-OVERVIEW mb-3">
     <app-card [title]="'The Case of the ' + case.name" [icon]="'fa-tag'">
-      <hr />
-      <ng-container *ngIf="caseUnstarted">
-        <h5 class="card-title">
-          <i class="fa fa-hourglass fa-spin"></i>
-          The Case will begin shortly...
-        </h5>
-        <div class="alert alert-info">
-          The Judge will start the case once all players have joined.
-        </div>
-      </ng-container>
-      <ng-container *ngIf="!caseUnstarted">
-        <h5>
-          <i class="fa fa-book"></i>
-          Issue: {{ case.issue.name }}
-        </h5>
-        <p>{{ case.issue.description }}</p>
-      </ng-container>
+      <h5>
+        <i class="fa fa-book"></i>
+        Issue: {{ case.issue.name }}
+      </h5>
+      <p>{{ case.issue.description }}</p>
       <ng-container *ngIf="caseClosed">
         <hr />
         <h5>
@@ -30,6 +18,25 @@
           GUILTY.
         </h5>
       </ng-container>
+    </app-card>
+  </div>
+  <div class="CASE-WAIT mb-3" *ngIf="caseUnstarted">
+    <app-card>
+      <h5 class="card-title">
+        <i class="fa fa-hourglass fa-spin"></i>
+        The Case will begin shortly...
+      </h5>
+      <div class="alert alert-info">
+        <span *ngIf="waitingForPlayers">
+          Waiting for all players to join...
+        </span>
+        <span *ngIf="waitingForEvidence">
+          Waiting for evidence to be selected...
+        </span>
+        <span *ngIf="waitingForJudge">
+          Waiting for judge to start case...
+        </span>
+      </div>
     </app-card>
   </div>
   <div class="CASE-EVIDENCE mb-3" *ngIf="caseStarted || caseClosed">

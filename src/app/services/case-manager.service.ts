@@ -64,11 +64,11 @@ export class CaseManagerService {
     return this.activeCase.revealedDefendantEvidence.length > 4;
   }
 
-  private get allEvidenceSelected(): boolean {
+  public get allEvidenceSelected(): boolean {
     return this.allPlaintiffEvidenceSelected && this.allDefendantEvidenceSelected;
   }
 
-  private get allNamesSet(): boolean {
+  public get allNamesSet(): boolean {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
   }
 
