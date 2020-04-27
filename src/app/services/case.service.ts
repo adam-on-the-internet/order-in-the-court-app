@@ -147,11 +147,20 @@ export class CaseService {
     return this.http.put(url, body, CookieHelper.unauthHeaders) as Observable<Case>;
   }
 
-  public revealWitness(caseId: string, witnessId: string): Observable<Case> {
+  public selectDefendantEvidence(caseId: string, evidenceId: string): Observable<Case> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `revealWitness/case/${caseId}/witness/${witnessId}`
+      collection: `revealDefendantEvidence/case/${caseId}/evidence/${evidenceId}`
+    });
+    return this.http.put(url, CookieHelper.unauthHeaders) as Observable<Case>;
+  }
+
+  public selectPlaintiffEvidence(caseId: string, evidenceId: string): Observable<Case> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: `selectPlaintiffEvidence/case/${caseId}/evidence/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.unauthHeaders) as Observable<Case>;
   }

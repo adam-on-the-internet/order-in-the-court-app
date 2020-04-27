@@ -148,6 +148,24 @@ export class CaseManagerService {
         });
   }
 
+  public selectPlaintiffEvidence(evidenceId: string) {
+    let response;
+    this.caseService.selectPlaintiffEvidence(this.activeCase._id, evidenceId)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("reveal plaintiff evidence failed");
+        });
+  }
+
+  public selectDefendantEvidence(evidenceId: string) {
+    let response;
+    this.caseService.selectDefendantEvidence(this.activeCase._id, evidenceId)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("reveal defendant evidence failed");
+        });
+  }
+
   public revealPlaintiffEvidence(evidenceId: string) {
     let response;
     this.caseService.revealPlaintiffEvidence(this.activeCase._id, evidenceId)
