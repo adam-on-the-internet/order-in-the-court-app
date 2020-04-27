@@ -36,40 +36,37 @@
             </ul>
           </app-card>
         </div>
-        <div class="evidence" *ngIf="showEvidence">
-          <h3 class="text-center">
-            Your Evidence
-          </h3>
-          <p>{{ evidenceHelp }}</p>
-          <div
-            class="card my-2 border-primary"
-            *ngFor="let evidence of case.unrevealedPlaintiffEvidence"
-          >
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="fa fa-search"></i>
-                {{ evidence.name }}
-              </h5>
-              <button
-                *ngIf="!caseUnstarted"
-                class="btn btn-secondary"
-                (click)="revealEvidence(evidence)"
+        <div id="reveal-plaintiff-evidence" *ngIf="showEvidence">
+          <app-card [title]="'Your Evidence'">
+            <p>{{ evidenceHelp }}</p>
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                *ngFor="let evidence of case.unrevealedPlaintiffEvidence"
               >
-                Reveal to the Court
-              </button>
-            </div>
-          </div>
-          <div
-            class="card my-2 border-primary"
-            *ngFor="let evidence of case.revealedPlaintiffEvidence"
-          >
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="fa fa-search"></i>
-                {{ evidence.name }}
-              </h5>
-            </div>
-          </div>
+                <h6 class="card-title">
+                  <i class="fa fa-search"></i>
+                  {{ evidence.name }}
+                </h6>
+                <button
+                  *ngIf="!caseUnstarted"
+                  class="btn btn-secondary"
+                  (click)="revealEvidence(evidence)"
+                >
+                  Reveal to the Court
+                </button>
+              </li>
+              <li
+                class="list-group-item"
+                *ngFor="let evidence of case.revealedPlaintiffEvidence"
+              >
+                <h6 class="card-title">
+                  <i class="fa fa-search"></i>
+                  {{ evidence.name }}
+                </h6>
+              </li>
+            </ul>
+          </app-card>
         </div>
       </div>
       <div class="col-md-6 my-3">
