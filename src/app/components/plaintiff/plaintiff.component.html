@@ -13,7 +13,11 @@
             <p>{{ plaintiffRole }}</p>
           </app-card>
         </div>
-        <div id="select-plaintiff-evidence" *ngIf="showEvidencePool">
+        <div
+          id="select-plaintiff-evidence"
+          class="mb-3"
+          *ngIf="showEvidencePool"
+        >
           <app-card [title]="'Select Your Evidence'">
             <p>Select 5 pieces of evidence to use in this case.</p>
             <p>({{ case.unrevealedPlaintiffEvidence.length }} of 5 selected)</p>
