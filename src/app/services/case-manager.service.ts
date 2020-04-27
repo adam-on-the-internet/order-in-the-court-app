@@ -56,8 +56,24 @@ export class CaseManagerService {
     return this.witnesses.length > 4;
   }
 
-  public get canBeStarted(): boolean {
+  public get allPlaintiffEvidenceSelected(): boolean {
+    return this.activeCase.revealedPlaintiffEvidence.length > 4;
+  }
+
+  public get allDefendantEvidenceSelected(): boolean {
+    return this.activeCase.revealedDefendantEvidence.length > 4;
+  }
+
+  private get allEvidenceSelected(): boolean {
+    return this.allPlaintiffEvidenceSelected && this.allDefendantEvidenceSelected;
+  }
+
+  private get allNamesSet(): boolean {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
+  }
+
+  public get canBeStarted(): boolean {
+    return this.allNamesSet && this.allEvidenceSelected && this.caseUnstarted;
   }
 
   public get witnesses(): WitnessPlayer[] {
