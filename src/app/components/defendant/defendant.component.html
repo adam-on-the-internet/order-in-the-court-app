@@ -13,28 +13,28 @@
             <p>{{ defendantRole }}</p>
           </app-card>
         </div>
-        <div class="evidence-pool" *ngIf="showEvidencePool">
-          <h3 class="text-center">
-            Select Your Evidence
-          </h3>
-          <p>Select 5 pieces of evidence to use in this case.</p>
-          <div
-            class="card my-2 border-primary"
-            *ngFor="let evidence of case.poolDefendantEvidence"
-          >
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="fa fa-search"></i>
-                {{ evidence.name }}
-              </h5>
-              <button
-                class="btn btn-secondary"
-                (click)="selectEvidence(evidence)"
+        <div id="select-defendant-evidence" *ngIf="showEvidencePool">
+          <app-card [title]="'Select Your Evidence'">
+            <p>Select 5 pieces of evidence to use in this case.</p>
+            <p>({{ case.unrevealedDefendantEvidence.length }} of 5 selected)</p>
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                *ngFor="let evidence of case.poolDefendantEvidence"
               >
-                Select Evidence
-              </button>
-            </div>
-          </div>
+                <h6>
+                  <i class="fa fa-search"></i>
+                  {{ evidence.name }}
+                </h6>
+                <button
+                  class="btn btn-secondary"
+                  (click)="selectEvidence(evidence)"
+                >
+                  Select Evidence
+                </button>
+              </li>
+            </ul>
+          </app-card>
         </div>
         <div class="evidence" *ngIf="showEvidence">
           <h3 class="text-center">
