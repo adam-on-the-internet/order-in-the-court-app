@@ -1,6 +1,11 @@
 @import "variables";
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-html, body {
+html,
+body {
   overflow-x: hidden;
+}
+
+.court-bottom {
+  border-bottom: solid 2px black;
 }
