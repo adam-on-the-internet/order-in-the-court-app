@@ -11,8 +11,10 @@ export interface Case {
   witnessNames: string[];
   issue: Issue;
   witnesses: Witness[];
+  poolPlaintiffEvidence: Evidence[];
   unrevealedPlaintiffEvidence: Evidence[];
   revealedPlaintiffEvidence: Evidence[];
+  poolDefendantEvidence: Evidence[];
   unrevealedDefendantEvidence: Evidence[];
   revealedDefendantEvidence: Evidence[];
   isDefendantGuilty: boolean;
