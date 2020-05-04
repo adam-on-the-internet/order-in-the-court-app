@@ -8,6 +8,8 @@ import { RevelationsComponent } from "../revelations/revelations.component";
 import { CardComponent } from "../card/card.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
 
 describe("ArchivedCaseComponent", () => {
   let component: ArchivedCaseComponent;
@@ -17,7 +19,7 @@ describe("ArchivedCaseComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         ArchivedCaseComponent, HeaderComponent, BodyComponent, LoadingComponent, CardComponent,
-        RevelationsComponent
+        RevelationsComponent, AccordionTriggerComponent, AccordionAreaComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })

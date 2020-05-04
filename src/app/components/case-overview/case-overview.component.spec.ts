@@ -9,6 +9,8 @@ import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
 
 describe("CaseOverviewComponent", () => {
   let component: CaseOverviewComponent;
@@ -18,7 +20,8 @@ describe("CaseOverviewComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         CaseOverviewComponent, OpenCaseTableComponent, ClosedCaseTableComponent,
-        HeaderComponent, BodyComponent, LoadingComponent, CardComponent
+        HeaderComponent, BodyComponent, LoadingComponent, CardComponent,
+        AccordionTriggerComponent, AccordionAreaComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })

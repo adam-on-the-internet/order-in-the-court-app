@@ -4,6 +4,8 @@ import { RulesComponent } from "./rules.component";
 import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { CardComponent } from "../card/card.component";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
 
 describe("RulesComponent", () => {
   let component: RulesComponent;
@@ -11,7 +13,10 @@ describe("RulesComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RulesComponent, HeaderComponent, BodyComponent, CardComponent]
+      declarations: [
+        RulesComponent, HeaderComponent, BodyComponent, CardComponent,
+        AccordionAreaComponent, AccordionTriggerComponent,
+      ]
     })
       .compileComponents();
   }));

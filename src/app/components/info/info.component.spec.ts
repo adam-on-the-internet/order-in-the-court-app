@@ -5,6 +5,8 @@ import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { CardComponent } from "../card/card.component";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
 
 describe("InfoComponent", () => {
   let component: InfoComponent;
@@ -15,7 +17,7 @@ describe("InfoComponent", () => {
       declarations: [
         InfoComponent,
         HeaderComponent, BodyComponent,
-        CardComponent,
+        CardComponent, AccordionAreaComponent, AccordionTriggerComponent,
       ],
       imports: [HttpClientTestingModule]
     })

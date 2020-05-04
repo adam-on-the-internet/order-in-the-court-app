@@ -8,6 +8,8 @@ import { HeaderComponent } from "../header/header.component";
 import { BodyComponent } from "../body/body.component";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
 
 describe("DefendantComponent", () => {
   let component: DefendantComponent;
@@ -18,7 +20,7 @@ describe("DefendantComponent", () => {
       declarations: [
         DefendantComponent, RevelationsComponent,
         HeaderComponent, BodyComponent, LoadingComponent,
-        CardComponent,
+        CardComponent, AccordionTriggerComponent, AccordionAreaComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })

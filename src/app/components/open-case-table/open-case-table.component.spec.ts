@@ -5,6 +5,8 @@ import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
 
 describe("OpenCaseTableComponent", () => {
   let component: OpenCaseTableComponent;
@@ -12,7 +14,10 @@ describe("OpenCaseTableComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [OpenCaseTableComponent, LoadingComponent, CardComponent],
+      declarations: [
+        OpenCaseTableComponent, LoadingComponent, CardComponent,
+        AccordionTriggerComponent, AccordionAreaComponent,
+      ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();

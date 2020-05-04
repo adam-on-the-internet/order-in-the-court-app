@@ -11,6 +11,8 @@ import { CardComponent } from "../card/card.component";
 import { ModalTriggerButtonComponent } from "../modal-trigger-button/modal-trigger-button.component";
 import { AdvancedModalBoxComponent } from "../advanced-modal-box/advanced-modal-box.component";
 import { FormsModule } from "@angular/forms";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
 
 describe("RoleSelectComponent", () => {
   let component: RoleSelectComponent;
@@ -22,6 +24,7 @@ describe("RoleSelectComponent", () => {
         RoleSelectComponent, RevelationsComponent,
         HeaderComponent, BodyComponent, LoadingComponent,
         CardComponent, ModalTriggerButtonComponent, AdvancedModalBoxComponent,
+        AccordionAreaComponent, AccordionTriggerComponent,
       ],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule]
     })

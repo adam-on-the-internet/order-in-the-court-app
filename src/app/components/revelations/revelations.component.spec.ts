@@ -5,6 +5,8 @@ import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { LoadingComponent } from "../loading/loading.component";
 import { CardComponent } from "../card/card.component";
 import { RouterTestingModule } from "@angular/router/testing";
+import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
+import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
 
 describe("RevelationsComponent", () => {
   let component: RevelationsComponent;
@@ -12,7 +14,10 @@ describe("RevelationsComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RevelationsComponent, LoadingComponent, CardComponent],
+      declarations: [
+        RevelationsComponent, LoadingComponent, CardComponent,
+        AccordionAreaComponent, AccordionTriggerComponent,
+      ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
       .compileComponents();
