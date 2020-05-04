@@ -5,10 +5,18 @@
         <i class="fa" [ngClass]="icon"></i>
       </span>
       {{ title }}
+      <app-accordion-trigger
+        class="pull-right"
+        *ngIf="useAccordion"
+        [areaId]="accordionId"
+        [text]="'Toggle'"
+      ></app-accordion-trigger>
     </h4>
     <h5 class="card-subtitle" *ngIf="hasSubtitle">
       {{ subtitle }}
     </h5>
-    <ng-content></ng-content>
+    <app-accordion-area [areaId]="accordionId">
+      <ng-content></ng-content>
+    </app-accordion-area>
   </div>
 </div>

@@ -11,6 +11,11 @@ export class CardComponent {
   @Input() public subtitle: string = null;
   @Input() public icon: string = null;
   @Input() public autoHeight = true;
+  @Input() public accordionId = null;
+
+  public get useAccordion(): boolean {
+    return BooleanHelper.hasValue(this.accordionId);
+  }
 
   public get hasTitle(): boolean {
     return BooleanHelper.hasValue(this.title);
