@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class AccordionAreaComponent {
   @Input() public areaId = "area";
+  @Input() public show = true;
 }
