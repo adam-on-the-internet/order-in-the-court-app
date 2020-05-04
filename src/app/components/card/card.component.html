@@ -15,8 +15,15 @@
     <h5 class="card-subtitle" *ngIf="hasSubtitle">
       {{ subtitle }}
     </h5>
-    <app-accordion-area [areaId]="accordionId">
-      <ng-content></ng-content>
+    <app-accordion-area
+      [areaId]="accordionId"
+      *ngIf="useAccordion; else content"
+    >
+      <ng-container [ngTemplateOutlet]="content"></ng-container>
     </app-accordion-area>
   </div>
 </div>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
