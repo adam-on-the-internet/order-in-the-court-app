@@ -16,6 +16,27 @@ export class CaseManagerService {
 
   private caseRefresher: Subscription;
 
+  public get caseWaitingMessage(): string {
+    if (this.waitingForPlayers) {
+      return "Waiting for all players to join...";
+    }
+    if (this.waitingForEvidence) {
+      return "Waiting for evidence selection...";
+    }
+    if (this.caseUnstarted) {
+      return "Waiting for the Judge to start the case...";
+    }
+    return null;
+  }
+
+  private get waitingForPlayers(): boolean {
+    return !this.allNamesSet;
+  }
+
+  private get waitingForEvidence(): boolean {
+    return !this.waitingForPlayers && !this.allEvidenceSelected;
+  }
+
   public get caseReady(): boolean {
     return this.activeCase !== null;
   }

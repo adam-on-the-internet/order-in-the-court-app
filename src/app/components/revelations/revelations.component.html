@@ -27,15 +27,7 @@
         The Case will begin shortly...
       </h5>
       <div class="alert alert-info">
-        <span *ngIf="waitingForPlayers">
-          Waiting for all players to join...
-        </span>
-        <span *ngIf="waitingForEvidence">
-          Waiting for evidence to be selected...
-        </span>
-        <span *ngIf="waitingForJudge">
-          Waiting for judge to start case...
-        </span>
+        {{ waitMessage }}
       </div>
     </app-card>
   </div>

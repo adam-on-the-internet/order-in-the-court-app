@@ -9,15 +9,23 @@
             <h5 class="card-title">
               Start Case
             </h5>
-            <div class="alert alert-info" *ngIf="!canBeStarted">
+            <p>
               You can start the case once The Judge, The Plaintiff, and The
               Defendant have picked their names and The Plaintiff and The
               Evidence have selected their evidence.
-              <hr />
+            </p>
+            <p>
               Do not start until any Witnesses you are expecting have joined as
               well.
-              <hr />
+            </p>
+            <p>
               You can see all of the players who have joined under Case Details.
+            </p>
+            <div class="alert alert-info" *ngIf="!canBeStarted">
+              {{ waitMessage }}
+            </div>
+            <div class="alert alert-success" *ngIf="canBeStarted">
+              When everyone is ready, Start the Case
             </div>
             <button
               class="btn btn-success btn-block"
@@ -28,7 +36,7 @@
             </button>
           </div>
         </div>
-        <div class="mb-3">
+        <div class="my-3">
           <app-card
             [autoHeight]="false"
             [title]="'Judge Role'"

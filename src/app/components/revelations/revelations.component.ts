@@ -72,16 +72,8 @@ export class RevelationsComponent implements OnInit {
     return this.hasJudgeName || this.hasPlaintiffName || this.hasDefendantName || this.witnessesPresent;
   }
 
-  public get waitingForPlayers(): boolean {
-    return !this.caseManager.allNamesSet;
-  }
-
-  public get waitingForEvidence(): boolean {
-    return !this.waitingForPlayers && !this.caseManager.allEvidenceSelected;
-  }
-
-  public get waitingForJudge(): boolean {
-    return !this.waitingForPlayers && !this.waitingForEvidence && this.caseUnstarted;
+  public get waitMessage(): string {
+    return this.caseManager.caseWaitingMessage;
   }
 
   public get caseLink(): string {

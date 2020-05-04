@@ -49,6 +49,10 @@ export class JudgeComponent implements OnInit {
     return this.caseManager.caseClosed;
   }
 
+  public get waitMessage(): string {
+    return this.caseManager.caseWaitingMessage;
+  }
+
   constructor(
     private caseManager: CaseManagerService,
     private route: ActivatedRoute
