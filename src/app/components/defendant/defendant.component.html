@@ -4,10 +4,11 @@
     <div class="row">
       <div class="col-md-6 my-3">
         <h3 class="text-center">Role</h3>
-        <div class="mb-3">
+        <div class="my-3">
           <app-card
             [autoHeight]="false"
-            [title]="'Defendant Role Explanation'"
+            [title]="'Defendant Role'"
+            [accordionId]="'defendant-role-exp'"
             [icon]="'fa-book'"
           >
             <p>{{ defendantRole }}</p>
@@ -18,7 +19,7 @@
           class="mb-3"
           *ngIf="showEvidencePool"
         >
-          <app-card [title]="'Select Your Evidence'">
+          <app-card [title]="'Select Your Evidence'" [icon]="'fa-search'">
             <p>Select 5 pieces of evidence to use in this case.</p>
             <p>({{ case.unrevealedDefendantEvidence.length }} of 5 selected)</p>
             <ul class="list-group">
@@ -29,19 +30,19 @@
                 <h6>
                   <i class="fa fa-search"></i>
                   {{ evidence.name }}
+                  <button
+                    class="btn btn-secondary pull-right"
+                    (click)="selectEvidence(evidence)"
+                  >
+                    Select Evidence
+                  </button>
                 </h6>
-                <button
-                  class="btn btn-secondary"
-                  (click)="selectEvidence(evidence)"
-                >
-                  Select Evidence
-                </button>
               </li>
             </ul>
           </app-card>
         </div>
         <div id="reveal-defendant-evidence" *ngIf="showEvidence">
-          <app-card [title]="'Your Evidence'">
+          <app-card [title]="'Your Evidence'" [icon]="'fa-search'">
             <p>{{ evidenceHelp }}</p>
             <ul class="list-group">
               <li
@@ -51,14 +52,14 @@
                 <h6 class="card-title">
                   <i class="fa fa-search"></i>
                   {{ evidence.name }}
+                  <button
+                    *ngIf="!caseUnstarted"
+                    class="btn btn-secondary pull-right"
+                    (click)="revealEvidence(evidence)"
+                  >
+                    Reveal to the Court
+                  </button>
                 </h6>
-                <button
-                  *ngIf="!caseUnstarted"
-                  class="btn btn-secondary"
-                  (click)="revealEvidence(evidence)"
-                >
-                  Reveal to the Court
-                </button>
               </li>
               <li
                 class="list-group-item"
@@ -67,6 +68,9 @@
                 <h6 class="card-title">
                   <i class="fa fa-search"></i>
                   {{ evidence.name }}
+                  <span class="pull-right">
+                    (revealed)
+                  </span>
                 </h6>
               </li>
             </ul>

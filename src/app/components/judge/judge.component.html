@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-6 my-3">
         <h3 class="text-center">Role</h3>
-        <div class="card border-primary mb-3" *ngIf="caseUnstarted">
+        <div class="card border-primary my-3" *ngIf="caseUnstarted">
           <div class="card-body">
             <h5 class="card-title">
               Start Case
@@ -20,7 +20,7 @@
               You can see all of the players who have joined under Case Details.
             </div>
             <button
-              class="btn btn-primary btn-block"
+              class="btn btn-success btn-block"
               [disabled]="!canBeStarted"
               (click)="startCase()"
             >
@@ -113,13 +113,13 @@
               </div>
               <hr />
               <button
-                class="btn btn-primary mx-2 mb-1"
+                class="btn btn-danger mx-2 mb-1"
                 (click)="verdictGuilty(true)"
               >
                 Defendant is GUILTY
               </button>
               <button
-                class="btn btn-primary mx-2 mb-1"
+                class="btn btn-success mx-2 mb-1"
                 (click)="verdictGuilty(false)"
               >
                 Defendant is NOT GUILTY
