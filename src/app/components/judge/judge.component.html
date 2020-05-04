@@ -17,8 +17,7 @@
               Do not start until any Witnesses you are expecting have joined as
               well.
               <hr />
-              You can see all of the players who have joined on the right side
-              under Case Details.
+              You can see all of the players who have joined under Case Details.
             </div>
             <button
               class="btn btn-primary btn-block"
@@ -38,10 +37,63 @@
             <p>{{ judgeRole }}</p>
             <ul>
               <li>
+                Optionally, you can use the "Recommended Judge Script" below
+                guide the case. This is especially useful for the first game you
+                play.
+              </li>
+              <li>
                 Optionally, you can use the "Judge's Case File" below to keep
                 score and take notes.
               </li>
             </ul>
+          </app-card>
+        </div>
+        <div class="mb-3">
+          <app-card
+            [autoHeight]="false"
+            [title]="'Recommended Judge Script'"
+            [icon]="'fa-file'"
+          >
+            <p>
+              <strong>
+                Starting the Case:
+              </strong>
+              (to help get things started)
+            </p>
+            <ol>
+              <li>
+                Introduce the Case's Issue
+              </li>
+              <li>
+                Plaintiff's Opening Argument
+              </li>
+              <li>
+                Defendant's Opening Argument
+              </li>
+              <li>
+                Witness Introductions (if witnesses present)
+              </li>
+            </ol>
+            <p>
+              <strong>
+                End the Case:
+              </strong>
+              (once all evidence is revealed)
+            </p>
+            <ol>
+              <li>
+                Plaintiff's Closing Argument
+              </li>
+              <li>
+                Defendant's Closing Argument
+              </li>
+              <li>
+                Consult the Jury (if jury present)
+              </li>
+              <li>
+                Announce Your Verdict
+              </li>
+            </ol>
           </app-card>
         </div>
         <div class="card border-primary mb-3" *ngIf="caseStarted">
@@ -77,7 +129,7 @@
         <div class="card border-primary">
           <div class="card-body">
             <h5 class="card-title">
-              <i class="fa fa-file"></i>
+              <i class="fa fa-pencil"></i>
               Judge's Case File
             </h5>
           </div>
