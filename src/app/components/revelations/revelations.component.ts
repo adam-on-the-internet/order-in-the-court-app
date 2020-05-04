@@ -84,6 +84,10 @@ export class RevelationsComponent implements OnInit {
     return !this.waitingForPlayers && !this.waitingForEvidence && this.caseUnstarted;
   }
 
+  public get caseLink(): string {
+    return `https://order-in-the-court-app.herokuapp.com/role-select/${this.case._id}`;
+  }
+
   constructor(
     private caseManager: CaseManagerService,
   ) { }

@@ -1,6 +1,6 @@
 <ng-container *ngIf="ready; else loading">
   <h3 class="text-center">Case Details</h3>
-  <div class="CASE-OVERVIEW mb-3">
+  <div class="CASE-OVERVIEW my-3">
     <app-card [title]="'The Case of the ' + case.name" [icon]="'fa-tag'">
       <h5>
         <i class="fa fa-book"></i>
@@ -146,6 +146,15 @@
       <p>Case opened on {{ case.openedDate | date }}.</p>
       <p *ngIf="case.closedDate">
         Case closed on {{ case.closedDate | date }}.
+      </p>
+    </app-card>
+  </div>
+  <div class="CASE-LINK mb-3">
+    <app-card [title]="'Shareable Link'" [icon]="'fa-link'">
+      <p>
+        <a [attr.href]="caseLink" id="case-link" target="_blank">{{
+          caseLink
+        }}</a>
       </p>
     </app-card>
   </div>
