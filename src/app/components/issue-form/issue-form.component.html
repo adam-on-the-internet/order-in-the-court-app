@@ -5,22 +5,13 @@
       <div class="col-md-12 my-3">
         <form>
           <section id="issue-name">
-            1. Issue name:
-            <br />
-            <input
-              type="text"
-              name="issueName"
-              [(ngModel)]="issue.name"
-            /><br /><br />
-          </section>
-          <section id="issue-description">
-            2. Issue description:
+            The Plaintiff claims that The Defendant...
             <br />
             <textarea
               rows="20"
               cols="50"
-              (change)="updateDescription($event)"
-              >{{ issue.description }}</textarea
+              (change)="updateName($event)"
+              >{{ issue.name }}</textarea
             ><br /><br />
           </section>
           <hr />

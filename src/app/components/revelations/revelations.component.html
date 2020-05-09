@@ -2,13 +2,12 @@
   <h3 class="text-center">Case Details</h3>
   <div class="CASE-OVERVIEW my-3">
     <app-card [title]="'The Case of the ' + case.name" [icon]="'fa-tag'">
-      <h5>
-        <i class="fa fa-book"></i>
-        Issue: {{ case.issue.name }}
-      </h5>
-      <p>{{ case.issue.description }}</p>
+      <p class="text-center">
+        <strong>Issue:</strong>
+        The Plaintiff claims that The Defendant {{ case.issue.name }}
+      </p>
       <ng-container *ngIf="caseClosed">
-        <hr />
+        <hr/>
         <h5>
           <i class="fa fa-gavel"></i>
           The defendant was found
@@ -41,8 +40,8 @@
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedPlaintiffEvidence.length }} of
         {{
-          case.revealedPlaintiffEvidence.length +
-            case.unrevealedPlaintiffEvidence.length
+        case.revealedPlaintiffEvidence.length +
+        case.unrevealedPlaintiffEvidence.length
         }}
         revealed
       </h6>
@@ -56,7 +55,7 @@
           </li>
         </ol>
       </div>
-      <hr />
+      <hr/>
       <h5>
         <i class="fa fa-user-circle"></i>
         <i class="fa fa-search"></i>
@@ -65,8 +64,8 @@
       <h6 class="card-subtitle mb-2 text-muted">
         {{ case.revealedDefendantEvidence.length }} of
         {{
-          case.revealedDefendantEvidence.length +
-            case.unrevealedDefendantEvidence.length
+        case.revealedDefendantEvidence.length +
+        case.unrevealedDefendantEvidence.length
         }}
         revealed
       </h6>
@@ -88,7 +87,7 @@
         <em>Starring...</em>
       </p>
       <ng-container *ngIf="hasJudgeName">
-        <hr />
+        <hr/>
         <h5>
           {{ judgeName }}
           <em>
@@ -98,7 +97,7 @@
         </h5>
       </ng-container>
       <ng-container *ngIf="hasPlaintiffName">
-        <hr />
+        <hr/>
         <h5>
           {{ plaintiffName }}
           <em>
@@ -108,7 +107,7 @@
         </h5>
       </ng-container>
       <ng-container *ngIf="hasDefendantName">
-        <hr />
+        <hr/>
         <h5>
           {{ defendantName }}
           <em>
@@ -118,13 +117,13 @@
         </h5>
       </ng-container>
       <ng-container *ngIf="witnessesPresent">
-        <hr />
+        <hr/>
         <h5>
           <em>
             And THE WITNESSES...
           </em>
         </h5>
-        <br />
+        <br/>
         <h5 *ngFor="let witness of witnesses">
           {{ witness.name }}
           <em> as {{ witness.character.name }} </em>
@@ -146,7 +145,7 @@
       <p>
         <a [attr.href]="caseLink" id="case-link" target="_blank">{{
           caseLink
-        }}</a>
+          }}</a>
       </p>
     </app-card>
   </div>

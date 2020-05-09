@@ -55,8 +55,8 @@ export class IssueFormComponent implements OnInit {
     this.setupForm();
   }
 
-  public updateDescription(event) {
-    this.issue.description = event.target.value;
+  public updateName(event) {
+    this.issue.name = event.target.value;
   }
 
   public submit() {
@@ -116,7 +116,6 @@ export class IssueFormComponent implements OnInit {
   private setupCreateForm(): void {
     this.issue = {
       name: null,
-      description: null,
       _id: null,
     };
   }

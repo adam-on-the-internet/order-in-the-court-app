@@ -13,39 +13,44 @@
         </p>
         <table>
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Details</th>
-              <ng-container *ngIf="canEdit">
-                <th>Edit</th>
-                <th>Delete</th>
-              </ng-container>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Details</th>
+            <ng-container *ngIf="canEdit">
+              <th>Edit</th>
+              <th>Delete</th>
+            </ng-container>
+          </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let issue of issues">
-              <td>{{ issue.name }}</td>
+          <tr *ngFor="let issue of issues">
+            <td>
+              The Plaintiff claims that The Defendant
+              <strong>
+                {{ issue.name }}
+              </strong>
+            </td>
+            <td>
+              <button class="btn btn-secondary" (click)="issueDetails(issue)">
+                Details
+              </button>
+            </td>
+            <ng-container *ngIf="canEdit">
               <td>
-                <button class="btn btn-secondary" (click)="issueDetails(issue)">
-                  Details
+                <button class="btn btn-secondary" (click)="editIssue(issue)">
+                  Edit
                 </button>
               </td>
-              <ng-container *ngIf="canEdit">
-                <td>
-                  <button class="btn btn-secondary" (click)="editIssue(issue)">
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button
-                    class="btn btn-secondary"
-                    (click)="requestDelete(issue)"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </ng-container>
-            </tr>
+              <td>
+                <button
+                  class="btn btn-secondary"
+                  (click)="requestDelete(issue)"
+                >
+                  Delete
+                </button>
+              </td>
+            </ng-container>
+          </tr>
           </tbody>
         </table>
       </ng-container>

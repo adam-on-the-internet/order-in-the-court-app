@@ -68,7 +68,10 @@
   <small>Showing {{issues.length}} issue(s)...</small>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let issue of issues">
-      {{issue.description}}
+      The Plaintiff claims that The Defendant
+      <strong>
+      {{issue.name}}
+      </strong>
     </li>
   </ul>
 </app-basic-modal-box>
