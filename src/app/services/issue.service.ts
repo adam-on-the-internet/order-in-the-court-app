@@ -21,7 +21,7 @@ export class IssueService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url, CookieHelper.authHeaders) as Observable<Issue[]>;
+    return this.http.get(url, CookieHelper.headers) as Observable<Issue[]>;
   }
 
   public getSingleIssue(issueId: string): Observable<Issue> {
@@ -30,7 +30,7 @@ export class IssueService {
       controller,
       params: issueId,
     });
-    return this.http.get(url, CookieHelper.authHeaders) as Observable<Issue>;
+    return this.http.get(url, CookieHelper.headers) as Observable<Issue>;
   }
 
   public createIssue(issue: any): Observable<any> {
@@ -38,7 +38,7 @@ export class IssueService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.post(url, issue, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.post(url, issue, CookieHelper.headers) as Observable<any>;
   }
 
   public updateIssue(issue: any): Observable<any> {
@@ -46,7 +46,7 @@ export class IssueService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.put(url, issue, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.put(url, issue, CookieHelper.headers) as Observable<any>;
   }
 
   public deleteIssue(issueId: string): Observable<any> {
@@ -55,6 +55,6 @@ export class IssueService {
       controller,
       params: issueId,
     });
-    return this.http.delete(url, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.delete(url, CookieHelper.headers) as Observable<any>;
   }
 }

@@ -25,6 +25,6 @@ export class LogService {
       service: ServiceUrl.BasicExpress,
       controller: "log"
     });
-    return this.http.post(url, log, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.post(url, log, CookieHelper.headers) as Observable<any>;
   }
 }

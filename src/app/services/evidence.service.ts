@@ -21,7 +21,7 @@ export class EvidenceService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url, CookieHelper.authHeaders) as Observable<Evidence[]>;
+    return this.http.get(url, CookieHelper.headers) as Observable<Evidence[]>;
   }
 
   public getSingleEvidence(evienceId: string): Observable<Evidence> {
@@ -30,7 +30,7 @@ export class EvidenceService {
       controller,
       params: evienceId,
     });
-    return this.http.get(url, CookieHelper.authHeaders) as Observable<Evidence>;
+    return this.http.get(url, CookieHelper.headers) as Observable<Evidence>;
   }
 
   public createEvidence(evidence: any): Observable<any> {
@@ -38,7 +38,7 @@ export class EvidenceService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.post(url, evidence, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.post(url, evidence, CookieHelper.headers) as Observable<any>;
   }
 
   public updateEvidence(evidence: any): Observable<any> {
@@ -46,7 +46,7 @@ export class EvidenceService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.put(url, evidence, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.put(url, evidence, CookieHelper.headers) as Observable<any>;
   }
 
   public deleteEvidence(evienceId: string): Observable<any> {
@@ -55,6 +55,6 @@ export class EvidenceService {
       controller,
       params: evienceId,
     });
-    return this.http.delete(url, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.delete(url, CookieHelper.headers) as Observable<any>;
   }
 }

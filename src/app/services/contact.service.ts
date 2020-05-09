@@ -19,6 +19,6 @@ export class ContactService {
       service: ServiceUrl.BasicExpress,
       controller: "contact"
     });
-    return this.http.post(url, contactBody, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.post(url, contactBody, CookieHelper.headers) as Observable<any>;
   }
 }

@@ -21,7 +21,7 @@ export class WitnessService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.get(url, CookieHelper.authHeaders) as Observable<Witness[]>;
+    return this.http.get(url, CookieHelper.headers) as Observable<Witness[]>;
   }
 
   public getSingleWitness(witnessId: string): Observable<Witness> {
@@ -30,7 +30,7 @@ export class WitnessService {
       controller,
       params: witnessId,
     });
-    return this.http.get(url, CookieHelper.authHeaders) as Observable<Witness>;
+    return this.http.get(url, CookieHelper.headers) as Observable<Witness>;
   }
 
   public createWitness(witness: any): Observable<any> {
@@ -38,7 +38,7 @@ export class WitnessService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.post(url, witness, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.post(url, witness, CookieHelper.headers) as Observable<any>;
   }
 
   public updateWitness(witness: any): Observable<any> {
@@ -46,7 +46,7 @@ export class WitnessService {
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.put(url, witness, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.put(url, witness, CookieHelper.headers) as Observable<any>;
   }
 
   public deleteWitness(witnessId: string): Observable<any> {
@@ -55,6 +55,6 @@ export class WitnessService {
       controller,
       params: witnessId,
     });
-    return this.http.delete(url, CookieHelper.authHeaders) as Observable<any>;
+    return this.http.delete(url, CookieHelper.headers) as Observable<any>;
   }
 }

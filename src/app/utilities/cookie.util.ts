@@ -1,24 +1,19 @@
-import { UserDetails } from "../models/UserDetails.model";
-import { HttpHeaders } from "@angular/common/http";
+import {UserDetails} from "../models/UserDetails.model";
+import {HttpHeaders} from "@angular/common/http";
 
 export abstract class CookieHelper {
-
-  public static get unauthHeaders() {
-    const headers = new HttpHeaders()
-      .set("Content-Type", "application/json");
-    return {
-      headers,
-    };
-  }
 
   public static get bearerToken(): string {
     return `Bearer ${CookieHelper.getToken()}`;
   }
 
-  public static get authHeaders() {
+  public static get headers() {
     const headers = new HttpHeaders()
       .set("Content-Type", "application/json")
-      .set("Authorization", CookieHelper.bearerToken);
+    if (CookieHelper.bearerToken) {
+      headers
+        .set("Authorization", CookieHelper.bearerToken);
+    }
     return {
       headers,
     };
