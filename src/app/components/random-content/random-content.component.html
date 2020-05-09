@@ -2,8 +2,55 @@
   <div class="row">
     <div class="col-md-8 mx-auto my-3 text-center">
       <app-card [title]="'Random Content'">
-        <p>Coming soon...</p>
+        <div class="list-group" *ngIf="ready; else loading">
+          <a class="list-group-item list-group-item-action" data-toggle="modal"
+             href="#evidence">
+            <i class="fa fa-search"></i>
+            See All Evidence
+          </a>
+          <a class="list-group-item list-group-item-action" data-toggle="modal"
+             href="#witness">
+            <i class="fa fa-users"></i>
+            See All Witnesses
+          </a>
+          <a class="list-group-item list-group-item-action" data-toggle="modal"
+             href="#issue">
+            <i class="fa fa-book"></i>
+            See All Issues
+          </a>
+        </div>
       </app-card>
     </div>
   </div>
 </app-body>
+
+<app-basic-modal-box [boxId]="'evidence'" [title]="'All Evidence'" *ngIf="ready">
+  <small>Showing {{evidences.length}} piece(s) of evidence...</small>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let evidence of evidences">
+      {{evidence.name}}
+    </li>
+  </ul>
+</app-basic-modal-box>
+
+<app-basic-modal-box [boxId]="'witness'" [title]="'All Witnesses'" *ngIf="ready">
+  <small>Showing {{witnesses.length}} witness(es)...</small>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let witness of witnesses">
+      {{witness.name}}
+    </li>
+  </ul>
+</app-basic-modal-box>
+
+<app-basic-modal-box [boxId]="'issue'" [title]="'All Issues'" *ngIf="ready">
+  <small>Showing {{issues.length}} issue(s)...</small>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let issue of issues">
+      {{issue.name}}
+    </li>
+  </ul>
+</app-basic-modal-box>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

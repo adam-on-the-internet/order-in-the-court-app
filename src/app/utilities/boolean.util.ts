@@ -1,4 +1,3 @@
-
 export abstract class BooleanHelper {
   public static notNull(value: any): boolean {
     return value !== null;
@@ -16,5 +15,12 @@ export abstract class BooleanHelper {
     return BooleanHelper.notNull(value) &&
       BooleanHelper.notUndefined(value) &&
       BooleanHelper.notEmptyText(value);
+  }
+
+  public static allHaveValue(values: any[]): boolean {
+
+    return values.every((value) => {
+      return BooleanHelper.hasValue(value);
+    });
   }
 }
