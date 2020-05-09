@@ -1,22 +1,44 @@
 <app-body>
   <div class="row">
     <div class="col-md-8 mx-auto my-3 text-center">
-      <app-card [title]="'Random Content'">
-        <div class="list-group" *ngIf="ready; else loading">
+      <app-card [title]="'View Random Content'" [autoHeight]="false">
+        <ng-container *ngIf="ready; else loading">
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action" data-toggle="modal"
+               href="#evidence">
+              <i class="fa fa-search"></i>
+              See All Evidence
+            </a>
+            <a class="list-group-item list-group-item-action" data-toggle="modal"
+               href="#witness">
+              <i class="fa fa-users"></i>
+              See All Witnesses
+            </a>
+            <a class="list-group-item list-group-item-action" data-toggle="modal"
+               href="#issue">
+              <i class="fa fa-book"></i>
+              See All Issues
+            </a>
+          </div>
+        </ng-container>
+      </app-card>
+      <br>
+      <app-card [title]="'Suggest Content'" *ngIf="ready" [autoHeight]="false">
+        <div class="list-group">
           <a class="list-group-item list-group-item-action" data-toggle="modal"
-             href="#evidence">
+             href="#suggestion" (click)="setSuggestionType('Evidence')">
             <i class="fa fa-search"></i>
-            See All Evidence
+            Suggest Evidence
           </a>
           <a class="list-group-item list-group-item-action" data-toggle="modal"
-             href="#witness">
+             href="#suggestion" (click)="setSuggestionType('Witness')">
             <i class="fa fa-users"></i>
-            See All Witnesses
+            Suggest Witnesses
           </a>
           <a class="list-group-item list-group-item-action" data-toggle="modal"
-             href="#issue">
+             href="#suggestion" (click)="setSuggestionType('Issue')">
             <i class="fa fa-book"></i>
-            See All Issues
+            Suggest Issues
           </a>
         </div>
       </app-card>
@@ -50,6 +72,20 @@
     </li>
   </ul>
 </app-basic-modal-box>
+
+<app-advanced-modal-box [boxId]="'suggestion'" [title]="'Suggestion: ' + suggestionType" *ngIf="ready">
+  <section id="suggestion">
+    Your Suggestion:
+    <br/>
+    <textarea rows="10" cols="50" (keyup)="updateSuggestion($event)">{{
+      suggestion
+      }}</textarea
+    ><br/><br/>
+    <button class="btn btn-primary btn-block" (click)="send()" [disabled]="!suggestion" data-dismiss="modal">
+      Send Message
+    </button>
+  </section>
+</app-advanced-modal-box>
 
 <ng-template #loading>
   <app-loading></app-loading>

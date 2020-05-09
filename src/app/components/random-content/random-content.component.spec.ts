@@ -8,6 +8,7 @@ import {AccordionAreaComponent} from "../accordion-area/accordion-area.component
 import {BasicModalBoxComponent} from "../basic-modal-box/basic-modal-box.component";
 import {LoadingComponent} from "../loading/loading.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {AdvancedModalBoxComponent} from "../advanced-modal-box/advanced-modal-box.component";
 
 describe("RandomContentComponent", () => {
   let component: RandomContentComponent;
@@ -17,7 +18,7 @@ describe("RandomContentComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         RandomContentComponent, CardComponent, BodyComponent, AccordionTriggerComponent,
-        AccordionAreaComponent, BasicModalBoxComponent, LoadingComponent,
+        AccordionAreaComponent, BasicModalBoxComponent, LoadingComponent, AdvancedModalBoxComponent,
       ],
       imports: [HttpClientTestingModule]
     })

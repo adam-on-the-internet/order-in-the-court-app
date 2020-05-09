@@ -6,6 +6,8 @@ import {Evidence} from "../../models/Evidence.model";
 import {BooleanHelper} from "../../utilities/boolean.util";
 import {Issue} from "../../models/Issue.model";
 import {Witness} from "../../models/Witness.model";
+import {ContactService} from "../../services/contact.service";
+import {ContactBody} from "../../models/ContactBody.model";
 
 @Component({
   selector: "app-random-content",
@@ -17,15 +19,18 @@ export class RandomContentComponent implements OnInit {
   public issues: Issue[] = null;
   public witnesses: Witness[] = null;
 
+  public suggestion: string = null;
+  public suggestionType: string = null;
+
   public get ready(): boolean {
     return BooleanHelper.allHaveValue([this.evidences, this.witnesses, this.issues]);
-
   }
 
   constructor(
     private evidenceService: EvidenceService,
     private witnessService: WitnessService,
     private issueService: IssueService,
+    private contactService: ContactService,
   ) {
   }
 
@@ -40,6 +45,24 @@ export class RandomContentComponent implements OnInit {
       .subscribe((res) => this.issues = res);
     this.evidenceService.getEvidence()
       .subscribe((res) => this.evidences = res);
+  }
+
+  public updateSuggestion(event) {
+    this.suggestion = event.target.value;
+  }
+
+  public setSuggestionType(type: string) {
+    this.suggestionType = type;
+  }
+
+  public send() {
+    let response;
+    const contact: ContactBody = {
+      message: `Order in the Court Suggestion - ${this.suggestionType} - ${this.suggestion}`,
+      sender: `adamontheinternet@gmail.com`
+    };
+    this.contactService.contactAOTI(contact)
+      .subscribe((res) => response = res);
   }
 
 }

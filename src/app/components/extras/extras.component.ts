@@ -21,10 +21,6 @@ export class ExtrasComponent {
     this.navHelper.goToRandomContent();
   }
 
-  public goToSuggestions(): void {
-    this.navHelper.goToSuggestions();
-  }
-
   public goToCredits(): void {
     this.navHelper.goToCredits();
   }

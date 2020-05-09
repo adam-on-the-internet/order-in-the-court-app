@@ -16,7 +16,6 @@ export const enum ROUTES_ENUM {
   Rules = "rules",
   Extras = "extras",
   RandomContent = "random-content",
-  Suggestions = "suggestions",
   Credits = "credits",
   EvidenceOverview = "evidence-overview",
   EvidenceDetails = "evidence-details",
