@@ -1,9 +1,8 @@
 export const enum ROUTES_ENUM {
-  Dashboard = "dashboard",
+  Dashboard = "",
   Info = "info",
   Profile = "profile",
   Admin = "admin",
-  CourtRoom = "courtroom",
   Judge = "judge",
   Plaintiff = "plaintiff",
   Defendant = "defendant",

@@ -73,7 +73,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.CaseOverview, component: CaseOverviewComponent },
   { path: ROUTES_ENUM.CaseDetails + "/:id", component: CaseDisplayComponent },
   // default
-  { path: "**", redirectTo: "dashboard" },
+  { path: "**", redirectTo: ROUTES_ENUM.Dashboard },
 ];
 
 @NgModule({

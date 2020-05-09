@@ -7,8 +7,10 @@
   <div class="container">
     <h1 class="display-4 text-center">
       <i class="fa" [ngClass]="icon" *ngIf="hasIcon"></i>
+      <span *ngIf="hasTitle">
       {{ title }}
+      </span>
     </h1>
-    <p class="lead text-center" *ngIf="hasSubtitle">{{ subtitle }}</p>
+    <h5 class="callout text-center" *ngIf="hasSubtitle">{{ subtitle }}</h5>
   </div>
 </div>
