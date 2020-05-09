@@ -4,12 +4,39 @@
     'A free browser-based improv game loosely based off of reality court shows.'
   "
 ></app-header>
-<a (click)="joinCase()">
-  <app-header [title]="'Join a Case'" [icon]="'fa-sign-in'" [alt]="true" [extraPadding]="true"></app-header>
-</a>
-<a (click)="createCase()">
-  <app-header [title]="'Create a Case'" [icon]="'fa-plus'" [alt]="true" [extraPadding]="true"></app-header>
-</a>
-<a (click)="goToExtras()">
-  <app-header [title]="'Extras'" [icon]="'fa-star'" [alt]="true" [extraPadding]="true"></app-header>
-</a>
+<app-body>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="my-3">
+        <a (click)="joinCase()">
+          <app-card [autoHeight]="false" [useHover]="true">
+            <h1 class="display-4 text-center">
+              <i class="fa fa-sign-in"></i>
+              Join a Case
+            </h1>
+          </app-card>
+        </a>
+      </div>
+      <div class="my-3">
+        <a (click)="createCase()">
+          <app-card [autoHeight]="false" [useHover]="true">
+            <h1 class="display-4 text-center">
+              <i class="fa fa-plus"></i>
+              Create a Case
+            </h1>
+          </app-card>
+        </a>
+      </div>
+      <div class="my-3">
+        <a (click)="goToExtras()">
+          <app-card [autoHeight]="false" [useHover]="true">
+            <h1 class="display-4 text-center">
+              <i class="fa fa-star"></i>
+              Extras
+            </h1>
+          </app-card>
+        </a>
+      </div>
+    </div>
+  </div>
+</app-body>
