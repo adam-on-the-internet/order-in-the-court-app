@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { ROUTES_ENUM } from "../constants/routing.constants";
+import {Injectable} from "@angular/core";
+import {Router} from "@angular/router";
+import {ROUTES_ENUM} from "../constants/routing.constants";
 
 @Injectable({
   providedIn: "root"
@@ -9,14 +9,11 @@ export class NavHelperService {
 
   constructor(
     private router: Router,
-  ) { }
+  ) {
+  }
 
   public goToDashboard(): void {
     this.goToRoute(ROUTES_ENUM.Dashboard);
-  }
-
-  public goToInfo(): void {
-    this.goToRoute(ROUTES_ENUM.Info);
   }
 
   public goToProfile(): void {
@@ -31,12 +28,22 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.Login);
   }
 
+  // EXTRAS
+
+  public goToExtras(): void {
+    this.goToRoute(ROUTES_ENUM.Extras);
+  }
+
+  public goToInfo(): void {
+    this.goToRoute(ROUTES_ENUM.Info);
+  }
+
   public goToRules(): void {
     this.goToRoute(ROUTES_ENUM.Rules);
   }
 
-  public goToCaseSelect(): void {
-    this.goToRoute(ROUTES_ENUM.CaseSelect);
+  public goToRandomContent(): void {
+    this.goToRoute(ROUTES_ENUM.RandomContent);
   }
 
   public goToCaseArchive(): void {
@@ -44,6 +51,10 @@ export class NavHelperService {
   }
 
   // COURTROOM
+
+  public goToCaseSelect(): void {
+    this.goToRoute(ROUTES_ENUM.CaseSelect);
+  }
 
   public goToRoleSelect(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.RoleSelect, caseId]);

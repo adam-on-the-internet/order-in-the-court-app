@@ -33,70 +33,16 @@
       </button>
     </div>
     <div class="col-md-4 my-4 text-center">
-      <i class="fa fa-book fa-4x"></i>
+      <i class="fa fa-star fa-4x"></i>
       <h3>
-        Learn to Play
+        Extras
       </h3>
       <p>
-        Are you new here? Are you unsure of how to play? Read the rules for the
-        game to get up to speed.
+        Check out the rules, past cases, and more. A look behind the curtain.
       </p>
-      <button class="btn btn-primary btn-block" (click)="readRules()">
-        Rules
+      <button class="btn btn-primary btn-block" (click)="goToExtras()">
+        Check Out Extras
       </button>
-    </div>
-  </div>
-</app-body>
-<app-body [alt]="true">
-  <div class="row">
-    <div class="col-md-6 my-3">
-      <app-card [title]="'View the Case Archive'" [icon]="'fa-archive'">
-        <p>
-          Are you full of nostalgia for the past games you've played here? Look
-          at archived cases.
-        </p>
-        <button class="btn btn-secondary btn-block" (click)="goToArchive()">
-          Open the Archive
-        </button>
-      </app-card>
-    </div>
-    <div class="col-md-6 my-3">
-      <app-card [title]="'Donate to Charity'" [icon]="'fa-money'">
-        <p>
-          Like this free website? Pay it forward to a charity I support.
-        </p>
-        <a
-          class="btn btn-secondary btn-block"
-          href="https://aoti-app-hub.herokuapp.com/donate"
-          target="_blank"
-        >
-          Donate
-        </a>
-      </app-card>
-    </div>
-    <div class="col-md-6 my-3">
-      <app-card [title]="'App Information'" [icon]="'fa-info-circle'">
-        <p>
-          Just curious about this site? Get more information about the
-          technology this site uses.
-        </p>
-        <button class="btn btn-secondary btn-block" (click)="goToInfo()">
-          Info
-        </button>
-      </app-card>
-    </div>
-    <div class="col-md-6 my-3">
-      <app-card [title]="'Give Feedback'" [icon]="'fa-comments'">
-        <p>
-          Have thoughts or ideas for the game? Send me some feedback!
-        </p>
-        <a
-          class="btn btn-secondary btn-block"
-          href="http://www.adamontheinternet.com/contact"
-          target="_blank"
-          >Info</a
-        >
-      </app-card>
     </div>
   </div>
 </app-body>

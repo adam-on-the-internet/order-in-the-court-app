@@ -1,0 +1,77 @@
+<app-header
+  [title]="'Extras'"
+></app-header>
+<app-body>
+  <div class="row">
+    <div class="col-md-4 my-3">
+      <app-card [title]="'View the Case Archive'" [icon]="'fa-archive'">
+        <p>
+          Are you full of nostalgia for the past games you've played here? Look
+          at archived cases.
+        </p>
+        <button class="btn btn-secondary btn-block" (click)="goToArchive()">
+          Open the Archive
+        </button>
+      </app-card>
+    </div>
+    <div class="col-md-4 my-3">
+      <app-card [title]="'Check Rules'" [icon]="'fa-book'">
+        <p>
+          Are you new here? Are you unsure of how to play? Read the rules for the
+          game to get up to speed.
+        </p>
+        <button class="btn btn-secondary btn-block" (click)="goToRules()">
+          Rules
+        </button>
+      </app-card>
+    </div>
+    <div class="col-md-4 my-3">
+      <app-card [title]="'App Information'" [icon]="'fa-info-circle'">
+        <p>
+          Just curious about this site? Get more information about the
+          technology this site uses.
+        </p>
+        <button class="btn btn-secondary btn-block" (click)="goToInfo()">
+          Info
+        </button>
+      </app-card>
+    </div>
+    <div class="col-md-4 my-3">
+      <app-card [title]="'Random Content'" [icon]="'fa-question'">
+        <p>
+          View the full listings of Witnesses, Evidence, and Issues.
+        </p>
+        <button class="btn btn-secondary btn-block" (click)="goToRandomContent()">
+          Check Out Random Content
+        </button>
+      </app-card>
+    </div>
+    <div class="col-md-4 my-3">
+      <app-card [title]="'Donate to Charity'" [icon]="'fa-money'">
+        <p>
+          Like this free website? Pay it forward to a charity I support.
+        </p>
+        <a
+          class="btn btn-secondary btn-block"
+          href="https://aoti-app-hub.herokuapp.com/donate"
+          target="_blank"
+        >
+          Donate
+        </a>
+      </app-card>
+    </div>
+    <div class="col-md-4 my-3">
+      <app-card [title]="'Give Feedback'" [icon]="'fa-comments'">
+        <p>
+          Have thoughts or ideas for the game? Send me some feedback!
+        </p>
+        <a
+          class="btn btn-secondary btn-block"
+          href="http://www.adamontheinternet.com/contact"
+          target="_blank"
+        >Info</a
+        >
+      </app-card>
+    </div>
+  </div>
+</app-body>

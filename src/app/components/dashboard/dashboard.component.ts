@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
-import { NavHelperService } from "src/app/services/nav-helper.service";
-import { CaseManagerService } from "src/app/services/case-manager.service";
+import {Component} from "@angular/core";
+import {NavHelperService} from "src/app/services/nav-helper.service";
+import {CaseManagerService} from "src/app/services/case-manager.service";
 
 @Component({
   selector: "app-dashboard",
@@ -12,7 +12,8 @@ export class DashboardComponent {
   constructor(
     private navHelper: NavHelperService,
     private caseManager: CaseManagerService,
-  ) { }
+  ) {
+  }
 
   public joinCase() {
     this.navHelper.goToCaseSelect();
@@ -30,8 +31,8 @@ export class DashboardComponent {
     this.navHelper.goToInfo();
   }
 
-  public readRules() {
-    this.navHelper.goToRules();
+  public goToExtras() {
+    this.navHelper.goToExtras();
   }
 
 }

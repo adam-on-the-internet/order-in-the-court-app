@@ -48,6 +48,8 @@ import { AdvancedModalBoxComponent } from "./components/advanced-modal-box/advan
 import { ModalTriggerButtonComponent } from "./components/modal-trigger-button/modal-trigger-button.component";
 import { AccordionTriggerComponent } from "./components/accordion-trigger/accordion-trigger.component";
 import { AccordionAreaComponent } from "./components/accordion-area/accordion-area.component";
+import { ExtrasComponent } from './components/extras/extras.component';
+import { RandomContentComponent } from './components/random-content/random-content.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +97,8 @@ import { AccordionAreaComponent } from "./components/accordion-area/accordion-ar
     ModalTriggerButtonComponent,
     AccordionTriggerComponent,
     AccordionAreaComponent,
+    ExtrasComponent,
+    RandomContentComponent,
   ],
   imports: [
     BrowserModule,

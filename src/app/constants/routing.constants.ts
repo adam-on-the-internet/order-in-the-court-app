@@ -14,6 +14,8 @@ export const enum ROUTES_ENUM {
   CaseSelect = "case-select",
   CaseArchive = "case-archive",
   Rules = "rules",
+  Extras = "extras",
+  RandomContent = "random-content",
   EvidenceOverview = "evidence-overview",
   EvidenceDetails = "evidence-details",
   EvidenceForm = "evidence-form",
