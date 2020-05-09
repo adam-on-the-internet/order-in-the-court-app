@@ -23,14 +23,12 @@
         >
           <i class="fa fa-twitter fa-2x"></i>
         </a>
-      </p>
-      <p class="mb-2">
         <a
-          class="text-white"
+          class="btn btn-link text-white"
           href="http://www.adamontheinternet.com/contact"
           target="_blank"
         >
-          Contact
+          <i class="fa fa-envelope fa-2x"></i>
         </a>
       </p>
       <p class="my-0 text-white">
@@ -42,13 +40,9 @@
           © Adam on the Internet {{ year }}
         </a>
       </p>
-      <p class="my-0">
-        <button class="btn btn-link text-white" (click)="goToInfo()">
-          App Info
-        </button>
-      </p>
       <p class="my-0" *ngIf="!isLoggedIn">
         <button class="btn btn-link text-white" (click)="goToLogin()">
+          <i class="fa fa-lock"></i>
           Login
         </button>
       </p>
