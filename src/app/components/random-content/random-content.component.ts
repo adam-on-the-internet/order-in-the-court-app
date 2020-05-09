@@ -53,6 +53,7 @@ export class RandomContentComponent implements OnInit {
 
   public setSuggestionType(type: string) {
     this.suggestionType = type;
+    this.suggestion = null;
   }
 
   public send() {
@@ -63,6 +64,7 @@ export class RandomContentComponent implements OnInit {
     };
     this.contactService.contactAOTI(contact)
       .subscribe((res) => response = res);
+    this.suggestion = null;
   }
 
 }
