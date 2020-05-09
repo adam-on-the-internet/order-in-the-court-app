@@ -46,6 +46,14 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.RandomContent);
   }
 
+  public goToSuggestions(): void {
+    this.goToRoute(ROUTES_ENUM.Suggestions);
+  }
+
+  public goToCredits(): void {
+    this.goToRoute(ROUTES_ENUM.Credits);
+  }
+
   public goToCaseArchive(): void {
     this.goToRoute(ROUTES_ENUM.CaseArchive);
   }

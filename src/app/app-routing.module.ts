@@ -29,6 +29,8 @@ import {CaseArchiveComponent} from "./components/case-archive/case-archive.compo
 import {ArchivedCaseComponent} from "./components/archived-case/archived-case.component";
 import {ExtrasComponent} from './components/extras/extras.component';
 import {RandomContentComponent} from './components/random-content/random-content.component';
+import {CreditsComponent} from "./components/credits/credits.component";
+import {SuggestContentComponent} from "./components/suggest-content/suggest-content.component";
 
 const routes: Routes = [
   // main
@@ -40,6 +42,8 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Rules, component: RulesComponent },
   { path: ROUTES_ENUM.Extras, component: ExtrasComponent },
   { path: ROUTES_ENUM.RandomContent, component: RandomContentComponent },
+  { path: ROUTES_ENUM.Credits, component: CreditsComponent },
+  { path: ROUTES_ENUM.Suggestions, component: SuggestContentComponent },
   { path: ROUTES_ENUM.CaseSelect, component: CaseSelectComponent },
   { path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent },
   // courtroom

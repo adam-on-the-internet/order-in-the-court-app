@@ -50,6 +50,8 @@ import { AccordionTriggerComponent } from "./components/accordion-trigger/accord
 import { AccordionAreaComponent } from "./components/accordion-area/accordion-area.component";
 import { ExtrasComponent } from './components/extras/extras.component';
 import { RandomContentComponent } from './components/random-content/random-content.component';
+import { SuggestContentComponent } from './components/suggest-content/suggest-content.component';
+import { CreditsComponent } from './components/credits/credits.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +101,8 @@ import { RandomContentComponent } from './components/random-content/random-conte
     AccordionAreaComponent,
     ExtrasComponent,
     RandomContentComponent,
+    SuggestContentComponent,
+    CreditsComponent,
   ],
   imports: [
     BrowserModule,
