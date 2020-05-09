@@ -2,7 +2,14 @@
   <div class="row">
     <div class="col-md-8 mx-auto my-3 text-center">
       <app-card [title]="'Credits'">
-        <p>Coming soon...</p>
+        <p>Developed by Adam Callanan</p>
+        <p>Idea by Adam Callanan & Lindsey Applegate</p>
+        <p>Special Thanks to the Playtesters:</p>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let playtester of playtesters">
+            {{playtester}}
+          </li>
+        </ul>
       </app-card>
     </div>
   </div>
