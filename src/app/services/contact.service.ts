@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {ContactBody} from "../models/ContactBody.model";
 import {Observable} from "rxjs";
@@ -7,7 +7,7 @@ import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
 import {ServiceUrl} from "../constants/rest.constants";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ContactService {
   constructor(
