@@ -1,16 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { CreditsComponent } from './credits.component';
+import {CreditsComponent} from "./credits.component";
+import {CardComponent} from "../card/card.component";
+import {BodyComponent} from "../body/body.component";
+import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
+import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
 
-describe('CreditsComponent', () => {
+describe("CreditsComponent", () => {
   let component: CreditsComponent;
   let fixture: ComponentFixture<CreditsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreditsComponent ]
+      declarations: [
+        CreditsComponent, CardComponent, BodyComponent, AccordionAreaComponent, AccordionTriggerComponent
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +25,7 @@ describe('CreditsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

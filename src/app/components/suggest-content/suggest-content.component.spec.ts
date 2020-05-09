@@ -1,16 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { SuggestContentComponent } from './suggest-content.component';
+import {SuggestContentComponent} from "./suggest-content.component";
+import {CardComponent} from "../card/card.component";
+import {BodyComponent} from "../body/body.component";
+import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
+import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
 
-describe('SuggestContentComponent', () => {
+describe("SuggestContentComponent", () => {
   let component: SuggestContentComponent;
   let fixture: ComponentFixture<SuggestContentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SuggestContentComponent ]
+      declarations: [
+        SuggestContentComponent, CardComponent, BodyComponent, AccordionAreaComponent, AccordionTriggerComponent,
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +25,7 @@ describe('SuggestContentComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

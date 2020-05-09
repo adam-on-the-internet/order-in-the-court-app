@@ -48,11 +48,11 @@ import { AdvancedModalBoxComponent } from "./components/advanced-modal-box/advan
 import { ModalTriggerButtonComponent } from "./components/modal-trigger-button/modal-trigger-button.component";
 import { AccordionTriggerComponent } from "./components/accordion-trigger/accordion-trigger.component";
 import { AccordionAreaComponent } from "./components/accordion-area/accordion-area.component";
-import { ExtrasComponent } from './components/extras/extras.component';
-import { RandomContentComponent } from './components/random-content/random-content.component';
-import { SuggestContentComponent } from './components/suggest-content/suggest-content.component';
-import { CreditsComponent } from './components/credits/credits.component';
-import { BasicModalBoxComponent } from './components/basic-modal-box/basic-modal-box.component';
+import { ExtrasComponent } from "./components/extras/extras.component";
+import { RandomContentComponent } from "./components/random-content/random-content.component";
+import { SuggestContentComponent } from "./components/suggest-content/suggest-content.component";
+import { CreditsComponent } from "./components/credits/credits.component";
+import { BasicModalBoxComponent } from "./components/basic-modal-box/basic-modal-box.component";
 
 @NgModule({
   declarations: [

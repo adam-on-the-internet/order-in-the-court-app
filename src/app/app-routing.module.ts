@@ -27,8 +27,8 @@ import {RulesComponent} from "./components/rules/rules.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
 import {ArchivedCaseComponent} from "./components/archived-case/archived-case.component";
-import {ExtrasComponent} from './components/extras/extras.component';
-import {RandomContentComponent} from './components/random-content/random-content.component';
+import {ExtrasComponent} from "./components/extras/extras.component";
+import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
 import {SuggestContentComponent} from "./components/suggest-content/suggest-content.component";
 

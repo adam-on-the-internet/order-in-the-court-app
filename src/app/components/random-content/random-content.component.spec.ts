@@ -1,16 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { RandomContentComponent } from './random-content.component';
+import {RandomContentComponent} from "./random-content.component";
+import {CardComponent} from "../card/card.component";
+import {BodyComponent} from "../body/body.component";
+import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
+import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
 
-describe('RandomContentComponent', () => {
+describe("RandomContentComponent", () => {
   let component: RandomContentComponent;
   let fixture: ComponentFixture<RandomContentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RandomContentComponent ]
+      declarations: [
+        RandomContentComponent, CardComponent, BodyComponent, AccordionTriggerComponent,
+        AccordionAreaComponent,
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +26,7 @@ describe('RandomContentComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
