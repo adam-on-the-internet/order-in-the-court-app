@@ -1,0 +1,32 @@
+<app-body>
+  <div class="row">
+    <div class="col-md-8 mx-auto my-3">
+      <app-card [title]="'About Playtesting'">
+        <p>
+          This game is still under development, but I'm looking for playtesting groups! Groups must be 3 or more people
+          and entirely made up of people who have not played the game before.
+        </p>
+        <p>
+          Groups will play over a video call and be joined by someone working on the game, who will observe and take
+          feedback.
+        </p>
+        <p>
+          As a playtester, you get your name added to the <strong>CREDITS</strong>!
+        </p>
+        <hr>
+        <p>
+          To request a playtest session, enter your email below and we will contact you.
+        </p>
+        <label for="email">Email</label>
+        <div class="input-group mb-3" id="email">
+          <input type="text" class="form-control" placeholder="Email" aria-label="Email" [(ngModel)]="email">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="button" [disabled]="!email" (click)="send()">
+              Request Playtest
+            </button>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</app-body>

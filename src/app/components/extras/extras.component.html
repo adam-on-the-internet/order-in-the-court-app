@@ -1,27 +1,31 @@
 <app-body>
   <div class="row">
     <div class="col-md-8 mx-auto my-3 text-center">
-      <app-card [title]="'Extras'">
+      <app-card [title]="'Extras'" [autoHeight]="false">
         <div class="list-group">
-          <a class="list-group-item list-group-item-action" (click)="goToArchive()">
-            <i class="fa fa-archive"></i>
-            Case Archive
-          </a>
           <a class="list-group-item list-group-item-action" (click)="goToRules()">
             <i class="fa fa-book"></i>
             Rules
-          </a>
-          <a class="list-group-item list-group-item-action" (click)="goToInfo()">
-            <i class="fa fa-info-circle"></i>
-            App Information
           </a>
           <a class="list-group-item list-group-item-action" (click)="goToCredits()">
             <i class="fa fa-list"></i>
             Credits
           </a>
+          <a class="list-group-item list-group-item-action" (click)="goToArchive()">
+            <i class="fa fa-archive"></i>
+            Case Archive
+          </a>
           <a class="list-group-item list-group-item-action" (click)="goToRandomContent()">
             <i class="fa fa-random"></i>
             View & Suggest Random Content
+          </a>
+          <a class="list-group-item list-group-item-action" (click)="goToPlaytest()">
+            <i class="fa fa-users"></i>
+            About Playtesting
+          </a>
+          <a class="list-group-item list-group-item-action" (click)="goToInfo()">
+            <i class="fa fa-info-circle"></i>
+            App Information
           </a>
           <a class="list-group-item list-group-item-action"
              href="https://aoti-app-hub.herokuapp.com/donate"

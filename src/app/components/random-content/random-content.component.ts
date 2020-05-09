@@ -59,7 +59,8 @@ export class RandomContentComponent implements OnInit {
   public send() {
     let response;
     const contact: ContactBody = {
-      message: `Order in the Court Suggestion - ${this.suggestionType} - ${this.suggestion}`,
+      subject: `Court Suggestion`,
+      message: `Order in the Court ${this.suggestionType} suggestion - ${this.suggestion}`,
       sender: `adamontheinternet@gmail.com`
     };
     this.contactService.contactAOTI(contact)

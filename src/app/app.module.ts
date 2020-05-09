@@ -54,6 +54,7 @@ import {CreditsComponent} from "./components/credits/credits.component";
 import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-box.component";
 import { RulesDisplayComponent } from "./components/rules-display/rules-display.component";
 import { CaseCreateComponent } from "./components/case-create/case-create.component";
+import { PlaytestComponent } from './components/playtest/playtest.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { CaseCreateComponent } from "./components/case-create/case-create.compon
     BasicModalBoxComponent,
     RulesDisplayComponent,
     CaseCreateComponent,
+    PlaytestComponent,
   ],
   imports: [
     BrowserModule,

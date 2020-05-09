@@ -31,6 +31,7 @@ import {ExtrasComponent} from "./components/extras/extras.component";
 import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
 import {CaseCreateComponent} from "./components/case-create/case-create.component";
+import {PlaytestComponent} from "./components/playtest/playtest.component";
 
 const routes: Routes = [
   // main
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Rules, component: RulesComponent },
   { path: ROUTES_ENUM.Extras, component: ExtrasComponent },
   { path: ROUTES_ENUM.RandomContent, component: RandomContentComponent },
+  { path: ROUTES_ENUM.Playtest, component: PlaytestComponent },
   { path: ROUTES_ENUM.Credits, component: CreditsComponent },
   { path: ROUTES_ENUM.CaseSelect, component: CaseSelectComponent },
   { path: ROUTES_ENUM.CreateCase, component: CaseCreateComponent },

@@ -21,6 +21,10 @@ export class ExtrasComponent {
     this.navHelper.goToRandomContent();
   }
 
+  public goToPlaytest(): void {
+    this.navHelper.goToPlaytest();
+  }
+
   public goToCredits(): void {
     this.navHelper.goToCredits();
   }
