@@ -24,17 +24,35 @@
           Home
         </a>
       </li>
+      <li class="nav-item active" *ngIf="caseSelected">
+        <a class="nav-link" (click)="goToCase()">
+          <i class="fa fa-tag"></i>
+          {{caseName}}
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"
+           data-toggle="modal"
+           href="#help">
+          <i class="fa fa-question-circle"></i>
+          Help
+        </a>
+      </li>
       <ng-container *ngIf="isLoggedIn">
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" (click)="goToProfile()">Your profile</a>
         </li>
-        <li class="nav-item" *ngIf="isAdmin">
+        <li class="nav-item active" *ngIf="isAdmin">
           <a class="nav-link" (click)="goToAdmin()">Admin panel</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ng-container>
     </ul>
   </div>
 </nav>
+
+<app-basic-modal-box [title]="'Help'" [boxId]="'help'">
+  Coming soon!
+</app-basic-modal-box>

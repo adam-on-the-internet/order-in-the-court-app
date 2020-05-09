@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
-import { NavHelperService } from "src/app/services/nav-helper.service";
-import { CookieHelper } from "src/app/utilities/cookie.util";
+import {Component} from "@angular/core";
+import {NavHelperService} from "src/app/services/nav-helper.service";
+import {CookieHelper} from "src/app/utilities/cookie.util";
+import {CaseManagerService} from "../../services/case-manager.service";
 
 @Component({
   selector: "app-navbar",
@@ -25,12 +26,26 @@ export class NavbarComponent {
     }
   }
 
+  public get caseSelected(): boolean {
+    return this.caseManagerService.caseReady;
+  }
+
+  public get caseName(): string {
+    return this.caseManagerService.caseName;
+  }
+
   constructor(
     private navHelper: NavHelperService,
-  ) { }
+    private caseManagerService: CaseManagerService,
+  ) {
+  }
 
   public goToDashboard(): void {
     this.navHelper.goToDashboard();
+  }
+
+  public goToCase(): void {
+    this.navHelper.goToRoleSelect(this.caseManagerService.activeCase._id);
   }
 
   public goToProfile(): void {
@@ -39,10 +54,6 @@ export class NavbarComponent {
 
   public goToAdmin(): void {
     this.navHelper.goToAdmin();
-  }
-
-  public goToRules(): void {
-    this.navHelper.goToRules();
   }
 
   public logout(): void {

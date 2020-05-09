@@ -52,6 +52,7 @@ import { ExtrasComponent } from './components/extras/extras.component';
 import { RandomContentComponent } from './components/random-content/random-content.component';
 import { SuggestContentComponent } from './components/suggest-content/suggest-content.component';
 import { CreditsComponent } from './components/credits/credits.component';
+import { BasicModalBoxComponent } from './components/basic-modal-box/basic-modal-box.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { CreditsComponent } from './components/credits/credits.component';
     RandomContentComponent,
     SuggestContentComponent,
     CreditsComponent,
+    BasicModalBoxComponent,
   ],
   imports: [
     BrowserModule,

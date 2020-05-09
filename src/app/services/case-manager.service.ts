@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { CaseService } from "./case.service";
-import { Case } from "../models/Case.model";
-import { LogService } from "./log.service";
-import { NavHelperService } from "./nav-helper.service";
-import { interval, Subscription } from "rxjs";
-import { BooleanHelper } from "../utilities/boolean.util";
-import { WitnessPlayer } from "../models/WitnessPlayer.model";
+import {Injectable} from "@angular/core";
+import {CaseService} from "./case.service";
+import {Case} from "../models/Case.model";
+import {LogService} from "./log.service";
+import {NavHelperService} from "./nav-helper.service";
+import {interval, Subscription} from "rxjs";
+import {BooleanHelper} from "../utilities/boolean.util";
+import {WitnessPlayer} from "../models/WitnessPlayer.model";
 
 @Injectable({
   providedIn: "root"
@@ -15,6 +15,10 @@ export class CaseManagerService {
   private caseId: string = null;
 
   private caseRefresher: Subscription;
+
+  public get caseName(): string {
+    return `The Case of the ${this.activeCase.name}`;
+  }
 
   public get caseWaitingMessage(): string {
     if (this.waitingForPlayers) {
@@ -112,7 +116,8 @@ export class CaseManagerService {
     private caseService: CaseService,
     private logService: LogService,
     private navHelper: NavHelperService,
-  ) { }
+  ) {
+  }
 
   public createNewCase() {
     let newCase: Case;
