@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import {ContactBody} from "../../models/ContactBody.model";
 import {ContactService} from "../../services/contact.service";
 
 @Component({
-  selector: 'app-playtest',
-  templateUrl: './playtest.component.html',
-  styleUrls: ['./playtest.component.scss']
+  selector: "app-playtest",
+  templateUrl: "./playtest.component.html",
+  styleUrls: ["./playtest.component.scss"]
 })
 export class PlaytestComponent {
 
