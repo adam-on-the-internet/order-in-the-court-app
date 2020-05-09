@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
 import {NavHelperService} from "src/app/services/nav-helper.service";
-import {CaseManagerService} from "src/app/services/case-manager.service";
 
 @Component({
   selector: "app-dashboard",
@@ -11,7 +10,6 @@ export class DashboardComponent {
 
   constructor(
     private navHelper: NavHelperService,
-    private caseManager: CaseManagerService,
   ) {
   }
 
@@ -20,15 +18,7 @@ export class DashboardComponent {
   }
 
   public createCase() {
-    this.caseManager.createNewCase();
-  }
-
-  public goToArchive() {
-    this.navHelper.goToCaseArchive();
-  }
-
-  public goToInfo() {
-    this.navHelper.goToInfo();
+    this.navHelper.goToCreate();
   }
 
   public goToExtras() {

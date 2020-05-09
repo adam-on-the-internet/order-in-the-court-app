@@ -24,6 +24,26 @@
           Home
         </a>
       </li>
+      <ng-container *ngIf="!caseSelected">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="goToJoin()">
+            <i class="fa fa-sign-in"></i>
+            Join
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" (click)="goToCreate()">
+            <i class="fa fa-plus"></i>
+            Create
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" (click)="goToExtras()">
+            <i class="fa fa-star"></i>
+            Extras
+          </a>
+        </li>
+      </ng-container>
       <li class="nav-item active" *ngIf="caseSelected">
         <a class="nav-link" (click)="goToCase()">
           <i class="fa fa-tag"></i>
@@ -54,5 +74,27 @@
 </nav>
 
 <app-basic-modal-box [title]="'Help'" [boxId]="'help'">
-  Coming soon!
+  <p>
+    Order in the Court is a free browser-based improv game loosely based off of reality court shows.
+  </p>
+  <p>
+    To play, you will need a group of 3 or more people. One person should
+    <strong>CREATE</strong>
+    the case. Once they
+    have created
+    the case, the other players can
+    <strong>JOIN</strong>
+    the case. After joining, each player selects a role and the
+    case begins.
+  </p>
+  <hr>
+  <p>
+    For more information, check out the
+    <strong>EXTRAS</strong>
+    area.
+  </p>
+  <hr>
+  <h4 class="text-center">Rules</h4>
+  <hr>
+  <app-rules-display></app-rules-display>
 </app-basic-modal-box>

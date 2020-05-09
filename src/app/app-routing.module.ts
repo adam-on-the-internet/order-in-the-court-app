@@ -30,6 +30,7 @@ import {ArchivedCaseComponent} from "./components/archived-case/archived-case.co
 import {ExtrasComponent} from "./components/extras/extras.component";
 import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
+import {CaseCreateComponent} from "./components/case-create/case-create.component";
 
 const routes: Routes = [
   // main
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.RandomContent, component: RandomContentComponent },
   { path: ROUTES_ENUM.Credits, component: CreditsComponent },
   { path: ROUTES_ENUM.CaseSelect, component: CaseSelectComponent },
+  { path: ROUTES_ENUM.CreateCase, component: CaseCreateComponent },
   { path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent },
   // courtroom
   { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },

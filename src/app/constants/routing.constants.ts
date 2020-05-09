@@ -12,6 +12,7 @@ export const enum ROUTES_ENUM {
   RoleSelect = "role-select",
   ArchivedCase = "archived-case",
   CaseSelect = "case-select",
+  CreateCase = "create-case",
   CaseArchive = "case-archive",
   Rules = "rules",
   Extras = "extras",

@@ -48,6 +48,18 @@ export class NavbarComponent {
     this.navHelper.goToRoleSelect(this.caseManagerService.activeCase._id);
   }
 
+  public goToJoin(): void {
+    this.navHelper.goToCaseSelect();
+  }
+
+  public goToExtras(): void {
+    this.navHelper.goToExtras();
+  }
+
+  public goToCreate(): void {
+    this.navHelper.goToCreate();
+  }
+
   public goToProfile(): void {
     this.navHelper.goToProfile();
   }

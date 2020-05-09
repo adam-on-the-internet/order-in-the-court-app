@@ -1,0 +1,19 @@
+<app-body>
+  <div class="row">
+    <div class="col-md-8 mx-auto my-3 text-center">
+      <app-card [title]="'Create a Case'">
+        <p>
+          How do you want your case set up? (NOTE: Custom Setup is not yet available)
+        </p>
+        <p>
+          <button class="btn btn-secondary mx-2">Random Setup (Standard)</button>
+          <button class="btn btn-secondary mx-2" disabled>Custom Setup (Advanced)</button>
+        </p>
+        <hr>
+        <button class="btn btn-primary btn-block" (click)="create()">
+          Create Case
+        </button>
+      </app-card>
+    </div>
+  </div>
+</app-body>

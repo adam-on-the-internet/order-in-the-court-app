@@ -52,6 +52,8 @@ import {ExtrasComponent} from "./components/extras/extras.component";
 import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
 import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-box.component";
+import { RulesDisplayComponent } from "./components/rules-display/rules-display.component";
+import { CaseCreateComponent } from "./components/case-create/case-create.component";
 
 @NgModule({
   declarations: [
@@ -103,6 +105,8 @@ import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-b
     RandomContentComponent,
     CreditsComponent,
     BasicModalBoxComponent,
+    RulesDisplayComponent,
+    CaseCreateComponent,
   ],
   imports: [
     BrowserModule,

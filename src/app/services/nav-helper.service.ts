@@ -60,6 +60,10 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.CaseSelect);
   }
 
+  public goToCreate(): void {
+    this.goToRoute(ROUTES_ENUM.CreateCase);
+  }
+
   public goToRoleSelect(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.RoleSelect, caseId]);
   }
