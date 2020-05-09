@@ -1,6 +1,14 @@
-<div class="jumbotron jumbotron-fluid bg-tan mb-0 p-2 court-bottom">
+<div class="jumbotron jumbotron-fluid mb-0 court-bottom"
+     [class.p-2]="!extraPadding"
+     [class.py-4]="extraPadding"
+     [class.bg-tan]="!alt"
+     [class.bg-off]="alt"
+>
   <div class="container">
-    <h1 class="display-4 text-center">{{ title }}</h1>
+    <h1 class="display-4 text-center">
+      <i class="fa" [ngClass]="icon" *ngIf="hasIcon"></i>
+      {{ title }}
+    </h1>
     <p class="lead text-center" *ngIf="hasSubtitle">{{ subtitle }}</p>
   </div>
 </div>
