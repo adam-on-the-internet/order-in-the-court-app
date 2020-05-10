@@ -33,11 +33,11 @@ export class PlaintiffComponent implements OnInit {
   }
 
   public get showEvidence(): boolean {
-    return this.case.unrevealedPlaintiffEvidence.concat(this.case.revealedPlaintiffEvidence).length > 0;
+    return this.case.plaintiffEvidenceSelected.concat(this.case.plaintiffEvidenceCourt).length > 0;
   }
 
   public get showEvidencePool(): boolean {
-    return this.case.unrevealedPlaintiffEvidence.length < 5 && this.caseUnstarted;
+    return this.case.plaintiffEvidenceSelected.length < 5 && this.caseUnstarted;
   }
 
   constructor(

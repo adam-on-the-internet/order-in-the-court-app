@@ -24,8 +24,8 @@ export class JudgeComponent implements OnInit {
   }
 
   public get readyToClose(): boolean {
-    const allPEvidenceRevealed = this.case.unrevealedPlaintiffEvidence.length === 0;
-    const allDEvidenceRevealed = this.case.unrevealedDefendantEvidence.length === 0;
+    const allPEvidenceRevealed = this.case.plaintiffEvidenceSelected.length === 0;
+    const allDEvidenceRevealed = this.case.defendantEvidenceSelected.length === 0;
     return allPEvidenceRevealed && allDEvidenceRevealed;
   }
 

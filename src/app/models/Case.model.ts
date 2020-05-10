@@ -15,12 +15,12 @@ export interface Case {
   witnessName5: string;
   issue: string;
   witnesses: string[];
-  poolPlaintiffEvidence: Evidence[];
-  unrevealedPlaintiffEvidence: Evidence[];
-  revealedPlaintiffEvidence: Evidence[];
-  poolDefendantEvidence: Evidence[];
-  unrevealedDefendantEvidence: Evidence[];
-  revealedDefendantEvidence: Evidence[];
+  plaintiffEvidencePool: Evidence[];
+  plaintiffEvidenceSelected: Evidence[];
+  plaintiffEvidenceCourt: Evidence[];
+  defendantEvidencePool: Evidence[];
+  defendantEvidenceSelected: Evidence[];
+  defendantEvidenceCourt: Evidence[];
   isDefendantGuilty: boolean;
   status: number;
   closedDate: string;

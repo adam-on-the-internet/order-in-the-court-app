@@ -21,42 +21,42 @@
         <hr />
         <h2>Pool Plaintiff Evidence</h2>
         <ol>
-          <li *ngFor="let evidence of case.poolPlaintiffEvidence">
+          <li *ngFor="let evidence of case.plaintiffEvidencePool">
             {{ evidence.name }}
           </li>
         </ol>
         <hr />
         <h2>Unrevealed Plaintiff Evidence</h2>
         <ol>
-          <li *ngFor="let evidence of case.unrevealedPlaintiffEvidence">
+          <li *ngFor="let evidence of case.plaintiffEvidenceSelected">
             {{ evidence.name }}
           </li>
         </ol>
         <hr />
         <h2>Revealed Plaintiff Evidence</h2>
         <ol>
-          <li *ngFor="let evidence of case.revealedPlaintiffEvidence">
+          <li *ngFor="let evidence of case.plaintiffEvidenceCourt">
             {{ evidence.name }}
           </li>
         </ol>
         <hr />
         <h2>Pool Defendant Evidence</h2>
         <ol>
-          <li *ngFor="let evidence of case.poolDefendantEvidence">
+          <li *ngFor="let evidence of case.defendantEvidencePool">
             {{ evidence.name }}
           </li>
         </ol>
         <hr />
         <h2>Unrevealed Defendant Evidence</h2>
         <ol>
-          <li *ngFor="let evidence of case.unrevealedDefendantEvidence">
+          <li *ngFor="let evidence of case.defendantEvidenceSelected">
             {{ evidence.name }}
           </li>
         </ol>
         <hr />
         <h2>Revealed Defendant Evidence</h2>
         <ol>
-          <li *ngFor="let evidence of case.revealedDefendantEvidence">
+          <li *ngFor="let evidence of case.defendantEvidenceCourt">
             {{ evidence.name }}
           </li>
         </ol>

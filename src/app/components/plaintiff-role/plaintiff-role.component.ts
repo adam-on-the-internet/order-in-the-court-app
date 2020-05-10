@@ -39,16 +39,16 @@ export class PlaintiffRoleComponent implements OnInit {
     return this.caseManager.statusIsMakeSelections && !this.caseManager.allPlaintiffEvidenceSelected;
   }
 
-  public get evidencePool(): Evidence[] {
-    return this.caseManager.activeCase.poolPlaintiffEvidence;
+  public get poolEvidence(): Evidence[] {
+    return this.caseManager.activeCase.plaintiffEvidencePool;
   }
 
-  public get unrevealedEvidence(): Evidence[] {
-    return this.caseManager.activeCase.unrevealedPlaintiffEvidence;
+  public get selectedEvidence(): Evidence[] {
+    return this.caseManager.activeCase.plaintiffEvidenceSelected;
   }
 
-  public get revealedEvidence(): Evidence[] {
-    return this.caseManager.activeCase.revealedPlaintiffEvidence;
+  public get courtEvidence(): Evidence[] {
+    return this.caseManager.activeCase.plaintiffEvidenceCourt;
   }
 
   public get evidenceHelp(): string {
@@ -68,12 +68,12 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public get otherEvidence(): Evidence[] {
-    return this.caseManager.activeCase.revealedDefendantEvidence;
+    return this.caseManager.activeCase.defendantEvidenceCourt;
   }
 
   public get someEvidenceSelected(): boolean {
-    return this.unrevealedEvidence.length +
-      this.revealedEvidence.length > 0;
+    return this.selectedEvidence.length +
+      this.courtEvidence.length > 0;
   }
 
   public get roleText(): string {

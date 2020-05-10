@@ -152,19 +152,19 @@ export class CaseManagerService {
   }
 
   public get allPlaintiffEvidenceSelected(): boolean {
-    return this.activeCase.unrevealedPlaintiffEvidence.length >= 5;
+    return this.activeCase.plaintiffEvidenceSelected.length >= 5;
   }
 
   public get allDefendantEvidenceSelected(): boolean {
-    return this.activeCase.unrevealedDefendantEvidence.length >= 5;
+    return this.activeCase.defendantEvidenceSelected.length >= 5;
   }
 
   public get allPlaintiffEvidenceRevealed(): boolean {
-    return this.activeCase.revealedPlaintiffEvidence.length >= 5;
+    return this.activeCase.plaintiffEvidenceCourt.length >= 5;
   }
 
   public get allDefendantEvidenceRevealed(): boolean {
-    return this.activeCase.revealedDefendantEvidence.length >= 5;
+    return this.activeCase.defendantEvidenceCourt.length >= 5;
   }
 
   public get allEvidenceSelected(): boolean {

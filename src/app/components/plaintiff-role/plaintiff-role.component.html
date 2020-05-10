@@ -40,10 +40,10 @@
               Select Your Evidence
             </h5>
             <p>Select 5 pieces of evidence to use in this case.</p>
-            <p>({{ unrevealedEvidence.length }} of 5 selected)</p>
+            <p>({{ selectedEvidence.length }} of 5 selected)</p>
             <div class="row">
               <div class="col-md-4 my-2"
-                   *ngFor="let evidence of evidencePool">
+                   *ngFor="let evidence of poolEvidence">
                 <a
                   (click)="selectEvidence(evidence)"
                 >
@@ -69,7 +69,7 @@
                 <ul class="list-group">
                   <li
                     class="list-group-item"
-                    *ngFor="let evidence of unrevealedEvidence"
+                    *ngFor="let evidence of selectedEvidence"
                   >
                     <h6 class="card-title">
                       <i class="fa fa-search"></i>
@@ -85,7 +85,7 @@
                   </li>
                   <li
                     class="list-group-item"
-                    *ngFor="let evidence of revealedEvidence"
+                    *ngFor="let evidence of courtEvidence"
                   >
                     <h6 class="card-title">
                       <i class="fa fa-search"></i>

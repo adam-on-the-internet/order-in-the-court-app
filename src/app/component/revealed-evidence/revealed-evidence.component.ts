@@ -9,11 +9,11 @@ import {Evidence} from "../../models/Evidence.model";
 })
 export class RevealedEvidenceComponent {
   public get revealedPlaintiffEvidence(): Evidence[] {
-    return this.caseManager.activeCase.revealedPlaintiffEvidence;
+    return this.caseManager.activeCase.plaintiffEvidenceCourt;
   }
 
   public get revealedDefendantEvidence(): Evidence[] {
-    return this.caseManager.activeCase.revealedDefendantEvidence;
+    return this.caseManager.activeCase.defendantEvidenceCourt;
   }
 
   public get ready(): boolean {

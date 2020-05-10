@@ -33,11 +33,11 @@ export class DefendantComponent implements OnInit {
   }
 
   public get showEvidence(): boolean {
-    return this.case.unrevealedDefendantEvidence.concat(this.case.revealedDefendantEvidence).length > 0;
+    return this.case.defendantEvidenceSelected.concat(this.case.defendantEvidenceCourt).length > 0;
   }
 
   public get showEvidencePool(): boolean {
-    return this.case.unrevealedDefendantEvidence.length < 5 && this.caseUnstarted;
+    return this.case.defendantEvidenceSelected.length < 5 && this.caseUnstarted;
   }
 
   constructor(

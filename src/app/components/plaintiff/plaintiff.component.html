@@ -21,11 +21,11 @@
         >
           <app-card [title]="'Select Your Evidence'" [icon]="'fa-search'">
             <p>Select 5 pieces of evidence to use in this case.</p>
-            <p>({{ case.unrevealedPlaintiffEvidence.length }} of 5 selected)</p>
+            <p>({{ case.plaintiffEvidenceSelected.length }} of 5 selected)</p>
             <ul class="list-group">
               <li
                 class="list-group-item"
-                *ngFor="let evidence of case.poolPlaintiffEvidence"
+                *ngFor="let evidence of case.plaintiffEvidencePool"
               >
                 <h6>
                   <i class="fa fa-search"></i>
@@ -47,7 +47,7 @@
             <ul class="list-group">
               <li
                 class="list-group-item"
-                *ngFor="let evidence of case.unrevealedPlaintiffEvidence"
+                *ngFor="let evidence of case.plaintiffEvidenceSelected"
               >
                 <h6 class="card-title">
                   <i class="fa fa-search"></i>
@@ -63,7 +63,7 @@
               </li>
               <li
                 class="list-group-item"
-                *ngFor="let evidence of case.revealedPlaintiffEvidence"
+                *ngFor="let evidence of case.plaintiffEvidenceCourt"
               >
                 <h6 class="card-title">
                   <i class="fa fa-search"></i>

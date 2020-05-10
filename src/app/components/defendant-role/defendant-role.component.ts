@@ -44,15 +44,15 @@ export class DefendantRoleComponent implements OnInit {
   }
 
   public get evidencePool(): Evidence[] {
-    return this.caseManager.activeCase.poolDefendantEvidence;
+    return this.caseManager.activeCase.defendantEvidencePool;
   }
 
   public get unrevealedEvidence(): Evidence[] {
-    return this.caseManager.activeCase.unrevealedDefendantEvidence;
+    return this.caseManager.activeCase.defendantEvidenceSelected;
   }
 
   public get revealedEvidence(): Evidence[] {
-    return this.caseManager.activeCase.revealedDefendantEvidence;
+    return this.caseManager.activeCase.defendantEvidenceCourt;
   }
 
   public get evidenceHelp(): string {
@@ -72,7 +72,7 @@ export class DefendantRoleComponent implements OnInit {
   }
 
   public get otherEvidence(): Evidence[] {
-    return this.caseManager.activeCase.revealedPlaintiffEvidence;
+    return this.caseManager.activeCase.plaintiffEvidenceCourt;
   }
 
   public get someEvidenceSelected(): boolean {
