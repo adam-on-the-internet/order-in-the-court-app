@@ -9,7 +9,7 @@ export abstract class CookieHelper {
 
   public static get headers() {
     const headers = new HttpHeaders()
-      .set("Content-Type", "application/json")
+      .set("Content-Type", "application/json");
     if (CookieHelper.bearerToken) {
       headers
         .set("Authorization", CookieHelper.bearerToken);

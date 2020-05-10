@@ -6,6 +6,8 @@ import {NavHelperService} from "./nav-helper.service";
 import {interval, Subscription} from "rxjs";
 import {BooleanHelper} from "../utilities/boolean.util";
 import {WitnessPlayer} from "../models/WitnessPlayer.model";
+import {CaseNameService} from "./case-name.service";
+import {CaseStatusService} from "./case-status.service";
 
 @Injectable({
   providedIn: "root"
@@ -114,6 +116,8 @@ export class CaseManagerService {
 
   constructor(
     private caseService: CaseService,
+    private caseNameService: CaseNameService,
+    private caseStatusService: CaseStatusService,
     private logService: LogService,
     private navHelper: NavHelperService,
   ) {
@@ -121,7 +125,7 @@ export class CaseManagerService {
 
   public createNewCase() {
     let newCase: Case;
-    this.caseService.create()
+    this.caseStatusService.create()
       .subscribe((res) => newCase = res,
         (error) => {
           console.log("make case failed");
@@ -139,7 +143,7 @@ export class CaseManagerService {
 
   public assignJudgeName(name: string) {
     let response;
-    this.caseService.assignJudgeName(this.activeCase._id, name)
+    this.caseNameService.assignJudgeName(this.activeCase._id, name)
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign judge name failed");
@@ -150,7 +154,7 @@ export class CaseManagerService {
 
   public assignPlaintiffName(name: string) {
     let response;
-    this.caseService.assignPlaintiffName(this.activeCase._id, name)
+    this.caseNameService.assignPlaintiffName(this.activeCase._id, name)
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign plaintiff name failed");
@@ -161,7 +165,7 @@ export class CaseManagerService {
 
   public assignDefendantName(name: string) {
     let response;
-    this.caseService.assignDefendantName(this.activeCase._id, name)
+    this.caseNameService.assignDefendantName(this.activeCase._id, name)
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign defendant name failed");
@@ -172,7 +176,7 @@ export class CaseManagerService {
 
   public assignWitnessName(name: string) {
     let response;
-    this.caseService.assignWitnessName(this.activeCase._id, name)
+    this.caseNameService.assignWitnessName(this.activeCase._id, name)
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign witness name failed");
@@ -181,12 +185,59 @@ export class CaseManagerService {
         });
   }
 
-  public startCase() {
+  public lockRoles() {
     let response;
-    this.caseService.startCase(this.activeCase._id)
+    this.caseStatusService.lockRoles(this.activeCase._id)
       .subscribe((res) => response = res,
         (error) => {
-          console.log("start case failed");
+          console.log("status update failed");
+        });
+  }
+
+  public startFreeTime() {
+    let response;
+    this.caseStatusService.startFreeTime(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("status update failed");
+        });
+  }
+
+  public startOpeningArguments() {
+    let response;
+    this.caseStatusService.startOpeningArguments(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("status update failed");
+        });
+  }
+
+  public startCrossfire() {
+    let response;
+    this.caseStatusService.startCrossfire(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("status update failed");
+        });
+  }
+
+  public startClosingArguments() {
+    let response;
+    this.caseStatusService.startClosingArguments(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("status update failed");
+        });
+  }
+
+  public makeVerdict(isDefendantGuilty: boolean) {
+    let response;
+    this.caseStatusService.makeVerdict(this.activeCase._id, isDefendantGuilty)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("close case failed");
+        }, () => {
+          this.logService.log("info", "Case Closed: " + this.activeCase.name).subscribe();
         });
   }
 
@@ -223,17 +274,6 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("reveal defendant evidence failed");
-        });
-  }
-
-  public closeCase(isDefendantGuilty: boolean) {
-    let response;
-    this.caseService.closeCase(this.activeCase._id, isDefendantGuilty)
-      .subscribe((res) => response = res,
-        (error) => {
-          console.log("close case failed");
-        }, () => {
-          this.logService.log("info", "Case Closed: " + this.activeCase.name).subscribe();
         });
   }
 

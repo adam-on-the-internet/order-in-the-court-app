@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Case} from "../models/Case.model";
@@ -9,7 +9,7 @@ import {CookieHelper} from "../utilities/cookie.util";
 const controller = "case";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class CaseNameService {
 

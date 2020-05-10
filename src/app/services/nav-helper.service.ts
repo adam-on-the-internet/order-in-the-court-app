@@ -60,6 +60,10 @@ export class NavHelperService {
 
   // COURTROOM
 
+  public goToCourt(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Courtroom, caseId]);
+  }
+
   public goToCaseSelect(): void {
     this.goToRoute(ROUTES_ENUM.CaseSelect);
   }

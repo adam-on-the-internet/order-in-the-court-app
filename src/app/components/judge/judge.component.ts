@@ -63,11 +63,11 @@ export class JudgeComponent implements OnInit {
   }
 
   public startCase() {
-    this.caseManager.startCase();
+    console.log("start...");
   }
 
   public verdictGuilty(guilty: boolean) {
-    this.caseManager.closeCase(guilty);
+    this.caseManager.makeVerdict(guilty);
   }
 
   public updateNotes(event) {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Case} from "../models/Case.model";
@@ -9,7 +9,7 @@ import {CookieHelper} from "../utilities/cookie.util";
 const controller = "case";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class CaseStatusService {
 
@@ -57,6 +57,15 @@ export class CaseStatusService {
       service: ServiceUrl.BasicExpress,
       controller,
       collection: `startCrossfire/${caseId}`
+    });
+    return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
+  }
+
+  public startClosingArguments(caseId: string): Observable<any> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: `startClosingArguments/${caseId}`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }

@@ -32,6 +32,7 @@ import {RandomContentComponent} from "./components/random-content/random-content
 import {CreditsComponent} from "./components/credits/credits.component";
 import {CaseCreateComponent} from "./components/case-create/case-create.component";
 import {PlaytestComponent} from "./components/playtest/playtest.component";
+import {CourtroomComponent} from "./components/courtroom/courtroom.component";
 
 const routes: Routes = [
   // main
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: ROUTES_ENUM.CreateCase, component: CaseCreateComponent },
   { path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent },
   // courtroom
+  { path: ROUTES_ENUM.Courtroom + "/:id", component: CourtroomComponent },
   { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },
   { path: ROUTES_ENUM.ArchivedCase + "/:id", component: ArchivedCaseComponent },
   { path: ROUTES_ENUM.Judge + "/:id", component: JudgeComponent },

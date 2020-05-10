@@ -5,16 +5,18 @@
 </app-header>
 <app-body>
   <div class="row">
-    <div class="col-md-12 mt-3 text-center">
-      Don't have a case ready to join?
-      <button class="btn btn-secondary btn-small" (click)="createCase()">
-        <i class="fa fa-plus"></i>
-        Create a Case
-      </button>
-    </div>
-    <div class="col-md-12">
-      <hr />
+    <div class="col-md-6 my-3" *ngFor="let case of cases">
+      <a (click)="joinCase(case._id)">
+        <app-card [title]="'The Case of the ' + case.name" [useHover]="true">
+          <p class="text-center">
+            Case Opened on {{ case.openedDate | date }}
+          </p>
+          <p class="text-center">
+            <span *ngIf="caseIsNotStarted(case)">Not</span>
+            Started
+          </p>
+        </app-card>
+      </a>
     </div>
   </div>
-  <app-open-case-table [adminMode]="false"></app-open-case-table>
 </app-body>

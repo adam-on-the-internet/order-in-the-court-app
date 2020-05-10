@@ -55,6 +55,7 @@ import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-b
 import { RulesDisplayComponent } from "./components/rules-display/rules-display.component";
 import { CaseCreateComponent } from "./components/case-create/case-create.component";
 import { PlaytestComponent } from "./components/playtest/playtest.component";
+import { CourtroomComponent } from "./components/courtroom/courtroom.component";
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { PlaytestComponent } from "./components/playtest/playtest.component";
     RulesDisplayComponent,
     CaseCreateComponent,
     PlaytestComponent,
+    CourtroomComponent,
   ],
   imports: [
     BrowserModule,
