@@ -8,7 +8,11 @@ export interface Case {
   judgeName: string;
   plaintiffName: string;
   defendantName: string;
-  witnessNames: string[];
+  witnessName1: string;
+  witnessName2: string;
+  witnessName3: string;
+  witnessName4: string;
+  witnessName5: string;
   issue: Issue;
   witnesses: Witness[];
   poolPlaintiffEvidence: Evidence[];

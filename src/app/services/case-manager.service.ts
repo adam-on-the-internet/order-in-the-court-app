@@ -125,7 +125,7 @@ export class CaseManagerService {
   }
 
   public get hasMaxWitnesses(): boolean {
-    return this.witnesses.length > 4;
+    return this.witnesses.length >= 5;
   }
 
   public get allPlaintiffEvidenceSelected(): boolean {
@@ -158,12 +158,36 @@ export class CaseManagerService {
 
   public get witnesses(): WitnessPlayer[] {
     const myWitnesses = [];
-    this.activeCase.witnessNames.forEach((witness, i) => {
+    if (BooleanHelper.hasValue(this.activeCase.witnessName1)) {
       myWitnesses.push({
-        name: witness,
-        character: this.activeCase.witnesses[i],
+        name: this.activeCase.witnessName1,
+        character: this.activeCase.witnesses[0],
       });
-    });
+    }
+    if (BooleanHelper.hasValue(this.activeCase.witnessName2)) {
+      myWitnesses.push({
+        name: this.activeCase.witnessName2,
+        character: this.activeCase.witnesses[1],
+      });
+    }
+    if (BooleanHelper.hasValue(this.activeCase.witnessName3)) {
+      myWitnesses.push({
+        name: this.activeCase.witnessName3,
+        character: this.activeCase.witnesses[2],
+      });
+    }
+    if (BooleanHelper.hasValue(this.activeCase.witnessName4)) {
+      myWitnesses.push({
+        name: this.activeCase.witnessName4,
+        character: this.activeCase.witnesses[3],
+      });
+    }
+    if (BooleanHelper.hasValue(this.activeCase.witnessName5)) {
+      myWitnesses.push({
+        name: this.activeCase.witnessName5,
+        character: this.activeCase.witnesses[4],
+      });
+    }
     return myWitnesses;
   }
 
