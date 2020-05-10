@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
+import {Evidence} from "../../models/Evidence.model";
 
 @Component({
   selector: 'app-plaintiff-role',
@@ -28,6 +29,22 @@ export class PlaintiffRoleComponent implements OnInit {
     return this.caseManager.statusIsAssignRoles;
   }
 
+  public get showEvidencePool(): boolean {
+    return this.caseManager.statusIsMakeSelections && !this.caseManager.allPlaintiffEvidenceSelected;
+  }
+
+  public get evidencePool(): Evidence[] {
+    return this.caseManager.activeCase.poolPlaintiffEvidence;
+  }
+
+  public get selectedEvidence(): Evidence[] {
+    return this.caseManager.activeCase.unrevealedPlaintiffEvidence;
+  }
+
+  public get revealedEvidence(): Evidence[] {
+    return this.caseManager.activeCase.revealedPlaintiffEvidence;
+  }
+
   constructor(
     private caseManager: CaseManagerService,
     private route: ActivatedRoute,
@@ -40,6 +57,14 @@ export class PlaintiffRoleComponent implements OnInit {
 
   public backToRoleSelect() {
     this.caseManager.removePlaintiffName();
+  }
+
+  public selectEvidence(evidence: Evidence) {
+    this.caseManager.selectPlaintiffEvidence(evidence._id)
+  }
+
+  public revealEvidence(evidence: Evidence) {
+    this.caseManager.revealPlaintiffEvidence(evidence._id);
   }
 
   private loadCase() {
