@@ -147,8 +147,6 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign judge name failed");
-        }, () => {
-          this.navHelper.goToJudge(this.activeCase._id);
         });
   }
 
@@ -158,8 +156,6 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign plaintiff name failed");
-        }, () => {
-          this.navHelper.goToPlaintiff(this.activeCase._id);
         });
   }
 
@@ -169,8 +165,6 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign defendant name failed");
-        }, () => {
-          this.navHelper.goToDefendant(this.activeCase._id);
         });
   }
 
@@ -180,8 +174,6 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign witness name failed");
-        }, () => {
-          this.navHelper.goToWitness(this.activeCase._id);
         });
   }
 

@@ -4,15 +4,15 @@
 >
 </app-header>
 <app-body>
-  <div class="row">
-    <div class="col-md-6 my-3" *ngFor="let case of cases">
-      <a (click)="joinCase(case._id)">
-        <app-card [title]="'The Case of the ' + case.name" [useHover]="true">
+  <div class="row" *ngIf="ready; else loading">
+    <div class="col-md-6 my-3" *ngFor="let myCase of cases">
+      <a (click)="joinCase(myCase._id)">
+        <app-card [title]="'The Case of the ' + myCase.name" [useHover]="true">
           <p class="text-center">
-            Case Opened on {{ case.openedDate | date }}
+            Case Opened on {{ myCase.openedDate | date }}
           </p>
           <p class="text-center">
-            <span *ngIf="caseIsNotStarted(case)">Not</span>
+            <span *ngIf="caseIsNotStarted(myCase)">Not</span>
             Started
           </p>
         </app-card>
@@ -20,3 +20,11 @@
     </div>
   </div>
 </app-body>
+
+<ng-template #loading>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <app-loading></app-loading>
+    </div>
+  </div>
+</ng-template>

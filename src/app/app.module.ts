@@ -56,6 +56,7 @@ import { RulesDisplayComponent } from "./components/rules-display/rules-display.
 import { CaseCreateComponent } from "./components/case-create/case-create.component";
 import { PlaytestComponent } from "./components/playtest/playtest.component";
 import { CourtroomComponent } from "./components/courtroom/courtroom.component";
+import { CastComponent } from './components/cast/cast.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { CourtroomComponent } from "./components/courtroom/courtroom.component";
     CaseCreateComponent,
     PlaytestComponent,
     CourtroomComponent,
+    CastComponent,
   ],
   imports: [
     BrowserModule,

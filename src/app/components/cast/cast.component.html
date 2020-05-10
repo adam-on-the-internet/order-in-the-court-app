@@ -1,0 +1,46 @@
+<ng-container *ngIf="showRoles">
+  <ng-container *ngIf="hasJudgeName">
+    <hr/>
+    <h5>
+      {{ judgeName }}
+      <em>
+        as THE JUDGE
+      </em>
+      <i class="fa fa-balance-scale pull-right"></i>
+    </h5>
+  </ng-container>
+  <ng-container *ngIf="hasPlaintiffName">
+    <hr/>
+    <h5>
+      {{ plaintiffName }}
+      <em>
+        as THE PLAINTIFF
+      </em>
+      <i class="fa fa-user-circle-o pull-right"></i>
+    </h5>
+  </ng-container>
+  <ng-container *ngIf="hasDefendantName">
+    <hr/>
+    <h5>
+      {{ defendantName }}
+      <em>
+        as THE DEFENDANT
+      </em>
+      <i class="fa fa-user-circle pull-right"></i>
+    </h5>
+  </ng-container>
+  <ng-container *ngIf="witnessesPresent">
+    <hr/>
+    <h5>
+      <em>
+        And THE WITNESSES...
+      </em>
+    </h5>
+    <br/>
+    <h5 *ngFor="let witness of witnesses">
+      {{ witness.name }}
+      <em> as {{ witness.character.name }} </em>
+      <i class="fa fa-user pull-right"></i>
+    </h5>
+  </ng-container>
+</ng-container>

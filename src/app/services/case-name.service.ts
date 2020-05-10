@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Case} from "../models/Case.model";
 import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
 import {ServiceUrl} from "../constants/rest.constants";
 import {CookieHelper} from "../utilities/cookie.util";
@@ -24,7 +23,7 @@ export class CaseNameService {
       collection: `judgeName/${caseId}`
     });
     const params = {
-      judgeName
+      name: judgeName
     };
     return this.http.put(url, params, CookieHelper.headers) as Observable<any>;
   }
@@ -45,7 +44,7 @@ export class CaseNameService {
       collection: `plaintiffName/${caseId}`
     });
     const params = {
-      plaintiffName
+      name: plaintiffName
     };
     return this.http.put(url, params, CookieHelper.headers) as Observable<any>;
   }
@@ -66,7 +65,7 @@ export class CaseNameService {
       collection: `defendantName/${caseId}`
     });
     const params = {
-      defendantName
+      name: defendantName
     };
     return this.http.put(url, params, CookieHelper.headers) as Observable<any>;
   }
@@ -87,7 +86,7 @@ export class CaseNameService {
       collection: `witnessName/${caseId}`
     });
     const params = {
-      witnessName,
+      name: witnessName,
     };
     return this.http.put(url, params, CookieHelper.headers) as Observable<any>;
   }
@@ -99,7 +98,7 @@ export class CaseNameService {
       collection: `removeWitnessName/${caseId}`
     });
     const params = {
-      witnessName,
+      name: witnessName,
     };
     return this.http.put(url, params, CookieHelper.headers) as Observable<any>;
   }
