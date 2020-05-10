@@ -35,7 +35,7 @@ export class CaseManagerService {
 
   public get waitingMessage(): string {
     if (!this.caseReady) {
-      return "Loading...";
+      return "Loading case...";
     } else if (this.statusIsAssignRoles) {
       return this.getAssignRolesWaitingMessage();
     } else if (this.statusIsMakeSelections) {
@@ -214,7 +214,7 @@ export class CaseManagerService {
     if (this.statusIsAssignRoles) {
       myWitnesses.forEach((witness) => {
         witness.character = "???";
-      })
+      });
     }
     return myWitnesses;
   }

@@ -10,6 +10,8 @@ import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.
 import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
+import {RevealedEvidenceComponent} from "../../component/revealed-evidence/revealed-evidence.component";
+import {RevealedEvidenceListComponent} from "../../component/revealed-evidence-list/revealed-evidence-list.component";
 
 describe("JudgeRoleComponent", () => {
   let component: JudgeRoleComponent;
@@ -20,6 +22,7 @@ describe("JudgeRoleComponent", () => {
       declarations: [
         JudgeRoleComponent, CaseHeaderComponent, CastComponent, CardComponent, BodyComponent,
         BasicModalBoxComponent, AccordionTriggerComponent, AccordionAreaComponent,
+        RevealedEvidenceComponent, RevealedEvidenceListComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })

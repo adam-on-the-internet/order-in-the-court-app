@@ -27,14 +27,7 @@ import {WitnessTableComponent} from "./components/witness-table/witness-table.co
 import {EvidenceTableComponent} from "./components/evidence-table/evidence-table.component";
 import {CaseDisplayComponent} from "./components/case-display/case-display.component";
 import {CaseOverviewComponent} from "./components/case-overview/case-overview.component";
-import {RoleSelectComponent} from "./components/role-select/role-select.component";
-import {JudgeComponent} from "./components/judge/judge.component";
-import {PlaintiffComponent} from "./components/plaintiff/plaintiff.component";
-import {DefendantComponent} from "./components/defendant/defendant.component";
-import {WitnessComponent} from "./components/witness/witness.component";
-import {JuryComponent} from "./components/jury/jury.component";
 import {RulesComponent} from "./components/rules/rules.component";
-import {RevelationsComponent} from "./components/revelations/revelations.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
 import {HeaderComponent} from "./components/header/header.component";
@@ -62,8 +55,8 @@ import {JoinComponent} from "./components/join/join.component";
 import {CaseTableComponent} from "./components/case-table/case-table.component";
 import { RevealedEvidenceComponent } from "./component/revealed-evidence/revealed-evidence.component";
 import { RevealedEvidenceListComponent } from "./component/revealed-evidence-list/revealed-evidence-list.component";
-import { WitnessRoleComponent } from './components/witness-role/witness-role.component';
-import { JuryRoleComponent } from './components/jury-role/jury-role.component';
+import { WitnessRoleComponent } from "./components/witness-role/witness-role.component";
+import { JuryRoleComponent } from "./components/jury-role/jury-role.component";
 
 @NgModule({
   declarations: [
@@ -90,14 +83,7 @@ import { JuryRoleComponent } from './components/jury-role/jury-role.component';
     EvidenceTableComponent,
     CaseDisplayComponent,
     CaseOverviewComponent,
-    RoleSelectComponent,
-    JudgeComponent,
-    PlaintiffComponent,
-    DefendantComponent,
-    WitnessComponent,
-    JuryComponent,
     RulesComponent,
-    RevelationsComponent,
     CaseSelectComponent,
     CaseArchiveComponent,
     HeaderComponent,

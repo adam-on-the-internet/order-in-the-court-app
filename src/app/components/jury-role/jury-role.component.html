@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-md-10 mx-auto my-3 text-center">
       <app-card>
-        <app-case-header *ngIf="caseLoaded"></app-case-header>
+        <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
         <hr>
-        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
         <ng-container *ngIf="caseLoaded">
+          <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
           <div id="role-assignment" *ngIf="assigningRoles">
             <div class="row">
               <div class="col-md-6">

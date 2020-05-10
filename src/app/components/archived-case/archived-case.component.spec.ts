@@ -4,7 +4,6 @@ import {ArchivedCaseComponent} from "./archived-case.component";
 import {HeaderComponent} from "../header/header.component";
 import {BodyComponent} from "../body/body.component";
 import {LoadingComponent} from "../loading/loading.component";
-import {RevelationsComponent} from "../revelations/revelations.component";
 import {CardComponent} from "../card/card.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
@@ -24,7 +23,7 @@ describe("ArchivedCaseComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         ArchivedCaseComponent, HeaderComponent, BodyComponent, LoadingComponent, CardComponent,
-        RevelationsComponent, AccordionTriggerComponent, AccordionAreaComponent, CaseHeaderComponent,
+        AccordionTriggerComponent, AccordionAreaComponent, CaseHeaderComponent,
         RevealedEvidenceListComponent, RevealedEvidenceComponent, BasicModalBoxComponent,
         CastComponent,
       ],

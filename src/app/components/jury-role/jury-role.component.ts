@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {JURY_ROLE} from "../../constants/rule.constants";
 
 @Component({
-  selector: 'app-jury-role',
-  templateUrl: './jury-role.component.html',
-  styleUrls: ['./jury-role.component.scss']
+  selector: "app-jury-role",
+  templateUrl: "./jury-role.component.html",
+  styleUrls: ["./jury-role.component.scss"]
 })
 export class JuryRoleComponent implements OnInit {
   private caseId: string = null;

@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {WITNESS_ROLE} from "../../constants/rule.constants";
 
 @Component({
-  selector: 'app-witness-role',
-  templateUrl: './witness-role.component.html',
-  styleUrls: ['./witness-role.component.scss']
+  selector: "app-witness-role",
+  templateUrl: "./witness-role.component.html",
+  styleUrls: ["./witness-role.component.scss"]
 })
 export class WitnessRoleComponent implements OnInit {
   private caseId: string = null;

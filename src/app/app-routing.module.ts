@@ -17,7 +17,6 @@ import {WitnessDisplayComponent} from "./components/witness-display/witness-disp
 import {WitnessFormComponent} from "./components/witness-form/witness-form.component";
 import {CaseOverviewComponent} from "./components/case-overview/case-overview.component";
 import {CaseDisplayComponent} from "./components/case-display/case-display.component";
-import {RoleSelectComponent} from "./components/role-select/role-select.component";
 import {RulesComponent} from "./components/rules/rules.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
@@ -51,7 +50,6 @@ const routes: Routes = [
   {path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent},
   // courtroom
   {path: ROUTES_ENUM.Join + "/:id", component: JoinComponent},
-  {path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent},
   {path: ROUTES_ENUM.ArchivedCase + "/:id", component: ArchivedCaseComponent},
   {path: ROUTES_ENUM.Judge + "/:id", component: JudgeRoleComponent},
   {path: ROUTES_ENUM.Plaintiff + "/:id", component: PlaintiffRoleComponent},

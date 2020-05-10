@@ -10,6 +10,8 @@ import {BasicModalBoxComponent} from "../basic-modal-box/basic-modal-box.compone
 import {CastComponent} from "../cast/cast.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
+import {RevealedEvidenceListComponent} from "../../component/revealed-evidence-list/revealed-evidence-list.component";
+import {RevealedEvidenceComponent} from "../../component/revealed-evidence/revealed-evidence.component";
 
 describe("PlaintiffRoleComponent", () => {
   let component: PlaintiffRoleComponent;
@@ -19,7 +21,7 @@ describe("PlaintiffRoleComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         PlaintiffRoleComponent, CaseHeaderComponent, CardComponent, AccordionTriggerComponent, AccordionAreaComponent,
-        BodyComponent, BasicModalBoxComponent, CastComponent,
+        BodyComponent, BasicModalBoxComponent, CastComponent, RevealedEvidenceListComponent, RevealedEvidenceComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })
