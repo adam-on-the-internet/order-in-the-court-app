@@ -1,0 +1,8 @@
+export const enum Roles {
+  JUDGE = "JUDGE",
+  PLAINTIFF = "PLAINTIFF",
+  DEFENDANT = "DEFENDANT",
+  WITNESS = "WITNESS",
+  JURY = "JURY",
+  UNSELECTED = "UNSELECTED",
+}
