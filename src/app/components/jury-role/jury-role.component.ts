@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
+import {JURY_ROLE} from "../../constants/rule.constants";
 
 @Component({
   selector: 'app-jury-role',
@@ -16,9 +17,17 @@ export class JuryRoleComponent implements OnInit {
       this.caseId === this.caseManager.activeCase._id;
   }
 
-  public get waiting(): boolean {
-    return this.caseManager.statusIsAssignRoles || this.caseManager.statusIsMakeSelections ||
+  public get waitingNotForRoles(): boolean {
+    return this.caseManager.statusIsMakeSelections ||
       this.caseManager.statusIsVerdictSelection;
+  }
+
+  public get waitingForRoles(): boolean {
+    return this.caseManager.statusIsAssignRoles;
+  }
+
+  public get roleText(): string {
+    return JURY_ROLE;
   }
 
   public get waitMessage(): string {

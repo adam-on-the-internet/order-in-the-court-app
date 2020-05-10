@@ -4,30 +4,35 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded"></app-case-header>
         <hr>
-        <p>
-          ROLE TEXT HERE
-        </p>
-        <hr>
-        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waiting"></ng-container>
+        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
         <ng-container *ngIf="caseLoaded">
           <div id="role-assignment" *ngIf="assigningRoles">
-            <p>
-              <button class="btn btn-secondary" (click)="backToRoleSelect()">
-                <i class="fa fa-arrow-left">
-                </i>
-                Back to Role Select
-              </button>
-            </p>
-            <p>
-              Once all players have joined, continue.
-            </p>
-            <p *ngIf="showRoleLock">
-              <button class="btn btn-success" (click)="lockRoles()">
-                Continue
-                <i class="fa fa-arrow-right"></i>
-              </button>
-            </p>
-            <app-cast></app-cast>
+            <div class="row">
+              <div class="col-md-12" *ngIf="showRoleLock">
+                <p>
+                  Once all players have joined, continue.
+                </p>
+                <p>
+                  <button class="btn btn-success" (click)="lockRoles()">
+                    Continue
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  <button class="btn btn-secondary" (click)="backToRoleSelect()">
+                    <i class="fa fa-arrow-left">
+                    </i>
+                    Back to Role Select
+                  </button>
+                </p>
+                <app-cast></app-cast>
+              </div>
+              <div class="col-md-6">
+                <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingForRoles"></ng-container>
+              </div>
+            </div>
           </div>
           <div id="pick-structure" *ngIf="showStructureOptions">
             <p>
@@ -95,6 +100,11 @@
               </button>
             </p>
           </div>
+          <hr>
+          <h5>Judge Role</h5>
+          <p>
+            {{roleText}}
+          </p>
           <div id="case-in-progress" *ngIf="shouldShowEvidence">
             <hr>
             <app-revealed-evidence></app-revealed-evidence>

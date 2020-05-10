@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
+import {JUDGE_ROLE} from "../../constants/rule.constants";
 
 @Component({
   selector: "app-judge-role",
@@ -16,10 +17,12 @@ export class JudgeRoleComponent implements OnInit {
       this.caseId === this.caseManager.activeCase._id;
   }
 
-  public get waiting(): boolean {
-    const waitingForRoles = this.caseManager.statusIsAssignRoles && !this.showRoleLock;
-    const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showStructureOptions;
-    return waitingForRoles || waitingForSelections;
+  public get waitingForRoles(): boolean {
+    return this.caseManager.statusIsAssignRoles && !this.showRoleLock;
+  }
+
+  public get waitingNotForRoles(): boolean {
+    return this.caseManager.statusIsMakeSelections && !this.showStructureOptions;
   }
 
   public get waitMessage(): string {
@@ -68,6 +71,10 @@ export class JudgeRoleComponent implements OnInit {
 
   public get assigningRoles(): boolean {
     return this.caseManager.statusIsAssignRoles;
+  }
+
+  public get roleText(): string {
+    return JUDGE_ROLE;
   }
 
   constructor(
