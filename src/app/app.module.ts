@@ -62,6 +62,7 @@ import { JudgeRoleComponent } from './components/judge-role/judge-role.component
 import { PlaintiffRoleComponent } from './components/plaintiff-role/plaintiff-role.component';
 import { DefendantRoleComponent } from './components/defendant-role/defendant-role.component';
 import { JoinComponent } from './components/join/join.component';
+import { CaseTableComponent } from './components/case-table/case-table.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { JoinComponent } from './components/join/join.component';
     PlaintiffRoleComponent,
     DefendantRoleComponent,
     JoinComponent,
+    CaseTableComponent,
   ],
   imports: [
     BrowserModule,

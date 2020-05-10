@@ -18,6 +18,7 @@ import {
   OPENING_ARGUMENTS,
   VERDICT_SELECTION
 } from "../constants/caseStatus.constants";
+import {CaseEvidenceService} from "./case-evidence.service";
 
 @Injectable({
   providedIn: "root"
@@ -218,6 +219,7 @@ export class CaseManagerService {
 
   constructor(
     private caseService: CaseService,
+    private caseEvidenceService: CaseEvidenceService,
     private caseNameService: CaseNameService,
     private caseStatusService: CaseStatusService,
     private logService: LogService,
@@ -406,7 +408,7 @@ export class CaseManagerService {
 
   public selectPlaintiffEvidence(evidenceId: string) {
     let response;
-    this.caseService.selectPlaintiffEvidence(this.activeCase._id, evidenceId)
+    this.caseEvidenceService.selectPlaintiffEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
           console.log("select plaintiff evidence failed");
@@ -415,7 +417,7 @@ export class CaseManagerService {
 
   public selectDefendantEvidence(evidenceId: string) {
     let response;
-    this.caseService.selectDefendantEvidence(this.activeCase._id, evidenceId)
+    this.caseEvidenceService.selectDefendantEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
           console.log("select defendant evidence failed");
@@ -424,7 +426,7 @@ export class CaseManagerService {
 
   public revealPlaintiffEvidence(evidenceId: string) {
     let response;
-    this.caseService.revealPlaintiffEvidence(this.activeCase._id, evidenceId)
+    this.caseEvidenceService.revealPlaintiffEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
           console.log("reveal plaintiff evidence failed");
@@ -433,7 +435,7 @@ export class CaseManagerService {
 
   public revealDefendantEvidence(evidenceId: string) {
     let response;
-    this.caseService.revealDefendantEvidence(this.activeCase._id, evidenceId)
+    this.caseEvidenceService.revealDefendantEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
           console.log("reveal defendant evidence failed");

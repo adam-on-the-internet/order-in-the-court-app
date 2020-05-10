@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Case } from "../models/Case.model";
-import { CaseOrder } from "../models/CaseOrder.model";
-import { HttpClient } from "@angular/common/http";
-import { RestUrlBuilder } from "../utilities/rest-url-builder.util";
-import { ServiceUrl } from "../constants/rest.constants";
-import { CookieHelper } from "../utilities/cookie.util";
+import {Injectable} from "@angular/core";
+import {Observable} from "rxjs";
+import {Case} from "../models/Case.model";
+import {HttpClient} from "@angular/common/http";
+import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
+import {ServiceUrl} from "../constants/rest.constants";
+import {CookieHelper} from "../utilities/cookie.util";
+import {SortedCases} from "../models/SortedCases.model";
 
 const controller = "case";
 
@@ -16,7 +16,8 @@ export class CaseService {
 
   constructor(
     private http: HttpClient,
-  ) { }
+  ) {
+  }
 
   public getOpenCases(): Observable<Case[]> {
     const url = RestUrlBuilder.buildRestUrl({
@@ -36,6 +37,14 @@ export class CaseService {
     return this.http.get(url, CookieHelper.headers) as Observable<Case[]>;
   }
 
+  public getAllCases(): Observable<SortedCases> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+    });
+    return this.http.get(url, CookieHelper.headers) as Observable<SortedCases>;
+  }
+
   public getSingleCase(id: string): Observable<Case> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
@@ -43,42 +52,6 @@ export class CaseService {
       collection: id,
     });
     return this.http.get(url, CookieHelper.headers) as Observable<Case>;
-  }
-
-  public selectDefendantEvidence(caseId: string, evidenceId: string): Observable<any> {
-    const url = RestUrlBuilder.buildRestUrl({
-      service: ServiceUrl.BasicExpress,
-      controller,
-      collection: `selectDefendantEvidence/${caseId}/evidence/${evidenceId}`
-    });
-    return this.http.put(url, CookieHelper.headers) as Observable<any>;
-  }
-
-  public selectPlaintiffEvidence(caseId: string, evidenceId: string): Observable<any> {
-    const url = RestUrlBuilder.buildRestUrl({
-      service: ServiceUrl.BasicExpress,
-      controller,
-      collection: `selectPlaintiffEvidence/${caseId}/evidence/${evidenceId}`
-    });
-    return this.http.put(url, CookieHelper.headers) as Observable<Case>;
-  }
-
-  public revealDefendantEvidence(caseId: string, evidenceId: string): Observable<any> {
-    const url = RestUrlBuilder.buildRestUrl({
-      service: ServiceUrl.BasicExpress,
-      controller,
-      collection: `revealDefendantEvidence/${caseId}/evidence/${evidenceId}`
-    });
-    return this.http.put(url, CookieHelper.headers) as Observable<any>;
-  }
-
-  public revealPlaintiffEvidence(caseId: string, evidenceId: string): Observable<any> {
-    const url = RestUrlBuilder.buildRestUrl({
-      service: ServiceUrl.BasicExpress,
-      controller,
-      collection: `revealPlaintiffEvidence/${caseId}/evidence/${evidenceId}`
-    });
-    return this.http.put(url, CookieHelper.headers) as Observable<any>;
   }
 
   public deleteCase(caseId: string): Observable<any> {

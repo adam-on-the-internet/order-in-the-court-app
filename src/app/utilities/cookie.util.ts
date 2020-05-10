@@ -1,5 +1,6 @@
 import {UserDetails} from "../models/UserDetails.model";
 import {HttpHeaders} from "@angular/common/http";
+import {BooleanHelper} from "./boolean.util";
 
 export abstract class CookieHelper {
 
@@ -8,15 +9,22 @@ export abstract class CookieHelper {
   }
 
   public static get headers() {
-    const headers = new HttpHeaders()
-      .set("Content-Type", "application/json");
-    if (CookieHelper.bearerToken) {
-      headers
-        .set("Authorization", CookieHelper.bearerToken);
-    }
+    const hasAuth = BooleanHelper.hasValue(CookieHelper.bearerToken);
+    const headers = hasAuth ? this.authHeaders : this.unauthHeaders;
     return {
       headers,
     };
+  }
+
+  private static get authHeaders() {
+    return new HttpHeaders()
+      .set("Content-Type", "application/json")
+      .set("Authorization", CookieHelper.bearerToken);
+  }
+
+  private static get unauthHeaders() {
+    return new HttpHeaders()
+      .set("Content-Type", "application/json");
   }
 
   public static getToken(): string {
