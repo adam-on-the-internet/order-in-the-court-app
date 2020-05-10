@@ -1,1 +1,52 @@
-<p>case-table works!</p>
+<div class="row" *ngIf="!hasCases">
+  <div class="col-md-12 my-3">
+    <div class="card border-primary">
+      <p class="mx-2 my-2">
+        No cases available.
+      </p>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="hasCases">
+  <div class="row">
+    <div class="col-md-12 my-3">
+      <div class="card border-primary">
+        <p class="mx-2 my-2">
+          <small>Showing {{ cases.length }} case(s)</small>
+        </p>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Case Name</th>
+            <th>Case Created On:</th>
+            <th>Details</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let myCase of cases; let i = index">
+            <td>The Case of the {{ myCase.name }}</td>
+            <td>{{ myCase.openedDate | date }}</td>
+            <td>
+              <button
+                class="btn btn-secondary"
+                (click)="goToCaseDetails(myCase)"
+              >
+                Details
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-secondary"
+                (click)="requestDelete(myCase)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>

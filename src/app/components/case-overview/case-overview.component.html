@@ -2,13 +2,13 @@
 <app-body>
   <ng-container *ngIf="ready; else loading">
     <h3>Open Cases</h3>
-    <app-open-case-table [adminMode]="true"></app-open-case-table>
-    <hr/>
-    <h3>Closed Cases</h3>
-    <app-closed-case-table [adminMode]="true"></app-closed-case-table>
+    <app-case-table [cases]="sortedCases.openCases"></app-case-table>
     <hr/>
     <h3>Limbo Cases</h3>
-    <app-case-table></app-case-table>
+    <app-case-table [cases]="sortedCases.limboCases"></app-case-table>
+    <hr/>
+    <h3>Closed Cases</h3>
+    <app-case-table [cases]="sortedCases.closedCases"></app-case-table>
   </ng-container>
 </app-body>
 

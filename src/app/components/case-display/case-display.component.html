@@ -2,7 +2,7 @@
   <app-body>
     <div class="row">
       <div class="col-md-12 my-3">
-        <h1>Name: {{ case.name }}</h1>
+        <h1>The Case of The {{ case.name }}</h1>
         <hr />
         <h2>Issue</h2>
         <p>
@@ -12,10 +12,17 @@
           {{ case.issue.name }}
         </p>
         <hr />
-        <h2>Witnesses Witnesses</h2>
+        <h2>Witnesses</h2>
         <ol>
           <li *ngFor="let witness of case.witnesses">
             {{ witness.name }}
+          </li>
+        </ol>
+        <hr />
+        <h2>Pool Plaintiff Evidence</h2>
+        <ol>
+          <li *ngFor="let evidence of case.poolPlaintiffEvidence">
+            {{ evidence.name }}
           </li>
         </ol>
         <hr />
@@ -29,6 +36,13 @@
         <h2>Revealed Plaintiff Evidence</h2>
         <ol>
           <li *ngFor="let evidence of case.revealedPlaintiffEvidence">
+            {{ evidence.name }}
+          </li>
+        </ol>
+        <hr />
+        <h2>Pool Defendant Evidence</h2>
+        <ol>
+          <li *ngFor="let evidence of case.poolDefendantEvidence">
             {{ evidence.name }}
           </li>
         </ol>
