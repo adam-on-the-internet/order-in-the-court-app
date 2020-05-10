@@ -9,13 +9,13 @@
           <strong>
             The Plaintiff claims that The Defendant
           </strong>
-          {{ case.issue.name }}
+          {{ case.issue }}
         </p>
         <hr />
         <h2>Witnesses</h2>
         <ol>
           <li *ngFor="let witness of case.witnesses">
-            {{ witness.name }}
+            {{ witness }}
           </li>
         </ol>
         <hr />

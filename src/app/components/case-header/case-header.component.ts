@@ -14,7 +14,7 @@ export class CaseHeaderComponent {
   }
 
   public get issue(): string {
-    return this.case.issue.name;
+    return this.case.issue;
   }
 
   public get caseLink(): string {

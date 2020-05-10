@@ -13,8 +13,8 @@ export interface Case {
   witnessName3: string;
   witnessName4: string;
   witnessName5: string;
-  issue: Issue;
-  witnesses: Witness[];
+  issue: string;
+  witnesses: string[];
   poolPlaintiffEvidence: Evidence[];
   unrevealedPlaintiffEvidence: Evidence[];
   revealedPlaintiffEvidence: Evidence[];

@@ -4,7 +4,7 @@
     <app-card [title]="'The Case of the ' + case.name" [icon]="'fa-tag'">
       <p class="text-center">
         <strong>Issue:</strong>
-        The Plaintiff claims that The Defendant {{ case.issue.name }}
+        The Plaintiff claims that The Defendant {{ case.issue }}
       </p>
       <ng-container *ngIf="caseClosed">
         <hr/>

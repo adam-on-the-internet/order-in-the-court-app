@@ -213,7 +213,7 @@ export class CaseManagerService {
     }
     if (this.statusIsAssignRoles) {
       myWitnesses.forEach((witness) => {
-        witness.character.name = "???";
+        witness.character = "???";
       })
     }
     return myWitnesses;
