@@ -13,6 +13,16 @@
                 Back to Role Select
               </button>
             </p>
+            <p>
+              Once all players have joined, continue.
+            </p>
+            <p *ngIf="showRoleLock">
+              <button class="btn btn-success" (click)="lockRoles()">
+                Continue
+                <i class="fa fa-arrow-right"></i>
+              </button>
+            </p>
+            <app-cast></app-cast>
           </div>
           <hr>
           <p>

@@ -43,7 +43,7 @@ export class NavbarComponent {
   }
 
   public goToCase(): void {
-    this.navHelper.goToRoleSelect(this.caseManagerService.activeCase._id);
+    this.navHelper.join(this.caseManagerService.activeCase._id);
   }
 
   public goToJoin(): void {

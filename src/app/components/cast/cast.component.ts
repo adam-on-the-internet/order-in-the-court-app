@@ -46,8 +46,8 @@ export class CastComponent {
     return this.caseManager.witnesses;
   }
 
-  public get showRoles(): boolean {
-    return this.hasJudgeName || this.hasPlaintiffName || this.hasDefendantName || this.witnessesPresent;
+  public get hasAName(): boolean {
+    return this.caseManager.hasAName
   }
 
   constructor(

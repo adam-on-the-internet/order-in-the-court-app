@@ -1,4 +1,4 @@
-<ng-container *ngIf="showRoles">
+<ng-container *ngIf="hasAName; else nobody">
   <h5>Starring...</h5>
   <ng-container *ngIf="hasJudgeName">
     <hr>
@@ -45,3 +45,7 @@
     </h5>
   </ng-container>
 </ng-container>
+
+<ng-template #nobody>
+  <p>No players have picked roles yet.</p>
+</ng-template>

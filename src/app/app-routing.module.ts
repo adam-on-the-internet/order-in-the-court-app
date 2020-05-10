@@ -18,10 +18,8 @@ import {WitnessFormComponent} from "./components/witness-form/witness-form.compo
 import {CaseOverviewComponent} from "./components/case-overview/case-overview.component";
 import {CaseDisplayComponent} from "./components/case-display/case-display.component";
 import {RoleSelectComponent} from "./components/role-select/role-select.component";
-import {PlaintiffComponent} from "./components/plaintiff/plaintiff.component";
 import {WitnessComponent} from "./components/witness/witness.component";
 import {JuryComponent} from "./components/jury/jury.component";
-import {DefendantComponent} from "./components/defendant/defendant.component";
 import {RulesComponent} from "./components/rules/rules.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
@@ -31,10 +29,6 @@ import {RandomContentComponent} from "./components/random-content/random-content
 import {CreditsComponent} from "./components/credits/credits.component";
 import {CaseCreateComponent} from "./components/case-create/case-create.component";
 import {PlaytestComponent} from "./components/playtest/playtest.component";
-import {CourtroomComponent} from "./components/courtroom/courtroom.component";
-import {PickNameComponent} from "./components/pick-name/pick-name.component";
-import {PickRoleComponent} from "./components/pick-role/pick-role.component";
-import {RejoinComponent} from "./components/rejoin/rejoin.component";
 import {JudgeRoleComponent} from "./components/judge-role/judge-role.component";
 import {PlaintiffRoleComponent} from "./components/plaintiff-role/plaintiff-role.component";
 import {DefendantRoleComponent} from "./components/defendant-role/defendant-role.component";
@@ -57,10 +51,6 @@ const routes: Routes = [
   {path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent},
   // courtroom
   {path: ROUTES_ENUM.Join + "/:id", component: JoinComponent},
-  {path: ROUTES_ENUM.Courtroom + "/:id", component: CourtroomComponent},
-  {path: ROUTES_ENUM.PickName + "/:id", component: PickNameComponent},
-  {path: ROUTES_ENUM.PickRole + "/:id", component: PickRoleComponent},
-  {path: ROUTES_ENUM.Rejoin + "/:id", component: RejoinComponent},
   {path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent},
   {path: ROUTES_ENUM.ArchivedCase + "/:id", component: ArchivedCaseComponent},
   {path: ROUTES_ENUM.Judge + "/:id", component: JudgeRoleComponent},

@@ -21,10 +21,6 @@ export class CaseHeaderComponent {
     return this.caseManagerService.caseReady;
   }
 
-  public get showPlayers(): boolean {
-    return this.caseManagerService.hasAName;
-  }
-
   constructor(
     private caseManagerService: CaseManagerService,
   ) {

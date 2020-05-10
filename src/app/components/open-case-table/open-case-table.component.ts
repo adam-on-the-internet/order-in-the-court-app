@@ -67,7 +67,7 @@ export class OpenCaseTableComponent implements OnInit {
   }
 
   public goToCourtroom(myCase: Case) {
-    this.navHelper.goToRoleSelect(myCase._id);
+    this.navHelper.join(myCase._id);
   }
 
   private loadCases() {

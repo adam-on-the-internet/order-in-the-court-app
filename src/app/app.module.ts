@@ -57,9 +57,6 @@ import { CaseCreateComponent } from "./components/case-create/case-create.compon
 import { PlaytestComponent } from "./components/playtest/playtest.component";
 import { CourtroomComponent } from "./components/courtroom/courtroom.component";
 import { CastComponent } from './components/cast/cast.component';
-import { PickNameComponent } from './components/pick-name/pick-name.component';
-import { PickRoleComponent } from './components/pick-role/pick-role.component';
-import { RejoinComponent } from './components/rejoin/rejoin.component';
 import { CaseHeaderComponent } from './components/case-header/case-header.component';
 import { JudgeRoleComponent } from './components/judge-role/judge-role.component';
 import { PlaintiffRoleComponent } from './components/plaintiff-role/plaintiff-role.component';
@@ -121,9 +118,6 @@ import { JoinComponent } from './components/join/join.component';
     PlaytestComponent,
     CourtroomComponent,
     CastComponent,
-    PickNameComponent,
-    PickRoleComponent,
-    RejoinComponent,
     CaseHeaderComponent,
     JudgeRoleComponent,
     PlaintiffRoleComponent,

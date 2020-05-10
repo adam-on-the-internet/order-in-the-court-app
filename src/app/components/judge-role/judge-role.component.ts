@@ -24,6 +24,10 @@ export class JudgeRoleComponent implements OnInit {
     return this.caseManager.waitingMessage;
   }
 
+  public get showRoleLock(): boolean {
+    return this.assigningRoles && this.caseManager.essentialNamesSet;
+  }
+
   public get assigningRoles(): boolean {
     return this.caseManager.statusIsAssignRoles;
   }
@@ -40,6 +44,10 @@ export class JudgeRoleComponent implements OnInit {
 
   public backToRoleSelect() {
     this.caseManager.removeJudgeName();
+  }
+
+  public lockRoles() {
+    this.caseManager.lockRoles();
   }
 
   private loadCase() {

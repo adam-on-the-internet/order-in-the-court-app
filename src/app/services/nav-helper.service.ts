@@ -60,18 +60,6 @@ export class NavHelperService {
 
   // COURTROOM
 
-  public join(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.Join, caseId]);
-  }
-
-  public pickRole(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.PickRole, caseId]);
-  }
-
-  public rejoin(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.Rejoin, caseId]);
-  }
-
   public goToCaseSelect(): void {
     this.goToRoute(ROUTES_ENUM.CaseSelect);
   }
@@ -80,8 +68,8 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.CreateCase);
   }
 
-  public goToRoleSelect(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.RoleSelect, caseId]);
+  public join(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Join, caseId]);
   }
 
   public goToArchivedCase(caseId: string): void {
