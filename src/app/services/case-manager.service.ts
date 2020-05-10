@@ -94,6 +94,27 @@ export class CaseManagerService {
     return this.activeCase !== null;
   }
 
+  public get statusText(): string {
+    if (this.statusIsAssignRoles) {
+      return "Role Assignment";
+    } else if (this.statusIsMakeSelections) {
+      return "Case Preparations";
+    } else if (this.statusIsFreeTime) {
+      return "Open Trial";
+    } else if (this.statusIsOpeningArguments) {
+      return "Opening Arguments";
+    } else if (this.statusIsCrossfire) {
+      return "Crossfire Debate";
+    } else if (this.statusIsClosingArguments) {
+      return "Closing Arguments";
+    } else if (this.statusIsVerdictSelection) {
+      return "Final Ruling";
+    } else if (this.statusIsCaseClosed) {
+      return "Case Closed";
+    }
+    return "CASE STATUS";
+  }
+
   public get caseUnstarted(): boolean {
     return this.activeCase.status === 0;
   }

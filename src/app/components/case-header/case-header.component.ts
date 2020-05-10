@@ -33,6 +33,10 @@ export class CaseHeaderComponent {
     return this.caseManagerService.caseReady;
   }
 
+  public get status(): string {
+    return this.caseManagerService.statusText;
+  }
+
   constructor(
     private caseManagerService: CaseManagerService,
   ) {
