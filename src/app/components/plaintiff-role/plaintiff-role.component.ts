@@ -19,7 +19,9 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public get waiting(): boolean {
-    return true;
+    const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showEvidencePool;
+    return this.caseManager.statusIsAssignRoles || waitingForSelections ||
+      this.caseManager.statusIsVerdictSelection;
   }
 
   public get waitMessage(): string {

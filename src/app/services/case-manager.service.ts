@@ -40,6 +40,8 @@ export class CaseManagerService {
       return this.getAssignRolesWaitingMessage();
     } else if (this.statusIsMakeSelections) {
       return this.getMakeSelectionsWaitingMessage();
+    } else if (this.statusIsVerdictSelection) {
+      return "Waiting for The Judge to make a verdict...";
     } else {
       return "Waiting...";
     }
@@ -191,10 +193,6 @@ export class CaseManagerService {
     return myWitnesses;
   }
 
-  public get rolesCanBeLocked(): boolean {
-    return this.statusIsAssignRoles && this.essentialNamesSet;
-  }
-
   public get statusIsAssignRoles(): boolean {
     return this.activeCase.status === ASSIGN_ROLES;
   }
@@ -232,9 +230,17 @@ export class CaseManagerService {
       this.statusIsCrossfire || this.statusIsClosingArguments;
   }
 
-  public get caseIsAtEnd(): boolean {
-    const statusAtEnd: boolean = this.statusIsFreeTime || this.statusIsClosingArguments;
-    return statusAtEnd && this.allEvidenceRevealed;
+  public get shouldShowEvidence(): boolean {
+    return this.statusIsFreeTime || this.statusIsOpeningArguments ||
+      this.statusIsCrossfire || this.statusIsClosingArguments || this.statusIsVerdictSelection;
+  }
+
+  public get statusAtEnd(): boolean {
+    return this.statusIsFreeTime || this.statusIsClosingArguments;
+  }
+
+  public get canStartVerdictSelection(): boolean {
+    return this.statusAtEnd && this.allEvidenceRevealed;
   }
 
   public get allEvidenceRevealed(): boolean {

@@ -18,8 +18,6 @@ import {WitnessFormComponent} from "./components/witness-form/witness-form.compo
 import {CaseOverviewComponent} from "./components/case-overview/case-overview.component";
 import {CaseDisplayComponent} from "./components/case-display/case-display.component";
 import {RoleSelectComponent} from "./components/role-select/role-select.component";
-import {WitnessComponent} from "./components/witness/witness.component";
-import {JuryComponent} from "./components/jury/jury.component";
 import {RulesComponent} from "./components/rules/rules.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
@@ -33,6 +31,8 @@ import {JudgeRoleComponent} from "./components/judge-role/judge-role.component";
 import {PlaintiffRoleComponent} from "./components/plaintiff-role/plaintiff-role.component";
 import {DefendantRoleComponent} from "./components/defendant-role/defendant-role.component";
 import {JoinComponent} from "./components/join/join.component";
+import {JuryRoleComponent} from "./components/jury-role/jury-role.component";
+import {WitnessRoleComponent} from "./components/witness-role/witness-role.component";
 
 const routes: Routes = [
   // main
@@ -56,8 +56,8 @@ const routes: Routes = [
   {path: ROUTES_ENUM.Judge + "/:id", component: JudgeRoleComponent},
   {path: ROUTES_ENUM.Plaintiff + "/:id", component: PlaintiffRoleComponent},
   {path: ROUTES_ENUM.Defendant + "/:id", component: DefendantRoleComponent},
-  {path: ROUTES_ENUM.Witness + "/:id", component: WitnessComponent},
-  {path: ROUTES_ENUM.Jury + "/:id", component: JuryComponent},
+  {path: ROUTES_ENUM.Witness + "/:id", component: WitnessRoleComponent},
+  {path: ROUTES_ENUM.Jury + "/:id", component: JuryRoleComponent},
   // evidence
   {path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent},
   {path: ROUTES_ENUM.EvidenceDetails + "/:id", component: EvidenceDisplayComponent},

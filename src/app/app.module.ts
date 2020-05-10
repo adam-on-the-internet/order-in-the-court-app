@@ -62,6 +62,8 @@ import {JoinComponent} from "./components/join/join.component";
 import {CaseTableComponent} from "./components/case-table/case-table.component";
 import { RevealedEvidenceComponent } from "./component/revealed-evidence/revealed-evidence.component";
 import { RevealedEvidenceListComponent } from "./component/revealed-evidence-list/revealed-evidence-list.component";
+import { WitnessRoleComponent } from './components/witness-role/witness-role.component';
+import { JuryRoleComponent } from './components/jury-role/jury-role.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +125,8 @@ import { RevealedEvidenceListComponent } from "./component/revealed-evidence-lis
     CaseTableComponent,
     RevealedEvidenceComponent,
     RevealedEvidenceListComponent,
+    WitnessRoleComponent,
+    JuryRoleComponent,
   ],
   imports: [
     BrowserModule,

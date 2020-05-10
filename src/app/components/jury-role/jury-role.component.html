@@ -1,0 +1,37 @@
+<app-body>
+  <div class="row">
+    <div class="col-md-10 mx-auto my-3 text-center">
+      <app-card>
+        <app-case-header *ngIf="caseLoaded"></app-case-header>
+        <hr>
+        <p>
+          ROLE TEXT HERE.
+        </p>
+        <hr>
+        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waiting"></ng-container>
+        <ng-container *ngIf="caseLoaded">
+          <div id="role-assignment" *ngIf="assigningRoles">
+            <p>
+              <button class="btn btn-secondary" (click)="backToRoleSelect()">
+                <i class="fa fa-arrow-left">
+                </i>
+                Back to Role Select
+              </button>
+            </p>
+            <app-cast></app-cast>
+          </div>
+          <div id="case-in-progress" *ngIf="shouldShowEvidence">
+            <app-revealed-evidence></app-revealed-evidence>
+          </div>
+        </ng-container>
+      </app-card>
+    </div>
+  </div>
+</app-body>
+
+<ng-template #loadingSection>
+  <i class="fa fa-hourglass fa-spin fa-4x my-3"></i>
+  <h5 class="card-title">
+    {{waitMessage}}
+  </h5>
+</ng-template>

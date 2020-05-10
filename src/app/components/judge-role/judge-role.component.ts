@@ -17,7 +17,9 @@ export class JudgeRoleComponent implements OnInit {
   }
 
   public get waiting(): boolean {
-    return true;
+    const waitingForRoles = this.caseManager.statusIsAssignRoles && !this.showRoleLock;
+    const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showStructureOptions;
+    return waitingForRoles || waitingForSelections;
   }
 
   public get waitMessage(): string {
@@ -48,8 +50,12 @@ export class JudgeRoleComponent implements OnInit {
     return this.caseManager.statusIsFreeTime;
   }
 
-  public get caseIsAtEnd(): boolean {
-    return this.caseManager.caseIsAtEnd;
+  public get canStartVerdictSelection(): boolean {
+    return this.caseManager.canStartVerdictSelection;
+  }
+
+  public get needEvidenceRevealed(): boolean {
+    return this.caseManager.statusAtEnd && !this.canStartVerdictSelection;
   }
 
   public get showVerdictOptions(): boolean {
