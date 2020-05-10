@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { JoinComponent } from './join.component';
+import { JoinComponent } from "./join.component";
 
-describe('JoinComponent', () => {
+describe("JoinComponent", () => {
   let component: JoinComponent;
   let fixture: ComponentFixture<JoinComponent>;
 
@@ -19,7 +19,7 @@ describe('JoinComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

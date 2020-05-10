@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {Case} from "../../models/Case.model";
 
 @Component({
-  selector: 'app-case-header',
-  templateUrl: './case-header.component.html',
-  styleUrls: ['./case-header.component.scss']
+  selector: "app-case-header",
+  templateUrl: "./case-header.component.html",
+  styleUrls: ["./case-header.component.scss"]
 })
 export class CaseHeaderComponent {
 

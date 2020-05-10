@@ -26,7 +26,6 @@ import {IssueTableComponent} from "./components/issue-table/issue-table.componen
 import {WitnessTableComponent} from "./components/witness-table/witness-table.component";
 import {EvidenceTableComponent} from "./components/evidence-table/evidence-table.component";
 import {CaseDisplayComponent} from "./components/case-display/case-display.component";
-import {OpenCaseTableComponent} from "./components/open-case-table/open-case-table.component";
 import {CaseOverviewComponent} from "./components/case-overview/case-overview.component";
 import {RoleSelectComponent} from "./components/role-select/role-select.component";
 import {JudgeComponent} from "./components/judge/judge.component";
@@ -38,7 +37,6 @@ import {RulesComponent} from "./components/rules/rules.component";
 import {RevelationsComponent} from "./components/revelations/revelations.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
-import {ClosedCaseTableComponent} from "./components/closed-case-table/closed-case-table.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {BodyComponent} from "./components/body/body.component";
 import {LoadingComponent} from "./components/loading/loading.component";
@@ -52,17 +50,17 @@ import {ExtrasComponent} from "./components/extras/extras.component";
 import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
 import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-box.component";
-import { RulesDisplayComponent } from "./components/rules-display/rules-display.component";
-import { CaseCreateComponent } from "./components/case-create/case-create.component";
-import { PlaytestComponent } from "./components/playtest/playtest.component";
-import { CourtroomComponent } from "./components/courtroom/courtroom.component";
-import { CastComponent } from './components/cast/cast.component';
-import { CaseHeaderComponent } from './components/case-header/case-header.component';
-import { JudgeRoleComponent } from './components/judge-role/judge-role.component';
-import { PlaintiffRoleComponent } from './components/plaintiff-role/plaintiff-role.component';
-import { DefendantRoleComponent } from './components/defendant-role/defendant-role.component';
-import { JoinComponent } from './components/join/join.component';
-import { CaseTableComponent } from './components/case-table/case-table.component';
+import {RulesDisplayComponent} from "./components/rules-display/rules-display.component";
+import {CaseCreateComponent} from "./components/case-create/case-create.component";
+import {PlaytestComponent} from "./components/playtest/playtest.component";
+import {CourtroomComponent} from "./components/courtroom/courtroom.component";
+import {CastComponent} from "./components/cast/cast.component";
+import {CaseHeaderComponent} from "./components/case-header/case-header.component";
+import {JudgeRoleComponent} from "./components/judge-role/judge-role.component";
+import {PlaintiffRoleComponent} from "./components/plaintiff-role/plaintiff-role.component";
+import {DefendantRoleComponent} from "./components/defendant-role/defendant-role.component";
+import {JoinComponent} from "./components/join/join.component";
+import {CaseTableComponent} from "./components/case-table/case-table.component";
 
 @NgModule({
   declarations: [
@@ -88,7 +86,6 @@ import { CaseTableComponent } from './components/case-table/case-table.component
     WitnessTableComponent,
     EvidenceTableComponent,
     CaseDisplayComponent,
-    OpenCaseTableComponent,
     CaseOverviewComponent,
     RoleSelectComponent,
     JudgeComponent,
@@ -100,7 +97,6 @@ import { CaseTableComponent } from './components/case-table/case-table.component
     RevelationsComponent,
     CaseSelectComponent,
     CaseArchiveComponent,
-    ClosedCaseTableComponent,
     HeaderComponent,
     BodyComponent,
     LoadingComponent,
@@ -135,4 +131,5 @@ import { CaseTableComponent } from './components/case-table/case-table.component
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

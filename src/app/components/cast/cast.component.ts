@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {Case} from "../../models/Case.model";
 
 @Component({
-  selector: 'app-cast',
-  templateUrl: './cast.component.html',
-  styleUrls: ['./cast.component.scss']
+  selector: "app-cast",
+  templateUrl: "./cast.component.html",
+  styleUrls: ["./cast.component.scss"]
 })
 export class CastComponent {
 
@@ -47,7 +47,7 @@ export class CastComponent {
   }
 
   public get hasAName(): boolean {
-    return this.caseManager.hasAName
+    return this.caseManager.hasAName;
   }
 
   constructor(

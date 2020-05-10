@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
 import {ServiceUrl} from "../constants/rest.constants";
@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 const controller = "case";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class CaseEvidenceService {
 

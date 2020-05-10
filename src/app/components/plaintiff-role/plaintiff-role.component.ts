@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {Evidence} from "../../models/Evidence.model";
 import {EVIDENCE_HELP} from "../../constants/rule.constants";
 
 @Component({
-  selector: 'app-plaintiff-role',
-  templateUrl: './plaintiff-role.component.html',
-  styleUrls: ['./plaintiff-role.component.scss']
+  selector: "app-plaintiff-role",
+  templateUrl: "./plaintiff-role.component.html",
+  styleUrls: ["./plaintiff-role.component.scss"]
 })
 export class PlaintiffRoleComponent implements OnInit {
   private caseId: string = null;
@@ -74,7 +74,7 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public selectEvidence(evidence: Evidence) {
-    this.caseManager.selectPlaintiffEvidence(evidence._id)
+    this.caseManager.selectPlaintiffEvidence(evidence._id);
   }
 
   public revealEvidence(evidence: Evidence) {

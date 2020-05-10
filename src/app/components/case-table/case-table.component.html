@@ -19,30 +19,46 @@
           <tr>
             <th>Case Name</th>
             <th>Case Created On:</th>
-            <th>Details</th>
-            <th>Delete</th>
+            <th>Case Closed On:</th>
+            <ng-container *ngIf="archiveMode">
+              <th>More Info</th>
+            </ng-container>
+            <ng-container *ngIf="!archiveMode">
+              <th>Details</th>
+              <th>Delete</th>
+            </ng-container>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let myCase of cases; let i = index">
             <td>The Case of the {{ myCase.name }}</td>
             <td>{{ myCase.openedDate | date }}</td>
-            <td>
-              <button
-                class="btn btn-secondary"
-                (click)="goToCaseDetails(myCase)"
-              >
-                Details
-              </button>
-            </td>
-            <td>
-              <button
-                class="btn btn-secondary"
-                (click)="requestDelete(myCase)"
-              >
-                Delete
-              </button>
-            </td>
+            <td>{{ myCase.closedDate | date }}</td>
+            <ng-container *ngIf="archiveMode">
+              <td>
+                <button class="btn btn-secondary" (click)="getMoreInfo(myCase)">
+                  More Info
+                </button>
+              </td>
+            </ng-container>
+            <ng-container *ngIf="!archiveMode">
+              <td>
+                <button
+                  class="btn btn-secondary"
+                  (click)="goToCaseDetails(myCase)"
+                >
+                  Details
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-secondary"
+                  (click)="requestDelete(myCase)"
+                >
+                  Delete
+                </button>
+              </td>
+            </ng-container>
           </tr>
           </tbody>
         </table>

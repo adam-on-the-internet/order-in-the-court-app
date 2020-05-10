@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {BooleanHelper} from "../../utilities/boolean.util";
@@ -7,9 +7,9 @@ import {NavHelperService} from "../../services/nav-helper.service";
 import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 
 @Component({
-  selector: 'app-join',
-  templateUrl: './join.component.html',
-  styleUrls: ['./join.component.scss']
+  selector: "app-join",
+  templateUrl: "./join.component.html",
+  styleUrls: ["./join.component.scss"]
 })
 export class JoinComponent implements OnInit {
   public playerName: string = null;

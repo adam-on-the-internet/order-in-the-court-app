@@ -3,5 +3,5 @@
   [subtitle]="'Here you can view past cases and their verdicts.'"
 ></app-header>
 <app-body>
-  <app-closed-case-table></app-closed-case-table>
+  <app-case-table [cases]="closedCases" [archiveMode]="true"></app-case-table>
 </app-body>

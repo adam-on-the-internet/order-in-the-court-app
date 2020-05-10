@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CaseTableComponent } from './case-table.component';
+import { CaseTableComponent } from "./case-table.component";
 
-describe('CaseTableComponent', () => {
+describe("CaseTableComponent", () => {
   let component: CaseTableComponent;
   let fixture: ComponentFixture<CaseTableComponent>;
 
@@ -19,7 +19,7 @@ describe('CaseTableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

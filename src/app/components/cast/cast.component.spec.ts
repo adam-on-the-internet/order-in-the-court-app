@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CastComponent } from './cast.component';
+import { CastComponent } from "./cast.component";
 
-describe('CastComponent', () => {
+describe("CastComponent", () => {
   let component: CastComponent;
   let fixture: ComponentFixture<CastComponent>;
 
@@ -19,7 +19,7 @@ describe('CastComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
