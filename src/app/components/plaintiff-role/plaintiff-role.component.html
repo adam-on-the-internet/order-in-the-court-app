@@ -21,7 +21,7 @@
           >
             <app-card [title]="'Select Your Evidence'" [icon]="'fa-search'">
               <p>Select 5 pieces of evidence to use in this case.</p>
-              <p>({{ selectedEvidence.length }} of 5 selected)</p>
+              <p>({{ unrevealedEvidence.length }} of 5 selected)</p>
               <ul class="list-group">
                 <li
                   class="list-group-item"
@@ -36,6 +36,41 @@
                     >
                       Select Evidence
                     </button>
+                  </h6>
+                </li>
+              </ul>
+            </app-card>
+          </div>
+          <div id="selected-evidence" *ngIf="showSelectedEvidence">
+            <app-card [title]="'Your Evidence'" [icon]="'fa-search'">
+              <p>{{ evidenceHelp }}</p>
+              <ul class="list-group">
+                <li
+                  class="list-group-item"
+                  *ngFor="let evidence of unrevealedEvidence"
+                >
+                  <h6 class="card-title">
+                    <i class="fa fa-search"></i>
+                    {{ evidence.name }}
+                    <button
+                      *ngIf="canRevealEvidence"
+                      class="btn btn-secondary pull-right"
+                      (click)="revealEvidence(evidence)"
+                    >
+                      Reveal to the Court
+                    </button>
+                  </h6>
+                </li>
+                <li
+                  class="list-group-item"
+                  *ngFor="let evidence of revealedEvidence"
+                >
+                  <h6 class="card-title">
+                    <i class="fa fa-search"></i>
+                    {{ evidence.name }}
+                    <span class="pull-right">
+                    (revealed)
+                  </span>
                   </h6>
                 </li>
               </ul>

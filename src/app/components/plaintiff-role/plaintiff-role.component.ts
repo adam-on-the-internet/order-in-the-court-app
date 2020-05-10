@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {Evidence} from "../../models/Evidence.model";
+import {EVIDENCE_HELP} from "../../constants/rule.constants";
 
 @Component({
   selector: 'app-plaintiff-role',
@@ -37,12 +38,25 @@ export class PlaintiffRoleComponent implements OnInit {
     return this.caseManager.activeCase.poolPlaintiffEvidence;
   }
 
-  public get selectedEvidence(): Evidence[] {
+  public get unrevealedEvidence(): Evidence[] {
     return this.caseManager.activeCase.unrevealedPlaintiffEvidence;
   }
 
   public get revealedEvidence(): Evidence[] {
     return this.caseManager.activeCase.revealedPlaintiffEvidence;
+  }
+
+  public get evidenceHelp(): string {
+    return EVIDENCE_HELP;
+  }
+
+  public get showSelectedEvidence(): boolean {
+    return this.unrevealedEvidence.length +
+      this.revealedEvidence.length > 0;
+  }
+
+  public get canRevealEvidence(): boolean {
+    return this.caseManager.caseIsOngoing;
   }
 
   constructor(

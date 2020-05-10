@@ -35,11 +35,27 @@ export class CaseManagerService {
   public get waitingMessage(): string {
     if (!this.caseReady) {
       return "Loading...";
-    } else if (!this.essentialNamesSet) {
-      return "Waiting for more players...";
     } else if (this.statusIsAssignRoles) {
+      return this.getAssignRolesWaitingMessage();
+    } else if (this.statusIsMakeSelections) {
+      return this.getMakeSelectionsWaitingMessage();
+    } else {
+      return "Waiting...";
+    }
+  }
+
+  private getAssignRolesWaitingMessage() {
+    if (this.essentialNamesSet) {
       return "Waiting for the judge to lock the roles...";
-    } else if (!this.allEvidenceSelected) {
+    } else {
+      return "Waiting for more players...";
+    }
+  }
+
+  private getMakeSelectionsWaitingMessage(): string {
+    if (this.allEvidenceSelected) {
+      return "Waiting for the judge to start the case...";
+    } else {
       if (!this.allPlaintiffEvidenceSelected && !this.allDefendantEvidenceSelected) {
         return "Waiting for plaintiff and defendant to select evidence...";
       } else if (!this.allPlaintiffEvidenceSelected) {
@@ -47,10 +63,6 @@ export class CaseManagerService {
       } else {
         return "Waiting for defendant to select evidence...";
       }
-    } else if (this.statusIsMakeSelections) {
-      return "Waiting for the judge to start the case...";
-    } else {
-      return "Waiting...";
     }
   }
 
@@ -184,6 +196,11 @@ export class CaseManagerService {
 
   public get statusIsCaseClosed(): boolean {
     return this.activeCase.status === CASE_CLOSED;
+  }
+
+  public get caseIsOngoing(): boolean {
+    return this.statusIsFreeTime || this.statusIsOpeningArguments ||
+      this.statusIsCrossfire || this.statusIsClosingArguments;
   }
 
   constructor(
