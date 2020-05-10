@@ -4,22 +4,30 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded"></app-case-header>
         <hr>
-        <p>
-          ROLE TEXT HERE.
-        </p>
-        <hr>
-        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waiting"></ng-container>
+        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
         <ng-container *ngIf="caseLoaded">
           <div id="back-to-role-select" *ngIf="assigningRoles">
-            <p>
-              <button class="btn btn-secondary" (click)="backToRoleSelect()">
-                <i class="fa fa-arrow-left">
-                </i>
-                Back to Role Select
-              </button>
-            </p>
-            <app-cast></app-cast>
+            <div class="row">
+              <div class="col-md-6">
+                <p>
+                  <button class="btn btn-secondary" (click)="backToRoleSelect()">
+                    <i class="fa fa-arrow-left">
+                    </i>
+                    Back to Role Select
+                  </button>
+                </p>
+                <app-cast></app-cast>
+              </div>
+              <div class="col-md-6">
+                <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingForRoles"></ng-container>
+              </div>
+            </div>
           </div>
+          <hr>
+          <h5>Defendant Role</h5>
+          <p>
+            {{roleText}}
+          </p>
           <div
             id="select-evidence"
             class="mb-3"

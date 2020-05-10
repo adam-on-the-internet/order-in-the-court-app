@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {Evidence} from "../../models/Evidence.model";
-import {EVIDENCE_HELP} from "../../constants/rule.constants";
+import {DEFENDANT_ROLE, EVIDENCE_HELP} from "../../constants/rule.constants";
 
 @Component({
   selector: "app-defendant-role",
@@ -18,10 +18,17 @@ export class DefendantRoleComponent implements OnInit {
       this.caseId === this.caseManager.activeCase._id;
   }
 
-  public get waiting(): boolean {
+  public get roleText(): string {
+    return DEFENDANT_ROLE;
+  }
+
+  public get waitingNotForRoles(): boolean {
     const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showEvidencePool;
-    return this.caseManager.statusIsAssignRoles || waitingForSelections ||
-      this.caseManager.statusIsVerdictSelection;
+    return waitingForSelections || this.caseManager.statusIsVerdictSelection;
+  }
+
+  public get waitingForRoles(): boolean {
+    return this.caseManager.statusIsAssignRoles;
   }
 
   public get waitMessage(): string {

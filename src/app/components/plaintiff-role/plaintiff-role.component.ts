@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {Evidence} from "../../models/Evidence.model";
-import {EVIDENCE_HELP} from "../../constants/rule.constants";
+import {EVIDENCE_HELP, PLAINTIFF_ROLE} from "../../constants/rule.constants";
 
 @Component({
   selector: "app-plaintiff-role",
@@ -18,10 +18,13 @@ export class PlaintiffRoleComponent implements OnInit {
       this.caseId === this.caseManager.activeCase._id;
   }
 
-  public get waiting(): boolean {
+  public get waitingNotForRoles(): boolean {
     const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showEvidencePool;
-    return this.caseManager.statusIsAssignRoles || waitingForSelections ||
-      this.caseManager.statusIsVerdictSelection;
+    return waitingForSelections || this.caseManager.statusIsVerdictSelection;
+  }
+
+  public get waitingForRoles(): boolean {
+    return this.caseManager.statusIsAssignRoles;
   }
 
   public get waitMessage(): string {
@@ -71,6 +74,10 @@ export class PlaintiffRoleComponent implements OnInit {
   public get someEvidenceSelected(): boolean {
     return this.unrevealedEvidence.length +
       this.revealedEvidence.length > 0;
+  }
+
+  public get roleText(): string {
+    return PLAINTIFF_ROLE;
   }
 
   public get canRevealEvidence(): boolean {
