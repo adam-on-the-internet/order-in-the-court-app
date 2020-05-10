@@ -62,6 +62,9 @@
                     Opening Arguments
                   </strong>
                 </p>
+                <p>
+                  An introduction to the issue and all of the players.
+                </p>
                 <ul class="list-group">
                   <li class="list-group-item">
                     Introduce the Case's Issue
@@ -86,7 +89,30 @@
                 </p>
               </div>
               <div id="crossfire" *ngIf="showCrossfire">
-                crossfire
+                <p>
+                  <strong>
+                    Crossfire Debate
+                  </strong>
+                </p>
+                <p>
+                  This part of the trial is a free for all. Anyone can ask questions of each other. Up to you, The
+                  Judge, to handle it!
+                </p>
+                <p>
+                  Some things to keep the conversation moving:
+                </p>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Question Witnesses
+                  </li>
+                  <li class="list-group-item">
+                    Talk About Evidence
+                  </li>
+                  <li class="list-group-item">
+                    Ask For More Details
+                  </li>
+                </ul>
+                <br>
                 <p>
                   <button class="btn btn-success" (click)="endCrossfire()">
                     End Crossfire
@@ -95,10 +121,52 @@
                 </p>
               </div>
               <div id="closing-arguments" *ngIf="showClosingArguments">
-                closing arguments
+                <p>
+                  <strong>
+                    Closing Arguments
+                  </strong>
+                </p>
+                <p>
+                  The Plaintiff and The Defendant get one last chance to make their case.
+                </p>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Plaintiff's Closing Argument
+                  </li>
+                  <li class="list-group-item">
+                    Defendant's Closing Argument
+                  </li>
+                </ul>
+                <br>
               </div>
               <div id="show-free-time" *ngIf="showFreeTime">
-                freetime
+                <p>
+                  <strong>
+                    Open Trial
+                  </strong>
+                </p>
+                <p>
+                  This case is an open trial, direct it however you like.
+                </p>
+                <p>
+                  Some things to keep in mind:
+                </p>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    The Issue
+                  </li>
+                  <li class="list-group-item">
+                    The Plaintiff's Story
+                  </li>
+                  <li class="list-group-item">
+                    The Defendant's Story
+                  </li>
+                  <li class="list-group-item"
+                      *ngFor="let witness of witnesses">
+                    The Witness's Story: {{witness.character.name}}
+                  </li>
+                </ul>
+                <br>
               </div>
               <div id="status-at-end" *ngIf="needEvidenceRevealed">
                 <div class="alert alert-info">
@@ -121,11 +189,14 @@
                   Make your verdict. Is the defendant GUILTY or NOT GUILTY?
                 </p>
                 <p>
-                  <button class="btn btn-success mx-3" (click)="submitNotGuiltyVerdict()">
-                    NOT GUILTY
-                  </button>
+                  If you have a Jury, you can ask them for their input.
+                </p>
+                <p>
                   <button class="btn btn-danger mx-3" (click)="submitGuiltyVerdict()">
                     GUILTY
+                  </button>
+                  <button class="btn btn-success mx-3" (click)="submitNotGuiltyVerdict()">
+                    NOT GUILTY
                   </button>
                 </p>
               </div>
