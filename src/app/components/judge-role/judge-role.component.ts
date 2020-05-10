@@ -32,6 +32,30 @@ export class JudgeRoleComponent implements OnInit {
     return this.caseManager.statusIsMakeSelections && this.caseManager.allEvidenceSelected;
   }
 
+  public get showOpeningArguments(): boolean {
+    return this.caseManager.statusIsOpeningArguments;
+  }
+
+  public get showCrossfire(): boolean {
+    return this.caseManager.statusIsCrossfire;
+  }
+
+  public get showClosingArguments(): boolean {
+    return this.caseManager.statusIsClosingArguments;
+  }
+
+  public get showFreeTime(): boolean {
+    return this.caseManager.statusIsFreeTime;
+  }
+
+  public get caseIsAtEnd(): boolean {
+    return this.caseManager.caseIsAtEnd;
+  }
+
+  public get showVerdictOptions(): boolean {
+    return this.caseManager.statusIsVerdictSelection;
+  }
+
   public get assigningRoles(): boolean {
     return this.caseManager.statusIsAssignRoles;
   }
@@ -60,6 +84,26 @@ export class JudgeRoleComponent implements OnInit {
 
   public startFreeTime() {
     this.caseManager.startFreeTime();
+  }
+
+  public endOpeningArguments() {
+    this.caseManager.startCrossfire();
+  }
+
+  public endCrossfire() {
+    this.caseManager.startClosingArguments();
+  }
+
+  public startVerdictSelection() {
+    this.caseManager.startVerdictSelection();
+  }
+
+  public submitGuiltyVerdict() {
+    this.caseManager.makeVerdict(true);
+  }
+
+  public submitNotGuiltyVerdict() {
+    this.caseManager.makeVerdict(false);
   }
 
   private loadCase() {

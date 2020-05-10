@@ -40,6 +40,51 @@
               </button>
             </p>
           </div>
+          <div id="opening-arguments" *ngIf="showOpeningArguments">
+            opening arguments
+            <p>
+              <button class="btn btn-secondary" (click)="endOpeningArguments()">
+                End Opening Arguments
+              </button>
+            </p>
+          </div>
+          <div id="crossfire" *ngIf="showCrossfire">
+            crossfire
+            <p>
+              <button class="btn btn-secondary" (click)="endCrossfire()">
+                End Crossfire
+              </button>
+            </p>
+          </div>
+          <div id="closing-arguments" *ngIf="showClosingArguments">
+            closing arguments
+          </div>
+          <div id="show-free-time" *ngIf="showFreeTime">
+            freetime
+          </div>
+          <div id="case-at-end" *ngIf="caseIsAtEnd">
+            <p>
+              All evidence has been revealed. Whenever you're ready, move on to make the verdict.
+            </p>
+            <p>
+              <button class="btn btn-primary" (click)="startVerdictSelection()">
+                Ready for Verdict
+              </button>
+            </p>
+          </div>
+          <div id="select-verdict" *ngIf="showVerdictOptions">
+            <p>
+              Make your verdict. Is the defendant GUILTY or NOT GUILTY?
+            </p>
+            <p>
+              <button class="btn btn-success mx-3" (click)="submitGuiltyVerdict()">
+                NOT GUILTY
+              </button>
+              <button class="btn btn-danger mx-3" (click)="submitNotGuiltyVerdict()">
+                GUILTY
+              </button>
+            </p>
+          </div>
           <hr>
           <p>
             Do stuff.

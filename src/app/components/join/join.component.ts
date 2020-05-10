@@ -95,6 +95,10 @@ export class JoinComponent implements OnInit {
     this.showRejoin = true;
   }
 
+  public exitRejoin() {
+    this.showRejoin = false;
+  }
+
   public pickJudge() {
     this.caseManager.assignJudgeName(this.playerName);
   }

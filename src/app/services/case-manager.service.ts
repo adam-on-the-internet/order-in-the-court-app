@@ -103,10 +103,6 @@ export class CaseManagerService {
     return this.activeCase.status === 2;
   }
 
-  public get caseOpen(): boolean {
-    return !this.caseClosed;
-  }
-
   public get hasJudgeName(): boolean {
     return BooleanHelper.hasValue(this.activeCase.judgeName);
   }
@@ -132,11 +128,19 @@ export class CaseManagerService {
   }
 
   public get allPlaintiffEvidenceSelected(): boolean {
-    return this.activeCase.unrevealedPlaintiffEvidence.length > 4;
+    return this.activeCase.unrevealedPlaintiffEvidence.length >= 5;
   }
 
   public get allDefendantEvidenceSelected(): boolean {
-    return this.activeCase.unrevealedDefendantEvidence.length > 4;
+    return this.activeCase.unrevealedDefendantEvidence.length >= 5;
+  }
+
+  public get allPlaintiffEvidenceRevealed(): boolean {
+    return this.activeCase.revealedPlaintiffEvidence.length >= 5;
+  }
+
+  public get allDefendantEvidenceRevealed(): boolean {
+    return this.activeCase.revealedDefendantEvidence.length >= 5;
   }
 
   public get allEvidenceSelected(): boolean {
@@ -201,6 +205,15 @@ export class CaseManagerService {
   public get caseIsOngoing(): boolean {
     return this.statusIsFreeTime || this.statusIsOpeningArguments ||
       this.statusIsCrossfire || this.statusIsClosingArguments;
+  }
+
+  public get caseIsAtEnd(): boolean {
+    const statusAtEnd: boolean = this.statusIsFreeTime || this.statusIsClosingArguments;
+    return statusAtEnd && this.allEvidenceRevealed;
+  }
+
+  public get allEvidenceRevealed(): boolean {
+    return this.allPlaintiffEvidenceRevealed && this.allDefendantEvidenceRevealed;
   }
 
   constructor(
@@ -371,6 +384,15 @@ export class CaseManagerService {
         });
   }
 
+  public startVerdictSelection() {
+    let response;
+    this.caseStatusService.startVerdictSelection(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("status update failed");
+        });
+  }
+
   public makeVerdict(isDefendantGuilty: boolean) {
     let response;
     this.caseStatusService.makeVerdict(this.activeCase._id, isDefendantGuilty)
@@ -440,7 +462,7 @@ export class CaseManagerService {
           this.caseRefresher.unsubscribe();
           console.log("get case failed");
         }, () => {
-          if (this.caseClosed) {
+          if (this.statusIsCaseClosed) {
             this.caseRefresher.unsubscribe();
             this.navHelper.goToArchivedCase(this.activeCase._id);
           }
