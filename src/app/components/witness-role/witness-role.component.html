@@ -4,32 +4,55 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded"></app-case-header>
         <hr>
-        <p>
-          ROLE HELP TEXT
-        </p>
-        <hr>
-        <h6>Witness Identities</h6>
-        <p *ngIf="assigningRoles">
-          Witness identities will be revealed after the roles have been locked.
-        </p>
-        <p *ngIf="!assigningRoles">
-          WITNESS IDENTITY SECTION
-        </p>
-        <hr>
-        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waiting"></ng-container>
+        <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
         <ng-container *ngIf="caseLoaded">
           <div id="role-assignment" *ngIf="assigningRoles">
-            <p *ngFor="let witness of witnesses">
-              <button class="btn btn-secondary" (click)="backToRoleSelect(witness.name)">
-                <i class="fa fa-arrow-left">
-                </i>
-                Back to Role Select ({{witness.name}})
-              </button>
-            </p>
-            <app-cast></app-cast>
+            <div class="row">
+              <div class="col-md-6">
+                <p *ngFor="let witness of witnesses">
+                  <button class="btn btn-secondary" (click)="backToRoleSelect(witness.name)">
+                    <i class="fa fa-arrow-left">
+                    </i>
+                    Back to Role Select ({{witness.name}})
+                  </button>
+                </p>
+                <app-cast></app-cast>
+              </div>
+              <div class="col-md-6">
+                <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingForRoles"></ng-container>
+              </div>
+            </div>
           </div>
           <div id="case-in-progress" *ngIf="shouldShowEvidence">
             <app-revealed-evidence></app-revealed-evidence>
+          </div>
+          <div id="role-help">
+            <hr>
+            <div class="row">
+              <div class="col-md-6">
+                <h5>Witness Role</h5>
+                <p>
+                  {{roleText}}
+                </p>
+              </div>
+              <div class="col-md-6">
+                <h6>Witness Identities</h6>
+                <p *ngIf="assigningRoles">
+                  Witness identities will be revealed after the roles have been locked.
+                </p>
+                <ul class="list-group" *ngIf="!assigningRoles">
+                  <li class="list-group-item" *ngFor="let witness of witnesses">
+                    <strong>
+                      {{witness.name}}
+                    </strong>
+                    as
+                    <strong>
+                      {{witness.character.name}}
+                    </strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </ng-container>
       </app-card>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
+import {WITNESS_ROLE} from "../../constants/rule.constants";
 
 @Component({
   selector: 'app-witness-role',
@@ -10,6 +11,10 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class WitnessRoleComponent implements OnInit {
   private caseId: string = null;
+
+  public get roleText(): string {
+    return WITNESS_ROLE;
+  }
 
   public get caseLoaded(): boolean {
     return this.caseId &&
@@ -20,6 +25,15 @@ export class WitnessRoleComponent implements OnInit {
   public get waiting(): boolean {
     return this.caseManager.statusIsAssignRoles || this.caseManager.statusIsMakeSelections ||
       this.caseManager.statusIsVerdictSelection;
+  }
+
+  public get waitingNotForRoles(): boolean {
+    return this.caseManager.statusIsMakeSelections ||
+      this.caseManager.statusIsVerdictSelection;
+  }
+
+  public get waitingForRoles(): boolean {
+    return this.caseManager.statusIsAssignRoles;
   }
 
   public get waitMessage(): string {
