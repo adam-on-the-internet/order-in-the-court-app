@@ -1,49 +1,33 @@
 <ng-container *ngIf="hasAName; else nobody">
   <h5>Starring...</h5>
-  <ng-container *ngIf="hasJudgeName">
-    <hr>
-    <h5>
+  <ul class="list-group">
+    <li class="list-group-item" *ngIf="hasJudgeName">
       {{ judgeName }}
       <em>
         as THE JUDGE
       </em>
       <i class="fa fa-balance-scale pull-right"></i>
-    </h5>
-  </ng-container>
-  <ng-container *ngIf="hasPlaintiffName">
-    <hr/>
-    <h5>
+    </li>
+    <li class="list-group-item" *ngIf="hasPlaintiffName">
       {{ plaintiffName }}
       <em>
         as THE PLAINTIFF
       </em>
       <i class="fa fa-user-circle-o pull-right"></i>
-    </h5>
-  </ng-container>
-  <ng-container *ngIf="hasDefendantName">
-    <hr/>
-    <h5>
+    </li>
+    <li class="list-group-item" *ngIf="hasDefendantName">
       {{ defendantName }}
       <em>
         as THE DEFENDANT
       </em>
       <i class="fa fa-user-circle pull-right"></i>
-    </h5>
-  </ng-container>
-  <ng-container *ngIf="witnessesPresent">
-    <hr/>
-    <h5>
-      <em>
-        And THE WITNESSES...
-      </em>
-    </h5>
-    <br/>
-    <h5 *ngFor="let witness of witnesses">
+    </li>
+    <li class="list-group-item" *ngFor="let witness of witnesses">
       {{ witness.name }}
-      <em> as {{ witness.character.name }} </em>
+      <em> as witness: {{ witness.character.name }} </em>
       <i class="fa fa-user pull-right"></i>
-    </h5>
-  </ng-container>
+    </li>
+  </ul>
 </ng-container>
 
 <ng-template #nobody>
