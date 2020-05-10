@@ -159,7 +159,7 @@ export class CaseManagerService {
   }
 
   public get witnesses(): WitnessPlayer[] {
-    const myWitnesses = [];
+    const myWitnesses: WitnessPlayer[] = [];
     if (BooleanHelper.hasValue(this.activeCase.witnessName1)) {
       myWitnesses.push({
         name: this.activeCase.witnessName1,
@@ -189,6 +189,11 @@ export class CaseManagerService {
         name: this.activeCase.witnessName5,
         character: this.activeCase.witnesses[4],
       });
+    }
+    if (this.statusIsAssignRoles) {
+      myWitnesses.forEach((witness) => {
+        witness.character.name = "???";
+      })
     }
     return myWitnesses;
   }
