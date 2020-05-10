@@ -5,7 +5,7 @@
         <app-case-header *ngIf="caseLoaded"></app-case-header>
         <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waiting"></ng-container>
         <ng-container *ngIf="caseLoaded">
-          <div id="back-to-role-select" *ngIf="assigningRoles">
+          <div id="role-assignment" *ngIf="assigningRoles">
             <p>
               <button class="btn btn-secondary" (click)="backToRoleSelect()">
                 <i class="fa fa-arrow-left">
@@ -23,6 +23,22 @@
               </button>
             </p>
             <app-cast></app-cast>
+          </div>
+          <div id="pick-structure" *ngIf="showStructureOptions">
+            <p>
+              Would you like to play the game with a rough structure, or looser?
+            </p>
+            <p>
+              It is recommended to use structure the first play-through.
+            </p>
+            <p>
+              <button class="btn btn-secondary mx-4" (click)="startOpeningArguments()">
+                Start Game With Structure
+              </button>
+              <button class="btn btn-secondary mx-4" (click)="startFreeTime()">
+                Start Game Without Structure
+              </button>
+            </p>
           </div>
           <hr>
           <p>

@@ -28,6 +28,10 @@ export class JudgeRoleComponent implements OnInit {
     return this.assigningRoles && this.caseManager.essentialNamesSet;
   }
 
+  public get showStructureOptions(): boolean {
+    return this.caseManager.statusIsMakeSelections && this.caseManager.allEvidenceSelected;
+  }
+
   public get assigningRoles(): boolean {
     return this.caseManager.statusIsAssignRoles;
   }
@@ -48,6 +52,14 @@ export class JudgeRoleComponent implements OnInit {
 
   public lockRoles() {
     this.caseManager.lockRoles();
+  }
+
+  public startOpeningArguments() {
+    this.caseManager.startOpeningArguments();
+  }
+
+  public startFreeTime() {
+    this.caseManager.startFreeTime();
   }
 
   private loadCase() {

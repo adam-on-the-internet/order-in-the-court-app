@@ -11,8 +11,11 @@ import {CaseStatusService} from "./case-status.service";
 import {
   ASSIGN_ROLES,
   CASE_CLOSED,
-  CLOSING_ARGUMENTS, CROSSFIRE,
-  FREE_TIME, MAKE_SELECTIONS, OPENING_ARGUMENTS,
+  CLOSING_ARGUMENTS,
+  CROSSFIRE,
+  FREE_TIME,
+  MAKE_SELECTIONS,
+  OPENING_ARGUMENTS,
   VERDICT_SELECTION
 } from "../constants/caseStatus.constants";
 
@@ -30,18 +33,24 @@ export class CaseManagerService {
   }
 
   public get waitingMessage(): string {
-      if (!this.caseReady) {
-        return "Loading...";
-      } else if (!this.essentialNamesSet) {
-        return "Waiting for more players...";
-      } else if (this.statusIsAssignRoles) {
-        return "Waiting for the judge to lock the roles...";
-      } else if (!this.allEvidenceSelected) {
+    if (!this.caseReady) {
+      return "Loading...";
+    } else if (!this.essentialNamesSet) {
+      return "Waiting for more players...";
+    } else if (this.statusIsAssignRoles) {
+      return "Waiting for the judge to lock the roles...";
+    } else if (!this.allEvidenceSelected) {
+      if (!this.allPlaintiffEvidenceSelected && !this.allDefendantEvidenceSelected) {
         return "Waiting for plaintiff and defendant to select evidence...";
-      } else if (this.statusIsMakeSelections) {
-        return "Waiting for the judge to start the case...";
+      } else if (!this.allPlaintiffEvidenceSelected) {
+        return "Waiting for plaintiff to select evidence...";
       } else {
-        return "Waiting...";
+        return "Waiting for defendant to select evidence...";
+      }
+    } else if (this.statusIsMakeSelections) {
+      return "Waiting for the judge to start the case...";
+    } else {
+      return "Waiting...";
     }
   }
 
