@@ -1,0 +1,18 @@
+<div class="mb-3" *ngIf="ready">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <app-revealed-evidence-list [icon]="'fa-user-circle-o'"
+                                  [listName]="'Plaintiff Evidence'"
+                                  [revealedEvidence]="revealedPlaintiffEvidence">
+      </app-revealed-evidence-list>
+    </div>
+    <div class="col-md-6 text-center">
+      <app-revealed-evidence-list [icon]="'fa-user-circle'"
+                                  [listName]="'Defendant Evidence'"
+                                  [revealedEvidence]="revealedDefendantEvidence">
+      </app-revealed-evidence-list>
+    </div>
+  </div>
+
+  <hr>
+</div>

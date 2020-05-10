@@ -1,19 +1,41 @@
-<h4 class="card-title text-center" *ngIf="ready">
-  The Case of the {{case.name}}
-  <a class="btn btn-outline-secondary mr-3"
-     data-toggle="modal"
-     href="#case-info"
-  >
-    Case Info
-  </a>
-  <a class="btn btn-outline-secondary"
-     data-toggle="modal"
-     href="#case-players"
-  >
-    Players
-  </a>
-</h4>
-
+<div class="text-center" *ngIf="ready">
+  <h4 class="card-title">
+    The Case of the {{case.name}}
+    <span *ngIf="caseClosed">(CLOSED)</span>
+  </h4>
+  <h5>
+    <a class="btn btn-outline-secondary mr-3"
+       data-toggle="modal"
+       href="#case-info"
+    >
+      <i class="fa fa-info-circle"></i>
+      Case Info
+    </a>
+    <a class="btn btn-outline-secondary"
+       data-toggle="modal"
+       href="#case-players"
+    >
+      <i class="fa fa-users"></i>
+      Players
+    </a>
+  </h5>
+  <p>
+    <strong>Issue:</strong>
+    The Plaintiff claims that The Defendant
+    <strong>
+      {{issue}}
+    </strong>
+  </p>
+  <p *ngIf="caseClosed">
+    <strong>Verdict:</strong>
+    The Court finds the Defendant
+    <strong>
+      <span *ngIf="notGuilty">NOT</span>
+      GUILTY
+    </strong>
+    .
+  </p>
+</div>
 
 <app-basic-modal-box [boxId]="'case-info'" [title]="'Case Info'" *ngIf="ready">
   <h5>

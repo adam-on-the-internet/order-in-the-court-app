@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { BooleanHelper } from "src/app/utilities/boolean.util";
-import { Case } from "src/app/models/Case.model";
-import { CaseService } from "src/app/services/case.service";
-import { ActivatedRoute } from "@angular/router";
+import {Component, OnInit} from "@angular/core";
+import {BooleanHelper} from "src/app/utilities/boolean.util";
+import {Case} from "src/app/models/Case.model";
+import {ActivatedRoute} from "@angular/router";
+import {CaseManagerService} from "../../services/case-manager.service";
 
 @Component({
   selector: "app-archived-case",
@@ -18,8 +18,10 @@ export class ArchivedCaseComponent implements OnInit {
   }
 
   constructor(
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private caseManager: CaseManagerService,
+  ) {
+  }
 
   public ngOnInit() {
     this.loadCase();
@@ -27,6 +29,7 @@ export class ArchivedCaseComponent implements OnInit {
 
   private loadCase() {
     this.caseId = this.route.snapshot.paramMap.get("id");
+    this.caseManager.loadExistingCase(this.caseId);
   }
 
 }

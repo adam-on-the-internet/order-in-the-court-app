@@ -1,0 +1,19 @@
+<h5>
+  <i class="fa" [ngClass]="icon" *ngIf="icon"></i>
+  <i class="fa fa-search"></i>
+  {{listName}}
+</h5>
+<h6 class="card-subtitle mb-2 text-muted">
+  {{ revealedEvidence.length }} of
+  5 revealed
+</h6>
+<div class="card-text">
+  <p *ngIf="revealedEvidence.length === 0">
+    No {{listName}} has been revealed yet.
+  </p>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let evidence of revealedEvidence">
+      {{ evidence.name }}
+    </li>
+  </ul>
+</div>

@@ -13,8 +13,20 @@ export class CaseHeaderComponent {
     return this.caseManagerService.activeCase;
   }
 
+  public get issue(): string {
+    return this.case.issue.name;
+  }
+
   public get caseLink(): string {
     return `https://order-in-the-court-app.herokuapp.com/courtroom/${this.case._id}`;
+  }
+
+  public get caseClosed(): boolean {
+    return this.caseManagerService.statusIsCaseClosed;
+  }
+
+  public get notGuilty(): boolean {
+    return !this.caseManagerService.activeCase.isDefendantGuilty;
   }
 
   public get ready(): boolean {

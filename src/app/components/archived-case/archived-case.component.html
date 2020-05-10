@@ -1,12 +1,12 @@
 <ng-container *ngIf="ready; else loading">
-  <app-header
-    [title]="'Case Closed'"
-    [subtitle]="'This case has been closed.'"
-  ></app-header>
   <app-body>
     <div class="row">
-      <div class="col-md-12 my-3">
-        <app-revelations [caseId]="caseId"></app-revelations>
+      <div class="col-md-10 mx-auto my-3">
+        <app-card>
+          <app-case-header></app-case-header>
+          <hr>
+          <app-revealed-evidence></app-revealed-evidence>
+        </app-card>
       </div>
     </div>
   </app-body>

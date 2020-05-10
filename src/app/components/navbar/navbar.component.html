@@ -25,7 +25,7 @@
           Home
         </a>
       </li>
-      <ng-container *ngIf="!caseSelected">
+      <ng-container *ngIf="!showCase">
         <li class="nav-item active">
           <a class="nav-link" (click)="goToJoin()">
             <i class="fa fa-sign-in"></i>
@@ -45,7 +45,7 @@
           </a>
         </li>
       </ng-container>
-      <li class="nav-item active" *ngIf="caseSelected">
+      <li class="nav-item active" *ngIf="showCase">
         <a class="nav-link" (click)="goToCase()">
           <i class="fa fa-tag"></i>
           {{caseName}}

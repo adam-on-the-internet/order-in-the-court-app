@@ -19,8 +19,8 @@ export class NavbarComponent {
     return CookieHelper.getUserDetails().admin;
   }
 
-  public get caseSelected(): boolean {
-    return this.caseManagerService.caseReady;
+  public get showCase(): boolean {
+    return this.caseManagerService.caseReady && !this.caseManagerService.statusIsCaseClosed;
   }
 
   public get caseName(): string {
