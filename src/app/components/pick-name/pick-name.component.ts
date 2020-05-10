@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CaseManagerService} from "../../services/case-manager.service";
 import {NavHelperService} from "../../services/nav-helper.service";
 import {ActivatedRoute} from "@angular/router";
 import {BooleanHelper} from "../../utilities/boolean.util";
 import {IdentityService} from "../../services/identity.service";
+import {Roles} from "../../constants/role.constants";
 
 @Component({
   selector: 'app-pick-name',
@@ -38,6 +39,8 @@ export class PickNameComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.identityService.role = Roles.UNSELECTED;
+    this.identityService.playerName = null;
     this.loadCase();
   }
 

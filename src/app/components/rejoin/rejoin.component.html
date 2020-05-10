@@ -1,1 +1,71 @@
-<p>rejoin works!</p>
+<app-body>
+  <div class="row">
+    <div class="col-md-10 mx-auto my-3 text-center">
+      <app-card *ngIf="ready; else loadingCard">
+        <app-case-header></app-case-header>
+        <hr>
+
+        <h3 class="text-center">
+          Rejoin
+        </h3>
+        <button
+          class="btn btn-outline-primary btn-block"
+          (click)="returnJudge()"
+          *ngIf="hasJudgeName"
+        >
+          <i class="fa fa-balance-scale"></i>
+          Return as the Judge
+        </button>
+        <button
+          class="btn btn-outline-primary btn-block"
+          (click)="returnPlaintiff()"
+          *ngIf="hasPlaintiffName"
+        >
+          <i class="fa fa-user-circle-o"></i>
+          Return as the Plaintiff
+        </button>
+        <button
+          class="btn btn-outline-primary btn-block"
+          (click)="returnDefendant()"
+          *ngIf="hasDefendantName"
+        >
+          <i class="fa fa-user-circle"></i>
+          Return as the Defendant
+        </button>
+        <button
+          class="btn btn-outline-primary btn-block"
+          (click)="returnWitness(witness.name)"
+          *ngFor="let witness of witnesses"
+        >
+          <i class="fa fa-users"></i>
+          Return as a Witness ({{witness.name}})
+        </button>
+        <button
+          class="btn btn-outline-primary btn-block"
+          (click)="returnJury()"
+        >
+          <i class="fa fa-eye"></i>
+          Return as the Jury
+        </button>
+
+        <hr/>
+        <app-cast></app-cast>
+
+
+      </app-card>
+    </div>
+  </div>
+</app-body>
+
+<ng-template #loadingCard>
+  <app-card>
+    <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
+  </app-card>
+</ng-template>
+
+<ng-template #loadingSection>
+  <i class="fa fa-hourglass fa-spin fa-4x my-3"></i>
+  <h5 class="card-title">
+    Loading case...
+  </h5>
+</ng-template>
