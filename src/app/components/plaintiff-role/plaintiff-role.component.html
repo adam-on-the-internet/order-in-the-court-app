@@ -34,27 +34,28 @@
             class="mb-3"
             *ngIf="showEvidencePool"
           >
-            <app-card [title]="'Select Your Evidence'" [icon]="'fa-search'">
-              <p>Select 5 pieces of evidence to use in this case.</p>
-              <p>({{ unrevealedEvidence.length }} of 5 selected)</p>
-              <ul class="list-group">
-                <li
-                  class="list-group-item"
-                  *ngFor="let evidence of evidencePool"
+            <hr>
+            <h5>
+              <i class="fa fa-search"></i>
+              Select Your Evidence
+            </h5>
+            <p>Select 5 pieces of evidence to use in this case.</p>
+            <p>({{ unrevealedEvidence.length }} of 5 selected)</p>
+            <div class="row">
+              <div class="col-md-4 my-2"
+                   *ngFor="let evidence of evidencePool">
+                <a
+                  (click)="selectEvidence(evidence)"
                 >
+                <app-card [useHover]="true">
                   <h6>
                     <i class="fa fa-search"></i>
                     {{ evidence.name }}
-                    <button
-                      class="btn btn-secondary pull-right"
-                      (click)="selectEvidence(evidence)"
-                    >
-                      Select Evidence
-                    </button>
                   </h6>
-                </li>
-              </ul>
-            </app-card>
+                </app-card>
+                </a>
+              </div>
+            </div>
           </div>
           <div id="selected-evidence" *ngIf="showEvidenceRow">
             <div class="row">
