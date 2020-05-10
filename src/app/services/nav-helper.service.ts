@@ -47,7 +47,7 @@ export class NavHelperService {
   }
 
   public goToPlaytest(): void {
-    this.goToRoute(ROUTES_ENUM.Playtest);
+    this.goToRoute(ROUTES_ENUM.PlayTest);
   }
 
   public goToCredits(): void {
@@ -62,6 +62,18 @@ export class NavHelperService {
 
   public goToCourt(caseId: string): void {
     this.goToRoutes([ROUTES_ENUM.Courtroom, caseId]);
+  }
+
+  public pickName(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.PickName, caseId]);
+  }
+
+  public pickRole(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.PickRole, caseId]);
+  }
+
+  public rejoin(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Rejoin, caseId]);
   }
 
   public goToCaseSelect(): void {

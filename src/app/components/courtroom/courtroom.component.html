@@ -13,53 +13,156 @@
         </h4>
         <hr>
 
-        <div id="pick-name" *ngIf="showNameChoice">
-          <h4>
-            <label for="name-input">
-              Enter Your Name
-            </label>
-          </h4>
-          <input class="form-control" type="text" id="name-input" name="playerName" [(ngModel)]="playerName"/>
-          <br>
-          <div class="alert alert-warning" *ngIf="!hasPlayerName">
-            You must enter a name to continue.
-          </div>
-          <button
-            class="btn btn-primary btn-large"
-            (click)="pickName()"
-            [disabled]="!hasPlayerName"
-          >
-            Continue
-          </button>
-        </div>
+        <ng-container *ngIf="assigningRoles">
 
-        <div id="pick-role" *ngIf="showRoleChoice">
-          <h4>
-            <label for="role-input">
-              Choose a Role
-            </label>
-          </h4>
-          <div id="role-input">
-            <button class="btn btn-primary" (click)="pickJudge()">Pick Judge</button>
+          <div id="wait-for-other-roles" *ngIf="waitForOtherRoles">
+            <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
+            <p *ngIf="showLockOption">
+              <button class="btn btn-success" (click)="lockRoles()">
+                <i class="fa fa-arrow-right">
+                  Lock Roles and Continue
+                </i>
+              </button>
+            </p>
+            <p>
+              <button class="btn btn-outline-primary" (click)="unselectRole()">
+                <i class="fa fa-arrow-left">
+                  Back to Role Select
+                </i>
+              </button>
+            </p>
           </div>
-          <br>
-          <div class="alert alert-warning" *ngIf="!hasValidRole">
-            You must pick a role to continue.
+
+          <div id="pick-name" *ngIf="showNameChoice">
+            <h4>
+              <label for="name-input">
+                Enter Your Name
+              </label>
+            </h4>
+            <input class="form-control" type="text" id="name-input" name="playerName" [(ngModel)]="playerName"/>
+            <br>
+            <div class="alert alert-warning" *ngIf="!hasPlayerName">
+              You must enter a name to continue.
+            </div>
+            <button
+              class="btn btn-primary btn-large"
+              (click)="pickName()"
+              [disabled]="!hasPlayerName"
+            >
+              Continue
+              <i class="fa fa-arrow-right"></i>
+            </button>
           </div>
-          <button
-            class="btn btn-primary btn-large"
-            (click)="pickRole()"
-            [disabled]="!hasValidRole"
-          >
-            Continue
-          </button>
 
-        </div>
+          <div id="pick-role" *ngIf="showRoleChoice">
+            <h4>
+              <label for="role-input">
+                Choose a Role
+              </label>
+            </h4>
+            <div id="role-input">
+              <div class="row">
+                <div class="col-md-4 my-3" *ngIf="offerJudgeRole">
+                  <app-card (click)="pickJudge()" [useHover]="true">
+                    <h5>
+                      <i class="fa fa-balance-scale"></i>
+                      Judge
+                    </h5>
+                  </app-card>
+                </div>
+                <div class="col-md-4 my-3" *ngIf="offerPlaintiffRole">
+                  <app-card (click)="pickPlaintiff()" [useHover]="true">
+                    <h5>
+                      <i class="fa fa-user-circle-o"></i>
+                      Plaintiff
+                    </h5>
+                  </app-card>
+                </div>
+                <div class="col-md-4 my-3" *ngIf="offerDefendantRole">
+                  <app-card (click)="pickDefendant()" [useHover]="true">
+                    <h5>
+                      <i class="fa fa-user-circle"></i>
+                      Defendant
+                    </h5>
+                  </app-card>
+                </div>
+                <div class="col-md-4 my-3" *ngIf="offerWitnessRole">
+                  <app-card (click)="pickWitness()" [useHover]="true">
+                    <h5>
+                      <i class="fa fa-user-secret"></i>
+                      Witness
+                    </h5>
+                  </app-card>
+                </div>
+                <div class="col-md-4 my-3" *ngIf="assigningRoles">
+                  <app-card (click)="pickJury()" [useHover]="true">
+                    <h5>
+                      <i class="fa fa-eye"></i>
+                      Jury
+                    </h5>
+                  </app-card>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div id="wait-for-other-roles" *ngIf="waitForOtherRoles">
-          <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
-          <app-cast></app-cast>
-        </div>
+          <div id="cast-display" *ngIf="nameLocked">
+            <hr>
+            <app-cast></app-cast>
+          </div>
+
+          <div id="rejoin" *ngIf="showRejoin">
+            <hr />
+            <h3 class="text-center" *ngIf="showRejoin">
+              Rejoin
+            </h3>
+            <div class="my-3">
+              <app-card [autoHeight]="false">
+                <button
+                  class="btn btn-outline-primary btn-block"
+                  (click)="returnJudge()"
+                  *ngIf="hasJudgeName"
+                >
+                  <i class="fa fa-balance-scale"></i>
+                  Return as the Judge
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-block"
+                  (click)="returnPlaintiff()"
+                  *ngIf="hasPlaintiffName"
+                >
+                  <i class="fa fa-user-circle-o"></i>
+                  Return as the Plaintiff
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-block"
+                  (click)="returnDefendant()"
+                  *ngIf="hasDefendantName"
+                >
+                  <i class="fa fa-user-circle"></i>
+                  Return as the Defendant
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-block"
+                  (click)="returnWitness(witness.name)"
+                  *ngFor="let witness of witnesses"
+                >
+                  <i class="fa fa-users"></i>
+                  Return as a Witness ({{witness.name}})
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-block"
+                  (click)="returnJury()"
+                  *ngIf="!assigningRoles"
+                >
+                  <i class="fa fa-eye"></i>
+                  Return as the Jury
+                </button>
+              </app-card>
+            </div>
+          </div>
+
+        </ng-container>
 
       </app-card>
     </div>
@@ -96,6 +199,6 @@
 <ng-template #loadingSection>
   <i class="fa fa-hourglass fa-spin fa-4x my-3"></i>
   <h5 class="card-title">
-    Please wait...
+    {{waitMessage}}
   </h5>
 </ng-template>

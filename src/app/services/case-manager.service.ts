@@ -8,12 +8,16 @@ import {BooleanHelper} from "../utilities/boolean.util";
 import {WitnessPlayer} from "../models/WitnessPlayer.model";
 import {CaseNameService} from "./case-name.service";
 import {CaseStatusService} from "./case-status.service";
+import {ASSIGN_ROLES} from "../constants/caseStatus.constants";
+import {Roles} from "../constants/role.constants";
 
 @Injectable({
   providedIn: "root"
 })
 export class CaseManagerService {
   public activeCase: Case = null;
+  public role: Roles = Roles.UNSELECTED;
+
   private caseId: string = null;
 
   private caseRefresher: Subscription;
@@ -36,7 +40,7 @@ export class CaseManagerService {
   }
 
   private get waitingForPlayers(): boolean {
-    return !this.allNamesSet;
+    return !this.essentialNamesSet;
   }
 
   private get waitingForEvidence(): boolean {
@@ -79,6 +83,10 @@ export class CaseManagerService {
     return this.witnesses.length > 0;
   }
 
+  public get hasAName(): boolean {
+    return this.hasAWitness || this.hasJudgeName || this.hasPlaintiffName || this.hasDefendantName;
+  }
+
   public get hasMaxWitnesses(): boolean {
     return this.witnesses.length > 4;
   }
@@ -95,12 +103,40 @@ export class CaseManagerService {
     return this.allPlaintiffEvidenceSelected && this.allDefendantEvidenceSelected;
   }
 
-  public get allNamesSet(): boolean {
+  public get essentialNamesSet(): boolean {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
   }
 
   public get canBeStarted(): boolean {
-    return this.allNamesSet && this.allEvidenceSelected && this.caseUnstarted;
+    return this.essentialNamesSet && this.allEvidenceSelected && this.caseUnstarted;
+  }
+
+  public get roleSelected(): boolean {
+    return this.role !== Roles.UNSELECTED;
+  }
+
+  public get roleUnselected(): boolean {
+    return this.role === Roles.UNSELECTED;
+  }
+
+  public get roleJudge(): boolean {
+    return this.role === Roles.JUDGE;
+  }
+
+  public get rolePlaintiff(): boolean {
+    return this.role === Roles.PLAINTIFF;
+  }
+
+  public get roleDefendant(): boolean {
+    return this.role === Roles.DEFENDANT;
+  }
+
+  public get roleWitness(): boolean {
+    return this.role === Roles.WITNESS;
+  }
+
+  public get roleJury(): boolean {
+    return this.role === Roles.JURY;
   }
 
   public get witnesses(): WitnessPlayer[] {
@@ -112,6 +148,14 @@ export class CaseManagerService {
       });
     });
     return myWitnesses;
+  }
+
+  public get rolesCanBeLocked(): boolean {
+    return this.statusIsAssignRoles && this.essentialNamesSet;
+  }
+
+  public get statusIsAssignRoles(): boolean {
+    return this.activeCase.status === ASSIGN_ROLES;
   }
 
   constructor(
@@ -147,6 +191,19 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign judge name failed");
+        }, () => {
+          this.navHelper.goToJudge(this.caseId);
+        });
+  }
+
+  public removeJudgeName() {
+    let response;
+    this.caseNameService.removeJudgeName(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("remove judge name failed");
+        }, () => {
+          this.navHelper.goToRoleSelect(this.caseId);
         });
   }
 
@@ -156,6 +213,19 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign plaintiff name failed");
+        }, () => {
+          this.navHelper.goToPlaintiff(this.caseId);
+        });
+  }
+
+  public removePlaintiffName() {
+    let response;
+    this.caseNameService.removePlaintiffName(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("remove plaintiff name failed");
+        }, () => {
+          this.navHelper.goToRoleSelect(this.caseId);
         });
   }
 
@@ -165,6 +235,19 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign defendant name failed");
+        }, () => {
+          this.navHelper.goToDefendant(this.caseId);
+        });
+  }
+
+  public removeDefendantName() {
+    let response;
+    this.caseNameService.removeDefendantName(this.activeCase._id)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("remove defendant name failed");
+        }, () => {
+          this.navHelper.goToRoleSelect(this.caseId);
         });
   }
 
@@ -174,7 +257,28 @@ export class CaseManagerService {
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign witness name failed");
+        }, () => {
+          this.navHelper.goToWitness(this.caseId);
         });
+  }
+
+  public removeWitnessName(name: string) {
+    let response;
+    this.caseNameService.removeWitnessName(this.activeCase._id, name)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("remove witness name failed");
+        }, () => {
+          this.navHelper.goToRoleSelect(this.caseId);
+        });
+  }
+
+  public assignJuryName(name: string) {
+    this.navHelper.goToJury(this.caseId);
+  }
+
+  public removeJuryName(name: string) {
+    this.navHelper.goToRoleSelect(this.caseId);
   }
 
   public lockRoles() {
@@ -280,7 +384,7 @@ export class CaseManagerService {
     this.caseId = id;
     this.reset();
     this.retrieveCase();
-    const source = interval(1000);
+    const source = interval(750);
     this.caseRefresher = source.subscribe(() => this.retrieveCase());
   }
 
@@ -294,8 +398,24 @@ export class CaseManagerService {
           if (this.caseClosed) {
             this.caseRefresher.unsubscribe();
             this.navHelper.goToArchivedCase(this.activeCase._id);
+          } else if (!this.statusIsAssignRoles && this.roleSelected) {
+            this.goToRolePage();
           }
         });
+  }
+
+  private goToRolePage() {
+    if (this.roleJudge) {
+      this.navHelper.goToJudge(this.caseId);
+    } else if (this.rolePlaintiff) {
+      this.navHelper.goToPlaintiff(this.caseId);
+    } else if (this.roleDefendant) {
+      this.navHelper.goToDefendant(this.caseId);
+    } else if (this.roleWitness) {
+      this.navHelper.goToWitness(this.caseId);
+    } else if (this.roleJury) {
+      this.navHelper.goToJury(this.caseId);
+    }
   }
 
   private shouldLoadCase(id: string) {

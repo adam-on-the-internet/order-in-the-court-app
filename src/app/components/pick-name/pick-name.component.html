@@ -1,0 +1,61 @@
+<app-body>
+  <div class="row">
+    <div class="col-md-10 mx-auto my-3 text-center">
+      <app-card *ngIf="ready; else loadingCard">
+        <app-case-header></app-case-header>
+
+        <div id="pick-name">
+          <hr>
+          <h4>
+            <label for="name-input">
+              Enter Your Name
+            </label>
+          </h4>
+          <input class="form-control" type="text" id="name-input" name="playerName" [(ngModel)]="playerName"/>
+          <br>
+          <div class="alert alert-warning" *ngIf="!hasPlayerName">
+            You must enter a name to continue.
+          </div>
+          <button
+            class="btn btn-primary btn-large"
+            (click)="pickName()"
+            [disabled]="!hasPlayerName"
+          >
+            Continue
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div id="pick-rejoin" *ngIf="canRejoin">
+          <hr>
+          <h4>
+            <label for="name-input">
+              Already in the Game? Rejoin
+            </label>
+          </h4>
+          <button
+            class="btn btn-primary btn-large"
+            (click)="rejoin()"
+          >
+            Rejoin
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </app-card>
+    </div>
+  </div>
+</app-body>
+
+<ng-template #loadingCard>
+  <app-card>
+    <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
+  </app-card>
+</ng-template>
+
+<ng-template #loadingSection>
+  <i class="fa fa-hourglass fa-spin fa-4x my-3"></i>
+  <h5 class="card-title">
+    Loading case...
+  </h5>
+</ng-template>

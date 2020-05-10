@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {NavHelperService} from "src/app/services/nav-helper.service";
 import {CookieHelper} from "src/app/utilities/cookie.util";
 import {CaseManagerService} from "../../services/case-manager.service";
+import {IdentityService} from "../../services/identity.service";
 
 @Component({
   selector: "app-navbar",
@@ -18,12 +19,12 @@ export class NavbarComponent {
     return CookieHelper.getUserDetails().admin;
   }
 
-  public get userEmail(): string {
-    if (this.isLoggedIn) {
-      return CookieHelper.getUserDetails().email;
-    } else {
-      return null;
-    }
+  public get name(): string {
+    return this.identityManager.playerName;
+  }
+
+  public get role(): string {
+    return this.identityManager.role;
   }
 
   public get caseSelected(): boolean {
@@ -36,6 +37,7 @@ export class NavbarComponent {
 
   constructor(
     private navHelper: NavHelperService,
+    private identityManager: IdentityService,
     private caseManagerService: CaseManagerService,
   ) {
   }

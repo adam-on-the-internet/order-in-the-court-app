@@ -43,7 +43,7 @@ export class CaseSelectComponent implements OnInit, OnDestroy {
   }
 
   public joinCase(caseId: string) {
-    this.navHelper.goToCourt(caseId);
+    this.navHelper.pickName(caseId);
   }
 
   public caseIsNotStarted(myCase: Case): boolean {

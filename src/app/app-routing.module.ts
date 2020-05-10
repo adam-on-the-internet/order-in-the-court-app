@@ -33,6 +33,9 @@ import {CreditsComponent} from "./components/credits/credits.component";
 import {CaseCreateComponent} from "./components/case-create/case-create.component";
 import {PlaytestComponent} from "./components/playtest/playtest.component";
 import {CourtroomComponent} from "./components/courtroom/courtroom.component";
+import {PickNameComponent} from "./components/pick-name/pick-name.component";
+import {PickRoleComponent} from "./components/pick-role/pick-role.component";
+import {RejoinComponent} from "./components/rejoin/rejoin.component";
 
 const routes: Routes = [
   // main
@@ -44,13 +47,16 @@ const routes: Routes = [
   { path: ROUTES_ENUM.Rules, component: RulesComponent },
   { path: ROUTES_ENUM.Extras, component: ExtrasComponent },
   { path: ROUTES_ENUM.RandomContent, component: RandomContentComponent },
-  { path: ROUTES_ENUM.Playtest, component: PlaytestComponent },
+  { path: ROUTES_ENUM.PlayTest, component: PlaytestComponent },
   { path: ROUTES_ENUM.Credits, component: CreditsComponent },
   { path: ROUTES_ENUM.CaseSelect, component: CaseSelectComponent },
   { path: ROUTES_ENUM.CreateCase, component: CaseCreateComponent },
   { path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent },
   // courtroom
   { path: ROUTES_ENUM.Courtroom + "/:id", component: CourtroomComponent },
+  { path: ROUTES_ENUM.PickName + "/:id", component: PickNameComponent },
+  { path: ROUTES_ENUM.PickRole + "/:id", component: PickRoleComponent },
+  { path: ROUTES_ENUM.Rejoin + "/:id", component: RejoinComponent },
   { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },
   { path: ROUTES_ENUM.ArchivedCase + "/:id", component: ArchivedCaseComponent },
   { path: ROUTES_ENUM.Judge + "/:id", component: JudgeComponent },

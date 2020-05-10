@@ -1,0 +1,31 @@
+<h4 class="card-title text-center">
+  The Case of the {{case.name}}
+  <a
+    data-toggle="modal"
+    href="#case-info"
+  >
+    <i class="fa fa-info-circle"></i>
+  </a>
+</h4>
+
+
+<app-basic-modal-box [boxId]="'case-info'" [title]="'Case Info'" *ngIf="ready">
+  <h5>
+    <i class="fa fa-calendar"></i>
+    Case Timeline
+  </h5>
+  <p>Case opened on {{ case.openedDate | date }}.</p>
+  <p *ngIf="case.closedDate">
+    Case closed on {{ case.closedDate | date }}.
+  </p>
+  <hr>
+  <h5>
+    <i class="fa fa-link"></i>
+    Shareable Link
+  </h5>
+  <p>
+    {{
+    caseLink
+    }}
+  </p>
+</app-basic-modal-box>
