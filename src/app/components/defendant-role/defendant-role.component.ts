@@ -52,7 +52,23 @@ export class DefendantRoleComponent implements OnInit {
     return EVIDENCE_HELP;
   }
 
-  public get showSelectedEvidence(): boolean {
+  public get showEvidenceRow(): boolean {
+    return this.showOtherEvidence || this.someEvidenceSelected;
+  }
+
+  public get showOtherEvidence(): boolean {
+    return this.caseManager.shouldShowEvidence;
+  }
+
+  public get otherListName(): string {
+    return "Plaintiff Evidence";
+  }
+
+  public get otherEvidence(): Evidence[] {
+    return this.caseManager.activeCase.revealedPlaintiffEvidence;
+  }
+
+  public get someEvidenceSelected(): boolean {
     return this.unrevealedEvidence.length +
       this.revealedEvidence.length > 0;
   }

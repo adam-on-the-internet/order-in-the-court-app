@@ -47,40 +47,53 @@
               </ul>
             </app-card>
           </div>
-          <div id="selected-evidence" *ngIf="showSelectedEvidence">
-            <app-card [title]="'Your Evidence'" [icon]="'fa-search'">
-              <p>{{ evidenceHelp }}</p>
-              <ul class="list-group">
-                <li
-                  class="list-group-item"
-                  *ngFor="let evidence of unrevealedEvidence"
-                >
-                  <h6 class="card-title">
-                    <i class="fa fa-search"></i>
-                    {{ evidence.name }}
-                    <button
-                      *ngIf="canRevealEvidence"
-                      class="btn btn-secondary pull-right"
-                      (click)="revealEvidence(evidence)"
-                    >
-                      Reveal to the Court
-                    </button>
-                  </h6>
-                </li>
-                <li
-                  class="list-group-item"
-                  *ngFor="let evidence of revealedEvidence"
-                >
-                  <h6 class="card-title">
-                    <i class="fa fa-search"></i>
-                    {{ evidence.name }}
-                    <span class="pull-right">
+          <div id="selected-evidence" *ngIf="showEvidenceRow">
+            <div class="row">
+              <div class="col-md-6" *ngIf="someEvidenceSelected">
+                <h5>
+                  <i class="fa fa-user-circle-o"></i>
+                  <i class="fa fa-search"></i>
+                  Your Evidence
+                </h5>
+                <p>{{ evidenceHelp }}</p>
+                <ul class="list-group">
+                  <li
+                    class="list-group-item"
+                    *ngFor="let evidence of unrevealedEvidence"
+                  >
+                    <h6 class="card-title">
+                      <i class="fa fa-search"></i>
+                      {{ evidence.name }}
+                      <button
+                        *ngIf="canRevealEvidence"
+                        class="btn btn-secondary btn-small pull-right"
+                        (click)="revealEvidence(evidence)"
+                      >
+                        Reveal to the Court
+                      </button>
+                    </h6>
+                  </li>
+                  <li
+                    class="list-group-item"
+                    *ngFor="let evidence of revealedEvidence"
+                  >
+                    <h6 class="card-title">
+                      <i class="fa fa-search"></i>
+                      {{ evidence.name }}
+                      <span class="pull-right">
                     (revealed)
                   </span>
-                  </h6>
-                </li>
-              </ul>
-            </app-card>
+                    </h6>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6" *ngIf="showOtherEvidence">
+                <app-revealed-evidence-list [icon]="'fa-user-circle'"
+                                            [listName]="otherListName"
+                                            [revealedEvidence]="otherEvidence">
+                </app-revealed-evidence-list>
+              </div>
+            </div>
           </div>
         </ng-container>
       </app-card>
