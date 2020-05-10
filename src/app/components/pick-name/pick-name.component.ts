@@ -26,6 +26,8 @@ export class PickNameComponent implements OnInit {
     return BooleanHelper.hasValue(this.playerName);
   }
 
+
+
   public get canRejoin(): boolean {
     return this.caseManager.hasAName;
   }
@@ -39,13 +41,11 @@ export class PickNameComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.identityService.role = Roles.UNSELECTED;
-    this.identityService.playerName = null;
     this.loadCase();
   }
 
   public pickName() {
-    this.identityService.playerName = this.playerName;
+    this.nameLocked = true;
     this.navHelper.pickRole(this.caseId);
   }
 

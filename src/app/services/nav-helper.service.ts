@@ -60,12 +60,8 @@ export class NavHelperService {
 
   // COURTROOM
 
-  public goToCourt(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.Courtroom, caseId]);
-  }
-
-  public pickName(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.PickName, caseId]);
+  public join(caseId: string): void {
+    this.goToRoutes([ROUTES_ENUM.Join, caseId]);
   }
 
   public pickRole(caseId: string): void {

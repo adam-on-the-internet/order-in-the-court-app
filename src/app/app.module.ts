@@ -61,6 +61,10 @@ import { PickNameComponent } from './components/pick-name/pick-name.component';
 import { PickRoleComponent } from './components/pick-role/pick-role.component';
 import { RejoinComponent } from './components/rejoin/rejoin.component';
 import { CaseHeaderComponent } from './components/case-header/case-header.component';
+import { JudgeRoleComponent } from './components/judge-role/judge-role.component';
+import { PlaintiffRoleComponent } from './components/plaintiff-role/plaintiff-role.component';
+import { DefendantRoleComponent } from './components/defendant-role/defendant-role.component';
+import { JoinComponent } from './components/join/join.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +125,10 @@ import { CaseHeaderComponent } from './components/case-header/case-header.compon
     PickRoleComponent,
     RejoinComponent,
     CaseHeaderComponent,
+    JudgeRoleComponent,
+    PlaintiffRoleComponent,
+    DefendantRoleComponent,
+    JoinComponent,
   ],
   imports: [
     BrowserModule,

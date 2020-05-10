@@ -10,6 +10,7 @@ export const enum ROUTES_ENUM {
   Jury = "jury",
   RoleSelect = "role-select",
   Courtroom = "courtroom",
+  Join = "join",
   PickName = "pick-name",
   PickRole = "pick-role",
   Rejoin = "rejoin",

@@ -18,7 +18,6 @@ import {WitnessFormComponent} from "./components/witness-form/witness-form.compo
 import {CaseOverviewComponent} from "./components/case-overview/case-overview.component";
 import {CaseDisplayComponent} from "./components/case-display/case-display.component";
 import {RoleSelectComponent} from "./components/role-select/role-select.component";
-import {JudgeComponent} from "./components/judge/judge.component";
 import {PlaintiffComponent} from "./components/plaintiff/plaintiff.component";
 import {WitnessComponent} from "./components/witness/witness.component";
 import {JuryComponent} from "./components/jury/jury.component";
@@ -36,54 +35,59 @@ import {CourtroomComponent} from "./components/courtroom/courtroom.component";
 import {PickNameComponent} from "./components/pick-name/pick-name.component";
 import {PickRoleComponent} from "./components/pick-role/pick-role.component";
 import {RejoinComponent} from "./components/rejoin/rejoin.component";
+import {JudgeRoleComponent} from "./components/judge-role/judge-role.component";
+import {PlaintiffRoleComponent} from "./components/plaintiff-role/plaintiff-role.component";
+import {DefendantRoleComponent} from "./components/defendant-role/defendant-role.component";
+import {JoinComponent} from "./components/join/join.component";
 
 const routes: Routes = [
   // main
-  { path: ROUTES_ENUM.Dashboard, component: DashboardComponent },
-  { path: ROUTES_ENUM.Info, component: InfoComponent },
-  { path: ROUTES_ENUM.Login, component: LoginComponent },
-  { path: ROUTES_ENUM.Profile, component: ProfileComponent },
-  { path: ROUTES_ENUM.Admin, component: AdminComponent },
-  { path: ROUTES_ENUM.Rules, component: RulesComponent },
-  { path: ROUTES_ENUM.Extras, component: ExtrasComponent },
-  { path: ROUTES_ENUM.RandomContent, component: RandomContentComponent },
-  { path: ROUTES_ENUM.PlayTest, component: PlaytestComponent },
-  { path: ROUTES_ENUM.Credits, component: CreditsComponent },
-  { path: ROUTES_ENUM.CaseSelect, component: CaseSelectComponent },
-  { path: ROUTES_ENUM.CreateCase, component: CaseCreateComponent },
-  { path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent },
+  {path: ROUTES_ENUM.Dashboard, component: DashboardComponent},
+  {path: ROUTES_ENUM.Info, component: InfoComponent},
+  {path: ROUTES_ENUM.Login, component: LoginComponent},
+  {path: ROUTES_ENUM.Profile, component: ProfileComponent},
+  {path: ROUTES_ENUM.Admin, component: AdminComponent},
+  {path: ROUTES_ENUM.Rules, component: RulesComponent},
+  {path: ROUTES_ENUM.Extras, component: ExtrasComponent},
+  {path: ROUTES_ENUM.RandomContent, component: RandomContentComponent},
+  {path: ROUTES_ENUM.PlayTest, component: PlaytestComponent},
+  {path: ROUTES_ENUM.Credits, component: CreditsComponent},
+  {path: ROUTES_ENUM.CaseSelect, component: CaseSelectComponent},
+  {path: ROUTES_ENUM.CreateCase, component: CaseCreateComponent},
+  {path: ROUTES_ENUM.CaseArchive, component: CaseArchiveComponent},
   // courtroom
-  { path: ROUTES_ENUM.Courtroom + "/:id", component: CourtroomComponent },
-  { path: ROUTES_ENUM.PickName + "/:id", component: PickNameComponent },
-  { path: ROUTES_ENUM.PickRole + "/:id", component: PickRoleComponent },
-  { path: ROUTES_ENUM.Rejoin + "/:id", component: RejoinComponent },
-  { path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent },
-  { path: ROUTES_ENUM.ArchivedCase + "/:id", component: ArchivedCaseComponent },
-  { path: ROUTES_ENUM.Judge + "/:id", component: JudgeComponent },
-  { path: ROUTES_ENUM.Plaintiff + "/:id", component: PlaintiffComponent },
-  { path: ROUTES_ENUM.Defendant + "/:id", component: DefendantComponent },
-  { path: ROUTES_ENUM.Witness + "/:id", component: WitnessComponent },
-  { path: ROUTES_ENUM.Jury + "/:id", component: JuryComponent },
+  {path: ROUTES_ENUM.Join + "/:id", component: JoinComponent},
+  {path: ROUTES_ENUM.Courtroom + "/:id", component: CourtroomComponent},
+  {path: ROUTES_ENUM.PickName + "/:id", component: PickNameComponent},
+  {path: ROUTES_ENUM.PickRole + "/:id", component: PickRoleComponent},
+  {path: ROUTES_ENUM.Rejoin + "/:id", component: RejoinComponent},
+  {path: ROUTES_ENUM.RoleSelect + "/:id", component: RoleSelectComponent},
+  {path: ROUTES_ENUM.ArchivedCase + "/:id", component: ArchivedCaseComponent},
+  {path: ROUTES_ENUM.Judge + "/:id", component: JudgeRoleComponent},
+  {path: ROUTES_ENUM.Plaintiff + "/:id", component: PlaintiffRoleComponent},
+  {path: ROUTES_ENUM.Defendant + "/:id", component: DefendantRoleComponent},
+  {path: ROUTES_ENUM.Witness + "/:id", component: WitnessComponent},
+  {path: ROUTES_ENUM.Jury + "/:id", component: JuryComponent},
   // evidence
-  { path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent },
-  { path: ROUTES_ENUM.EvidenceDetails + "/:id", component: EvidenceDisplayComponent },
-  { path: ROUTES_ENUM.EvidenceForm, component: EvidenceFormComponent },
-  { path: ROUTES_ENUM.EvidenceForm + "/:id", component: EvidenceFormComponent },
+  {path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent},
+  {path: ROUTES_ENUM.EvidenceDetails + "/:id", component: EvidenceDisplayComponent},
+  {path: ROUTES_ENUM.EvidenceForm, component: EvidenceFormComponent},
+  {path: ROUTES_ENUM.EvidenceForm + "/:id", component: EvidenceFormComponent},
   // witness
-  { path: ROUTES_ENUM.WitnessOverview, component: WitnessOverviewComponent },
-  { path: ROUTES_ENUM.WitnessDetails + "/:id", component: WitnessDisplayComponent },
-  { path: ROUTES_ENUM.WitnessForm, component: WitnessFormComponent },
-  { path: ROUTES_ENUM.WitnessForm + "/:id", component: WitnessFormComponent },
+  {path: ROUTES_ENUM.WitnessOverview, component: WitnessOverviewComponent},
+  {path: ROUTES_ENUM.WitnessDetails + "/:id", component: WitnessDisplayComponent},
+  {path: ROUTES_ENUM.WitnessForm, component: WitnessFormComponent},
+  {path: ROUTES_ENUM.WitnessForm + "/:id", component: WitnessFormComponent},
   // issue
-  { path: ROUTES_ENUM.IssueOverview, component: IssueOverviewComponent },
-  { path: ROUTES_ENUM.IssueDetails + "/:id", component: IssueDisplayComponent },
-  { path: ROUTES_ENUM.IssueForm, component: IssueFormComponent },
-  { path: ROUTES_ENUM.IssueForm + "/:id", component: IssueFormComponent },
+  {path: ROUTES_ENUM.IssueOverview, component: IssueOverviewComponent},
+  {path: ROUTES_ENUM.IssueDetails + "/:id", component: IssueDisplayComponent},
+  {path: ROUTES_ENUM.IssueForm, component: IssueFormComponent},
+  {path: ROUTES_ENUM.IssueForm + "/:id", component: IssueFormComponent},
   // case
-  { path: ROUTES_ENUM.CaseOverview, component: CaseOverviewComponent },
-  { path: ROUTES_ENUM.CaseDetails + "/:id", component: CaseDisplayComponent },
+  {path: ROUTES_ENUM.CaseOverview, component: CaseOverviewComponent},
+  {path: ROUTES_ENUM.CaseDetails + "/:id", component: CaseDisplayComponent},
   // default
-  { path: "**", redirectTo: ROUTES_ENUM.Dashboard },
+  {path: "**", redirectTo: ROUTES_ENUM.Dashboard},
 ];
 
 @NgModule({
@@ -91,4 +95,5 @@ const routes: Routes = [
   declarations: [],
   imports: [RouterModule.forRoot(routes)],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -43,33 +43,38 @@
                   </h5>
                 </app-card>
               </div>
-              <div class="col-md-4 my-3" *ngIf="offerWitnessRole">
-                <app-card (click)="pickWitness()" [useHover]="true">
+<!--              <div class="col-md-4 my-3" *ngIf="offerWitnessRole">-->
+<!--                <app-card (click)="pickWitness()" [useHover]="true">-->
+<!--                  <h5>-->
+<!--                    <i class="fa fa-user-secret"></i>-->
+<!--                  </h5>-->
+<!--                  <h5>-->
+<!--                    Witness-->
+<!--                  </h5>-->
+<!--                </app-card>-->
+<!--              </div>-->
+<!--              <div class="col-md-4 my-3">-->
+<!--                <app-card (click)="pickJury()" [useHover]="true">-->
+<!--                  <h5>-->
+<!--                    <i class="fa fa-eye"></i>-->
+<!--                  </h5>-->
+<!--                  <h5>-->
+<!--                    Jury-->
+<!--                  </h5>-->
+<!--                </app-card>-->
+<!--              </div>-->
+              <div class="col-md-4 my-3" *ngIf="showRejoin">
+                <app-card (click)="rejoin()" [useHover]="true">
                   <h5>
-                    <i class="fa fa-user-secret"></i>
+                    <i class="fa fa-refresh"></i>
                   </h5>
                   <h5>
-                    Witness
-                  </h5>
-                </app-card>
-              </div>
-              <div class="col-md-4 my-3">
-                <app-card (click)="pickJury()" [useHover]="true">
-                  <h5>
-                    <i class="fa fa-eye"></i>
-                  </h5>
-                  <h5>
-                    Jury
+                    Returning? Rejoin
                   </h5>
                 </app-card>
               </div>
             </div>
           </div>
-        </div>
-
-        <div id="cast-display">
-          <hr>
-          <app-cast></app-cast>
         </div>
 
       </app-card>

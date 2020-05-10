@@ -46,38 +46,32 @@ export class RejoinComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.identityManager.role = Roles.UNSELECTED;
     this.identityManager.playerName = null;
     this.loadCase();
   }
 
   public returnJudge() {
     this.identityManager.playerName = this.caseManager.activeCase.judgeName;
-    this.identityManager.role = Roles.JUDGE;
     this.navHelper.goToJudge(this.caseId);
   }
 
   public returnDefendant() {
     this.identityManager.playerName = this.caseManager.activeCase.defendantName;
-    this.identityManager.role = Roles.DEFENDANT;
     this.navHelper.goToDefendant(this.caseId);
   }
 
   public returnPlaintiff() {
     this.identityManager.playerName = this.caseManager.activeCase.plaintiffName;
-    this.identityManager.role = Roles.PLAINTIFF;
     this.navHelper.goToPlaintiff(this.caseId);
   }
 
   public returnWitness(name: string) {
     this.identityManager.playerName = name;
-    this.identityManager.role = Roles.WITNESS;
     this.navHelper.goToWitness(this.caseId);
   }
 
   public returnJury() {
     this.identityManager.playerName = "jury";
-    this.identityManager.role = Roles.JURY;
     this.navHelper.goToJury(this.caseId);
   }
 

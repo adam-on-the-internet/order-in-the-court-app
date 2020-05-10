@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Roles} from "../../constants/role.constants";
 import {BooleanHelper} from "../../utilities/boolean.util";
 import {Case} from "../../models/Case.model";
-import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {NavHelperService} from "../../services/nav-helper.service";
 import {ActivatedRoute} from "@angular/router";
@@ -18,10 +16,6 @@ export class PickRoleComponent implements OnInit {
 
   public get playerName(): string {
     return this.identityManager.playerName;
-  }
-
-  private set role(role: Roles) {
-    this.caseManager.role = role;
   }
 
   public get ready(): boolean {
@@ -46,6 +40,10 @@ export class PickRoleComponent implements OnInit {
     return !this.caseManager.hasMaxWitnesses;
   }
 
+  public get showRejoin(): boolean {
+    return this.caseManager.hasAName;
+  }
+
   public get case(): Case {
     return this.caseManager.activeCase;
   }
@@ -60,37 +58,32 @@ export class PickRoleComponent implements OnInit {
 
   public ngOnInit() {
     this.caseId = this.route.snapshot.paramMap.get("id");
-    this.identityManager.role = Roles.UNSELECTED;
-    if (this.identityManager.hasPlayerName) {
       this.loadCase();
-    } else {
-      this.navHelper.pickName(this.caseId);
-    }
+
   }
 
   public pickJudge() {
-    this.role = Roles.JUDGE;
     this.caseManager.assignJudgeName(this.playerName);
   }
 
   public pickPlaintiff() {
-    this.role = Roles.PLAINTIFF;
     this.caseManager.assignPlaintiffName(this.playerName);
   }
 
   public pickDefendant() {
-    this.role = Roles.DEFENDANT;
     this.caseManager.assignDefendantName(this.playerName);
   }
 
   public pickWitness() {
-    this.role = Roles.WITNESS;
     this.caseManager.assignWitnessName(this.playerName);
   }
 
   public pickJury() {
-    this.role = Roles.JURY;
     this.caseManager.assignJuryName(this.playerName);
+  }
+
+  public rejoin() {
+    this.navHelper.rejoin(this.caseId);
   }
 
   private loadCase() {

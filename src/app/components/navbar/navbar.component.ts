@@ -19,12 +19,8 @@ export class NavbarComponent {
     return CookieHelper.getUserDetails().admin;
   }
 
-  public get name(): string {
-    return this.identityManager.playerName;
-  }
-
-  public get role(): string {
-    return this.identityManager.role;
+  public get status(): number {
+    return this.caseManagerService.activeCase.status;
   }
 
   public get caseSelected(): boolean {

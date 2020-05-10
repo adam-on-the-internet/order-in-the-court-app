@@ -1,0 +1,173 @@
+<app-body>
+  <div class="row">
+    <div class="col-md-10 mx-auto my-3 text-center">
+      <ng-container *ngIf="caseLoaded; else loadingCard">
+        <div id="pick-name-card">
+          <app-card>
+            <app-case-header></app-case-header>
+            <hr>
+
+            <div id="pick-name" *ngIf="showPickName">
+              <div class="row">
+                <div class="col-md-6 mx-auto">
+                  <h4>
+                    <label for="name-input">
+                      Enter Your Name
+                    </label>
+                  </h4>
+                  <input class="form-control" type="text" id="name-input" name="playerName" [(ngModel)]="playerName"/>
+                  <br>
+                  <div class="alert alert-warning" *ngIf="!hasPlayerName">
+                    You must enter a name to continue.
+                  </div>
+                  <button
+                    class="btn btn-primary btn-large"
+                    (click)="pickName()"
+                    [disabled]="!hasPlayerName"
+                  >
+                    Continue
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div id="pick-role" *ngIf="showPickRole">
+              <h4>
+                <label for="role-input">
+                  {{playerName}}, Choose Your Role
+                </label>
+              </h4>
+              <div id="role-input">
+                <div class="row">
+                  <div class="col-md-4 my-3" *ngIf="offerJudgeRole">
+                    <app-card (click)="pickJudge()" [useHover]="true">
+                      <h5>
+                        <i class="fa fa-balance-scale"></i>
+                      </h5>
+                      <h5>
+                        Judge
+                      </h5>
+                    </app-card>
+                  </div>
+                  <div class="col-md-4 my-3" *ngIf="offerPlaintiffRole">
+                    <app-card (click)="pickPlaintiff()" [useHover]="true">
+                      <h5>
+                        <i class="fa fa-user-circle-o"></i>
+                      </h5>
+                      <h5>
+                        Plaintiff
+                      </h5>
+                    </app-card>
+                  </div>
+                  <div class="col-md-4 my-3" *ngIf="offerDefendantRole">
+                    <app-card (click)="pickDefendant()" [useHover]="true">
+                      <h5>
+                        <i class="fa fa-user-circle"></i>
+                      </h5>
+                      <h5>
+                        Defendant
+                      </h5>
+                    </app-card>
+                  </div>
+                  <!--              <div class="col-md-4 my-3" *ngIf="offerWitnessRole">-->
+                  <!--                <app-card (click)="pickWitness()" [useHover]="true">-->
+                  <!--                  <h5>-->
+                  <!--                    <i class="fa fa-user-secret"></i>-->
+                  <!--                  </h5>-->
+                  <!--                  <h5>-->
+                  <!--                    Witness-->
+                  <!--                  </h5>-->
+                  <!--                </app-card>-->
+                  <!--              </div>-->
+                  <!--              <div class="col-md-4 my-3">-->
+                  <!--                <app-card (click)="pickJury()" [useHover]="true">-->
+                  <!--                  <h5>-->
+                  <!--                    <i class="fa fa-eye"></i>-->
+                  <!--                  </h5>-->
+                  <!--                  <h5>-->
+                  <!--                    Jury-->
+                  <!--                  </h5>-->
+                  <!--                </app-card>-->
+                  <!--              </div>-->
+                </div>
+              </div>
+            </div>
+
+            <div id="pick-rejoin" *ngIf="showRejoin">
+              <h3 class="text-center">
+                Rejoin
+              </h3>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnJudge()"
+                *ngIf="hasJudgeName"
+              >
+                <i class="fa fa-balance-scale"></i>
+                Return as the Judge
+              </button>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnPlaintiff()"
+                *ngIf="hasPlaintiffName"
+              >
+                <i class="fa fa-user-circle-o"></i>
+                Return as the Plaintiff
+              </button>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnDefendant()"
+                *ngIf="hasDefendantName"
+              >
+                <i class="fa fa-user-circle"></i>
+                Return as the Defendant
+              </button>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnWitness(witness.name)"
+                *ngFor="let witness of witnesses"
+              >
+                <i class="fa fa-users"></i>
+                Return as a Witness ({{witness.name}})
+              </button>
+              <button
+                class="btn btn-outline-primary btn-block"
+                (click)="returnJury()"
+              >
+                <i class="fa fa-eye"></i>
+                Return as the Jury
+              </button>
+
+            </div>
+
+            <div id="rejoin-option" *ngIf="allowRejoin">
+              <hr>
+              <h4>
+                <label for="name-input">
+                  Already in the Game? Rejoin
+                </label>
+              </h4>
+              <button
+                class="btn btn-primary btn-large"
+                (click)="openRejoin()"
+              >
+                Rejoin
+                <i class="fa fa-refresh"></i>
+              </button>
+            </div>
+
+          </app-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</app-body>
+
+<ng-template #loadingCard>
+  <app-card>
+    <i class="fa fa-hourglass fa-spin fa-4x my-3"></i>
+    <h5 class="card-title">
+      Loading case...
+    </h5>
+  </app-card>
+</ng-template>

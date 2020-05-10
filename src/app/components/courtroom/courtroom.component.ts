@@ -43,11 +43,7 @@ export class CourtroomComponent implements OnInit {
   }
 
   public get showLockOption(): boolean {
-    return this.roleJudge && this.caseManager.rolesCanBeLocked;
-  }
-
-  public get roleJudge(): boolean {
-    return this.caseManager.roleJudge;
+    return this.caseManager.rolesCanBeLocked;
   }
 
   public get hasJudgeName(): boolean {

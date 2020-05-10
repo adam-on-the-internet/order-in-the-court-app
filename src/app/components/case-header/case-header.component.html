@@ -1,10 +1,16 @@
 <h4 class="card-title text-center">
   The Case of the {{case.name}}
-  <a
-    data-toggle="modal"
-    href="#case-info"
+  <a class="btn btn-outline-secondary mr-3"
+     data-toggle="modal"
+     href="#case-info"
   >
-    <i class="fa fa-info-circle"></i>
+    Case Info
+  </a>
+  <a class="btn btn-outline-secondary" *ngIf="showPlayers"
+     data-toggle="modal"
+     href="#case-players"
+  >
+    Players
   </a>
 </h4>
 
@@ -28,4 +34,8 @@
     caseLink
     }}
   </p>
+</app-basic-modal-box>
+
+<app-basic-modal-box [boxId]="'case-players'" [title]="'Case Players'" *ngIf="ready">
+  <app-cast></app-cast>
 </app-basic-modal-box>
