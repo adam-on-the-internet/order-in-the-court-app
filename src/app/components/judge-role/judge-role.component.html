@@ -35,77 +35,105 @@
               </div>
             </div>
           </div>
-          <div id="pick-structure" *ngIf="showStructureOptions">
-            <p>
-              Would you like to play the game with a rough structure, or looser?
-            </p>
-            <p>
-              It is recommended to use structure the first play-through.
-            </p>
-            <p>
-              <button class="btn btn-secondary mx-4" (click)="startOpeningArguments()">
-                Start Game With Structure
-              </button>
-              <button class="btn btn-secondary mx-4" (click)="startFreeTime()">
-                Start Game Without Structure
-              </button>
-            </p>
-          </div>
-          <div id="opening-arguments" *ngIf="showOpeningArguments">
-            opening arguments
-            <p>
-              <button class="btn btn-secondary" (click)="endOpeningArguments()">
-                End Opening Arguments
-              </button>
-            </p>
-          </div>
-          <div id="crossfire" *ngIf="showCrossfire">
-            crossfire
-            <p>
-              <button class="btn btn-secondary" (click)="endCrossfire()">
-                End Crossfire
-              </button>
-            </p>
-          </div>
-          <div id="closing-arguments" *ngIf="showClosingArguments">
-            closing arguments
-          </div>
-          <div id="show-free-time" *ngIf="showFreeTime">
-            freetime
-          </div>
-          <div id="status-at-end" *ngIf="needEvidenceRevealed">
-            <div class="alert alert-info">
-              To close the case, all evidence must be revealed.
+          <div class="row justify-content-center">
+            <div class="col-md-6" *ngIf="!assigningRoles">
+              <div id="pick-structure" *ngIf="showStructureOptions">
+                <p>
+                  Would you like to play the game with a rough structure, or looser?
+                </p>
+                <p>
+                  It is recommended to use structure the first play-through.
+                </p>
+                <p>
+                  <button class="btn btn-secondary mx-4" (click)="startOpeningArguments()">
+                    Start Game With Structure
+                  </button>
+                  <button class="btn btn-secondary mx-4" (click)="startFreeTime()">
+                    Start Game Without Structure
+                  </button>
+                </p>
+              </div>
+              <div id="opening-arguments" *ngIf="showOpeningArguments">
+                <p>
+                  <strong>
+                    Opening Arguments
+                  </strong>
+                </p>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Introduce the Case's Issue
+                  </li>
+                  <li class="list-group-item">
+                    Plaintiff's Opening Argument
+                  </li>
+                  <li class="list-group-item">
+                    Defendant's Opening Argument
+                  </li>
+                  <li class="list-group-item"
+                      *ngFor="let witness of witnesses">
+                    Introduce Witness: {{witness.character.name}}
+                  </li>
+                </ul>
+                <br>
+                <p>
+                  <button class="btn btn-success" (click)="endOpeningArguments()">
+                    End Opening Arguments
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                </p>
+              </div>
+              <div id="crossfire" *ngIf="showCrossfire">
+                crossfire
+                <p>
+                  <button class="btn btn-success" (click)="endCrossfire()">
+                    End Crossfire
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                </p>
+              </div>
+              <div id="closing-arguments" *ngIf="showClosingArguments">
+                closing arguments
+              </div>
+              <div id="show-free-time" *ngIf="showFreeTime">
+                freetime
+              </div>
+              <div id="status-at-end" *ngIf="needEvidenceRevealed">
+                <div class="alert alert-info">
+                  To close the case, all evidence must be revealed.
+                </div>
+              </div>
+              <div id="case-at-end" *ngIf="canStartVerdictSelection">
+                <p>
+                  All evidence has been revealed. Whenever you're ready, move on to make the verdict.
+                </p>
+                <p>
+                  <button class="btn btn-primary" (click)="startVerdictSelection()">
+                    Ready for Verdict
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                </p>
+              </div>
+              <div id="select-verdict" *ngIf="showVerdictOptions">
+                <p>
+                  Make your verdict. Is the defendant GUILTY or NOT GUILTY?
+                </p>
+                <p>
+                  <button class="btn btn-success mx-3" (click)="submitNotGuiltyVerdict()">
+                    NOT GUILTY
+                  </button>
+                  <button class="btn btn-danger mx-3" (click)="submitGuiltyVerdict()">
+                    GUILTY
+                  </button>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h5>Judge Role</h5>
+              <p>
+                {{roleText}}
+              </p>
             </div>
           </div>
-          <div id="case-at-end" *ngIf="canStartVerdictSelection">
-            <p>
-              All evidence has been revealed. Whenever you're ready, move on to make the verdict.
-            </p>
-            <p>
-              <button class="btn btn-primary" (click)="startVerdictSelection()">
-                Ready for Verdict
-              </button>
-            </p>
-          </div>
-          <div id="select-verdict" *ngIf="showVerdictOptions">
-            <p>
-              Make your verdict. Is the defendant GUILTY or NOT GUILTY?
-            </p>
-            <p>
-              <button class="btn btn-success mx-3" (click)="submitNotGuiltyVerdict()">
-                NOT GUILTY
-              </button>
-              <button class="btn btn-danger mx-3" (click)="submitGuiltyVerdict()">
-                GUILTY
-              </button>
-            </p>
-          </div>
-          <hr>
-          <h5>Judge Role</h5>
-          <p>
-            {{roleText}}
-          </p>
           <div id="case-in-progress" *ngIf="shouldShowEvidence">
             <hr>
             <app-revealed-evidence></app-revealed-evidence>

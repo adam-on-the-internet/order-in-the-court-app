@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {JUDGE_ROLE} from "../../constants/rule.constants";
+import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 
 @Component({
   selector: "app-judge-role",
@@ -75,6 +76,10 @@ export class JudgeRoleComponent implements OnInit {
 
   public get roleText(): string {
     return JUDGE_ROLE;
+  }
+
+  public get witnesses(): WitnessPlayer[] {
+    return this.caseManager.witnesses;
   }
 
   constructor(
