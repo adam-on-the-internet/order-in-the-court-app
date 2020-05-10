@@ -51,7 +51,7 @@ export class CaseManagerService {
     if (this.essentialNamesSet) {
       return "Waiting for the judge to lock the roles...";
     } else {
-      return "Waiting for more players...";
+      return "Waiting for more players: Plaintiff, Defendant, and Judge needed to start...";
     }
   }
 

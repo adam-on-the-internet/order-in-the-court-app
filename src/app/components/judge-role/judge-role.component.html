@@ -95,6 +95,10 @@
               </button>
             </p>
           </div>
+          <div id="case-in-progress" *ngIf="shouldShowEvidence">
+            <hr>
+            <app-revealed-evidence></app-revealed-evidence>
+          </div>
         </ng-container>
       </app-card>
     </div>

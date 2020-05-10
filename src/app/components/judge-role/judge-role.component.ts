@@ -62,6 +62,10 @@ export class JudgeRoleComponent implements OnInit {
     return this.caseManager.statusIsVerdictSelection;
   }
 
+  public get shouldShowEvidence(): boolean {
+    return this.caseManager.shouldShowEvidence;
+  }
+
   public get assigningRoles(): boolean {
     return this.caseManager.statusIsAssignRoles;
   }
