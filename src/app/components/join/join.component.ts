@@ -29,16 +29,24 @@ export class JoinComponent implements OnInit {
     return BooleanHelper.hasValue(this.playerName);
   }
 
+  public get assigningRoles(): boolean {
+    return this.caseManager.statusIsAssignRoles;
+  }
+
+  public get showLateJury(): boolean {
+    return !this.assigningRoles && this.showRejoin;
+  }
+
   public get showPickName(): boolean {
-    return !this.nameLocked && !this.showRejoin;
+    return !this.nameLocked && !this.showRejoin && this.assigningRoles;
   }
 
   public get showPickRole(): boolean {
-    return this.nameLocked && !this.showRejoin;
+    return this.nameLocked && !this.showRejoin && this.assigningRoles;
   }
 
   public get allowRejoin(): boolean {
-    return this.caseManager.hasAName && !this.showRejoin;
+    return (this.caseManager.hasAName && !this.showRejoin) || (!this.assigningRoles && !this.showRejoin);
   }
 
   public get offerJudgeRole(): boolean {

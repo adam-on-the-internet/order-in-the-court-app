@@ -5,7 +5,15 @@
         <app-case-header *ngIf="caseLoaded"></app-case-header>
         <hr>
         <p>
-          ROLE TEXT HERE
+          ROLE HELP TEXT
+        </p>
+        <hr>
+        <h6>Witness Identities</h6>
+        <p *ngIf="assigningRoles">
+          Witness identities will be revealed after the roles have been locked.
+        </p>
+        <p *ngIf="!assigningRoles">
+          WITNESS IDENTITY SECTION
         </p>
         <hr>
         <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waiting"></ng-container>
