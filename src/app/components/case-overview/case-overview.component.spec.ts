@@ -9,6 +9,7 @@ import {LoadingComponent} from "../loading/loading.component";
 import {CardComponent} from "../card/card.component";
 import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
 import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
+import {CaseTableComponent} from "../case-table/case-table.component";
 
 describe("CaseOverviewComponent", () => {
   let component: CaseOverviewComponent;
@@ -17,7 +18,7 @@ describe("CaseOverviewComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CaseOverviewComponent,
+        CaseOverviewComponent, CaseTableComponent,
         HeaderComponent, BodyComponent, LoadingComponent, CardComponent,
         AccordionTriggerComponent, AccordionAreaComponent,
       ],

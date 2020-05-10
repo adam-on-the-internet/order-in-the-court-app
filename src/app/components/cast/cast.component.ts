@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {Case} from "../../models/Case.model";
@@ -47,7 +47,7 @@ export class CastComponent {
   }
 
   public get hasAName(): boolean {
-    return this.caseManager.hasAName;
+    return this.caseManager.caseReady && this.caseManager.hasAName;
   }
 
   constructor(

@@ -6,6 +6,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {LoadingComponent} from "../loading/loading.component";
 import {HeaderComponent} from "../header/header.component";
 import {BodyComponent} from "../body/body.component";
+import {CaseTableComponent} from "../case-table/case-table.component";
 
 describe("CaseArchiveComponent", () => {
   let component: CaseArchiveComponent;
@@ -15,7 +16,8 @@ describe("CaseArchiveComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         CaseArchiveComponent,
-        LoadingComponent, HeaderComponent, BodyComponent
+        LoadingComponent, HeaderComponent, BodyComponent,
+        CaseTableComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule]
     })

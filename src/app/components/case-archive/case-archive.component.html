@@ -3,5 +3,9 @@
   [subtitle]="'Here you can view past cases and their verdicts.'"
 ></app-header>
 <app-body>
-  <app-case-table [cases]="closedCases" [archiveMode]="true"></app-case-table>
+  <app-case-table [cases]="closedCases" [archiveMode]="true" *ngIf="ready; else loading"></app-case-table>
 </app-body>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

@@ -53,7 +53,6 @@ import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-b
 import {RulesDisplayComponent} from "./components/rules-display/rules-display.component";
 import {CaseCreateComponent} from "./components/case-create/case-create.component";
 import {PlaytestComponent} from "./components/playtest/playtest.component";
-import {CourtroomComponent} from "./components/courtroom/courtroom.component";
 import {CastComponent} from "./components/cast/cast.component";
 import {CaseHeaderComponent} from "./components/case-header/case-header.component";
 import {JudgeRoleComponent} from "./components/judge-role/judge-role.component";
@@ -113,7 +112,6 @@ import {CaseTableComponent} from "./components/case-table/case-table.component";
     RulesDisplayComponent,
     CaseCreateComponent,
     PlaytestComponent,
-    CourtroomComponent,
     CastComponent,
     CaseHeaderComponent,
     JudgeRoleComponent,
