@@ -20,6 +20,10 @@ export class CaseSelectComponent implements OnInit, OnDestroy {
     return this.cases !== null;
   }
 
+  public get noCases(): boolean {
+    return this.cases.length === 0;
+  }
+
   constructor(
     private caseService: CaseService,
     private navHelper: NavHelperService,
@@ -29,11 +33,6 @@ export class CaseSelectComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     this.loadCases();
     this.startCasesRefresher();
-  }
-
-  private startCasesRefresher() {
-    const source = interval(2500);
-    this.casesRefresher = source.subscribe(() => this.loadCases());
   }
 
   public ngOnDestroy() {
@@ -46,6 +45,10 @@ export class CaseSelectComponent implements OnInit, OnDestroy {
     this.navHelper.join(caseId);
   }
 
+  public createCase() {
+    this.navHelper.goToCreate();
+  }
+
   public caseIsNotStarted(myCase: Case): boolean {
     return myCase.status === ASSIGN_ROLES;
   }
@@ -56,6 +59,11 @@ export class CaseSelectComponent implements OnInit, OnDestroy {
         (error) => {
           console.log("get case failed");
         });
+  }
+
+  private startCasesRefresher() {
+    const source = interval(2500);
+    this.casesRefresher = source.subscribe(() => this.loadCases());
   }
 
 }

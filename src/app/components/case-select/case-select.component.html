@@ -5,6 +5,18 @@
 </app-header>
 <app-body>
   <div class="row" *ngIf="ready; else loading">
+    <div class="col-md-8 mx-auto my-3 text-center" *ngIf="noCases">
+      <app-card>
+        <p>No cases are open. You'll need to create one to start.</p>
+        <p>
+          <button class="btn btn-primary" (click)="createCase()">
+            <i class="fa fa-plus">
+            </i>
+            Create a Case
+          </button>
+        </p>
+      </app-card>
+    </div>
     <div class="col-md-6 my-3" *ngFor="let myCase of cases">
       <a (click)="joinCase(myCase._id)">
         <app-card [title]="'The Case of the ' + myCase.name" [useHover]="true">
