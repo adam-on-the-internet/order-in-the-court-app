@@ -95,7 +95,7 @@
               </div>
             </div>
 
-            <div id="pick-rejoin" *ngIf="showRejoin">
+            <div id="pick-rejoin" *ngIf="showPickRejoin">
               <hr>
               <h3 class="text-center">
                 Rejoin
@@ -128,7 +128,7 @@
                   </button>
                   <button
                     class="btn btn-outline-primary btn-block"
-                    (click)="returnWitness(witness.name)"
+                    (click)="returnWitness()"
                     *ngFor="let witness of witnesses"
                   >
                     <i class="fa fa-users"></i>
@@ -144,7 +144,7 @@
                   <button
                     class="btn btn-outline-primary btn-block"
                     (click)="exitRejoin()"
-                    *ngIf="!showLateJury"
+                    *ngIf="assigningRoles"
                   >
                     <i class="fa fa-arrow-left"></i>
                     Join as New Player
@@ -153,21 +153,7 @@
               </div>
             </div>
 
-            <div id="late-jury" *ngIf="!showLateJury">
-              <hr>
-              <p>
-                The case has already started, but you can still join the Jury.
-              </p>
-              <p>
-                <button class="btn btn-primary" (click)="pickJury()">
-                  <i class="fa fa-eye">
-                  </i>
-                  Join the Jury
-                </button>
-              </p>
-            </div>
-
-            <div id="rejoin-option" *ngIf="allowRejoin">
+            <div id="rejoin-option" *ngIf="showRejoinOption">
               <hr>
               <h4>
                 <label for="name-input">

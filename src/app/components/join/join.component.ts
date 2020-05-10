@@ -33,10 +33,6 @@ export class JoinComponent implements OnInit {
     return this.caseManager.statusIsAssignRoles;
   }
 
-  public get showLateJury(): boolean {
-    return !this.assigningRoles && this.showRejoin;
-  }
-
   public get showPickName(): boolean {
     return !this.nameLocked && !this.showRejoin && this.assigningRoles;
   }
@@ -45,8 +41,12 @@ export class JoinComponent implements OnInit {
     return this.nameLocked && !this.showRejoin && this.assigningRoles;
   }
 
-  public get allowRejoin(): boolean {
-    return (this.caseManager.hasAName && !this.showRejoin) || (!this.assigningRoles && !this.showRejoin);
+  public get showRejoinOption(): boolean {
+    return this.caseManager.hasAName && !this.showPickRejoin;
+  }
+
+  public get showPickRejoin(): boolean {
+    return this.showRejoin || !this.assigningRoles;
   }
 
   public get offerJudgeRole(): boolean {
@@ -139,7 +139,7 @@ export class JoinComponent implements OnInit {
     this.navHelper.goToPlaintiff(this.caseId);
   }
 
-  public returnWitness(name: string) {
+  public returnWitness() {
     this.navHelper.goToWitness(this.caseId);
   }
 

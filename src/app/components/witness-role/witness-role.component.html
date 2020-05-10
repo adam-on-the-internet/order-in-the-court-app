@@ -9,17 +9,18 @@
           <div id="role-assignment" *ngIf="assigningRoles">
             <div class="row">
               <div class="col-md-6">
-                <p *ngFor="let witness of witnesses">
-                  <button class="btn btn-secondary" (click)="backToRoleSelect(witness.name)">
-                    <i class="fa fa-arrow-left">
-                    </i>
-                    Back to Role Select ({{witness.name}})
-                  </button>
-                </p>
                 <app-cast></app-cast>
               </div>
               <div class="col-md-6">
                 <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingForRoles"></ng-container>
+                <br>
+                <p *ngFor="let witness of witnesses">
+                  <button class="btn btn-secondary" (click)="backToRoleSelect(witness.name)">
+                    <i class="fa fa-arrow-left">
+                    </i>
+                    Pick Different Role ({{witness.name}})
+                  </button>
+                </p>
               </div>
             </div>
           </div>

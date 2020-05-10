@@ -8,29 +8,30 @@
         <ng-container *ngIf="caseLoaded">
           <div id="role-assignment" *ngIf="assigningRoles">
             <div class="row">
-              <div class="col-md-12" *ngIf="showRoleLock">
-                <p>
-                  Once all players have joined, continue.
-                </p>
-                <p>
-                  <button class="btn btn-success" (click)="lockRoles()">
-                    Continue
-                    <i class="fa fa-arrow-right"></i>
-                  </button>
-                </p>
-              </div>
               <div class="col-md-6">
-                <p>
-                  <button class="btn btn-secondary" (click)="backToRoleSelect()">
-                    <i class="fa fa-arrow-left">
-                    </i>
-                    Back to Role Select
-                  </button>
-                </p>
                 <app-cast></app-cast>
               </div>
               <div class="col-md-6">
                 <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingForRoles"></ng-container>
+                <div class="alert alert-success" *ngIf="showRoleLock">
+                  <p>
+                    Once all players have joined, lock roles and continue.
+                  </p>
+                  <p>
+                    <button class="btn btn-success" (click)="lockRoles()">
+                      Lock Roles & Continue
+                      <i class="fa fa-arrow-right"></i>
+                    </button>
+                  </p>
+                </div>
+                <br>
+                <p>
+                  <button class="btn btn-secondary" (click)="backToRoleSelect()">
+                    <i class="fa fa-arrow-left">
+                    </i>
+                    Pick Different Role
+                  </button>
+                </p>
               </div>
             </div>
           </div>
