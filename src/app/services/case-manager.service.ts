@@ -98,7 +98,7 @@ export class CaseManagerService {
     if (this.statusIsAssignRoles) {
       return "Role Assignment";
     } else if (this.statusIsMakeSelections) {
-      return "Case Preparations";
+      return "Evidence Selection";
     } else if (this.statusIsFreeTime) {
       return "Open Trial";
     } else if (this.statusIsOpeningArguments) {

@@ -46,6 +46,10 @@ export class JudgeRoleComponent implements OnInit {
     return this.caseManager.statusIsCrossfire;
   }
 
+  public get showCaseStructure(): boolean {
+    return !this.assigningRoles && (this.showStructureOptions || !this.caseManager.statusIsMakeSelections);
+  }
+
   public get showClosingArguments(): boolean {
     return this.caseManager.statusIsClosingArguments;
   }
