@@ -17,5 +17,10 @@ export class CreditsComponent {
     "Darby",
     "Michael",
     "Eli",
+    "Olli Lehmann",
+    "Tori",
+    "Melissa",
+    "Joey",
+    "Blake",
   ];
 }
