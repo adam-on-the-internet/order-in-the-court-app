@@ -170,12 +170,12 @@
               </div>
               <div id="status-at-end" *ngIf="needEvidenceRevealed">
                 <div class="alert alert-info">
-                  To close the case, all evidence must be revealed.
+                  To close the case, the Plaintiff and Defendant must each reveal 5 pieces of evidence.
                 </div>
               </div>
               <div id="case-at-end" *ngIf="canStartVerdictSelection">
                 <p>
-                  All evidence has been revealed. Whenever you're ready, move on to make the verdict.
+                  All necessary evidence has been revealed. Whenever you're ready, move on to make the verdict.
                 </p>
                 <p>
                   <button class="btn btn-primary" (click)="startVerdictSelection()">

@@ -81,7 +81,7 @@ export class DefendantRoleComponent implements OnInit {
   }
 
   public get canRevealEvidence(): boolean {
-    return this.caseManager.caseIsOngoing;
+    return this.caseManager.caseIsOngoing && !this.caseManager.allDefendantEvidenceRevealed;
   }
 
   constructor(

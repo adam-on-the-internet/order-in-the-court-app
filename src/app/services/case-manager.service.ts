@@ -146,11 +146,11 @@ export class CaseManagerService {
   }
 
   public get allPlaintiffEvidenceSelected(): boolean {
-    return this.activeCase.plaintiffEvidenceSelected.length >= 5;
+    return this.activeCase.plaintiffEvidenceSelected.length >= 10;
   }
 
   public get allDefendantEvidenceSelected(): boolean {
-    return this.activeCase.defendantEvidenceSelected.length >= 5;
+    return this.activeCase.defendantEvidenceSelected.length >= 10;
   }
 
   public get allPlaintiffEvidenceRevealed(): boolean {

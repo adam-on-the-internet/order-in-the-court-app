@@ -81,7 +81,7 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public get canRevealEvidence(): boolean {
-    return this.caseManager.caseIsOngoing;
+    return this.caseManager.caseIsOngoing && !this.caseManager.allPlaintiffEvidenceRevealed;
   }
 
   constructor(
