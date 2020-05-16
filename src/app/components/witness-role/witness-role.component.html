@@ -24,6 +24,33 @@
               </div>
             </div>
           </div>
+          <div
+            id="select-witness"
+            class="mb-3"
+            *ngIf="showWitnessPool"
+          >
+            <hr>
+            <h5>
+              <i class="fa fa-user-secret"></i>
+              Select Your Witness
+            </h5>
+            <p>Select which witness you'd like to play as.</p>
+            <div class="row">
+              <div class="col-md-4 my-2"
+                   *ngFor="let witness of witnessPool">
+                <a
+                  (click)="selectWitness(witness)"
+                >
+                  <app-card [useHover]="true">
+                    <h6>
+                      <i class="fa fa-user-secret"></i>
+                      {{ witness.name }}
+                    </h6>
+                  </app-card>
+                </a>
+              </div>
+            </div>
+          </div>
           <div id="case-in-progress" *ngIf="shouldShowEvidence">
             <app-revealed-evidence></app-revealed-evidence>
           </div>

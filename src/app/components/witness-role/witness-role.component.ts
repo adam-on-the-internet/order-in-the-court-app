@@ -3,6 +3,7 @@ import {WitnessPlayer} from "../../models/WitnessPlayer.model";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {WITNESS_ROLE} from "../../constants/rule.constants";
+import {Witness} from "../../models/Witness.model";
 
 @Component({
   selector: "app-witness-role",
@@ -19,6 +20,21 @@ export class WitnessRoleComponent implements OnInit {
     });
   }
 
+  public get witnessPool(): Witness[] {
+    if (this.witnessNumber === 1) {
+      return this.caseManager.activeCase.witnessPool1;
+    } else if (this.witnessNumber === 2) {
+      return this.caseManager.activeCase.witnessPool2;
+    } else if (this.witnessNumber === 3) {
+      return this.caseManager.activeCase.witnessPool3;
+    } else if (this.witnessNumber === 4) {
+      return this.caseManager.activeCase.witnessPool4;
+    } else if (this.witnessNumber === 5) {
+      return this.caseManager.activeCase.witnessPool5;
+    }
+    return [];
+  }
+
   public get roleText(): string {
     return WITNESS_ROLE;
   }
@@ -29,13 +45,30 @@ export class WitnessRoleComponent implements OnInit {
       this.caseId === this.caseManager.activeCase._id;
   }
 
-  public get waiting(): boolean {
-    return this.caseManager.statusIsAssignRoles || this.caseManager.statusIsMakeSelections ||
-      this.caseManager.statusIsVerdictSelection;
+  public get showWitnessPool(): boolean {
+    const timeToSelect = this.caseManager.statusIsMakeSelections;
+    const needToSelect = !this.witnessCharacterSelected;
+    return timeToSelect && needToSelect;
+  }
+
+  public get witnessCharacterSelected(): boolean {
+    if (this.witnessNumber === 1) {
+      return this.caseManager.activeCase.selectedWitness1 !== null;
+    } else if (this.witnessNumber === 2) {
+      return this.caseManager.activeCase.selectedWitness2 !== null;
+    } else if (this.witnessNumber === 3) {
+      return this.caseManager.activeCase.selectedWitness3 !== null;
+    } else if (this.witnessNumber === 4) {
+      return this.caseManager.activeCase.selectedWitness4 !== null;
+    } else if (this.witnessNumber === 5) {
+      return this.caseManager.activeCase.selectedWitness5 !== null;
+    }
+    return false;
   }
 
   public get waitingNotForRoles(): boolean {
-    return this.caseManager.statusIsMakeSelections ||
+    const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showWitnessPool;
+    return waitingForSelections ||
       this.caseManager.statusIsVerdictSelection;
   }
 
@@ -72,6 +105,10 @@ export class WitnessRoleComponent implements OnInit {
 
   public backToRoleSelect() {
     this.caseManager.removeWitnessName(this.witnessNumber);
+  }
+
+  public selectWitness(witness: Witness) {
+    this.caseManager.selectWitness(this.witnessNumber, witness._id);
   }
 
   private loadWitnessNumber() {

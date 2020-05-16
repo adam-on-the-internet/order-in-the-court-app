@@ -59,13 +59,7 @@ export class CaseManagerService {
     if (this.allEvidenceSelected) {
       return "Waiting for the judge to start the case...";
     } else {
-      if (!this.allPlaintiffEvidenceSelected && !this.allDefendantEvidenceSelected) {
-        return "Waiting for plaintiff and defendant to select evidence...";
-      } else if (!this.allPlaintiffEvidenceSelected) {
-        return "Waiting for plaintiff to select evidence...";
-      } else {
-        return "Waiting for defendant to select evidence...";
-      }
+      return "Waiting for plaintiff, defendant, and witnesses to make selections...";
     }
   }
 
@@ -171,6 +165,15 @@ export class CaseManagerService {
     return this.allPlaintiffEvidenceSelected && this.allDefendantEvidenceSelected;
   }
 
+  public get allWitnessesSelected(): boolean {
+    const witness1Ready = this.activeCase.witnessName1 === null || this.activeCase.selectedWitness1 !== null;
+    const witness2Ready = this.activeCase.witnessName2 === null || this.activeCase.selectedWitness2 !== null;
+    const witness3Ready = this.activeCase.witnessName3 === null || this.activeCase.selectedWitness3 !== null;
+    const witness4Ready = this.activeCase.witnessName4 === null || this.activeCase.selectedWitness4 !== null;
+    const witness5Ready = this.activeCase.witnessName5 === null || this.activeCase.selectedWitness5 !== null;
+    return witness1Ready && witness2Ready && witness3Ready && witness4Ready && witness5Ready;
+  }
+
   public get essentialNamesSet(): boolean {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
   }
@@ -184,35 +187,35 @@ export class CaseManagerService {
     if (BooleanHelper.hasValue(this.activeCase.witnessName1)) {
       myWitnesses.push({
         name: this.activeCase.witnessName1,
-        character: this.activeCase.selectedWitness1,
+        character: this.activeCase.selectedWitness1.name,
         witnessNumber: 1,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName2)) {
       myWitnesses.push({
         name: this.activeCase.witnessName2,
-        character: this.activeCase.selectedWitness2,
+        character: this.activeCase.selectedWitness2.name,
         witnessNumber: 2,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName3)) {
       myWitnesses.push({
         name: this.activeCase.witnessName3,
-        character: this.activeCase.selectedWitness3,
+        character: this.activeCase.selectedWitness3.name,
         witnessNumber: 3,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName4)) {
       myWitnesses.push({
         name: this.activeCase.witnessName4,
-        character: this.activeCase.selectedWitness4,
+        character: this.activeCase.selectedWitness4.name,
         witnessNumber: 4,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName5)) {
       myWitnesses.push({
         name: this.activeCase.witnessName5,
-        character: this.activeCase.selectedWitness5,
+        character: this.activeCase.selectedWitness5.name,
         witnessNumber: 5,
       });
     }
@@ -391,6 +394,15 @@ export class CaseManagerService {
           console.log("remove witness name failed");
         }, () => {
           this.navHelper.join(this.caseId);
+        });
+  }
+
+  public selectWitness(witnessNumber: number, witnessId: string) {
+    let response;
+    this.caseNameService.selectWitness(this.activeCase._id, witnessNumber, witnessId)
+      .subscribe((res) => response = res,
+        (error) => {
+          console.log("select witness failed");
         });
   }
 

@@ -99,4 +99,13 @@ export class CaseNameService {
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
+
+  public selectWitness(caseId: string, witnessNumber: number, witnessId: string): Observable<any> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: `selectWitness/${caseId}/witnessNumber/${witnessNumber}/witnessIndex/${witnessId}`
+    });
+    return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
+  }
 }
