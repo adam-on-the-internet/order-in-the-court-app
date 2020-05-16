@@ -41,9 +41,9 @@
     <i class="fa fa-calendar"></i>
     Case Timeline
   </h5>
-  <p>Case opened on {{ case.openedDate | date }}.</p>
+  <p>Case opened on {{ case.openedDate | date:'MMM d, y, h:mm a' }}.</p>
   <p *ngIf="case.closedDate">
-    Case closed on {{ case.closedDate | date }}.
+    Case closed on {{ case.closedDate | date:'MMM d, y, h:mm a' }}.
   </p>
   <hr>
   <h5>
