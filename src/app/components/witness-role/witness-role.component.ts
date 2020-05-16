@@ -76,10 +76,6 @@ export class WitnessRoleComponent implements OnInit {
     return this.caseManager.statusIsAssignRoles;
   }
 
-  public get waitMessage(): string {
-    return this.caseManager.waitingMessage;
-  }
-
   public get assigningRoles(): boolean {
     return this.caseManager.statusIsAssignRoles;
   }

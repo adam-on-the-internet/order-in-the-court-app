@@ -10,8 +10,8 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
 import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
 import {CaseHeaderComponent} from "../case-header/case-header.component";
-import {RevealedEvidenceListComponent} from "../../component/revealed-evidence-list/revealed-evidence-list.component";
-import {RevealedEvidenceComponent} from "../../component/revealed-evidence/revealed-evidence.component";
+import {RevealedEvidenceListComponent} from "../revealed-evidence-list/revealed-evidence-list.component";
+import {RevealedEvidenceComponent} from "../revealed-evidence/revealed-evidence.component";
 import {BasicModalBoxComponent} from "../basic-modal-box/basic-modal-box.component";
 import {CastComponent} from "../cast/cast.component";
 

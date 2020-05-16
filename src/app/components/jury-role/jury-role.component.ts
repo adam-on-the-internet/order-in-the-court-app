@@ -30,10 +30,6 @@ export class JuryRoleComponent implements OnInit {
     return JURY_ROLE;
   }
 
-  public get waitMessage(): string {
-    return this.caseManager.waitingMessage;
-  }
-
   public get assigningRoles(): boolean {
     return this.caseManager.statusIsAssignRoles;
   }

@@ -26,10 +26,6 @@ export class JudgeRoleComponent implements OnInit {
     return this.caseManager.statusIsMakeSelections && !this.showStructureOptions;
   }
 
-  public get waitMessage(): string {
-    return this.caseManager.waitingMessage;
-  }
-
   public get showRoleLock(): boolean {
     return this.assigningRoles && this.caseManager.essentialNamesSet;
   }

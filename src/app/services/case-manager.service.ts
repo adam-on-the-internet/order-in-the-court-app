@@ -33,57 +33,6 @@ export class CaseManagerService {
     return `The Case of the ${this.activeCase.name}`;
   }
 
-  public get waitingMessage(): string {
-    if (!this.caseReady) {
-      return "Loading case...";
-    } else if (this.statusIsAssignRoles) {
-      return this.getAssignRolesWaitingMessage();
-    } else if (this.statusIsMakeSelections) {
-      return this.getMakeSelectionsWaitingMessage();
-    } else if (this.statusIsVerdictSelection) {
-      return "Waiting for The Judge to make a verdict...";
-    } else {
-      return "Waiting...";
-    }
-  }
-
-  private getAssignRolesWaitingMessage() {
-    if (this.essentialNamesSet) {
-      return "Waiting for the judge to lock the roles...";
-    } else {
-      return "Waiting for more players: Plaintiff, Defendant, and Judge needed to start...";
-    }
-  }
-
-  private getMakeSelectionsWaitingMessage(): string {
-    if (this.allEvidenceSelected) {
-      return "Waiting for the judge to start the case...";
-    } else {
-      return "Waiting for plaintiff, defendant, and witnesses to make selections...";
-    }
-  }
-
-  public get caseWaitingMessage(): string {
-    if (this.waitingForPlayers) {
-      return "Waiting for all players to join...";
-    }
-    if (this.waitingForEvidence) {
-      return "Waiting for evidence selection...";
-    }
-    if (this.caseUnstarted) {
-      return "Waiting for the Judge to start the case...";
-    }
-    return null;
-  }
-
-  private get waitingForPlayers(): boolean {
-    return !this.essentialNamesSet;
-  }
-
-  private get waitingForEvidence(): boolean {
-    return !this.waitingForPlayers && !this.allEvidenceSelected;
-  }
-
   public get caseReady(): boolean {
     return this.activeCase !== null;
   }
@@ -111,14 +60,6 @@ export class CaseManagerService {
 
   public get caseUnstarted(): boolean {
     return this.activeCase.status === 0;
-  }
-
-  public get caseStarted(): boolean {
-    return this.activeCase.status === 1;
-  }
-
-  public get caseClosed(): boolean {
-    return this.activeCase.status === 2;
   }
 
   public get hasJudgeName(): boolean {
@@ -176,10 +117,6 @@ export class CaseManagerService {
 
   public get essentialNamesSet(): boolean {
     return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
-  }
-
-  public get canBeStarted(): boolean {
-    return this.essentialNamesSet && this.allEvidenceSelected && this.caseUnstarted;
   }
 
   public get witnesses(): WitnessPlayer[] {
@@ -386,9 +323,9 @@ export class CaseManagerService {
         });
   }
 
-  public removeWitnessName(number: number) {
+  public removeWitnessName(witnessNumber: number) {
     let response;
-    this.caseNameService.removeWitnessName(this.activeCase._id, number)
+    this.caseNameService.removeWitnessName(this.activeCase._id, witnessNumber)
       .subscribe((res) => response = res,
         (error) => {
           console.log("remove witness name failed");

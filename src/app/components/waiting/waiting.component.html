@@ -1,0 +1,14 @@
+<i class="fa fa-hourglass fa-spin fa-4x my-3"></i>
+<h5 class="card-title">
+  {{waitMessage}}
+</h5>
+<ul class="list-group" *ngIf="statusIsAssignRoles">
+  <li class="list-group-item" *ngFor="let neededRole of neededRoles">
+    {{neededRole}}
+  </li>
+</ul>
+<ul class="list-group" *ngIf="statusIsMakeSelections">
+  <li class="list-group-item" *ngFor="let selection of neededSelections">
+    {{selection}}
+  </li>
+</ul>
