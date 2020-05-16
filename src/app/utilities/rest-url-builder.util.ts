@@ -1,4 +1,5 @@
-import { Endpoint } from "../models/Endpoint.model";
+import {Endpoint} from "../models/Endpoint.model";
+import {ServiceUrl} from "../constants/rest.constants";
 
 export abstract class RestUrlBuilder {
   public static buildRestUrl(endpoint: Endpoint): string {
@@ -11,6 +12,15 @@ export abstract class RestUrlBuilder {
 
   private static getServiceString(endpoint: Endpoint): string {
     if (endpoint.service) {
+      const host = window.location.host;
+      const usingNonProd = host.includes("local") || host.includes("nonprod");
+      if (usingNonProd) {
+        console.log("using nonprod...");
+        if (endpoint.service === ServiceUrl.BasicExpress) {
+          return ServiceUrl.NonProdBasicExpress;
+        }
+      }
+      console.log("using prod...");
       return endpoint.service;
     } else {
       return "";
