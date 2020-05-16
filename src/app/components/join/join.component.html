@@ -42,7 +42,7 @@
               <div id="role-input">
                 <div class="row">
                   <div class="col-md-4 my-3" *ngIf="offerJudgeRole">
-                    <app-card (click)="pickJudge()" [useHover]="true">
+                    <app-card (click)="pickJudge()" [useHover]="true" [autoHeight]="false">
                       <h5>
                         <i class="fa fa-balance-scale"></i>
                       </h5>
@@ -52,7 +52,7 @@
                     </app-card>
                   </div>
                   <div class="col-md-4 my-3" *ngIf="offerPlaintiffRole">
-                    <app-card (click)="pickPlaintiff()" [useHover]="true">
+                    <app-card (click)="pickPlaintiff()" [useHover]="true" [autoHeight]="false">
                       <h5>
                         <i class="fa fa-user-circle-o"></i>
                       </h5>
@@ -62,7 +62,7 @@
                     </app-card>
                   </div>
                   <div class="col-md-4 my-3" *ngIf="offerDefendantRole">
-                    <app-card (click)="pickDefendant()" [useHover]="true">
+                    <app-card (click)="pickDefendant()" [useHover]="true" [autoHeight]="false">
                       <h5>
                         <i class="fa fa-user-circle"></i>
                       </h5>
@@ -71,18 +71,20 @@
                       </h5>
                     </app-card>
                   </div>
-                  <div class="col-md-4 my-3" *ngIf="offerWitnessRole">
-                    <app-card (click)="pickWitness()" [useHover]="true">
-                      <h5>
-                        <i class="fa fa-user-secret"></i>
-                      </h5>
-                      <h5>
-                        Witness
-                      </h5>
-                    </app-card>
-                  </div>
-                  <div class="col-md-4 my-3">
-                    <app-card (click)="pickJury()" [useHover]="true">
+                  <ng-container *ngIf="offerWitnessRole">
+                    <div class="col-md-4 my-3" *ngFor="let witness of availableWitnesses">
+                      <app-card (click)="pickWitness(witness)" [useHover]="true" [autoHeight]="false">
+                        <h5>
+                          <i class="fa fa-user-secret"></i>
+                        </h5>
+                        <h5>
+                          Witness #{{witness}}
+                        </h5>
+                      </app-card>
+                    </div>
+                  </ng-container>
+                  <div class="col-md-4 my-3" *ngIf="offerJuryRole">
+                    <app-card (click)="pickJury()" [useHover]="true" [autoHeight]="false">
                       <h5>
                         <i class="fa fa-eye"></i>
                       </h5>
@@ -128,11 +130,11 @@
                   </button>
                   <button
                     class="btn btn-outline-primary btn-block"
-                    (click)="returnWitness()"
+                    (click)="returnWitness(witness)"
                     *ngFor="let witness of witnesses"
                   >
                     <i class="fa fa-users"></i>
-                    Return as a Witness ({{witness.name}})
+                    Return as a Witness #{{witness.witnessNumber}} ({{witness.name}})
                   </button>
                   <button
                     class="btn btn-outline-primary btn-block"

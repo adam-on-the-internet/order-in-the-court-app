@@ -1,6 +1,4 @@
-import { Issue } from "./Issue.model";
-import { Witness } from "./Witness.model";
-import { Evidence } from "./Evidence.model";
+import {Evidence} from "./Evidence.model";
 
 export interface Case {
   _id: string;
@@ -13,8 +11,12 @@ export interface Case {
   witnessName3: string;
   witnessName4: string;
   witnessName5: string;
+  selectedWitness1: string;
+  selectedWitness2: string;
+  selectedWitness3: string;
+  selectedWitness4: string;
+  selectedWitness5: string;
   issue: string;
-  witnesses: string[];
   plaintiffEvidencePool: Evidence[];
   plaintiffEvidenceSelected: Evidence[];
   plaintiffEvidenceCourt: Evidence[];

@@ -11,6 +11,13 @@ import {WITNESS_ROLE} from "../../constants/rule.constants";
 })
 export class WitnessRoleComponent implements OnInit {
   private caseId: string = null;
+  private witnessNumber: number = null;
+
+  public get myWitness(): WitnessPlayer {
+    return this.caseManager.witnesses.find((witness) => {
+      return witness.witnessNumber === this.witnessNumber;
+    });
+  }
 
   public get roleText(): string {
     return WITNESS_ROLE;
@@ -59,11 +66,16 @@ export class WitnessRoleComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.loadWitnessNumber();
     this.loadCase();
   }
 
-  public backToRoleSelect(witnessName: string) {
-    this.caseManager.removeWitnessName(witnessName);
+  public backToRoleSelect() {
+    this.caseManager.removeWitnessName(this.witnessNumber);
+  }
+
+  private loadWitnessNumber() {
+    this.witnessNumber = Number(this.route.snapshot.paramMap.get("witnessNumber"));
   }
 
   private loadCase() {

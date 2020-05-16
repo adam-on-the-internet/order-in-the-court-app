@@ -184,38 +184,43 @@ export class CaseManagerService {
     if (BooleanHelper.hasValue(this.activeCase.witnessName1)) {
       myWitnesses.push({
         name: this.activeCase.witnessName1,
-        character: this.activeCase.witnesses[0],
+        character: this.activeCase.selectedWitness1,
+        witnessNumber: 1,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName2)) {
       myWitnesses.push({
         name: this.activeCase.witnessName2,
-        character: this.activeCase.witnesses[1],
+        character: this.activeCase.selectedWitness2,
+        witnessNumber: 2,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName3)) {
       myWitnesses.push({
         name: this.activeCase.witnessName3,
-        character: this.activeCase.witnesses[2],
+        character: this.activeCase.selectedWitness3,
+        witnessNumber: 3,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName4)) {
       myWitnesses.push({
         name: this.activeCase.witnessName4,
-        character: this.activeCase.witnesses[3],
+        character: this.activeCase.selectedWitness4,
+        witnessNumber: 4,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName5)) {
       myWitnesses.push({
         name: this.activeCase.witnessName5,
-        character: this.activeCase.witnesses[4],
+        character: this.activeCase.selectedWitness5,
+        witnessNumber: 5,
       });
     }
-    if (this.statusIsAssignRoles) {
-      myWitnesses.forEach((witness) => {
+    myWitnesses.forEach((witness) => {
+      if (witness.character === null) {
         witness.character = "???";
-      });
-    }
+      }
+    });
     return myWitnesses;
   }
 
@@ -367,20 +372,20 @@ export class CaseManagerService {
         });
   }
 
-  public assignWitnessName(name: string) {
+  public assignWitnessName(name: string, witnessNumber: number) {
     let response;
-    this.caseNameService.assignWitnessName(this.activeCase._id, name)
+    this.caseNameService.assignWitnessName(this.activeCase._id, name, witnessNumber)
       .subscribe((res) => response = res,
         (error) => {
           console.log("assign witness name failed");
         }, () => {
-          this.navHelper.goToWitness(this.caseId);
+          this.navHelper.goToWitness(this.caseId, witnessNumber);
         });
   }
 
-  public removeWitnessName(name: string) {
+  public removeWitnessName(number: number) {
     let response;
-    this.caseNameService.removeWitnessName(this.activeCase._id, name)
+    this.caseNameService.removeWitnessName(this.activeCase._id, number)
       .subscribe((res) => response = res,
         (error) => {
           console.log("remove witness name failed");

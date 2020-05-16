@@ -54,7 +54,7 @@ const routes: Routes = [
   {path: ROUTES_ENUM.Judge + "/:id", component: JudgeRoleComponent},
   {path: ROUTES_ENUM.Plaintiff + "/:id", component: PlaintiffRoleComponent},
   {path: ROUTES_ENUM.Defendant + "/:id", component: DefendantRoleComponent},
-  {path: ROUTES_ENUM.Witness + "/:id", component: WitnessRoleComponent},
+  {path: ROUTES_ENUM.Witness + "/:id/:witnessNumber", component: WitnessRoleComponent},
   {path: ROUTES_ENUM.Jury + "/:id", component: JuryRoleComponent},
   // evidence
   {path: ROUTES_ENUM.EvidenceOverview, component: EvidenceOverviewComponent},

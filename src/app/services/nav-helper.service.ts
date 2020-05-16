@@ -88,8 +88,8 @@ export class NavHelperService {
     this.goToRoutes([ROUTES_ENUM.Defendant, caseId]);
   }
 
-  public goToWitness(caseId: string): void {
-    this.goToRoutes([ROUTES_ENUM.Witness, caseId]);
+  public goToWitness(caseId: string, witnessNumber: number): void {
+    this.goToRoutes([ROUTES_ENUM.Witness, caseId, witnessNumber.toString()]);
   }
 
   public goToJury(caseId: string): void {

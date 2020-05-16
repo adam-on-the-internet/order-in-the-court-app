@@ -79,11 +79,11 @@ export class CaseNameService {
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
 
-  public assignWitnessName(caseId: string, witnessName: string): Observable<any> {
+  public assignWitnessName(caseId: string, witnessName: string, witnessNumber: number): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `witnessName/${caseId}`
+      collection: `witnessName/${caseId}/${witnessNumber}`
     });
     const params = {
       name: witnessName,
@@ -91,15 +91,12 @@ export class CaseNameService {
     return this.http.put(url, params, CookieHelper.headers) as Observable<any>;
   }
 
-  public removeWitnessName(caseId: string, witnessName: string): Observable<any> {
+  public removeWitnessName(caseId: string, witnessNumber: number): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `removeWitnessName/${caseId}`
+      collection: `removeWitnessName/${caseId}/${witnessNumber}`
     });
-    const params = {
-      name: witnessName,
-    };
-    return this.http.put(url, params, CookieHelper.headers) as Observable<any>;
+    return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
 }

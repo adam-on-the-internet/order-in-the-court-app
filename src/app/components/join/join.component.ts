@@ -62,7 +62,31 @@ export class JoinComponent implements OnInit {
   }
 
   public get offerWitnessRole(): boolean {
-    return !this.caseManager.hasMaxWitnesses;
+    return !this.caseManager.hasMaxWitnesses && this.caseManager.essentialNamesSet;
+  }
+
+  public get availableWitnesses(): number[] {
+    const availWitnesses: number[] = [];
+    if (this.caseManager.activeCase.witnessName1 === null) {
+      availWitnesses.push(1);
+    }
+    if (this.caseManager.activeCase.witnessName2 === null) {
+      availWitnesses.push(2);
+    }
+    if (this.caseManager.activeCase.witnessName3 === null) {
+      availWitnesses.push(3);
+    }
+    if (this.caseManager.activeCase.witnessName4 === null) {
+      availWitnesses.push(4);
+    }
+    if (this.caseManager.activeCase.witnessName5 === null) {
+      availWitnesses.push(5);
+    }
+    return availWitnesses;
+  }
+
+  public get offerJuryRole(): boolean {
+    return this.caseManager.essentialNamesSet;
   }
 
   public get hasJudgeName(): boolean {
@@ -119,8 +143,8 @@ export class JoinComponent implements OnInit {
     this.caseManager.assignDefendantName(this.playerName);
   }
 
-  public pickWitness() {
-    this.caseManager.assignWitnessName(this.playerName);
+  public pickWitness(witnessNumber: number) {
+    this.caseManager.assignWitnessName(this.playerName, witnessNumber);
   }
 
   public pickJury() {
@@ -139,8 +163,8 @@ export class JoinComponent implements OnInit {
     this.navHelper.goToPlaintiff(this.caseId);
   }
 
-  public returnWitness() {
-    this.navHelper.goToWitness(this.caseId);
+  public returnWitness(witness: WitnessPlayer) {
+    this.navHelper.goToWitness(this.caseId, witness.witnessNumber);
   }
 
   public returnJury() {
