@@ -22,7 +22,7 @@ export class CaseEvidenceService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `selectDefendantEvidence/${caseId}/evidence/${evidenceId}`
+      collection: `${caseId}/selectEvidence/defendant/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.headers) as Observable<any>;
   }
@@ -31,7 +31,7 @@ export class CaseEvidenceService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `selectPlaintiffEvidence/${caseId}/evidence/${evidenceId}`
+      collection: `${caseId}/selectEvidence/plaintiff/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.headers) as Observable<Case>;
   }
@@ -40,7 +40,7 @@ export class CaseEvidenceService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `revealDefendantEvidence/${caseId}/evidence/${evidenceId}`
+      collection: `${caseId}/revealEvidence/defendant/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.headers) as Observable<any>;
   }
@@ -49,8 +49,17 @@ export class CaseEvidenceService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `revealPlaintiffEvidence/${caseId}/evidence/${evidenceId}`
+      collection: `${caseId}/revealEvidence/plaintiff/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.headers) as Observable<any>;
+  }
+
+  public selectWitness(caseId: string, witnessNumber: number, witnessId: string): Observable<any> {
+    const url = RestUrlBuilder.buildRestUrl({
+      service: ServiceUrl.BasicExpress,
+      controller,
+      collection: `${caseId}/selectWitness/${witnessNumber}/${witnessId}`
+    });
+    return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
 }

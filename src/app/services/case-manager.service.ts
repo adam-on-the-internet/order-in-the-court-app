@@ -399,7 +399,7 @@ export class CaseManagerService {
 
   public selectWitness(witnessNumber: number, witnessId: string) {
     let response;
-    this.caseNameService.selectWitness(this.activeCase._id, witnessNumber, witnessId)
+    this.caseEvidenceService.selectWitness(this.activeCase._id, witnessNumber, witnessId)
       .subscribe((res) => response = res,
         (error) => {
           console.log("select witness failed");

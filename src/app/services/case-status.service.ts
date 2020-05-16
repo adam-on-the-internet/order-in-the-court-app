@@ -29,7 +29,7 @@ export class CaseStatusService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `lockRoles/${caseId}`
+      collection: `${caseId}/lockRoles`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -38,7 +38,7 @@ export class CaseStatusService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `startFreeTime/${caseId}`
+      collection: `${caseId}/startFreeTime`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -47,7 +47,7 @@ export class CaseStatusService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `startOpeningArguments/${caseId}`
+      collection: `${caseId}/startOpeningArguments`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -56,7 +56,7 @@ export class CaseStatusService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `startCrossfire/${caseId}`
+      collection: `${caseId}/startCrossfire`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -65,7 +65,7 @@ export class CaseStatusService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `startClosingArguments/${caseId}`
+      collection: `${caseId}/startClosingArguments`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -74,7 +74,7 @@ export class CaseStatusService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `startVerdictSelection/${caseId}`
+      collection: `${caseId}/startVerdictSelection`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -83,7 +83,7 @@ export class CaseStatusService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `makeVerdict/${caseId}/${isDefendantGuilty}`
+      collection: `${caseId}/makeVerdict/${isDefendantGuilty}`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }

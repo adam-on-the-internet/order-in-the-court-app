@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
@@ -14,13 +14,14 @@ export class CaseNameService {
 
   constructor(
     private http: HttpClient,
-  ) { }
+  ) {
+  }
 
   public assignJudgeName(caseId: string, judgeName: string): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `judgeName/${caseId}`
+      collection: `${caseId}/assignName/judge`
     });
     const params = {
       name: judgeName
@@ -32,7 +33,7 @@ export class CaseNameService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `removeJudgeName/${caseId}`
+      collection: `${caseId}/removeName/judge`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -41,7 +42,7 @@ export class CaseNameService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `plaintiffName/${caseId}`
+      collection: `${caseId}/assignName/plaintiff`
     });
     const params = {
       name: plaintiffName
@@ -53,7 +54,7 @@ export class CaseNameService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `removePlaintiffName/${caseId}`
+      collection: `${caseId}/removeName/plaintiff`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -62,7 +63,7 @@ export class CaseNameService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `defendantName/${caseId}`
+      collection: `${caseId}/assignName/defendant`
     });
     const params = {
       name: defendantName
@@ -74,7 +75,7 @@ export class CaseNameService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `removeDefendantName/${caseId}`
+      collection: `${caseId}/removeName/defendant`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
@@ -83,7 +84,7 @@ export class CaseNameService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `witnessName/${caseId}/${witnessNumber}`
+      collection: `${caseId}/assignName/witness/${witnessNumber}`
     });
     const params = {
       name: witnessName,
@@ -95,16 +96,7 @@ export class CaseNameService {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `removeWitnessName/${caseId}/${witnessNumber}`
-    });
-    return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
-  }
-
-  public selectWitness(caseId: string, witnessNumber: number, witnessId: string): Observable<any> {
-    const url = RestUrlBuilder.buildRestUrl({
-      service: ServiceUrl.BasicExpress,
-      controller,
-      collection: `selectWitness/${caseId}/witnessNumber/${witnessNumber}/witnessIndex/${witnessId}`
+      collection: `${caseId}/removeName/witness/${witnessNumber}`
     });
     return this.http.put(url, null, CookieHelper.headers) as Observable<any>;
   }
