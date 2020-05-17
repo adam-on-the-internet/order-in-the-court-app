@@ -1,40 +1,42 @@
 <app-header [title]="'Admin Panel'"></app-header>
 <app-body>
   <div class="row">
-    <div class="col-md-6 mb-3">
-      <h3>Court Data</h3>
-      <p>
-        <button class="btn btn-primary" (click)="manageEvidence()">
-          Manage evidence
-        </button>
-      </p>
-      <p>
-        <button class="btn btn-primary" (click)="manageWitnesses()">
-          Manage witnesses
-        </button>
-      </p>
-      <p>
-        <button class="btn btn-primary" (click)="manageIssues()">
-          Manage issues
-        </button>
-      </p>
-      <p>
-        <button class="btn btn-primary" (click)="manageCases()">
-          Manage cases
-        </button>
-      </p>
+    <div class="col-md-6 my-3 text-center">
+      <app-card [title]="'Court Data'">
+        <p>
+          <button class="btn btn-primary" (click)="manageEvidence()">
+            Manage evidence
+          </button>
+        </p>
+        <p>
+          <button class="btn btn-primary" (click)="manageWitnesses()">
+            Manage witnesses
+          </button>
+        </p>
+        <p>
+          <button class="btn btn-primary" (click)="manageIssues()">
+            Manage issues
+          </button>
+        </p>
+        <p>
+          <button class="btn btn-primary" (click)="manageCases()">
+            Manage cases
+          </button>
+        </p>
+      </app-card>
     </div>
-    <div class="col-md-6 mb-3">
-      <h3>Advanced Settings</h3>
-      <p>
-        <a
-          class="btn btn-primary"
-          href="https://aoti-user-management-ui.herokuapp.com/dashboard"
-          target="_blank"
-        >
-          User Management
-        </a>
-      </p>
+    <div class="col-md-6 my-3 text-center">
+      <app-card [title]="'Other Settings'">
+        <p>
+          <a
+            class="btn btn-primary"
+            href="https://aoti-user-management-ui.herokuapp.com/dashboard"
+            target="_blank"
+          >
+            User Management
+          </a>
+        </p>
+      </app-card>
     </div>
   </div>
 </app-body>
