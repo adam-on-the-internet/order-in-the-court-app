@@ -32,8 +32,8 @@
           <tbody>
           <tr *ngFor="let myCase of cases; let i = index">
             <td>The Case of the {{ myCase.name }}</td>
-            <td>{{ myCase.openedDate | date }}</td>
-            <td>{{ myCase.closedDate | date }}</td>
+            <td>{{ myCase.openedDate | date:'MMM d, y, h:mm a' }}</td>
+            <td>{{ myCase.closedDate | date:'MMM d, y, h:mm a' }}</td>
             <ng-container *ngIf="archiveMode">
               <td>
                 <button class="btn btn-secondary" (click)="getMoreInfo(myCase)">
@@ -44,17 +44,19 @@
             <ng-container *ngIf="!archiveMode">
               <td>
                 <button
-                  class="btn btn-secondary"
+                  class="btn btn-outline-warning"
                   (click)="goToCaseDetails(myCase)"
                 >
+                  <i class="fa fa-comments"></i>
                   Details
                 </button>
               </td>
               <td>
                 <button
-                  class="btn btn-secondary"
+                  class="btn btn-outline-danger"
                   (click)="requestDelete(myCase)"
                 >
+                  <i class="fa fa-trash"></i>
                   Delete
                 </button>
               </td>
