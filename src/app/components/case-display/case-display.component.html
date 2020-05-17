@@ -1,67 +1,30 @@
 <ng-container *ngIf="ready; else notReady">
   <app-body>
     <div class="row">
-      <div class="col-md-12 my-3">
-        <h1>The Case of The {{ case.name }}</h1>
-        <hr />
-        <h2>Issue</h2>
-        <p>
-          <strong>
-            The Plaintiff claims that The Defendant
-          </strong>
-          {{ case.issue }}
-        </p>
-        <hr />
-        <h2>Witnesses</h2>
-        <p>
-          ?
-        </p>
-        <hr />
-        <h2>Pool Plaintiff Evidence</h2>
-        <ol>
-          <li *ngFor="let evidence of case.plaintiffEvidencePool">
-            {{ evidence.name }}
-          </li>
-        </ol>
-        <hr />
-        <h2>Unrevealed Plaintiff Evidence</h2>
-        <ol>
-          <li *ngFor="let evidence of case.plaintiffEvidenceSelected">
-            {{ evidence.name }}
-          </li>
-        </ol>
-        <hr />
-        <h2>Revealed Plaintiff Evidence</h2>
-        <ol>
-          <li *ngFor="let evidence of case.plaintiffEvidenceCourt">
-            {{ evidence.name }}
-          </li>
-        </ol>
-        <hr />
-        <h2>Pool Defendant Evidence</h2>
-        <ol>
-          <li *ngFor="let evidence of case.defendantEvidencePool">
-            {{ evidence.name }}
-          </li>
-        </ol>
-        <hr />
-        <h2>Unrevealed Defendant Evidence</h2>
-        <ol>
-          <li *ngFor="let evidence of case.defendantEvidenceSelected">
-            {{ evidence.name }}
-          </li>
-        </ol>
-        <hr />
-        <h2>Revealed Defendant Evidence</h2>
-        <ol>
-          <li *ngFor="let evidence of case.defendantEvidenceCourt">
-            {{ evidence.name }}
-          </li>
-        </ol>
-        <hr />
-        <p>
-          <small>id: {{ case._id }}</small>
-        </p>
+      <div class="col-md-12 my-3 text-center">
+        <app-card [autoHeight]="false">
+          <h3>The Case of the {{case.name}}</h3>
+          <hr>
+          <h4>Issue</h4>
+          <p>
+            <strong>
+              The Plaintiff claims that The Defendant
+            </strong>
+            {{ case.issue }}
+          </p>
+          <hr>
+          <h4>Verdict</h4>
+          <p>
+            <strong>
+              The Defendant is Guilty
+            </strong>
+            {{ case.isDefendantGuilty }}
+          </p>
+          <hr>
+          <p>
+            <small>id: {{ case._id }}</small>
+          </p>
+        </app-card>
       </div>
     </div>
   </app-body>
