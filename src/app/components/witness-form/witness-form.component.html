@@ -1,30 +1,40 @@
 <ng-container *ngIf="ready; else notReady">
-  <app-header [title]="title"></app-header>
   <app-body>
     <div class="row">
-      <div class="col-md-12 my-3">
-        <form>
-          <section id="witness-name">
-            1. Witness name:
-            <input
-              type="text"
-              name="witnessName"
-              [(ngModel)]="witness.name"
-            /><br /><br />
-          </section>
-          <hr />
-          <div class="error-report" *ngIf="showErrors && !valid">
-            <p>Please correct the following errors:</p>
-            <ul>
-              <li *ngFor="let error of errors">
-                {{ error }}
-              </li>
-            </ul>
-          </div>
-          <button class="btn btn-primary" (click)="submit()">
-            Save Witness
-          </button>
-        </form>
+      <div class="col-md-8 mx-auto my-3 text-center">
+        <app-card [title]="title">
+          <hr>
+          <form>
+            <section id="witness-name">
+              <label for="witness">
+                Witness name:
+              </label>
+              <div class="row">
+                <div class="col-md-6 mx-auto">
+                  <input
+                    id="witness"
+                    class="form-control"
+                    type="text"
+                    name="witnessName"
+                    [(ngModel)]="witness.name"
+                  />
+                </div>
+              </div>
+            </section>
+            <hr/>
+            <div class="alert alert-warning" *ngIf="showErrors && !valid">
+              <p>Please correct the following errors:</p>
+              <ul>
+                <li *ngFor="let error of errors">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
+            <button class="btn btn-success" (click)="submit()">
+              Save Witness
+            </button>
+          </form>
+        </app-card>
       </div>
     </div>
   </app-body>

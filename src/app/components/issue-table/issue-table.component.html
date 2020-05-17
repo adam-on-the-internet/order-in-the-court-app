@@ -1,60 +1,69 @@
 <div class="row">
-  <div class="col-md-12 my-3">
-    <ng-container *ngIf="ready; else notReady">
-      <button class="btn btn-secondary" (click)="createIssue()" *ngIf="canEdit">
-        Create Issue
-      </button>
-      <ng-container *ngIf="!hasIssue">
-        <p>No issues available.</p>
+  <div class="col-md-12 my-3 text-center">
+    <app-card [title]="'Issue Overview'">
+      <ng-container *ngIf="ready; else notReady">
+        <button class="btn btn-success" (click)="createIssue()" *ngIf="canEdit">
+          <i class="fa fa-plus"></i>
+          Create Issue
+        </button>
+        <ng-container *ngIf="!hasIssue">
+          <p>No issues available.</p>
+        </ng-container>
+        <ng-container *ngIf="hasIssue">
+          <p>
+            <small>Showing {{ issues.length }} issue(s)</small>
+          </p>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <table>
+                <thead>
+                <tr>
+                  <th>The Plaintiff claims that The Defendant...</th>
+                  <th>Details</th>
+                  <ng-container *ngIf="canEdit">
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </ng-container>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let issue of issues">
+                  <td>
+                    <strong>
+                      {{ issue.name }}
+                    </strong>
+                  </td>
+                  <td>
+                    <button class="btn btn-outline-primary" (click)="issueDetails(issue)">
+                      <i class="fa fa-comments"></i>
+                      Details
+                    </button>
+                  </td>
+                  <ng-container *ngIf="canEdit">
+                    <td>
+                      <button class="btn btn-outline-warning" (click)="editIssue(issue)">
+                        <i class="fa fa-pencil"></i>
+                        Edit
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-outline-danger"
+                        (click)="requestDelete(issue)"
+                      >
+                        <i class="fa fa-trash"></i>
+                        Delete
+                      </button>
+                    </td>
+                  </ng-container>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-container>
       </ng-container>
-      <ng-container *ngIf="hasIssue">
-        <p>
-          <small>Showing {{ issues.length }} issue(s)</small>
-        </p>
-        <table>
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Details</th>
-            <ng-container *ngIf="canEdit">
-              <th>Edit</th>
-              <th>Delete</th>
-            </ng-container>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let issue of issues">
-            <td>
-              The Plaintiff claims that The Defendant
-              <strong>
-                {{ issue.name }}
-              </strong>
-            </td>
-            <td>
-              <button class="btn btn-secondary" (click)="issueDetails(issue)">
-                Details
-              </button>
-            </td>
-            <ng-container *ngIf="canEdit">
-              <td>
-                <button class="btn btn-secondary" (click)="editIssue(issue)">
-                  Edit
-                </button>
-              </td>
-              <td>
-                <button
-                  class="btn btn-secondary"
-                  (click)="requestDelete(issue)"
-                >
-                  Delete
-                </button>
-              </td>
-            </ng-container>
-          </tr>
-          </tbody>
-        </table>
-      </ng-container>
-    </ng-container>
+    </app-card>
   </div>
 </div>
 

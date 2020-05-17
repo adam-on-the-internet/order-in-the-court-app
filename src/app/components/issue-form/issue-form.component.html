@@ -1,32 +1,37 @@
 <ng-container *ngIf="ready; else notReady">
-  <app-header [title]="title"></app-header>
   <app-body>
     <div class="row">
-      <div class="col-md-12 my-3">
-        <form>
-          <section id="issue-name">
-            The Plaintiff claims that The Defendant...
-            <br />
-            <textarea
-              rows="20"
-              cols="50"
-              (change)="updateName($event)"
+      <div class="col-md-8 mx-auto my-3 text-center">
+        <app-card [title]="title">
+          <hr>
+          <form>
+            <section id="issue-name">
+              <label for="issue">
+                The Plaintiff claims that The Defendant...
+              </label>
+              <br>
+              <textarea
+                id="issue"
+                rows="8"
+                cols="50"
+                (change)="updateName($event)"
               >{{ issue.name }}</textarea
-            ><br /><br />
-          </section>
-          <hr />
-          <div class="error-report" *ngIf="showErrors && !valid">
-            <p>Please correct the following errors:</p>
-            <ul>
-              <li *ngFor="let error of errors">
-                {{ error }}
-              </li>
-            </ul>
-          </div>
-          <button class="btn btn-primary" (click)="submit()">
-            Save Issue
-          </button>
-        </form>
+              >
+            </section>
+            <hr/>
+            <div class="alert alert-warning" *ngIf="showErrors && !valid">
+              <p>Please correct the following errors:</p>
+              <ul>
+                <li *ngFor="let error of errors">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
+            <button class="btn btn-success" (click)="submit()">
+              Save Issue
+            </button>
+          </form>
+        </app-card>
       </div>
     </div>
   </app-body>

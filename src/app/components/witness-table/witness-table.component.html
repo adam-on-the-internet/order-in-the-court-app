@@ -1,65 +1,75 @@
 <div class="row">
-  <div class="col-md-12 my-3">
-    <ng-container *ngIf="ready; else notReady">
-      <button
-        class="btn btn-secondary"
-        (click)="createWitness()"
-        *ngIf="canEdit"
-      >
-        Create Witness
-      </button>
-      <ng-container *ngIf="!hasWitness">
-        <p>No witnesses available.</p>
+  <div class="col-md-12 my-3 text-center">
+    <app-card [title]="'Witness Overview'">
+      <ng-container *ngIf="ready; else notReady">
+        <button
+          class="btn btn-success"
+          (click)="createWitness()"
+          *ngIf="canEdit"
+        >
+          <i class="fa fa-plus"></i>
+          Create Witness
+        </button>
+        <ng-container *ngIf="!hasWitness">
+          <p>No witnesses available.</p>
+        </ng-container>
+        <ng-container *ngIf="hasWitness">
+          <p>
+            <small>Showing {{ witnesses.length }} witness(es)</small>
+          </p>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <table>
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Details</th>
+                  <ng-container *ngIf="canEdit">
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </ng-container>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let witness of witnesses">
+                  <td>{{ witness.name }}</td>
+                  <td>
+                    <button
+                      class="btn btn-outline-primary"
+                      (click)="witnessDetails(witness)"
+                    >
+                      <i class="fa fa-comments"></i>
+                      Details
+                    </button>
+                  </td>
+                  <ng-container *ngIf="canEdit">
+                    <td>
+                      <button
+                        class="btn btn-outline-warning"
+                        (click)="editWitness(witness)"
+                      >
+                        <i class="fa fa-pencil"></i>
+                        Edit
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-outline-danger"
+                        (click)="requestDelete(witness)"
+                      >
+                        <i class="fa fa-trash"></i>
+                        Delete
+                      </button>
+                    </td>
+                  </ng-container>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-container>
       </ng-container>
-      <ng-container *ngIf="hasWitness">
-        <p>
-          <small>Showing {{ witnesses.length }} witness(es)</small>
-        </p>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Details</th>
-              <ng-container *ngIf="canEdit">
-                <th>Edit</th>
-                <th>Delete</th>
-              </ng-container>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let witness of witnesses">
-              <td>{{ witness.name }}</td>
-              <td>
-                <button
-                  class="btn btn-secondary"
-                  (click)="witnessDetails(witness)"
-                >
-                  Details
-                </button>
-              </td>
-              <ng-container *ngIf="canEdit">
-                <td>
-                  <button
-                    class="btn btn-secondary"
-                    (click)="editWitness(witness)"
-                  >
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button
-                    class="btn btn-secondary"
-                    (click)="requestDelete(witness)"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </ng-container>
-            </tr>
-          </tbody>
-        </table>
-      </ng-container>
-    </ng-container>
+    </app-card>
   </div>
 </div>
 

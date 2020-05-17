@@ -1,13 +1,18 @@
 <ng-container *ngIf="ready; else notReady">
   <app-body>
     <div class="row">
-      <div class="col-md-12 my-3">
-        <h1>
-          The Plaintiff claims that The Defendant {{ issue.name }}
-        </h1>
-        <p>
-          <small>{{ issue._id }}</small>
-        </p>
+      <div class="col-md-8 mx-auto my-3 text-center">
+        <app-card [title]="'Issue'">
+          <p>
+            The Plaintiff claims that The Defendant
+            <strong>
+            {{ issue.name }}
+            </strong>
+          </p>
+          <p>
+            <small>{{ issue._id }}</small>
+          </p>
+        </app-card>
       </div>
     </div>
   </app-body>
