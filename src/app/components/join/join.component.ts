@@ -61,8 +61,8 @@ export class JoinComponent implements OnInit {
     return !BooleanHelper.hasValue(this.case.defendantName);
   }
 
-  public get offerWitnessRole(): boolean {
-    return !this.caseManager.hasMaxWitnesses && this.caseManager.essentialNamesSet;
+  public get offerNonessentialRoles(): boolean {
+    return this.caseManager.essentialNamesSet;
   }
 
   public get availableWitnesses(): number[] {
@@ -83,10 +83,6 @@ export class JoinComponent implements OnInit {
       availWitnesses.push(5);
     }
     return availWitnesses;
-  }
-
-  public get offerJuryRole(): boolean {
-    return this.caseManager.essentialNamesSet;
   }
 
   public get hasJudgeName(): boolean {
