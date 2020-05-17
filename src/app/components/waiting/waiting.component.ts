@@ -59,15 +59,33 @@ export class WaitingComponent {
   public get neededSelections(): string[] {
     const necessarySelections = [];
     if (!this.caseManager.allPlaintiffEvidenceSelected) {
-      necessarySelections.push("Plaintiff is selecting evidence");
+      necessarySelections.push(this.plaintiffMessage);
     }
     if (!this.caseManager.allDefendantEvidenceSelected) {
-      necessarySelections.push("Defendant is selecting evidence");
+      necessarySelections.push(this.defendantMessage);
     }
     if (!this.caseManager.allWitnessesSelected) {
-      necessarySelections.push("Witnesses are being chosen");
+      necessarySelections.push(this.witnessMessage);
     }
     return necessarySelections;
+  }
+
+  private get plaintiffMessage(): string {
+    const chosen = this.caseManager.activeCase.plaintiffEvidenceSelected.length;
+    return `Plaintiff is selecting evidence (${chosen}/10)`;
+  }
+
+  private get defendantMessage(): string {
+    const chosen = this.caseManager.activeCase.defendantEvidenceSelected.length;
+    return `Defendant is selecting evidence (${chosen}/10)`;
+  }
+
+  private get witnessMessage(): string {
+    const chosen = this.caseManager.witnesses.filter((wit) => {
+      return wit.character !== "???";
+    }).length;
+    const needed = this.caseManager.witnesses.length;
+    return `Witnesses are being chosen (${chosen}/${needed})`;
   }
 
   private get assignRolesWaitingMessage() {

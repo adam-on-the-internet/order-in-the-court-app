@@ -122,37 +122,42 @@ export class CaseManagerService {
   public get witnesses(): WitnessPlayer[] {
     const myWitnesses: WitnessPlayer[] = [];
     if (BooleanHelper.hasValue(this.activeCase.witnessName1)) {
+      const selectedWitness1 = this.activeCase.selectedWitness1 ? this.activeCase.selectedWitness1.name : null;
       myWitnesses.push({
         name: this.activeCase.witnessName1,
-        character: this.activeCase.selectedWitness1.name,
+        character: selectedWitness1,
         witnessNumber: 1,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName2)) {
+      const selectedWitness2 = this.activeCase.selectedWitness2 ? this.activeCase.selectedWitness2.name : null;
       myWitnesses.push({
         name: this.activeCase.witnessName2,
-        character: this.activeCase.selectedWitness2.name,
+        character: selectedWitness2,
         witnessNumber: 2,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName3)) {
+      const selectedWitness3 = this.activeCase.selectedWitness3 ? this.activeCase.selectedWitness3.name : null;
       myWitnesses.push({
         name: this.activeCase.witnessName3,
-        character: this.activeCase.selectedWitness3.name,
+        character: selectedWitness3,
         witnessNumber: 3,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName4)) {
+      const selectedWitness4 = this.activeCase.selectedWitness4 ? this.activeCase.selectedWitness4.name : null;
       myWitnesses.push({
         name: this.activeCase.witnessName4,
-        character: this.activeCase.selectedWitness4.name,
+        character: selectedWitness4,
         witnessNumber: 4,
       });
     }
     if (BooleanHelper.hasValue(this.activeCase.witnessName5)) {
+      const selectedWitness5 = this.activeCase.selectedWitness5 ? this.activeCase.selectedWitness5.name : null;
       myWitnesses.push({
         name: this.activeCase.witnessName5,
-        character: this.activeCase.selectedWitness5.name,
+        character: selectedWitness5,
         witnessNumber: 5,
       });
     }

@@ -4,6 +4,7 @@ import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
 import {WITNESS_ROLE} from "../../constants/rule.constants";
 import {Witness} from "../../models/Witness.model";
+import {BooleanHelper} from "../../utilities/boolean.util";
 
 @Component({
   selector: "app-witness-role",
@@ -42,7 +43,8 @@ export class WitnessRoleComponent implements OnInit {
   public get caseLoaded(): boolean {
     return this.caseId &&
       this.caseManager.caseReady &&
-      this.caseId === this.caseManager.activeCase._id;
+      this.caseId === this.caseManager.activeCase._id &&
+      BooleanHelper.hasValue(this.myWitness);
   }
 
   public get showWitnessPool(): boolean {
