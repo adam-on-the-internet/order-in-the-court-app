@@ -1,12 +1,9 @@
 <app-header [title]="'Case Overview'"></app-header>
 <app-body>
   <ng-container *ngIf="ready; else loading">
-    <h3 class="text-center pt-2">Open Cases</h3>
-    <app-case-table [cases]="sortedCases.openCases"></app-case-table>
-    <h3 class="text-center pt-2">Limbo Cases</h3>
-    <app-case-table [cases]="sortedCases.limboCases"></app-case-table>
-    <h3 class="text-center pt-2">Closed Cases</h3>
-    <app-case-table [cases]="sortedCases.closedCases"></app-case-table>
+    <app-case-table [title]="'Open Cases'" [cases]="sortedCases.openCases"></app-case-table>
+    <app-case-table [title]="'Limbo Cases'" [cases]="sortedCases.limboCases"></app-case-table>
+    <app-case-table [title]="'Closed Cases'" [cases]="sortedCases.closedCases"></app-case-table>
   </ng-container>
 </app-body>
 

@@ -1,16 +1,8 @@
-<div class="row" *ngIf="!hasCases">
+<div class="row">
   <div class="col-md-12 my-3">
     <div class="card border-primary">
-      <p class="mx-2 my-2">
-        No cases available.
-      </p>
-    </div>
-  </div>
-</div>
-<ng-container *ngIf="hasCases">
-  <div class="row">
-    <div class="col-md-12 my-3">
-      <div class="card border-primary">
+      <h3 class="text-center mt-2" *ngIf="hasTitle">{{title}}</h3>
+      <div id="show-cases" *ngIf="hasCases">
         <p class="mx-2 my-2">
           <small>Showing {{ cases.length }} case(s)</small>
         </p>
@@ -65,6 +57,11 @@
           </tbody>
         </table>
       </div>
+      <div id="no-cases" *ngIf="!hasCases">
+        <p class="mx-2 my-2 text-center">
+          No cases available.
+        </p>
+      </div>
     </div>
   </div>
-</ng-container>
+</div>

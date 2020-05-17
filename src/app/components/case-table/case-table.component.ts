@@ -10,7 +10,12 @@ import {CaseService} from "../../services/case.service";
 })
 export class CaseTableComponent {
   @Input() public cases: Case[] = [];
+  @Input() public title: string = null;
   @Input() public archiveMode = false;
+
+  public get hasTitle(): boolean {
+    return this.title !== null;
+  }
 
   public get hasCases(): boolean {
     return this.cases.length > 0;
