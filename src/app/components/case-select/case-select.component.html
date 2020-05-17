@@ -1,6 +1,6 @@
 <app-body>
   <div class="row" *ngIf="ready; else loading">
-    <div class="col-md-10 mx-auto my-3 text-center">
+    <div class="col-md-12 mx-auto my-3 text-center">
       <app-card>
         <h4>Join a Case</h4>
         <p>
@@ -8,7 +8,7 @@
         </p>
         <hr>
         <div class="row">
-          <div class="col-md-8 mx-auto my-3 text-center" *ngIf="noCases">
+          <div class="col-md-10 mx-auto my-3 text-center" *ngIf="noCases">
             <p>No cases are open. You'll need to create one to start.</p>
             <p>
               <button class="btn btn-primary" (click)="createCase()">
@@ -21,10 +21,13 @@
           <div class="col-md-6 my-3" *ngFor="let myCase of cases">
             <a (click)="joinCase(myCase._id)">
               <app-card [title]="'The Case of the ' + myCase.name" [useHover]="true">
+                <hr>
                 <p class="text-center">
-                  Case Opened on {{ myCase.openedDate | date }}
+                  Created {{ myCase.openedDate | date:'MMM d, y, h:mm a' }}
                 </p>
+                <hr>
                 <p class="text-center">
+                  Case
                   <span *ngIf="caseIsNotStarted(myCase)">Not</span>
                   Started
                 </p>

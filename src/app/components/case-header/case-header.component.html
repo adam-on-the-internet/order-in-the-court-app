@@ -37,7 +37,7 @@
   <hr>
 </div>
 
-<app-basic-modal-box [boxId]="'case-info'" [title]="'Case Info'" *ngIf="ready">
+<app-modal-box-basic [boxId]="'case-info'" [title]="'Case Info'" *ngIf="ready">
   <h5>
     <i class="fa fa-calendar"></i>
     Case Timeline
@@ -56,8 +56,8 @@
     caseLink
     }}
   </p>
-</app-basic-modal-box>
+</app-modal-box-basic>
 
-<app-basic-modal-box [boxId]="'case-players'" [title]="'Case Players'" *ngIf="ready">
+<app-modal-box-basic [boxId]="'case-players'" [title]="'Case Players'" *ngIf="ready">
   <app-cast></app-cast>
-</app-basic-modal-box>
+</app-modal-box-basic>

@@ -46,25 +46,25 @@
   </div>
 </app-body>
 
-<app-basic-modal-box [boxId]="'evidence'" [title]="'All Evidence'" *ngIf="ready">
+<app-modal-box-basic [boxId]="'evidence'" [title]="'All Evidence'" *ngIf="ready">
   <small>Showing {{evidences.length}} piece(s) of evidence...</small>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let evidence of evidences">
       {{evidence.name}}
     </li>
   </ul>
-</app-basic-modal-box>
+</app-modal-box-basic>
 
-<app-basic-modal-box [boxId]="'witness'" [title]="'All Witnesses'" *ngIf="ready">
+<app-modal-box-basic [boxId]="'witness'" [title]="'All Witnesses'" *ngIf="ready">
   <small>Showing {{witnesses.length}} witness(es)...</small>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let witness of witnesses">
       {{witness.name}}
     </li>
   </ul>
-</app-basic-modal-box>
+</app-modal-box-basic>
 
-<app-basic-modal-box [boxId]="'issue'" [title]="'All Issues'" *ngIf="ready">
+<app-modal-box-basic [boxId]="'issue'" [title]="'All Issues'" *ngIf="ready">
   <small>Showing {{issues.length}} issue(s)...</small>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let issue of issues">
@@ -74,9 +74,9 @@
       </strong>
     </li>
   </ul>
-</app-basic-modal-box>
+</app-modal-box-basic>
 
-<app-advanced-modal-box [boxId]="'suggestion'" [title]="'Suggestion: ' + suggestionType" *ngIf="ready">
+<app-modal-box-advanced [boxId]="'suggestion'" [title]="'Suggestion: ' + suggestionType" *ngIf="ready">
   <section id="suggestion">
     Your Suggestion:
     <br/>
@@ -85,7 +85,7 @@
       Send Message
     </button>
   </section>
-</app-advanced-modal-box>
+</app-modal-box-advanced>
 
 <ng-template #loading>
   <app-loading></app-loading>

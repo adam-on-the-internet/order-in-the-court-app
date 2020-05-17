@@ -30,17 +30,11 @@ import {CaseOverviewComponent} from "./components/case-overview/case-overview.co
 import {RulesComponent} from "./components/rules/rules.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
-import {HeaderComponent} from "./components/header/header.component";
-import {BodyComponent} from "./components/body/body.component";
-import {LoadingComponent} from "./components/loading/loading.component";
-import {CardComponent} from "./components/card/card.component";
 import {ArchivedCaseComponent} from "./components/archived-case/archived-case.component";
-import {AdvancedModalBoxComponent} from "./components/advanced-modal-box/advanced-modal-box.component";
 import {ModalTriggerButtonComponent} from "./components/modal-trigger-button/modal-trigger-button.component";
 import {ExtrasComponent} from "./components/extras/extras.component";
 import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
-import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-box.component";
 import {RulesDisplayComponent} from "./components/rules-display/rules-display.component";
 import {CaseCreateComponent} from "./components/case-create/case-create.component";
 import {PlaytestComponent} from "./components/playtest/playtest.component";
@@ -87,17 +81,11 @@ import {SimpleComponentsModule} from "./simple-components/simple-components.modu
     RulesComponent,
     CaseSelectComponent,
     CaseArchiveComponent,
-    HeaderComponent,
-    BodyComponent,
-    LoadingComponent,
-    CardComponent,
     ArchivedCaseComponent,
-    AdvancedModalBoxComponent,
     ModalTriggerButtonComponent,
     ExtrasComponent,
     RandomContentComponent,
     CreditsComponent,
-    BasicModalBoxComponent,
     RulesDisplayComponent,
     CaseCreateComponent,
     PlaytestComponent,
