@@ -3,12 +3,7 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {IssueDisplayComponent} from "./issue-display.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
-import {BodyComponent} from "../body/body.component";
-import {HeaderComponent} from "../header/header.component";
-import {LoadingComponent} from "../loading/loading.component";
-import {CardComponent} from "../card/card.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("IssueDisplayComponent", () => {
   let component: IssueDisplayComponent;
@@ -17,10 +12,9 @@ describe("IssueDisplayComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        IssueDisplayComponent, BodyComponent, HeaderComponent, LoadingComponent,
-        CardComponent, AccordionTriggerComponent, AccordionAreaComponent,
+        IssueDisplayComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

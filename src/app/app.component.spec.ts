@@ -4,17 +4,17 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {BasicModalBoxComponent} from "./components/basic-modal-box/basic-modal-box.component";
 import {RulesDisplayComponent} from "./components/rules-display/rules-display.component";
+import {SimpleComponentsModule} from "./simple-components/simple-components.module";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent, NavbarComponent, FooterComponent, BasicModalBoxComponent,
+        AppComponent, NavbarComponent, FooterComponent,
         RulesDisplayComponent,
       ],
-      imports: [RouterTestingModule, HttpClientTestingModule]
+      imports: [RouterTestingModule, HttpClientTestingModule, SimpleComponentsModule, ]
     }).compileComponents();
   }));
 

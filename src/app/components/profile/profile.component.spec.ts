@@ -2,13 +2,8 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
 import {ProfileComponent} from "./profile.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {HeaderComponent} from "../header/header.component";
-import {BodyComponent} from "../body/body.component";
-import {CardComponent} from "../card/card.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
 import {RouterTestingModule} from "@angular/router/testing";
-import {LoadingComponent} from "../loading/loading.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("ProfileComponent", () => {
   let component: ProfileComponent;
@@ -17,11 +12,9 @@ describe("ProfileComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ProfileComponent, HeaderComponent, BodyComponent,
-        CardComponent, AccordionAreaComponent, AccordionTriggerComponent,
-        LoadingComponent,
+        ProfileComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule]
     })
       .compileComponents();
   }));

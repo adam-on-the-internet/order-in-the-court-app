@@ -1,12 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { InfoComponent } from "./info.component";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { HeaderComponent } from "../header/header.component";
-import { BodyComponent } from "../body/body.component";
-import { CardComponent } from "../card/card.component";
-import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
-import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
+import {InfoComponent} from "./info.component";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("InfoComponent", () => {
   let component: InfoComponent;
@@ -16,10 +12,8 @@ describe("InfoComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         InfoComponent,
-        HeaderComponent, BodyComponent,
-        CardComponent, AccordionAreaComponent, AccordionTriggerComponent,
       ],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

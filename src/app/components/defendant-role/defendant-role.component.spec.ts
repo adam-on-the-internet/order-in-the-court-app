@@ -2,17 +2,13 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
 import {DefendantRoleComponent} from "./defendant-role.component";
 import {CaseHeaderComponent} from "../case-header/case-header.component";
-import {CardComponent} from "../card/card.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
-import {BodyComponent} from "../body/body.component";
-import {BasicModalBoxComponent} from "../basic-modal-box/basic-modal-box.component";
 import {CastComponent} from "../cast/cast.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RevealedEvidenceComponent} from "../revealed-evidence/revealed-evidence.component";
 import {RevealedEvidenceListComponent} from "../revealed-evidence-list/revealed-evidence-list.component";
 import {WaitingComponent} from "../waiting/waiting.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("DefendantRoleComponent", () => {
   let component: DefendantRoleComponent;
@@ -21,11 +17,11 @@ describe("DefendantRoleComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DefendantRoleComponent, CaseHeaderComponent, CardComponent, AccordionAreaComponent, AccordionTriggerComponent,
-        BodyComponent, BasicModalBoxComponent, CastComponent, RevealedEvidenceComponent, RevealedEvidenceListComponent,
+        DefendantRoleComponent, CaseHeaderComponent,
+        CastComponent, RevealedEvidenceComponent, RevealedEvidenceListComponent,
         WaitingComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ModalBoxBasicComponent } from './modal-box-basic.component';
+import { ModalBoxBasicComponent } from "./modal-box-basic.component";
 
-describe('ModalBoxBasicComponent', () => {
+describe("ModalBoxBasicComponent", () => {
   let component: ModalBoxBasicComponent;
   let fixture: ComponentFixture<ModalBoxBasicComponent>;
 
@@ -19,7 +19,7 @@ describe('ModalBoxBasicComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

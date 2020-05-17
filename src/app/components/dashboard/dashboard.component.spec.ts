@@ -1,13 +1,9 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { DashboardComponent } from "./dashboard.component";
-import { RouterTestingModule } from "@angular/router/testing";
-import { BodyComponent } from "../body/body.component";
-import { HeaderComponent } from "../header/header.component";
-import { CardComponent } from "../card/card.component";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { AccordionAreaComponent } from "../accordion-area/accordion-area.component";
-import { AccordionTriggerComponent } from "../accordion-trigger/accordion-trigger.component";
+import {DashboardComponent} from "./dashboard.component";
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("DashboardComponent", () => {
   let component: DashboardComponent;
@@ -16,10 +12,9 @@ describe("DashboardComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DashboardComponent, BodyComponent, HeaderComponent, CardComponent,
-        AccordionAreaComponent, AccordionTriggerComponent,
+        DashboardComponent,
       ],
-      imports: [RouterTestingModule, HttpClientTestingModule]
+      imports: [RouterTestingModule, HttpClientTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

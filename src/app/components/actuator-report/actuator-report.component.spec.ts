@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { ActuatorReportComponent } from "./actuator-report.component";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { LoadingComponent } from "../loading/loading.component";
+import {ActuatorReportComponent} from "./actuator-report.component";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("ActuatorReportComponent", () => {
   let component: ActuatorReportComponent;
@@ -10,8 +10,8 @@ describe("ActuatorReportComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ActuatorReportComponent, LoadingComponent],
-      imports: [HttpClientTestingModule]
+      declarations: [ActuatorReportComponent],
+      imports: [HttpClientTestingModule, SimpleComponentsModule]
     })
       .compileComponents();
   }));

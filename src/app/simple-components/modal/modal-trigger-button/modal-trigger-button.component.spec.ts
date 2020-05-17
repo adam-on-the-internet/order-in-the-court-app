@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ModalTriggerButtonComponent } from './modal-trigger-button.component';
+import { ModalTriggerButtonComponent } from "./modal-trigger-button.component";
 
-describe('ModalTriggerButtonComponent', () => {
+describe("ModalTriggerButtonComponent", () => {
   let component: ModalTriggerButtonComponent;
   let fixture: ComponentFixture<ModalTriggerButtonComponent>;
 
@@ -19,7 +19,7 @@ describe('ModalTriggerButtonComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

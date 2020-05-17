@@ -3,10 +3,8 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {CaseArchiveComponent} from "./case-archive.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
-import {LoadingComponent} from "../loading/loading.component";
-import {HeaderComponent} from "../header/header.component";
-import {BodyComponent} from "../body/body.component";
 import {CaseTableComponent} from "../case-table/case-table.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("CaseArchiveComponent", () => {
   let component: CaseArchiveComponent;
@@ -16,10 +14,9 @@ describe("CaseArchiveComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         CaseArchiveComponent,
-        LoadingComponent, HeaderComponent, BodyComponent,
         CaseTableComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

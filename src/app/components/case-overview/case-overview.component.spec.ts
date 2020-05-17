@@ -3,13 +3,8 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {CaseOverviewComponent} from "./case-overview.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
-import {HeaderComponent} from "../header/header.component";
-import {BodyComponent} from "../body/body.component";
-import {LoadingComponent} from "../loading/loading.component";
-import {CardComponent} from "../card/card.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
 import {CaseTableComponent} from "../case-table/case-table.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("CaseOverviewComponent", () => {
   let component: CaseOverviewComponent;
@@ -19,10 +14,8 @@ describe("CaseOverviewComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         CaseOverviewComponent, CaseTableComponent,
-        HeaderComponent, BodyComponent, LoadingComponent, CardComponent,
-        AccordionTriggerComponent, AccordionAreaComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

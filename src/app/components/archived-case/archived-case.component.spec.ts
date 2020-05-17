@@ -1,19 +1,13 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
 import {ArchivedCaseComponent} from "./archived-case.component";
-import {HeaderComponent} from "../header/header.component";
-import {BodyComponent} from "../body/body.component";
-import {LoadingComponent} from "../loading/loading.component";
-import {CardComponent} from "../card/card.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
 import {CaseHeaderComponent} from "../case-header/case-header.component";
+import {CastComponent} from "../cast/cast.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 import {RevealedEvidenceListComponent} from "../revealed-evidence-list/revealed-evidence-list.component";
 import {RevealedEvidenceComponent} from "../revealed-evidence/revealed-evidence.component";
-import {BasicModalBoxComponent} from "../basic-modal-box/basic-modal-box.component";
-import {CastComponent} from "../cast/cast.component";
 
 describe("ArchivedCaseComponent", () => {
   let component: ArchivedCaseComponent;
@@ -22,12 +16,10 @@ describe("ArchivedCaseComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ArchivedCaseComponent, HeaderComponent, BodyComponent, LoadingComponent, CardComponent,
-        AccordionTriggerComponent, AccordionAreaComponent, CaseHeaderComponent,
-        RevealedEvidenceListComponent, RevealedEvidenceComponent, BasicModalBoxComponent,
-        CastComponent,
+        ArchivedCaseComponent, CaseHeaderComponent,
+        CastComponent, RevealedEvidenceListComponent, RevealedEvidenceComponent
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

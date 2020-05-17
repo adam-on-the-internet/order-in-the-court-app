@@ -3,10 +3,7 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {EvidenceTableComponent} from "./evidence-table.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
-import {LoadingComponent} from "../loading/loading.component";
-import {CardComponent} from "../card/card.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("EvidenceTableComponent", () => {
   let component: EvidenceTableComponent;
@@ -15,10 +12,9 @@ describe("EvidenceTableComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        EvidenceTableComponent, LoadingComponent, CardComponent,
-        AccordionTriggerComponent, AccordionAreaComponent,
+        EvidenceTableComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })
       .compileComponents();
   }));

@@ -2,11 +2,8 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
 import {PlaytestComponent} from "./playtest.component";
 import {FormsModule} from "@angular/forms";
-import {CardComponent} from "../card/card.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
-import {BodyComponent} from "../body/body.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("PlaytestComponent", () => {
   let component: PlaytestComponent;
@@ -15,10 +12,9 @@ describe("PlaytestComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        PlaytestComponent, CardComponent, AccordionAreaComponent, AccordionTriggerComponent,
-        BodyComponent,
+        PlaytestComponent,
       ],
-      imports: [FormsModule, HttpClientTestingModule]
+      imports: [FormsModule, HttpClientTestingModule, SimpleComponentsModule]
     })
       .compileComponents();
   }));

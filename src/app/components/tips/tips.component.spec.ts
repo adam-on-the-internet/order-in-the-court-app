@@ -1,10 +1,7 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
 import {TipsComponent} from "./tips.component";
-import {BodyComponent} from "../body/body.component";
-import {CardComponent} from "../card/card.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("TipsComponent", () => {
   let component: TipsComponent;
@@ -12,7 +9,8 @@ describe("TipsComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TipsComponent, BodyComponent, CardComponent, AccordionAreaComponent, AccordionTriggerComponent]
+      declarations: [TipsComponent],
+      imports: [SimpleComponentsModule]
     })
       .compileComponents();
   }));

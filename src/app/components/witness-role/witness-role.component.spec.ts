@@ -7,12 +7,8 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {CastComponent} from "../cast/cast.component";
 import {RevealedEvidenceComponent} from "../revealed-evidence/revealed-evidence.component";
 import {RevealedEvidenceListComponent} from "../revealed-evidence-list/revealed-evidence-list.component";
-import {CardComponent} from "../card/card.component";
-import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
-import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
-import {BodyComponent} from "../body/body.component";
-import {BasicModalBoxComponent} from "../basic-modal-box/basic-modal-box.component";
 import {WaitingComponent} from "../waiting/waiting.component";
+import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 
 describe("WitnessRoleComponent", () => {
   let component: WitnessRoleComponent;
@@ -23,11 +19,9 @@ describe("WitnessRoleComponent", () => {
       declarations: [
         WitnessRoleComponent, CaseHeaderComponent, CastComponent,
         RevealedEvidenceComponent, RevealedEvidenceListComponent,
-        BodyComponent, BasicModalBoxComponent,
-        CardComponent, AccordionAreaComponent, AccordionTriggerComponent,
         WaitingComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule]
     })
       .compileComponents();
   }));

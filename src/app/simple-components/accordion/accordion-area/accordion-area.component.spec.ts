@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AccordionAreaComponent } from './accordion-area.component';
+import { AccordionAreaComponent } from "./accordion-area.component";
 
-describe('AccordionAreaComponent', () => {
+describe("AccordionAreaComponent", () => {
   let component: AccordionAreaComponent;
   let fixture: ComponentFixture<AccordionAreaComponent>;
 
@@ -19,7 +19,7 @@ describe('AccordionAreaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
