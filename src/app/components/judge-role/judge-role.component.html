@@ -6,7 +6,6 @@
         <ng-container *ngIf="caseLoaded">
           <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
           <div id="role-assignment" *ngIf="assigningRoles">
-            <hr>
             <div class="row">
               <div class="col-md-6">
                 <app-cast></app-cast>
@@ -35,7 +34,6 @@
               </div>
             </div>
           </div>
-          <hr>
           <div class="row justify-content-center">
             <div class="col-md-6" *ngIf="showCaseStructure">
               <div id="pick-structure" *ngIf="showStructureOptions">
@@ -220,4 +218,5 @@
 
 <ng-template #loadingSection>
   <app-waiting></app-waiting>
+  <hr>
 </ng-template>

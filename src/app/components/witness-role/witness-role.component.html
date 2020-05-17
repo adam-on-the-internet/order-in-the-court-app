@@ -3,7 +3,6 @@
     <div class="col-md-10 mx-auto my-3 text-center">
       <app-card>
         <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
-        <hr>
         <ng-container *ngIf="caseLoaded">
           <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
           <div id="role-assignment" *ngIf="assigningRoles">
@@ -23,13 +22,13 @@
                 </p>
               </div>
             </div>
+            <hr>
           </div>
           <div
             id="select-witness"
             class="mb-3"
             *ngIf="showWitnessPool"
           >
-            <hr>
             <h5>
               <i class="fa fa-user-secret"></i>
               Select Your Witness
@@ -50,12 +49,12 @@
                 </a>
               </div>
             </div>
+            <hr>
           </div>
           <div id="case-in-progress" *ngIf="shouldShowEvidence">
             <app-revealed-evidence></app-revealed-evidence>
           </div>
           <div id="role-help">
-            <hr>
             <div class="row">
               <div class="col-md-6">
                 <h5>Witness #{{myWitness.witnessNumber}} Role</h5>
@@ -90,4 +89,5 @@
 
 <ng-template #loadingSection>
   <app-waiting></app-waiting>
+  <hr>
 </ng-template>
