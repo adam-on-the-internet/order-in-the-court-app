@@ -1,34 +1,38 @@
-<app-header
-  [title]="'Join a Case'"
-  [subtitle]="'Find the name of the case you want to join in the list below.'"
->
-</app-header>
 <app-body>
   <div class="row" *ngIf="ready; else loading">
-    <div class="col-md-8 mx-auto my-3 text-center" *ngIf="noCases">
+    <div class="col-md-10 mx-auto my-3 text-center">
       <app-card>
-        <p>No cases are open. You'll need to create one to start.</p>
+        <h4>Join a Case</h4>
         <p>
-          <button class="btn btn-primary" (click)="createCase()">
-            <i class="fa fa-plus">
-            </i>
-            Create a Case
-          </button>
+          Find the name of the case you want to join in the list below.
         </p>
+        <hr>
+        <div class="row">
+          <div class="col-md-8 mx-auto my-3 text-center" *ngIf="noCases">
+            <p>No cases are open. You'll need to create one to start.</p>
+            <p>
+              <button class="btn btn-primary" (click)="createCase()">
+                <i class="fa fa-plus">
+                </i>
+                Create a Case
+              </button>
+            </p>
+          </div>
+          <div class="col-md-6 my-3" *ngFor="let myCase of cases">
+            <a (click)="joinCase(myCase._id)">
+              <app-card [title]="'The Case of the ' + myCase.name" [useHover]="true">
+                <p class="text-center">
+                  Case Opened on {{ myCase.openedDate | date }}
+                </p>
+                <p class="text-center">
+                  <span *ngIf="caseIsNotStarted(myCase)">Not</span>
+                  Started
+                </p>
+              </app-card>
+            </a>
+          </div>
+        </div>
       </app-card>
-    </div>
-    <div class="col-md-6 my-3" *ngFor="let myCase of cases">
-      <a (click)="joinCase(myCase._id)">
-        <app-card [title]="'The Case of the ' + myCase.name" [useHover]="true">
-          <p class="text-center">
-            Case Opened on {{ myCase.openedDate | date }}
-          </p>
-          <p class="text-center">
-            <span *ngIf="caseIsNotStarted(myCase)">Not</span>
-            Started
-          </p>
-        </app-card>
-      </a>
     </div>
   </div>
 </app-body>
