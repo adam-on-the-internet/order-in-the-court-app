@@ -38,6 +38,10 @@ export class NavHelperService {
     this.goToRoute(ROUTES_ENUM.Info);
   }
 
+  public goToTips(): void {
+    this.goToRoute(ROUTES_ENUM.Tips);
+  }
+
   public goToRules(): void {
     this.goToRoute(ROUTES_ENUM.Rules);
   }

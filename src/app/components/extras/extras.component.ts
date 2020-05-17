@@ -17,6 +17,10 @@ export class ExtrasComponent {
     this.navHelper.goToInfo();
   }
 
+  public goToTips(): void {
+    this.navHelper.goToTips();
+  }
+
   public goToRandomContent(): void {
     this.navHelper.goToRandomContent();
   }

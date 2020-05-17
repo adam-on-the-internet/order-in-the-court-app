@@ -1,6 +1,7 @@
 export const enum ROUTES_ENUM {
   Dashboard = "",
   Info = "info",
+  Tips = "tips",
   Profile = "profile",
   Admin = "admin",
   Judge = "judge",

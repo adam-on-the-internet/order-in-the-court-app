@@ -58,6 +58,7 @@ import { RevealedEvidenceListComponent } from "./components/revealed-evidence-li
 import { WitnessRoleComponent } from "./components/witness-role/witness-role.component";
 import { JuryRoleComponent } from "./components/jury-role/jury-role.component";
 import { WaitingComponent } from "./components/waiting/waiting.component";
+import { TipsComponent } from "./components/tips/tips.component";
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { WaitingComponent } from "./components/waiting/waiting.component";
     WitnessRoleComponent,
     JuryRoleComponent,
     WaitingComponent,
+    TipsComponent,
   ],
   imports: [
     BrowserModule,

@@ -32,11 +32,13 @@ import {DefendantRoleComponent} from "./components/defendant-role/defendant-role
 import {JoinComponent} from "./components/join/join.component";
 import {JuryRoleComponent} from "./components/jury-role/jury-role.component";
 import {WitnessRoleComponent} from "./components/witness-role/witness-role.component";
+import {TipsComponent} from "./components/tips/tips.component";
 
 const routes: Routes = [
   // main
   {path: ROUTES_ENUM.Dashboard, component: DashboardComponent},
   {path: ROUTES_ENUM.Info, component: InfoComponent},
+  {path: ROUTES_ENUM.Tips, component: TipsComponent},
   {path: ROUTES_ENUM.Login, component: LoginComponent},
   {path: ROUTES_ENUM.Profile, component: ProfileComponent},
   {path: ROUTES_ENUM.Admin, component: AdminComponent},
