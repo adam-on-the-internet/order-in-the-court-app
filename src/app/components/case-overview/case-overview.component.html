@@ -1,4 +1,3 @@
-<app-header [title]="'Case Overview'"></app-header>
 <app-body>
   <ng-container *ngIf="ready; else loading">
     <app-case-table [title]="'Open Cases'" [cases]="sortedCases.openCases"></app-case-table>

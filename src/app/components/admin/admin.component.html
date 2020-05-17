@@ -1,41 +1,49 @@
-<app-header [title]="'Admin Panel'"></app-header>
 <app-body>
   <div class="row">
-    <div class="col-md-6 my-3 text-center">
-      <app-card [title]="'Court Data'">
-        <p>
-          <button class="btn btn-primary" (click)="manageEvidence()">
-            Manage evidence
-          </button>
-        </p>
-        <p>
-          <button class="btn btn-primary" (click)="manageWitnesses()">
-            Manage witnesses
-          </button>
-        </p>
-        <p>
-          <button class="btn btn-primary" (click)="manageIssues()">
-            Manage issues
-          </button>
-        </p>
-        <p>
-          <button class="btn btn-primary" (click)="manageCases()">
-            Manage cases
-          </button>
-        </p>
-      </app-card>
-    </div>
-    <div class="col-md-6 my-3 text-center">
-      <app-card [title]="'Other Settings'">
-        <p>
-          <a
-            class="btn btn-primary"
-            href="https://aoti-user-management-ui.herokuapp.com/dashboard"
-            target="_blank"
-          >
-            User Management
-          </a>
-        </p>
+    <div class="col-md-6 my-3 mx-auto text-center">
+      <app-card>
+        <h2>Admin Panel</h2>
+        <hr>
+        <h4>Court Data</h4>
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <p>
+              <button class="btn btn-primary btn-block" (click)="manageEvidence()">
+                Manage evidence
+              </button>
+            </p>
+            <p>
+              <button class="btn btn-primary btn-block" (click)="manageWitnesses()">
+                Manage witnesses
+              </button>
+            </p>
+            <p>
+              <button class="btn btn-primary btn-block" (click)="manageIssues()">
+                Manage issues
+              </button>
+            </p>
+            <p>
+              <button class="btn btn-primary btn-block" (click)="manageCases()">
+                Manage cases
+              </button>
+            </p>
+          </div>
+        </div>
+        <hr>
+        <h4>Other Settings</h4>
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <p>
+              <a
+                class="btn btn-primary btn-block"
+                href="https://aoti-user-management-ui.herokuapp.com/dashboard"
+                target="_blank"
+              >
+                User Management
+              </a>
+            </p>
+          </div>
+        </div>
       </app-card>
     </div>
   </div>
