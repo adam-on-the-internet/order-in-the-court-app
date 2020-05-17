@@ -51,9 +51,6 @@
             </div>
             <hr>
           </div>
-          <div id="case-in-progress" *ngIf="shouldShowEvidence">
-            <app-revealed-evidence></app-revealed-evidence>
-          </div>
           <div id="role-help">
             <div class="row">
               <div class="col-md-6">
@@ -80,6 +77,10 @@
                 </ul>
               </div>
             </div>
+            <hr>
+          </div>
+          <div id="case-in-progress" *ngIf="shouldShowEvidence">
+            <app-revealed-evidence></app-revealed-evidence>
           </div>
         </ng-container>
       </app-card>
