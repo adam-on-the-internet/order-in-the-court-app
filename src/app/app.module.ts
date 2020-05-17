@@ -37,8 +37,6 @@ import {CardComponent} from "./components/card/card.component";
 import {ArchivedCaseComponent} from "./components/archived-case/archived-case.component";
 import {AdvancedModalBoxComponent} from "./components/advanced-modal-box/advanced-modal-box.component";
 import {ModalTriggerButtonComponent} from "./components/modal-trigger-button/modal-trigger-button.component";
-import {AccordionTriggerComponent} from "./components/accordion-trigger/accordion-trigger.component";
-import {AccordionAreaComponent} from "./components/accordion-area/accordion-area.component";
 import {ExtrasComponent} from "./components/extras/extras.component";
 import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
@@ -53,12 +51,13 @@ import {PlaintiffRoleComponent} from "./components/plaintiff-role/plaintiff-role
 import {DefendantRoleComponent} from "./components/defendant-role/defendant-role.component";
 import {JoinComponent} from "./components/join/join.component";
 import {CaseTableComponent} from "./components/case-table/case-table.component";
-import { RevealedEvidenceComponent } from "./components/revealed-evidence/revealed-evidence.component";
-import { RevealedEvidenceListComponent } from "./components/revealed-evidence-list/revealed-evidence-list.component";
-import { WitnessRoleComponent } from "./components/witness-role/witness-role.component";
-import { JuryRoleComponent } from "./components/jury-role/jury-role.component";
-import { WaitingComponent } from "./components/waiting/waiting.component";
-import { TipsComponent } from "./components/tips/tips.component";
+import {RevealedEvidenceComponent} from "./components/revealed-evidence/revealed-evidence.component";
+import {RevealedEvidenceListComponent} from "./components/revealed-evidence-list/revealed-evidence-list.component";
+import {WitnessRoleComponent} from "./components/witness-role/witness-role.component";
+import {JuryRoleComponent} from "./components/jury-role/jury-role.component";
+import {WaitingComponent} from "./components/waiting/waiting.component";
+import {TipsComponent} from "./components/tips/tips.component";
+import {SimpleComponentsModule} from "./simple-components/simple-components.module";
 
 @NgModule({
   declarations: [
@@ -95,8 +94,6 @@ import { TipsComponent } from "./components/tips/tips.component";
     ArchivedCaseComponent,
     AdvancedModalBoxComponent,
     ModalTriggerButtonComponent,
-    AccordionTriggerComponent,
-    AccordionAreaComponent,
     ExtrasComponent,
     RandomContentComponent,
     CreditsComponent,
@@ -123,6 +120,7 @@ import { TipsComponent } from "./components/tips/tips.component";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    SimpleComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
