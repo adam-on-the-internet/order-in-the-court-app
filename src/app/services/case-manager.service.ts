@@ -468,22 +468,113 @@ export class CaseManagerService {
     this.caseId = id;
     this.reset();
     this.retrieveCase();
-    const source = interval(750);
+    const source = interval(700);
     this.caseRefresher = source.subscribe(() => this.retrieveCase());
   }
 
   private retrieveCase() {
+    let tempCase: Case;
     this.caseService.getSingleCase(this.caseId)
-      .subscribe((res) => this.activeCase = res,
+      .subscribe((res) => tempCase = res,
         (error) => {
           this.caseRefresher.unsubscribe();
           console.log("get case failed");
         }, () => {
+          if (this.shouldUpdateCase(tempCase)) {
+            console.log("updating...");
+            this.activeCase = tempCase;
+          }
           if (this.statusIsCaseClosed) {
             this.caseRefresher.unsubscribe();
             this.navHelper.goToArchivedCase(this.activeCase._id);
           }
         });
+  }
+
+  private shouldUpdateCase(newCase: Case): boolean {
+    if (this.activeCase === null) {
+      return true;
+    }
+    const statusChanged = this.activeCase.status !== newCase.status;
+    if (statusChanged) {
+      return true;
+    }
+    if (this.statusIsAssignRoles) {
+      return this.haveRolesChanged(newCase);
+    }
+    if (this.statusIsMakeSelections) {
+      return this.haveSelectionsChanged(newCase);
+    }
+    if (this.caseIsOngoing) {
+      return this.hasCourtEvidenceChanged(newCase);
+    }
+    if (this.statusIsVerdictSelection) {
+      return false;
+    }
+    return true;
+  }
+
+  private hasCourtEvidenceChanged(newCase: Case): boolean {
+    if (this.activeCase.plaintiffEvidenceCourt.length !== newCase.plaintiffEvidenceCourt.length) {
+      return true;
+    }
+    if (this.activeCase.defendantEvidenceCourt.length !== newCase.defendantEvidenceCourt.length) {
+      return true;
+    }
+    return false;
+  }
+
+  private haveSelectionsChanged(newCase: Case): boolean {
+    if (this.activeCase.selectedWitness1 === null && newCase.selectedWitness1 !== null) {
+      return true;
+    }
+    if (this.activeCase.selectedWitness2 === null && newCase.selectedWitness2 !== null) {
+      return true;
+    }
+    if (this.activeCase.selectedWitness3 === null && newCase.selectedWitness3 !== null) {
+      return true;
+    }
+    if (this.activeCase.selectedWitness4 === null && newCase.selectedWitness4 !== null) {
+      return true;
+    }
+    if (this.activeCase.selectedWitness5 === null && newCase.selectedWitness5 !== null) {
+      return true;
+    }
+    if (this.activeCase.plaintiffEvidenceSelected.length !== newCase.plaintiffEvidenceSelected.length) {
+      return true;
+    }
+    if (this.activeCase.defendantEvidenceSelected.length !== newCase.defendantEvidenceSelected.length) {
+      return true;
+    }
+    return false;
+  }
+
+  private haveRolesChanged(newCase: Case): boolean {
+    if (this.activeCase.judgeName !== newCase.judgeName) {
+      return true;
+    }
+    if (this.activeCase.plaintiffName !== newCase.plaintiffName) {
+      return true;
+    }
+    if (this.activeCase.defendantName !== newCase.defendantName) {
+      return true;
+    }
+    if (this.activeCase.witnessName1 !== newCase.witnessName1) {
+      return true;
+    }
+    if (this.activeCase.witnessName2 !== newCase.witnessName2) {
+      return true;
+    }
+    if (this.activeCase.witnessName3 !== newCase.witnessName3) {
+      return true;
+    }
+    if (this.activeCase.witnessName4 !== newCase.witnessName4) {
+      return true;
+    }
+    if (this.activeCase.witnessName5 !== newCase.witnessName5) {
+      return true;
+    }
+    return false;
   }
 
   private shouldLoadCase(id: string) {
