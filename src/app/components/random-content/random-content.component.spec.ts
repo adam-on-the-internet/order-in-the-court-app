@@ -9,6 +9,7 @@ import {BasicModalBoxComponent} from "../basic-modal-box/basic-modal-box.compone
 import {LoadingComponent} from "../loading/loading.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {AdvancedModalBoxComponent} from "../advanced-modal-box/advanced-modal-box.component";
+import {FormsModule} from "@angular/forms";
 
 describe("RandomContentComponent", () => {
   let component: RandomContentComponent;
@@ -20,7 +21,7 @@ describe("RandomContentComponent", () => {
         RandomContentComponent, CardComponent, BodyComponent, AccordionTriggerComponent,
         AccordionAreaComponent, BasicModalBoxComponent, LoadingComponent, AdvancedModalBoxComponent,
       ],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, FormsModule]
     })
       .compileComponents();
   }));

@@ -2,34 +2,40 @@
   <div class="row">
     <div class="col-md-6 my-3 mx-auto text-center">
       <app-card [title]="'Your Profile'">
-        <p>
-          <strong>
-            email:
-          </strong>
-          {{ user.email }}
-        </p>
-        <p>
-          <strong>
-            admin:
-          </strong>
-          {{ user.admin }}
-        </p>
-        <p>
-          <strong>
-            special access:
-          </strong>
-          {{ user.specialAccess }}
-        </p>
-        <p>
-          <a
-            class="btn btn-primary"
-            href="https://aoti-user-management-ui.herokuapp.com/"
-            target="_blank"
-          >
-            Edit Your Profile
-          </a>
-        </p>
+        <div id="profile-details" *ngIf="ready; else loading">
+          <p>
+            <strong>
+              email:
+            </strong>
+            {{ user.email }}
+          </p>
+          <p>
+            <strong>
+              admin:
+            </strong>
+            {{ user.admin }}
+          </p>
+          <p>
+            <strong>
+              special access:
+            </strong>
+            {{ user.specialAccess }}
+          </p>
+          <p>
+            <a
+              class="btn btn-primary"
+              href="https://aoti-user-management-ui.herokuapp.com/"
+              target="_blank"
+            >
+              Edit Your Profile
+            </a>
+          </p>
+        </div>
       </app-card>
     </div>
   </div>
 </app-body>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

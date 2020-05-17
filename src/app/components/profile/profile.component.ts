@@ -1,7 +1,6 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {User} from "../../models/User.model";
 import {BooleanHelper} from "../../utilities/boolean.util";
-import {NavHelperService} from "../../services/nav-helper.service";
 import {UserService} from "../../services/user.service";
 
 @Component({
@@ -9,7 +8,7 @@ import {UserService} from "../../services/user.service";
   templateUrl: "./profile.component.html",
   styleUrls: ["./profile.component.css"]
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   public user: User = null;
 
   public get ready(): boolean {
@@ -17,9 +16,9 @@ export class ProfileComponent {
   }
 
   constructor(
-    private navHelperService: NavHelperService,
     private userService: UserService,
-  ) { }
+  ) {
+  }
 
   public ngOnInit() {
     this.loadUser();

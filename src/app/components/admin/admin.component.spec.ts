@@ -1,12 +1,15 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { AdminComponent } from "./admin.component";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { ActuatorReportComponent } from "../actuator-report/actuator-report.component";
-import { HeaderComponent } from "../header/header.component";
-import { BodyComponent } from "../body/body.component";
-import { LoadingComponent } from "../loading/loading.component";
+import {AdminComponent} from "./admin.component";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {RouterTestingModule} from "@angular/router/testing";
+import {ActuatorReportComponent} from "../actuator-report/actuator-report.component";
+import {HeaderComponent} from "../header/header.component";
+import {BodyComponent} from "../body/body.component";
+import {LoadingComponent} from "../loading/loading.component";
+import {CardComponent} from "../card/card.component";
+import {AccordionAreaComponent} from "../accordion-area/accordion-area.component";
+import {AccordionTriggerComponent} from "../accordion-trigger/accordion-trigger.component";
 
 describe("AdminComponent", () => {
   let component: AdminComponent;
@@ -15,7 +18,8 @@ describe("AdminComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AdminComponent, ActuatorReportComponent, HeaderComponent, BodyComponent, LoadingComponent
+        AdminComponent, ActuatorReportComponent, HeaderComponent, BodyComponent, LoadingComponent,
+        CardComponent, AccordionAreaComponent, AccordionTriggerComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule],
     })
