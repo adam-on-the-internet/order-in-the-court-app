@@ -1,65 +1,75 @@
 <div class="row">
-  <div class="col-md-12 my-3">
-    <ng-container *ngIf="ready; else notReady">
-      <button
-        class="btn btn-secondary"
-        (click)="createEvidence()"
-        *ngIf="canEdit"
-      >
-        Create Evidence
-      </button>
-      <ng-container *ngIf="!hasEvidence">
-        <p>No evidence available.</p>
+  <div class="col-md-12 my-3 text-center">
+    <app-card [title]="'Evidence Overview'">
+      <ng-container *ngIf="ready; else notReady">
+        <button
+          class="btn btn-success"
+          (click)="createEvidence()"
+          *ngIf="canEdit"
+        >
+          <i class="fa fa-plus"></i>
+          Create Evidence
+        </button>
+        <ng-container *ngIf="!hasEvidence">
+          <p>No evidence available.</p>
+        </ng-container>
+        <ng-container *ngIf="hasEvidence">
+          <p>
+            <small>Showing {{ evidences.length }} piece(s) of evidence</small>
+          </p>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <table>
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Details</th>
+                  <ng-container *ngIf="canEdit">
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </ng-container>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let evidence of evidences">
+                  <td>{{ evidence.name }}</td>
+                  <td>
+                    <button
+                      class="btn btn-outline-primary"
+                      (click)="evidenceDetails(evidence)"
+                    >
+                      <i class="fa fa-comments"></i>
+                      Details
+                    </button>
+                  </td>
+                  <ng-container *ngIf="canEdit">
+                    <td>
+                      <button
+                        class="btn btn-outline-warning"
+                        (click)="editEvidence(evidence)"
+                      >
+                        <i class="fa fa-pencil"></i>
+                        Edit
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-outline-danger"
+                        (click)="requestDelete(evidence)"
+                      >
+                        <i class="fa fa-trash"></i>
+                        Delete
+                      </button>
+                    </td>
+                  </ng-container>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-container>
       </ng-container>
-      <ng-container *ngIf="hasEvidence">
-        <p>
-          <small>Showing {{ evidences.length }} piece(s) of evidence</small>
-        </p>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Details</th>
-              <ng-container *ngIf="canEdit">
-                <th>Edit</th>
-                <th>Delete</th>
-              </ng-container>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let evidence of evidences">
-              <td>{{ evidence.name }}</td>
-              <td>
-                <button
-                  class="btn btn-secondary"
-                  (click)="evidenceDetails(evidence)"
-                >
-                  Details
-                </button>
-              </td>
-              <ng-container *ngIf="canEdit">
-                <td>
-                  <button
-                    class="btn btn-secondary"
-                    (click)="editEvidence(evidence)"
-                  >
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button
-                    class="btn btn-secondary"
-                    (click)="requestDelete(evidence)"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </ng-container>
-            </tr>
-          </tbody>
-        </table>
-      </ng-container>
-    </ng-container>
+    </app-card>
   </div>
 </div>
 
