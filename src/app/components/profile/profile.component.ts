@@ -1,5 +1,8 @@
-import { Component } from "@angular/core";
-import { CookieHelper } from "src/app/utilities/cookie.util";
+import {Component} from "@angular/core";
+import {User} from "../../models/User.model";
+import {BooleanHelper} from "../../utilities/boolean.util";
+import {NavHelperService} from "../../services/nav-helper.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: "app-profile",
@@ -7,21 +10,29 @@ import { CookieHelper } from "src/app/utilities/cookie.util";
   styleUrls: ["./profile.component.css"]
 })
 export class ProfileComponent {
+  public user: User = null;
 
-  public get userDetails(): any {
-    return CookieHelper.getUserDetails();
+  public get ready(): boolean {
+    return BooleanHelper.hasValue(this.user);
   }
 
-  public get email(): any {
-    return CookieHelper.email;
+  constructor(
+    private navHelperService: NavHelperService,
+    private userService: UserService,
+  ) { }
+
+  public ngOnInit() {
+    this.loadUser();
   }
 
-  public get admin(): any {
-    return CookieHelper.admin;
+  private loadUser(): void {
+    this.user = null;
+    this.userService.getUserSelf()
+      .subscribe((res) => this.user = res,
+        (error) => {
+          console.log("get user failed");
+        });
   }
 
-  public get specialAccess(): any {
-    return CookieHelper.specialAccess;
-  }
 
 }
