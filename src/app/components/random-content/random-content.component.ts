@@ -47,10 +47,6 @@ export class RandomContentComponent implements OnInit {
       .subscribe((res) => this.evidences = res);
   }
 
-  public updateSuggestion(event) {
-    this.suggestion = event.target.value;
-  }
-
   public setSuggestionType(type: string) {
     this.suggestionType = type;
     this.suggestion = null;
@@ -63,9 +59,9 @@ export class RandomContentComponent implements OnInit {
       message: `Order in the Court ${this.suggestionType} suggestion - ${this.suggestion}`,
       sender: `adamontheinternet@gmail.com`
     };
+    this.suggestion = null;
     this.contactService.contactAOTI(contact)
       .subscribe((res) => response = res);
-    this.suggestion = null;
   }
 
 }

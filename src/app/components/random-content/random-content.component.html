@@ -80,10 +80,7 @@
   <section id="suggestion">
     Your Suggestion:
     <br/>
-    <textarea rows="10" cols="50" (keyup)="updateSuggestion($event)">{{
-      suggestion
-      }}</textarea
-    ><br/><br/>
+    <input type="text" [(ngModel)]="suggestion"><br/><br/>
     <button class="btn btn-primary btn-block" (click)="send()" [disabled]="!suggestion" data-dismiss="modal">
       Send Message
     </button>
