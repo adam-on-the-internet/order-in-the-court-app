@@ -3,6 +3,7 @@ import {NavHelperService} from "src/app/services/nav-helper.service";
 import {CookieHelper} from "src/app/utilities/cookie.util";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {IdentityService} from "../../services/identity.service";
+import {EnvUtil} from "../../utilities/env.util";
 
 @Component({
   selector: "app-navbar",
@@ -25,6 +26,10 @@ export class NavbarComponent {
 
   public get caseName(): string {
     return this.caseManagerService.caseName;
+  }
+
+  public get nonprod(): boolean {
+    return EnvUtil.usingNonprod;
   }
 
   constructor(
