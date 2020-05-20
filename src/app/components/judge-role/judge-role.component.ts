@@ -10,7 +10,6 @@ import {WitnessPlayer} from "../../models/WitnessPlayer.model";
   styleUrls: ["./judge-role.component.scss"]
 })
 export class JudgeRoleComponent implements OnInit {
-  private caseId: string = null;
 
   public get caseLoaded(): boolean {
     return this.caseId &&
@@ -105,6 +104,32 @@ export class JudgeRoleComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
   }
+  private caseId: string = null;
+
+  private static timeDiffCalc(dateFuture, dateNow) {
+    let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
+
+    // calculate days
+    const days = Math.floor(diffInMilliSeconds / 86400);
+    diffInMilliSeconds -= days * 86400;
+
+    // calculate hours
+    const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
+    diffInMilliSeconds -= hours * 3600;
+
+    // calculate minutes
+    const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
+    diffInMilliSeconds -= minutes * 60;
+
+    // calculate seconds
+    const seconds = Math.floor(diffInMilliSeconds) % 60;
+
+    let difference = "";
+
+    difference += (minutes === 0 || hours === 1) ? `${minutes} minute` : `${minutes} minutes`;
+
+    return difference;
+  }
 
   public ngOnInit() {
     this.loadCase();
@@ -149,31 +174,6 @@ export class JudgeRoleComponent implements OnInit {
   private loadCase() {
     this.caseId = this.route.snapshot.paramMap.get("id");
     this.caseManager.loadExistingCase(this.caseId);
-  }
-
-  private static timeDiffCalc(dateFuture, dateNow) {
-    let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
-
-    // calculate days
-    const days = Math.floor(diffInMilliSeconds / 86400);
-    diffInMilliSeconds -= days * 86400;
-
-    // calculate hours
-    const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
-    diffInMilliSeconds -= hours * 3600;
-
-    // calculate minutes
-    const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
-    diffInMilliSeconds -= minutes * 60;
-
-    // calculate seconds
-    const seconds = Math.floor(diffInMilliSeconds) % 60;
-
-    let difference = '';
-
-    difference += (minutes === 0 || hours === 1) ? `${minutes} minute` : `${minutes} minutes`;
-
-    return difference;
   }
 
 }
