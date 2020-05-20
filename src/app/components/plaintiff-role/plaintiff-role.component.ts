@@ -19,20 +19,17 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public get waitingNotForRoles(): boolean {
-    const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showEvidencePool;
-    return waitingForSelections || this.caseManager.statusIsVerdictSelection;
-  }
-
-  public get waitingForRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+    const waitingForSelections = this.caseManager.activeCase.isMakeSelections && !this.showEvidencePool;
+    return waitingForSelections || this.caseManager.activeCase.isVerdictSelection;
   }
 
   public get assigningRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+    return this.caseManager.activeCase.isAssignRoles;
   }
 
   public get showEvidencePool(): boolean {
-    return this.caseManager.statusIsMakeSelections && !this.caseManager.allPlaintiffEvidenceSelected;
+    return this.caseManager.activeCase.isMakeSelections &&
+      !this.caseManager.activeCase.isAllPlaintiffEvidenceSelected;
   }
 
   public get poolEvidence(): Evidence[] {
@@ -77,7 +74,7 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public get canRevealEvidence(): boolean {
-    return this.caseManager.caseIsOngoing && !this.caseManager.allPlaintiffEvidenceRevealed;
+    return this.caseManager.activeCase.isInProgress && !this.caseManager.activeCase.isAllPlaintiffEvidenceRevealed;
   }
 
   constructor(

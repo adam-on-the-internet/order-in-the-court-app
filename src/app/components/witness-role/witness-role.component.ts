@@ -16,7 +16,7 @@ export class WitnessRoleComponent implements OnInit {
   private witnessNumber: number = null;
 
   public get myWitness(): WitnessPlayer {
-    return this.caseManager.witnesses.find((witness) => {
+    return this.caseManager.activeCase.witnessPlayers.find((witness) => {
       return witness.witnessNumber === this.witnessNumber;
     });
   }
@@ -48,7 +48,7 @@ export class WitnessRoleComponent implements OnInit {
   }
 
   public get showWitnessPool(): boolean {
-    const timeToSelect = this.caseManager.statusIsMakeSelections;
+    const timeToSelect = this.caseManager.activeCase.isMakeSelections;
     const needToSelect = !this.witnessCharacterSelected;
     return timeToSelect && needToSelect;
   }
@@ -69,17 +69,13 @@ export class WitnessRoleComponent implements OnInit {
   }
 
   public get waitingNotForRoles(): boolean {
-    const waitingForSelections = this.caseManager.statusIsMakeSelections && !this.showWitnessPool;
+    const waitingForSelections = this.caseManager.activeCase.isMakeSelections && !this.showWitnessPool;
     return waitingForSelections ||
-      this.caseManager.statusIsVerdictSelection;
-  }
-
-  public get waitingForRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+      this.caseManager.activeCase.isVerdictSelection;
   }
 
   public get assigningRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+    return this.caseManager.activeCase.isAssignRoles;
   }
 
   public get shouldShowEvidence(): boolean {
@@ -87,7 +83,7 @@ export class WitnessRoleComponent implements OnInit {
   }
 
   public get witnesses(): WitnessPlayer[] {
-    return this.caseManager.witnesses;
+    return this.caseManager.activeCase.witnessPlayers;
   }
 
   constructor(

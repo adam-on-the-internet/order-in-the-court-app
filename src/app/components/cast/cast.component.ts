@@ -15,7 +15,7 @@ export class CastComponent {
   }
 
   public get hasJudgeName(): boolean {
-    return this.caseManager.hasJudgeName;
+    return this.caseManager.activeCase.judgeNameSet;
   }
 
   public get judgeName(): string {
@@ -23,7 +23,7 @@ export class CastComponent {
   }
 
   public get hasPlaintiffName(): boolean {
-    return this.caseManager.hasPlaintiffName;
+    return this.caseManager.activeCase.plaintiffNameSet;
   }
 
   public get plaintiffName(): string {
@@ -31,19 +31,15 @@ export class CastComponent {
   }
 
   public get hasDefendantName(): boolean {
-    return this.caseManager.hasDefendantName;
+    return this.caseManager.activeCase.defendantNameSet;
   }
 
   public get defendantName(): string {
     return this.case.defendantName;
   }
 
-  public get witnessesPresent(): boolean {
-    return this.caseManager.hasAWitness;
-  }
-
   public get witnesses(): WitnessPlayer[] {
-    return this.caseManager.witnesses;
+    return this.caseManager.activeCase.witnessPlayers;
   }
 
   public get hasAName(): boolean {

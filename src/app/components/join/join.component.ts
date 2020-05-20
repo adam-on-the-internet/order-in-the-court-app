@@ -30,7 +30,7 @@ export class JoinComponent implements OnInit {
   }
 
   public get assigningRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+    return this.caseManager.activeCase.isAssignRoles;
   }
 
   public get showPickName(): boolean {
@@ -62,7 +62,7 @@ export class JoinComponent implements OnInit {
   }
 
   public get offerNonessentialRoles(): boolean {
-    return this.caseManager.essentialNamesSet;
+    return this.caseManager.activeCase.areEssentialNamesSet;
   }
 
   public get availableWitnesses(): number[] {
@@ -86,19 +86,19 @@ export class JoinComponent implements OnInit {
   }
 
   public get hasJudgeName(): boolean {
-    return this.caseManager.hasJudgeName;
+    return this.caseManager.activeCase.judgeNameSet;
   }
 
   public get hasPlaintiffName(): boolean {
-    return this.caseManager.hasPlaintiffName;
+    return this.caseManager.activeCase.plaintiffNameSet;
   }
 
   public get hasDefendantName(): boolean {
-    return this.caseManager.hasDefendantName;
+    return this.caseManager.activeCase.defendantNameSet;
   }
 
   public get witnesses(): WitnessPlayer[] {
-    return this.caseManager.witnesses;
+    return this.caseManager.activeCase.witnessPlayers;
   }
 
   private get case(): Case {

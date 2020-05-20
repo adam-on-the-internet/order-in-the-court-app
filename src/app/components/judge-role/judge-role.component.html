@@ -5,7 +5,7 @@
         <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
         <ng-container *ngIf="caseLoaded">
           <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
-          <div id="role-assignment" *ngIf="assigningRoles">
+          <div id="role-assignment" *ngIf="showRoleAssignment">
             <div class="row">
               <div class="col-md-6">
                 <app-cast></app-cast>
@@ -192,14 +192,19 @@
                 <p>
                   If you have a Jury, you can ask them for their input.
                 </p>
-                <p>
-                  <button class="btn btn-danger mx-3" (click)="submitGuiltyVerdict()">
-                    GUILTY
-                  </button>
-                  <button class="btn btn-success mx-3" (click)="submitNotGuiltyVerdict()">
-                    NOT GUILTY
-                  </button>
-                </p>
+                <div class="row">
+                  <div class="col-md-8 mx-auto">
+                    <p>
+                      <button class="btn btn-danger btn-block" (click)="submitGuiltyVerdict()">
+                        GUILTY
+                      </button>
+                      <br>
+                      <button class="btn btn-success btn-block" (click)="submitNotGuiltyVerdict()">
+                        NOT GUILTY
+                      </button>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-md-6">

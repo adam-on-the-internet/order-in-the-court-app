@@ -18,12 +18,8 @@ export class JuryRoleComponent implements OnInit {
   }
 
   public get waitingNotForRoles(): boolean {
-    return this.caseManager.statusIsMakeSelections ||
-      this.caseManager.statusIsVerdictSelection;
-  }
-
-  public get waitingForRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+    return this.caseManager.activeCase.isMakeSelections ||
+      this.caseManager.activeCase.isVerdictSelection;
   }
 
   public get roleText(): string {
@@ -31,7 +27,7 @@ export class JuryRoleComponent implements OnInit {
   }
 
   public get assigningRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+    return this.caseManager.activeCase.isAssignRoles;
   }
 
   public get shouldShowEvidence(): boolean {

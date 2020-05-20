@@ -19,39 +19,43 @@ export class JudgeRoleComponent implements OnInit {
   }
 
   public get waitingForRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles && !this.showRoleLock;
+    return this.caseManager.activeCase.isAssignRoles && !this.showRoleLock;
   }
 
   public get waitingNotForRoles(): boolean {
-    return this.caseManager.statusIsMakeSelections && !this.showStructureOptions;
+    return this.caseManager.activeCase.isMakeSelections && !this.showStructureOptions;
   }
 
   public get showRoleLock(): boolean {
-    return this.assigningRoles && this.caseManager.essentialNamesSet;
+    return this.caseManager.activeCase.isAssignRoles
+      && this.caseManager.activeCase.areEssentialNamesSet;
   }
 
   public get showStructureOptions(): boolean {
-    return this.caseManager.statusIsMakeSelections && this.caseManager.allEvidenceSelected && this.caseManager.allWitnessesSelected;
+    return this.caseManager.activeCase.isMakeSelections &&
+      this.caseManager.activeCase.isAllEvidenceSelected &&
+      this.caseManager.activeCase.allWitnessesReady;
   }
 
   public get showOpeningArguments(): boolean {
-    return this.caseManager.statusIsOpeningArguments;
+    return this.caseManager.activeCase.isOpeningArguments;
   }
 
   public get showCrossfire(): boolean {
-    return this.caseManager.statusIsCrossfire;
+    return this.caseManager.activeCase.isCrossfire;
   }
 
   public get showCaseStructure(): boolean {
-    return !this.assigningRoles && (this.showStructureOptions || !this.caseManager.statusIsMakeSelections);
+    return !this.caseManager.activeCase.isAssignRoles &&
+      (this.showStructureOptions || !this.caseManager.activeCase.isMakeSelections);
   }
 
   public get showClosingArguments(): boolean {
-    return this.caseManager.statusIsClosingArguments;
+    return this.caseManager.activeCase.isClosingArguments;
   }
 
   public get showFreeTime(): boolean {
-    return this.caseManager.statusIsFreeTime;
+    return this.caseManager.activeCase.isFreeTime;
   }
 
   public get canStartVerdictSelection(): boolean {
@@ -59,19 +63,19 @@ export class JudgeRoleComponent implements OnInit {
   }
 
   public get needEvidenceRevealed(): boolean {
-    return this.caseManager.statusAtEnd && !this.canStartVerdictSelection;
+    return this.caseManager.activeCase.verdictIsNext && !this.canStartVerdictSelection;
   }
 
   public get showVerdictOptions(): boolean {
-    return this.caseManager.statusIsVerdictSelection;
+    return this.caseManager.activeCase.isVerdictSelection;
   }
 
   public get shouldShowEvidence(): boolean {
     return this.caseManager.shouldShowEvidence;
   }
 
-  public get assigningRoles(): boolean {
-    return this.caseManager.statusIsAssignRoles;
+  public get showRoleAssignment(): boolean {
+    return this.caseManager.activeCase.isAssignRoles;
   }
 
   public get roleText(): string {
@@ -79,7 +83,7 @@ export class JudgeRoleComponent implements OnInit {
   }
 
   public get witnesses(): WitnessPlayer[] {
-    return this.caseManager.witnesses;
+    return this.caseManager.activeCase.witnessPlayers;
   }
 
   constructor(

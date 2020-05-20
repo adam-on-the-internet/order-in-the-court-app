@@ -11,7 +11,7 @@
                 <app-cast></app-cast>
               </div>
               <div class="col-md-6">
-                <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingForRoles"></ng-container>
+                <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="assigningRoles"></ng-container>
                 <br>
                 <p>
                   <button class="btn btn-secondary" (click)="backToRoleSelect()">

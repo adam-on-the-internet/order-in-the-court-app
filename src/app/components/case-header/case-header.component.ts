@@ -22,7 +22,7 @@ export class CaseHeaderComponent {
   }
 
   public get caseClosed(): boolean {
-    return this.caseManagerService.statusIsCaseClosed;
+    return this.caseManagerService.activeCase.isClosed;
   }
 
   public get notGuilty(): boolean {
@@ -34,7 +34,7 @@ export class CaseHeaderComponent {
   }
 
   public get status(): string {
-    return this.caseManagerService.statusText;
+    return this.caseManagerService.activeCase.statusText;
   }
 
   constructor(

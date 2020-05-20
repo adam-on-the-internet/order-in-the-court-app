@@ -23,7 +23,7 @@ export class WaitingComponent {
   }
 
   public get statusIsAssignRoles(): boolean {
-    return this.caseManager.caseReady && this.caseManager.statusIsAssignRoles;
+    return this.caseManager.caseReady && this.caseManager.activeCase.isAssignRoles;
   }
 
   public get neededRoles(): string[] {
@@ -41,15 +41,15 @@ export class WaitingComponent {
   }
 
   public get statusIsMakeSelections(): boolean {
-    return this.caseManager.caseReady && this.caseManager.statusIsMakeSelections;
+    return this.caseManager.caseReady && this.caseManager.activeCase.isMakeSelections;
   }
 
   public get statusIsVerdictSelection(): boolean {
-    return this.caseManager.caseReady && this.caseManager.statusIsVerdictSelection;
+    return this.caseManager.caseReady && this.caseManager.activeCase.isVerdictSelection;
   }
 
   private get makeSelectionsWaitingMessage(): string {
-    if (this.caseManager.allEvidenceSelected && this.caseManager.allWitnessesSelected) {
+    if (this.caseManager.activeCase.isAllEvidenceSelected && this.caseManager.activeCase.allWitnessesReady) {
       return "Waiting for the judge to start the case...";
     } else {
       return "Waiting for selections...";
@@ -58,13 +58,13 @@ export class WaitingComponent {
 
   public get neededSelections(): string[] {
     const necessarySelections = [];
-    if (!this.caseManager.allPlaintiffEvidenceSelected) {
+    if (!this.caseManager.activeCase.isAllPlaintiffEvidenceSelected) {
       necessarySelections.push(this.plaintiffMessage);
     }
-    if (!this.caseManager.allDefendantEvidenceSelected) {
+    if (!this.caseManager.activeCase.isAllDefendantEvidenceSelected) {
       necessarySelections.push(this.defendantMessage);
     }
-    if (!this.caseManager.allWitnessesSelected) {
+    if (!this.caseManager.activeCase.allWitnessesReady) {
       necessarySelections.push(this.witnessMessage);
     }
     return necessarySelections;
@@ -81,15 +81,15 @@ export class WaitingComponent {
   }
 
   private get witnessMessage(): string {
-    const chosen = this.caseManager.witnesses.filter((wit) => {
+    const chosen = this.caseManager.activeCase.witnessPlayers.filter((wit) => {
       return wit.character !== "???";
     }).length;
-    const needed = this.caseManager.witnesses.length;
+    const needed = this.caseManager.activeCase.witnessPlayers.length;
     return `Witnesses are being chosen (${chosen}/${needed})`;
   }
 
   private get assignRolesWaitingMessage() {
-    if (this.caseManager.essentialNamesSet) {
+    if (this.caseManager.activeCase.areEssentialNamesSet) {
       return "Waiting for the judge to lock the roles...";
     } else {
       return "Waiting for more players...";

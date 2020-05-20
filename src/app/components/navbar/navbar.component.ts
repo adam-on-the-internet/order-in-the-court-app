@@ -21,11 +21,11 @@ export class NavbarComponent {
   }
 
   public get showCase(): boolean {
-    return this.caseManagerService.caseReady && !this.caseManagerService.statusIsCaseClosed;
+    return this.caseManagerService.caseReady && !this.caseManagerService.activeCase.isClosed;
   }
 
   public get caseName(): string {
-    return this.caseManagerService.caseName;
+    return this.caseManagerService.activeCase.fullCaseName;
   }
 
   public get nonprod(): boolean {

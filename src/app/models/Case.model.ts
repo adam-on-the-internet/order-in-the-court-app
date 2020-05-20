@@ -1,5 +1,6 @@
 import {Evidence} from "./Evidence.model";
 import {Witness} from "./Witness.model";
+import {WitnessPlayer} from "./WitnessPlayer.model";
 
 export interface Case {
   _id: string;
@@ -33,4 +34,39 @@ export interface Case {
   status: number;
   closedDate: string;
   openedDate: string;
+
+  // attributes
+  fullCaseName: string;
+  areEssentialNamesSet: boolean;
+  isAnyNameSet: boolean;
+  howManyPlayerNames: number;
+  howManyWitnessNames: number;
+  judgeNameSet: boolean;
+  plaintiffNameSet: boolean;
+  defendantNameSet: boolean;
+  witness1NameSet: boolean;
+  witness2NameSet: boolean;
+  witness3NameSet: boolean;
+  witness4NameSet: boolean;
+  witness5NameSet: boolean;
+  howManyWitnessesSelected: number;
+  allWitnessesReady: boolean;
+  witnessPlayers: WitnessPlayer[];
+  isAllEvidenceSelected: boolean;
+  isAllPlaintiffEvidenceSelected: boolean;
+  isAllDefendantEvidenceSelected: boolean;
+  isAllEvidenceRevealed: boolean;
+  isAllPlaintiffEvidenceRevealed: boolean;
+  isAllDefendantEvidenceRevealed: boolean;
+  statusText: string;
+  isAssignRoles: boolean;
+  isMakeSelections: boolean;
+  isFreeTime: boolean;
+  isOpeningArguments: boolean;
+  isCrossfire: boolean;
+  isClosingArguments: boolean;
+  isVerdictSelection: boolean;
+  isClosed: boolean;
+  isInProgress: boolean;
+  verdictIsNext: boolean;
 }

@@ -5,19 +5,8 @@ import {LogService} from "./log.service";
 import {NavHelperService} from "./nav-helper.service";
 import {interval, Subscription} from "rxjs";
 import {BooleanHelper} from "../utilities/boolean.util";
-import {WitnessPlayer} from "../models/WitnessPlayer.model";
 import {CaseNameService} from "./case-name.service";
 import {CaseStatusService} from "./case-status.service";
-import {
-  ASSIGN_ROLES,
-  CASE_CLOSED,
-  CLOSING_ARGUMENTS,
-  CROSSFIRE,
-  FREE_TIME,
-  MAKE_SELECTIONS,
-  OPENING_ARGUMENTS,
-  VERDICT_SELECTION
-} from "../constants/caseStatus.constants";
 import {CaseEvidenceService} from "./case-evidence.service";
 
 @Injectable({
@@ -29,198 +18,20 @@ export class CaseManagerService {
   private caseId: string = null;
   private caseRefresher: Subscription;
 
-  public get caseName(): string {
-    return `The Case of the ${this.activeCase.name}`;
-  }
-
   public get caseReady(): boolean {
     return this.activeCase !== null;
   }
 
-  public get statusText(): string {
-    if (this.statusIsAssignRoles) {
-      return "Role Assignment";
-    } else if (this.statusIsMakeSelections) {
-      return "Evidence & Witness Selection";
-    } else if (this.statusIsFreeTime) {
-      return "Open Trial";
-    } else if (this.statusIsOpeningArguments) {
-      return "Opening Arguments";
-    } else if (this.statusIsCrossfire) {
-      return "Crossfire Debate";
-    } else if (this.statusIsClosingArguments) {
-      return "Closing Arguments";
-    } else if (this.statusIsVerdictSelection) {
-      return "Final Ruling";
-    } else if (this.statusIsCaseClosed) {
-      return "Case Closed";
-    }
-    return "CASE STATUS";
-  }
-
-  public get caseUnstarted(): boolean {
-    return this.activeCase.status === 0;
-  }
-
-  public get hasJudgeName(): boolean {
-    return BooleanHelper.hasValue(this.activeCase.judgeName);
-  }
-
-  public get hasPlaintiffName(): boolean {
-    return BooleanHelper.hasValue(this.activeCase.plaintiffName);
-  }
-
-  public get hasDefendantName(): boolean {
-    return BooleanHelper.hasValue(this.activeCase.defendantName);
-  }
-
-  public get hasAWitness(): boolean {
-    return this.witnesses.length > 0;
-  }
-
   public get hasAName(): boolean {
-    return this.hasAWitness || this.hasJudgeName || this.hasPlaintiffName || this.hasDefendantName;
-  }
-
-  public get hasMaxWitnesses(): boolean {
-    return this.witnesses.length >= 5;
-  }
-
-  public get allPlaintiffEvidenceSelected(): boolean {
-    return this.activeCase.plaintiffEvidenceSelected.length >= 10;
-  }
-
-  public get allDefendantEvidenceSelected(): boolean {
-    return this.activeCase.defendantEvidenceSelected.length >= 10;
-  }
-
-  public get allPlaintiffEvidenceRevealed(): boolean {
-    return this.activeCase.plaintiffEvidenceCourt.length >= 5;
-  }
-
-  public get allDefendantEvidenceRevealed(): boolean {
-    return this.activeCase.defendantEvidenceCourt.length >= 5;
-  }
-
-  public get allEvidenceSelected(): boolean {
-    return this.allPlaintiffEvidenceSelected && this.allDefendantEvidenceSelected;
-  }
-
-  public get allWitnessesSelected(): boolean {
-    const witness1Ready = this.activeCase.witnessName1 === null || this.activeCase.selectedWitness1 !== null;
-    const witness2Ready = this.activeCase.witnessName2 === null || this.activeCase.selectedWitness2 !== null;
-    const witness3Ready = this.activeCase.witnessName3 === null || this.activeCase.selectedWitness3 !== null;
-    const witness4Ready = this.activeCase.witnessName4 === null || this.activeCase.selectedWitness4 !== null;
-    const witness5Ready = this.activeCase.witnessName5 === null || this.activeCase.selectedWitness5 !== null;
-    return witness1Ready && witness2Ready && witness3Ready && witness4Ready && witness5Ready;
-  }
-
-  public get essentialNamesSet(): boolean {
-    return this.hasDefendantName && this.hasPlaintiffName && this.hasJudgeName;
-  }
-
-  public get witnesses(): WitnessPlayer[] {
-    const myWitnesses: WitnessPlayer[] = [];
-    if (BooleanHelper.hasValue(this.activeCase.witnessName1)) {
-      const selectedWitness1 = this.activeCase.selectedWitness1 ? this.activeCase.selectedWitness1.name : null;
-      myWitnesses.push({
-        name: this.activeCase.witnessName1,
-        character: selectedWitness1,
-        witnessNumber: 1,
-      });
-    }
-    if (BooleanHelper.hasValue(this.activeCase.witnessName2)) {
-      const selectedWitness2 = this.activeCase.selectedWitness2 ? this.activeCase.selectedWitness2.name : null;
-      myWitnesses.push({
-        name: this.activeCase.witnessName2,
-        character: selectedWitness2,
-        witnessNumber: 2,
-      });
-    }
-    if (BooleanHelper.hasValue(this.activeCase.witnessName3)) {
-      const selectedWitness3 = this.activeCase.selectedWitness3 ? this.activeCase.selectedWitness3.name : null;
-      myWitnesses.push({
-        name: this.activeCase.witnessName3,
-        character: selectedWitness3,
-        witnessNumber: 3,
-      });
-    }
-    if (BooleanHelper.hasValue(this.activeCase.witnessName4)) {
-      const selectedWitness4 = this.activeCase.selectedWitness4 ? this.activeCase.selectedWitness4.name : null;
-      myWitnesses.push({
-        name: this.activeCase.witnessName4,
-        character: selectedWitness4,
-        witnessNumber: 4,
-      });
-    }
-    if (BooleanHelper.hasValue(this.activeCase.witnessName5)) {
-      const selectedWitness5 = this.activeCase.selectedWitness5 ? this.activeCase.selectedWitness5.name : null;
-      myWitnesses.push({
-        name: this.activeCase.witnessName5,
-        character: selectedWitness5,
-        witnessNumber: 5,
-      });
-    }
-    myWitnesses.forEach((witness) => {
-      if (witness.character === null) {
-        witness.character = "???";
-      }
-    });
-    return myWitnesses;
-  }
-
-  public get statusIsAssignRoles(): boolean {
-    return this.activeCase.status === ASSIGN_ROLES;
-  }
-
-  public get statusIsMakeSelections(): boolean {
-    return this.activeCase.status === MAKE_SELECTIONS;
-  }
-
-  public get statusIsOpeningArguments(): boolean {
-    return this.activeCase.status === OPENING_ARGUMENTS;
-  }
-
-  public get statusIsCrossfire(): boolean {
-    return this.activeCase.status === CROSSFIRE;
-  }
-
-  public get statusIsClosingArguments(): boolean {
-    return this.activeCase.status === CLOSING_ARGUMENTS;
-  }
-
-  public get statusIsFreeTime(): boolean {
-    return this.activeCase.status === FREE_TIME;
-  }
-
-  public get statusIsVerdictSelection(): boolean {
-    return this.activeCase.status === VERDICT_SELECTION;
-  }
-
-  public get statusIsCaseClosed(): boolean {
-    return this.activeCase.status === CASE_CLOSED;
-  }
-
-  public get caseIsOngoing(): boolean {
-    return this.statusIsFreeTime || this.statusIsOpeningArguments ||
-      this.statusIsCrossfire || this.statusIsClosingArguments;
+    return this.activeCase.howManyPlayerNames > 0;
   }
 
   public get shouldShowEvidence(): boolean {
-    return this.statusIsFreeTime || this.statusIsOpeningArguments ||
-      this.statusIsCrossfire || this.statusIsClosingArguments || this.statusIsVerdictSelection;
-  }
-
-  public get statusAtEnd(): boolean {
-    return this.statusIsFreeTime || this.statusIsClosingArguments;
+    return this.activeCase.isInProgress || this.activeCase.isVerdictSelection;
   }
 
   public get canStartVerdictSelection(): boolean {
-    return this.statusAtEnd && this.allEvidenceRevealed;
-  }
-
-  public get allEvidenceRevealed(): boolean {
-    return this.allPlaintiffEvidenceRevealed && this.allDefendantEvidenceRevealed;
+    return this.activeCase.verdictIsNext && this.activeCase.isAllEvidenceRevealed;
   }
 
   constructor(
@@ -484,7 +295,7 @@ export class CaseManagerService {
             console.log("updating...");
             this.activeCase = tempCase;
           }
-          if (this.statusIsCaseClosed) {
+          if (this.activeCase.isClosed) {
             this.caseRefresher.unsubscribe();
             this.navHelper.goToArchivedCase(this.activeCase._id);
           }
@@ -499,16 +310,16 @@ export class CaseManagerService {
     if (statusChanged) {
       return true;
     }
-    if (this.statusIsAssignRoles) {
+    if (this.activeCase.isAssignRoles) {
       return this.haveRolesChanged(newCase);
     }
-    if (this.statusIsMakeSelections) {
+    if (this.activeCase.isMakeSelections) {
       return this.haveSelectionsChanged(newCase);
     }
-    if (this.caseIsOngoing) {
+    if (this.activeCase.isInProgress) {
       return this.hasCourtEvidenceChanged(newCase);
     }
-    if (this.statusIsVerdictSelection) {
+    if (this.activeCase.isVerdictSelection) {
       return false;
     }
     return true;
