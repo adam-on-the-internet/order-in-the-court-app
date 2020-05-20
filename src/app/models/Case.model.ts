@@ -69,4 +69,5 @@ export interface Case {
   isClosed: boolean;
   isInProgress: boolean;
   verdictIsNext: boolean;
+  lastStatusUpdateDate: string;
 }

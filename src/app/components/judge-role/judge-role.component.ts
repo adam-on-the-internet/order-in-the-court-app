@@ -82,6 +82,16 @@ export class JudgeRoleComponent implements OnInit {
     return JUDGE_ROLE;
   }
 
+  public get status(): string {
+    return this.caseManager.activeCase.statusText;
+  }
+
+  public get timerValue() {
+    const phaseStart = new Date(this.caseManager.activeCase.lastStatusUpdateDate);
+    const now = new Date();
+    return JudgeRoleComponent.timeDiffCalc(phaseStart, now);
+  }
+
   public get witnesses(): WitnessPlayer[] {
     return this.caseManager.activeCase.witnessPlayers;
   }
@@ -135,6 +145,31 @@ export class JudgeRoleComponent implements OnInit {
   private loadCase() {
     this.caseId = this.route.snapshot.paramMap.get("id");
     this.caseManager.loadExistingCase(this.caseId);
+  }
+
+  private static timeDiffCalc(dateFuture, dateNow) {
+    let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
+
+    // calculate days
+    const days = Math.floor(diffInMilliSeconds / 86400);
+    diffInMilliSeconds -= days * 86400;
+
+    // calculate hours
+    const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
+    diffInMilliSeconds -= hours * 3600;
+
+    // calculate minutes
+    const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
+    diffInMilliSeconds -= minutes * 60;
+
+    // calculate seconds
+    const seconds = Math.floor(diffInMilliSeconds) % 60;
+
+    let difference = '';
+
+    difference += (minutes === 0 || hours === 1) ? `${minutes} minute` : `${minutes} minutes`;
+
+    return difference;
   }
 
 }
