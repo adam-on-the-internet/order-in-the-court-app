@@ -38,26 +38,30 @@
             <div class="col-md-6" *ngIf="showCaseStructure">
               <div id="pick-structure" *ngIf="showStructureOptions">
                 <p>
-                  Would you like to play the game with a rough structure, or looser?
+                  Would you like to play the game with a structure or more open-ended?
                 </p>
                 <p>
                   It is recommended to use structure the first play-through.
                 </p>
-                <p>
-                  <button class="btn btn-secondary mx-4" (click)="startOpeningArguments()">
-                    Start Game With Structure
-                  </button>
-                </p>
-                <p>
-                  <button class="btn btn-secondary mx-4" (click)="startFreeTime()">
-                    Start Game Without Structure
-                  </button>
-                </p>
+                <div class="row">
+                  <div class="col-md-10 mx-auto">
+                    <p>
+                      <button class="btn btn-secondary btn-block" (click)="startOpeningArguments()">
+                        Start Game With Structure
+                      </button>
+                    </p>
+                    <p>
+                      <button class="btn btn-secondary btn-block" (click)="startFreeTime()">
+                        Start Game Without Structure
+                      </button>
+                    </p>
+                  </div>
+                </div>
               </div>
               <div id="opening-arguments" *ngIf="showOpeningArguments">
                 <p>
                   <strong>
-                    Opening Arguments
+                    Opening Arguments Script
                   </strong>
                 </p>
                 <p>
@@ -92,7 +96,7 @@
               <div id="crossfire" *ngIf="showCrossfire">
                 <p>
                   <strong>
-                    Crossfire Debate
+                    Crossfire Debate Script
                   </strong>
                 </p>
                 <p>
@@ -124,7 +128,7 @@
               <div id="closing-arguments" *ngIf="showClosingArguments">
                 <p>
                   <strong>
-                    Closing Arguments
+                    Closing Arguments Script
                   </strong>
                 </p>
                 <p>
