@@ -82,6 +82,10 @@ export class JudgeRoleComponent implements OnInit {
     return JUDGE_ROLE;
   }
 
+  public get showTimer(): boolean {
+    return this.caseManager.activeCase.isInProgress;
+  }
+
   public get status(): string {
     return this.caseManager.activeCase.statusText;
   }
