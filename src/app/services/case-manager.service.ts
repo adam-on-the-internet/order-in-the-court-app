@@ -228,7 +228,7 @@ export class CaseManagerService {
         (error) => {
           console.log("close case failed");
         }, () => {
-          this.logService.log("info", "Case Closed: " + this.activeCase.name).subscribe();
+          this.logService.log("info", "Case Closed: The Case of the " + this.activeCase.name).subscribe();
         });
   }
 
