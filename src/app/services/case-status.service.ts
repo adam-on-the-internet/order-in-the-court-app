@@ -5,6 +5,7 @@ import {Case} from "../models/Case.model";
 import {RestUrlBuilder} from "../utilities/rest-url-builder.util";
 import {ServiceUrl} from "../constants/rest.constants";
 import {CookieHelper} from "../utilities/cookie.util";
+import {CaseOptions} from "../models/CaseOptions.model";
 
 const controller = "case";
 
@@ -17,12 +18,12 @@ export class CaseStatusService {
     private http: HttpClient,
   ) { }
 
-  public create(): Observable<Case> {
+  public create(options: CaseOptions = null): Observable<Case> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller
     });
-    return this.http.post(url, null, CookieHelper.headers) as Observable<Case>;
+    return this.http.post(url, options, CookieHelper.headers) as Observable<Case>;
   }
 
   public lockRoles(caseId: string): Observable<any> {
