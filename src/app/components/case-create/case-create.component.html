@@ -16,6 +16,17 @@
             Custom Issue (Advanced)
           </button>
         </div>
+        <div class="row mt-3" id="custom-issue-input" *ngIf="customSelected">
+          <div class="col-md-6 mx-auto">
+            <label for="custom-issue">
+              <strong>
+                The Plaintiff Claims that The Defendant...
+              </strong>
+            </label>
+            <input class="form-control" type="text" id="custom-issue" name="customIssue"
+                   [(ngModel)]="caseOptions.customIssue"/>
+          </div>
+        </div>
         <hr>
         <div class="row">
           <div class="col-md-6 mx-auto">

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {CaseOptions} from "../../models/CaseOptions.model";
 import {BooleanHelper} from "../../utilities/boolean.util";
@@ -23,7 +23,8 @@ export class CaseCreateComponent {
 
   constructor(
     private caseManagerService: CaseManagerService,
-  ) { }
+  ) {
+  }
 
   public selectRandom() {
     this.customSelected = false;
@@ -31,10 +32,10 @@ export class CaseCreateComponent {
   }
 
   public selectCustom() {
-    this.customSelected = true;
     this.caseOptions = {
-      customIssue: null
+      customIssue: "burned down their mansion."
     };
+    this.customSelected = true;
   }
 
   public create() {
