@@ -8,6 +8,7 @@ import {BooleanHelper} from "../utilities/boolean.util";
 import {CaseNameService} from "./case-name.service";
 import {CaseStatusService} from "./case-status.service";
 import {CaseEvidenceService} from "./case-evidence.service";
+import {CaseOptions} from "../models/CaseOptions.model";
 
 @Injectable({
   providedIn: "root"
@@ -44,9 +45,9 @@ export class CaseManagerService {
   ) {
   }
 
-  public createNewCase() {
+  public createNewCase(caseOptions: CaseOptions = null) {
     let newCase: Case;
-    this.caseStatusService.create()
+    this.caseStatusService.create(caseOptions)
       .subscribe((res) => newCase = res,
         (error) => {
           console.log("make case failed");

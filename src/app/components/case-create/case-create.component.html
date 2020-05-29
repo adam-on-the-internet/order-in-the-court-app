@@ -2,17 +2,28 @@
   <div class="row">
     <div class="col-md-8 mx-auto my-3 text-center">
       <app-card [title]="'Create a Case'">
-        <p>
-          How do you want your case set up? (NOTE: Custom Setup is not yet available)
-        </p>
-        <p>
-          <button class="btn btn-secondary mx-2">Random Setup (Standard)</button>
-          <button class="btn btn-secondary mx-2" disabled>Custom Setup (Advanced)</button>
-        </p>
         <hr>
-        <button class="btn btn-primary btn-block" (click)="create()">
-          Create Case
-        </button>
+        <label for="issue-select">
+          Do you want a randomly generated issue or would you rather provide your own?
+        </label>
+        <div id="issue-select">
+          <button class="btn btn-secondary mx-2 my-2" (click)="selectRandom()">
+            <i class="fa fa-check" *ngIf="!customSelected"></i>
+            Random Issue (Standard)
+          </button>
+          <button class="btn btn-secondary mx-2 my-2" (click)="selectCustom()">
+            <i class="fa fa-check" *ngIf="customSelected"></i>
+            Custom Issue (Advanced)
+          </button>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <button class="btn btn-success btn-block" (click)="create()" [disabled]="incomplete">
+              Create Case
+            </button>
+          </div>
+        </div>
       </app-card>
     </div>
   </div>
