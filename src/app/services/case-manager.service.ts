@@ -304,10 +304,7 @@ export class CaseManagerService {
   }
 
   private shouldUpdateCase(newCase: Case): boolean {
-    if (this.activeCase === null) {
-      return true;
-    }
-    return newCase.version !== this.activeCase.version;
+    return !this.caseReady || newCase.version !== this.activeCase.version;
   }
 
   private shouldLoadCase(id: string) {

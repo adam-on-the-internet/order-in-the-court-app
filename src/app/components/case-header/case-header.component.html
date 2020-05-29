@@ -10,6 +10,13 @@
       <i class="fa fa-info-circle"></i>
       Case Info
     </a>
+    <a class="btn btn-outline-secondary mr-3"
+       data-toggle="modal"
+       href="#case-record"
+    >
+      <i class="fa fa-keyboard-o"></i>
+      Case Record
+    </a>
     <a class="btn btn-outline-secondary"
        data-toggle="modal"
        href="#case-players"
@@ -58,6 +65,10 @@
   </p>
 </app-modal-box-basic>
 
-<app-modal-box-basic [boxId]="'case-players'" [title]="'Case Players'" *ngIf="ready">
+<app-modal-box-basic [boxId]="'case-players'" [title]="'Players & Roles'" *ngIf="ready">
   <app-cast></app-cast>
+</app-modal-box-basic>
+
+<app-modal-box-basic [boxId]="'case-record'" [title]="'Case Record'" *ngIf="ready">
+  <app-case-record></app-case-record>
 </app-modal-box-basic>
