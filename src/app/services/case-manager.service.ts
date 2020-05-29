@@ -304,7 +304,12 @@ export class CaseManagerService {
   }
 
   private shouldUpdateCase(newCase: Case): boolean {
-    return !this.caseReady || newCase.version !== this.activeCase.version;
+    if (!this.caseReady) {
+      return true;
+    }
+    const versionChanged = newCase.version !== this.activeCase.version;
+    const idMismatch = newCase._id !== this.activeCase._id;
+    return idMismatch || versionChanged;
   }
 
   private shouldLoadCase(id: string) {
