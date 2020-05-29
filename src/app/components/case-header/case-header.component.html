@@ -1,47 +1,75 @@
 <div class="text-center" *ngIf="ready">
-  <h4 class="card-title">
-    {{case.fullCaseName}}: {{status}}
-  </h4>
-  <h5>
-    <a class="btn btn-outline-secondary mr-3"
-       data-toggle="modal"
-       href="#case-info"
-    >
-      <i class="fa fa-info-circle"></i>
-      Case Info
-    </a>
-    <a class="btn btn-outline-secondary mr-3"
-       data-toggle="modal"
-       href="#case-record"
-    >
-      <i class="fa fa-keyboard-o"></i>
-      Case Record
-    </a>
-    <a class="btn btn-outline-secondary"
-       data-toggle="modal"
-       href="#case-players"
-    >
-      <i class="fa fa-users"></i>
-      Players & Roles
-    </a>
-  </h5>
-  <p>
-    <strong>Issue:</strong>
-    The Plaintiff claims that The Defendant
-    <strong>
-      {{issue}}
-    </strong>
-  </p>
-  <p *ngIf="caseClosed">
-    <strong>Verdict:</strong>
-    The Court finds the Defendant
-    <strong>
-      <span *ngIf="notGuilty">NOT</span>
-      GUILTY
-    </strong>
-    .
-  </p>
-  <hr>
+  <div class="row" id="case-name">
+    <div class="col-md-12">
+      <h4 class="card-title">
+        {{case.fullCaseName}}: {{status}}
+      </h4>
+    </div>
+  </div>
+  <div class="row" id="case-details">
+    <div class="col-md-12">
+      <a class="btn btn-outline-secondary mr-3"
+         data-toggle="modal"
+         href="#case-info"
+      >
+        <i class="fa fa-info-circle"></i>
+        Case Info
+      </a>
+      <a class="btn btn-outline-secondary mr-3"
+         data-toggle="modal"
+         href="#case-record"
+      >
+        <i class="fa fa-keyboard-o"></i>
+        Case Record
+      </a>
+      <a class="btn btn-outline-secondary"
+         data-toggle="modal"
+         href="#case-players"
+      >
+        <i class="fa fa-users"></i>
+        Players & Roles
+      </a>
+    </div>
+  </div>
+  <div class="row" id="case-issue">
+    <div class="col-md-12">
+      <p>
+        <strong>Issue:</strong>
+        The Plaintiff claims that The Defendant
+        <strong>
+          {{issue}}
+        </strong>
+      </p>
+    </div>
+  </div>
+  <div class="row" id="case-verdict">
+    <div class="col-md-12">
+      <p *ngIf="caseClosed">
+        <strong>Verdict:</strong>
+        The Court finds the Defendant
+        <strong>
+          <span *ngIf="notGuilty">NOT</span>
+          GUILTY
+        </strong>
+        .
+      </p>
+    </div>
+  </div>
+  <div class="row" id="case-progress" *ngIf="showProgressBar">
+    <div class="col-md-12">
+      <small>
+        Opening Arguments <span class="badge badge-light">1</span>
+      </small>
+      ->
+      <small>
+        Crossfire Debate <span class="badge badge-light">2</span>
+      </small>
+      ->
+      <small>
+        Closing Arguments <span class="badge badge-light">3</span>
+      </small>
+    </div>
+  </div>
 </div>
 
 <app-modal-box-basic [boxId]="'case-info'" [title]="'Case Info'" *ngIf="ready">

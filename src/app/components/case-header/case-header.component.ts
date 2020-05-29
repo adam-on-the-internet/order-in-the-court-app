@@ -37,6 +37,10 @@ export class CaseHeaderComponent {
     return this.caseManagerService.activeCase.statusText;
   }
 
+  public get showProgressBar(): boolean {
+    return false;
+  }
+
   constructor(
     private caseManagerService: CaseManagerService,
   ) {
