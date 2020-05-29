@@ -10,9 +10,10 @@
           <thead>
           <tr>
             <th>Case Name</th>
-            <th>Case Created On:</th>
-            <th>Case Closed On:</th>
+            <th>Case Opened On:</th>
             <ng-container *ngIf="archiveMode">
+              <th>Case Closed On:</th>
+              <th>Defendant was found:</th>
               <th>More Info</th>
             </ng-container>
             <ng-container *ngIf="!archiveMode">
@@ -25,8 +26,12 @@
           <tr *ngFor="let myCase of cases; let i = index">
             <td>The Case of the {{ myCase.name }}</td>
             <td>{{ myCase.openedDate | date:'MMM d, y, h:mm a' }}</td>
-            <td>{{ myCase.closedDate | date:'MMM d, y, h:mm a' }}</td>
             <ng-container *ngIf="archiveMode">
+              <td>{{ myCase.closedDate | date:'MMM d, y, h:mm a' }}</td>
+              <td>
+                <span *ngIf="!myCase.isDefendantGuilty">NOT</span>
+                GUILTY
+              </td>
               <td>
                 <button class="btn btn-secondary" (click)="getMoreInfo(myCase)">
                   More Info
