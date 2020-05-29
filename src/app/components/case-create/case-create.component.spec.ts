@@ -4,6 +4,7 @@ import {CaseCreateComponent} from "./case-create.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
+import {FormsModule} from "@angular/forms";
 
 describe("CaseCreateComponent", () => {
   let component: CaseCreateComponent;
@@ -14,7 +15,7 @@ describe("CaseCreateComponent", () => {
       declarations: [
         CaseCreateComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, FormsModule]
     })
       .compileComponents();
   }));
