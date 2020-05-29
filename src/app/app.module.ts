@@ -52,7 +52,7 @@ import {JuryRoleComponent} from "./components/jury-role/jury-role.component";
 import {WaitingComponent} from "./components/waiting/waiting.component";
 import {TipsComponent} from "./components/tips/tips.component";
 import {SimpleComponentsModule} from "./simple-components/simple-components.module";
-import { CaseRecordComponent } from './components/case-record/case-record.component';
+import { CaseRecordComponent } from "./components/case-record/case-record.component";
 
 @NgModule({
   declarations: [

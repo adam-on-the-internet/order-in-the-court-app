@@ -8,6 +8,7 @@ import {CastComponent} from "../cast/cast.component";
 import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
 import {RevealedEvidenceListComponent} from "../revealed-evidence-list/revealed-evidence-list.component";
 import {RevealedEvidenceComponent} from "../revealed-evidence/revealed-evidence.component";
+import {CaseRecordComponent} from "../case-record/case-record.component";
 
 describe("ArchivedCaseComponent", () => {
   let component: ArchivedCaseComponent;
@@ -17,7 +18,8 @@ describe("ArchivedCaseComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         ArchivedCaseComponent, CaseHeaderComponent,
-        CastComponent, RevealedEvidenceListComponent, RevealedEvidenceComponent
+        CastComponent, RevealedEvidenceListComponent, RevealedEvidenceComponent,
+        CaseRecordComponent,
       ],
       imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })

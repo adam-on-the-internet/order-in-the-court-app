@@ -2,6 +2,9 @@
   <i class="fa fa-keyboard-o"></i>
   Case Records
 </h3>
+<p *ngIf="logs.length === 0">
+  No records available.
+</p>
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let log of logs">
     {{log}}
