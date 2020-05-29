@@ -12,9 +12,16 @@ import {BooleanHelper} from "../../utilities/boolean.util";
   styleUrls: ["./case-select.component.css"]
 })
 export class CaseSelectComponent implements OnInit, OnDestroy {
-  public cases: Case[] = null;
+  private cases: Case[] = null;
 
   private casesRefresher: Subscription;
+
+  public get topCases(): Case[] {
+    if (this.cases.length > 6) {
+      return this.cases.slice(0, 6);
+    }
+    return this.cases;
+  }
 
   public get ready(): boolean {
     return this.cases !== null;

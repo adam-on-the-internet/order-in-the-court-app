@@ -18,7 +18,7 @@
               </button>
             </p>
           </div>
-          <div class="col-md-6 my-3" *ngFor="let myCase of cases">
+          <div class="col-md-6 my-3" *ngFor="let myCase of topCases">
             <a (click)="joinCase(myCase._id)">
               <app-card [title]="'The Case of the ' + myCase.name" [useHover]="true">
                 <hr>
