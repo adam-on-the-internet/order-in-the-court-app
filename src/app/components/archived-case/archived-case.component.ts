@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {BooleanHelper} from "src/app/utilities/boolean.util";
-import {Case} from "src/app/models/Case.model";
 import {ActivatedRoute} from "@angular/router";
 import {CaseManagerService} from "../../services/case-manager.service";
 
@@ -10,7 +9,6 @@ import {CaseManagerService} from "../../services/case-manager.service";
   styleUrls: ["./archived-case.component.scss"]
 })
 export class ArchivedCaseComponent implements OnInit {
-  public case: Case = null;
   public caseId: string = null;
 
   public get ready(): boolean {
