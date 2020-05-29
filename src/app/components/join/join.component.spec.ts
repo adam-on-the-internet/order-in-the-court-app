@@ -7,6 +7,7 @@ import {CastComponent} from "../cast/cast.component";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {RouterTestingModule} from "@angular/router/testing";
 import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
+import {CaseRecordComponent} from "../case-record/case-record.component";
 
 describe("JoinComponent", () => {
   let component: JoinComponent;
@@ -15,7 +16,7 @@ describe("JoinComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        JoinComponent, CaseHeaderComponent, CastComponent,
+        JoinComponent, CaseHeaderComponent, CastComponent, CaseRecordComponent,
       ],
       imports: [FormsModule, HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
     })

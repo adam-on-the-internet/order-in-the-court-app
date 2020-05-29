@@ -9,6 +9,7 @@ import {RevealedEvidenceComponent} from "../revealed-evidence/revealed-evidence.
 import {RevealedEvidenceListComponent} from "../revealed-evidence-list/revealed-evidence-list.component";
 import {WaitingComponent} from "../waiting/waiting.component";
 import {SimpleComponentsModule} from "../../simple-components/simple-components.module";
+import {CaseRecordComponent} from "../case-record/case-record.component";
 
 describe("JuryRoleComponent", () => {
   let component: JuryRoleComponent;
@@ -19,6 +20,7 @@ describe("JuryRoleComponent", () => {
       declarations: [
         JuryRoleComponent, CaseHeaderComponent, CastComponent,
         RevealedEvidenceComponent, RevealedEvidenceListComponent, WaitingComponent,
+        CaseRecordComponent,
       ],
       imports: [RouterTestingModule, HttpClientTestingModule, SimpleComponentsModule, ]
     })
