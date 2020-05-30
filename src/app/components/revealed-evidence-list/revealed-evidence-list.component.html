@@ -3,10 +3,6 @@
   <i class="fa fa-search"></i>
   {{listName}}
 </h5>
-<h6 class="card-subtitle mb-2 text-muted">
-  {{ revealedEvidence.length }} of
-  5 revealed
-</h6>
 <div class="card-text">
   <p *ngIf="revealedEvidence.length === 0">
     No {{listName}} has been revealed yet.
@@ -14,6 +10,9 @@
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let evidence of revealedEvidence">
       {{ evidence.name }}
+    </li>
+    <li class="list-group-item" *ngFor="let count of missingEvidenceCount">
+      ???
     </li>
   </ul>
 </div>

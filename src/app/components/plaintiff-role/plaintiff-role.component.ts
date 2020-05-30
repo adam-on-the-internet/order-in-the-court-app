@@ -1,8 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {CaseManagerService} from "../../services/case-manager.service";
 import {ActivatedRoute} from "@angular/router";
-import {Evidence} from "../../models/Evidence.model";
-import {EVIDENCE_HELP, PLAINTIFF_ROLE} from "../../constants/rule.constants";
+import {PLAINTIFF_ROLE} from "../../constants/rule.constants";
 
 @Component({
   selector: "app-plaintiff-role",
@@ -32,45 +31,12 @@ export class PlaintiffRoleComponent implements OnInit {
       !this.caseManager.activeCase.isStartingDefendantEvidenceRevealed;
   }
 
-  public get poolEvidence(): Evidence[] {
-    return this.caseManager.activeCase.plaintiffEvidencePool;
-  }
-
-  public get courtEvidence(): Evidence[] {
-    return this.caseManager.activeCase.plaintiffEvidenceCourt;
-  }
-
-  public get evidenceHelp(): string {
-    return EVIDENCE_HELP;
-  }
-
-  public get showEvidenceRow(): boolean {
-    return this.showOtherEvidence || this.someEvidenceSelected;
-  }
-
-  public get showOtherEvidence(): boolean {
-    return this.caseManager.shouldShowEvidence;
-  }
-
-  public get otherListName(): string {
-    return "Defendant Evidence";
-  }
-
-  public get otherEvidence(): Evidence[] {
-    return this.caseManager.activeCase.defendantEvidenceCourt;
-  }
-
-  public get someEvidenceSelected(): boolean {
-    return this.poolEvidence.length +
-      this.courtEvidence.length > 0;
-  }
-
   public get roleText(): string {
     return PLAINTIFF_ROLE;
   }
 
-  public get canRevealEvidence(): boolean {
-    return this.caseManager.activeCase.isInProgress && !this.caseManager.activeCase.isAllPlaintiffEvidenceRevealed;
+  public get showRevealedEvidence(): boolean {
+    return this.caseManager.shouldShowEvidence;
   }
 
   constructor(
@@ -85,14 +51,6 @@ export class PlaintiffRoleComponent implements OnInit {
 
   public backToRoleSelect() {
     this.caseManager.removePlaintiffName();
-  }
-
-  public selectEvidence(evidence: Evidence) {
-    this.caseManager.pickStartingDefendantEvidence(evidence._id);
-  }
-
-  public revealEvidence(evidence: Evidence) {
-    this.caseManager.revealPlaintiffEvidence(evidence._id);
   }
 
   private loadCase() {

@@ -53,6 +53,7 @@ import {WaitingComponent} from "./components/waiting/waiting.component";
 import {TipsComponent} from "./components/tips/tips.component";
 import {SimpleComponentsModule} from "./simple-components/simple-components.module";
 import { CaseRecordComponent } from "./components/case-record/case-record.component";
+import { EvidenceOperationsComponent } from "./components/evidence-operations/evidence-operations.component";
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { CaseRecordComponent } from "./components/case-record/case-record.compon
     WaitingComponent,
     TipsComponent,
     CaseRecordComponent,
+    EvidenceOperationsComponent,
   ],
   imports: [
     BrowserModule,

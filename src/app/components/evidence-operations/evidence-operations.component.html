@@ -1,0 +1,68 @@
+<ng-container *ngIf="ready">
+  <section
+    id="select-evidence"
+    class="mb-3"
+    *ngIf="showSelectStartingEvidence"
+  >
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <h5>
+          <i class="fa fa-search"></i>
+          Select Opponent Evidence
+        </h5>
+        <p>Select 1 piece of evidence that your opponent must use.</p>
+      </div>
+      <div class="col-md-4 my-2"
+           *ngFor="let evidence of poolEvidence">
+        <a
+          (click)="selectEvidence(evidence)"
+        >
+          <app-card [useHover]="true">
+            <h6>
+              <i class="fa fa-search"></i>
+              {{ evidence.name }}
+            </h6>
+          </app-card>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section
+    id="present-evidence"
+    class="mb-3"
+    *ngIf="showPresentEvidence"
+  >
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <h5>
+          <i class="fa fa-search"></i>
+          Present Your Evidence
+        </h5>
+        <p>
+          1 piece of evidence has been selected for you by your opponent.
+        </p>
+        <p>
+          You must present 4 more pieces of evidence.
+        </p>
+        <p>
+          Find creative ways to tie this evidence to your story and make your case!
+        </p>
+      </div>
+      <div class="col-md-4 my-2"
+           *ngFor="let evidence of poolEvidence">
+        <a
+          (click)="revealEvidence(evidence)"
+        >
+          <app-card [useHover]="true">
+            <h6>
+              <i class="fa fa-search"></i>
+              {{ evidence.name }}
+            </h6>
+          </app-card>
+        </a>
+      </div>
+    </div>
+  </section>
+</ng-container>
