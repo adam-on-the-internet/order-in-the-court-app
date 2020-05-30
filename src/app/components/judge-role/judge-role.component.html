@@ -4,6 +4,7 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
         <ng-container *ngIf="caseLoaded">
+          <hr>
           <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
           <div id="role-assignment" *ngIf="showRoleAssignment">
             <div class="row">
