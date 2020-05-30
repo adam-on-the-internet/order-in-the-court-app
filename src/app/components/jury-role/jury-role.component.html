@@ -4,9 +4,9 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
         <ng-container *ngIf="caseLoaded">
-          <hr>
-          <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
-          <div id="role-assignment" *ngIf="assigningRoles">
+          <ng-container [ngTemplateOutlet]="loadingSectionWithHr" *ngIf="waitingNotForRoles"></ng-container>
+          <section id="role-assignment" *ngIf="assigningRoles">
+            <hr>
             <div class="row">
               <div class="col-md-6">
                 <app-cast></app-cast>
@@ -23,22 +23,33 @@
                 </p>
               </div>
             </div>
+          </section>
+          <section id="role-details">
             <hr>
-          </div>
-          <h5>Jury Role</h5>
-          <p>
-            {{roleText}}
-          </p>
-          <div id="case-in-progress" *ngIf="shouldShowEvidence">
+            <div class="row">
+              <div class="col-md-12">
+                <h5>Jury Role</h5>
+                <p>
+                  {{roleText}}
+                </p>
+              </div>
+            </div>
+          </section>
+          <section id="case-in-progress" *ngIf="shouldShowEvidence">
+            <hr>
             <app-revealed-evidence></app-revealed-evidence>
-          </div>
+          </section>
         </ng-container>
       </app-card>
     </div>
   </div>
 </app-body>
 
+<ng-template #loadingSectionWithHr>
+  <hr>
+  <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
+</ng-template>
+
 <ng-template #loadingSection>
   <app-waiting></app-waiting>
-  <hr>
 </ng-template>

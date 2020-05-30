@@ -4,9 +4,9 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
         <ng-container *ngIf="caseLoaded">
-          <hr>
-          <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
-          <div id="back-to-role-select" *ngIf="assigningRoles">
+          <ng-container [ngTemplateOutlet]="loadingSectionWithHr" *ngIf="waitingNotForRoles"></ng-container>
+          <section id="back-to-role-select" *ngIf="assigningRoles">
+            <hr>
             <div class="row">
               <div class="col-md-6">
                 <app-cast></app-cast>
@@ -23,25 +23,32 @@
                 </p>
               </div>
             </div>
-          </div>
-          <div id="role-help">
-            <h5>Defendant Role</h5>
-            <p>
-              {{roleText}}
-            </p>
+          </section>
+          <section id="role-help">
             <hr>
-          </div>
-          <div
+            <div class="row">
+              <div class="col-md-12">
+                <h5>Defendant Role</h5>
+                <p>
+                  {{roleText}}
+                </p>
+              </div>
+            </div>
+          </section>
+          <section
             id="select-evidence"
             class="mb-3"
             *ngIf="showEvidencePool"
           >
-            <h5>
-              <i class="fa fa-search"></i>
-              Select Your Evidence
-            </h5>
-            <p>Select 1 piece of evidence that your opponent must use.</p>
+            <hr>
             <div class="row">
+              <div class="col-md-12">
+                <h5>
+                  <i class="fa fa-search"></i>
+                  Select Your Evidence
+                </h5>
+                <p>Select 1 piece of evidence that your opponent must use.</p>
+              </div>
               <div class="col-md-4 my-2"
                    *ngFor="let evidence of evidencePool">
                 <a
@@ -56,9 +63,9 @@
                 </a>
               </div>
             </div>
+          </section>
+          <section id="selected-evidence" *ngIf="showEvidenceRow">
             <hr>
-          </div>
-          <div id="selected-evidence" *ngIf="showEvidenceRow">
             <div class="row">
               <div class="col-md-6" *ngIf="someEvidenceSelected">
                 <h5>
@@ -105,14 +112,18 @@
                 </app-revealed-evidence-list>
               </div>
             </div>
-          </div>
+          </section>
         </ng-container>
       </app-card>
     </div>
   </div>
 </app-body>
 
+<ng-template #loadingSectionWithHr>
+  <hr>
+  <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
+</ng-template>
+
 <ng-template #loadingSection>
   <app-waiting></app-waiting>
-  <hr>
 </ng-template>

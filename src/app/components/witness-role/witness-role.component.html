@@ -4,9 +4,9 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
         <ng-container *ngIf="caseLoaded">
-          <hr>
-          <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
-          <div id="role-assignment" *ngIf="assigningRoles">
+          <ng-container [ngTemplateOutlet]="loadingSectionWithHr" *ngIf="waitingNotForRoles"></ng-container>
+          <section id="role-assignment" *ngIf="assigningRoles">
+            <hr>
             <div class="row">
               <div class="col-md-6">
                 <app-cast></app-cast>
@@ -23,19 +23,21 @@
                 </p>
               </div>
             </div>
-            <hr>
-          </div>
-          <div
+          </section>
+          <section
             id="select-witness"
             class="mb-3"
             *ngIf="showWitnessPool"
           >
-            <h5>
-              <i class="fa fa-user-secret"></i>
-              Select Your Witness
-            </h5>
-            <p>Select which witness you'd like to play as.</p>
+            <hr>
             <div class="row">
+              <div class="col-md-12">
+                <h5>
+                  <i class="fa fa-user-secret"></i>
+                  Select Your Witness
+                </h5>
+                <p>Select which witness you'd like to play as.</p>
+              </div>
               <div class="col-md-4 my-2"
                    *ngFor="let witness of witnessPool">
                 <a
@@ -50,9 +52,9 @@
                 </a>
               </div>
             </div>
+          </section>
+          <section id="role-help">
             <hr>
-          </div>
-          <div id="role-help">
             <div class="row">
               <div class="col-md-6">
                 <h5>Witness #{{myWitness.witnessNumber}} Role</h5>
@@ -78,18 +80,22 @@
                 </ul>
               </div>
             </div>
+          </section>
+          <section id="case-in-progress" *ngIf="shouldShowEvidence">
             <hr>
-          </div>
-          <div id="case-in-progress" *ngIf="shouldShowEvidence">
             <app-revealed-evidence></app-revealed-evidence>
-          </div>
+          </section>
         </ng-container>
       </app-card>
     </div>
   </div>
 </app-body>
 
+<ng-template #loadingSectionWithHr>
+  <hr>
+  <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
+</ng-template>
+
 <ng-template #loadingSection>
   <app-waiting></app-waiting>
-  <hr>
 </ng-template>

@@ -4,9 +4,9 @@
       <app-card>
         <app-case-header *ngIf="caseLoaded; else loadingSection"></app-case-header>
         <ng-container *ngIf="caseLoaded">
-          <hr>
-          <ng-container [ngTemplateOutlet]="loadingSection" *ngIf="waitingNotForRoles"></ng-container>
-          <div id="role-assignment" *ngIf="showRoleAssignment">
+          <ng-container [ngTemplateOutlet]="loadingSectionWithHr" *ngIf="waitingNotForRoles"></ng-container>
+          <section id="role-assignment" *ngIf="showRoleAssignment">
+            <hr>
             <div class="row">
               <div class="col-md-6">
                 <app-cast></app-cast>
@@ -34,212 +34,221 @@
                 </p>
               </div>
             </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-md-6" *ngIf="showCaseStructure">
-              <div id="pick-structure" *ngIf="showStructureOptions">
-                <p>
-                  Would you like to play the game with a structure or more open-ended?
-                </p>
-                <p>
-                  It is recommended to use structure the first play-through.
-                </p>
-                <div class="row">
-                  <div class="col-md-10 mx-auto">
-                    <p>
-                      <button class="btn btn-secondary btn-block" (click)="startOpeningArguments()">
-                        Start Game With Structure
-                      </button>
-                    </p>
-                    <p>
-                      <button class="btn btn-secondary btn-block" (click)="startFreeTime()">
-                        Start Game Without Structure
-                      </button>
-                    </p>
+          </section>
+          <section id="judge-controls">
+            <hr>
+            <div class="row justify-content-center">
+              <div class="col-md-6" *ngIf="showCaseStructure">
+                <div id="pick-structure" *ngIf="showStructureOptions">
+                  <p>
+                    Would you like to play the game with a structure or more open-ended?
+                  </p>
+                  <p>
+                    It is recommended to use structure the first play-through.
+                  </p>
+                  <div class="row">
+                    <div class="col-md-10 mx-auto">
+                      <p>
+                        <button class="btn btn-secondary btn-block" (click)="startOpeningArguments()">
+                          Start Game With Structure
+                        </button>
+                      </p>
+                      <p>
+                        <button class="btn btn-secondary btn-block" (click)="startFreeTime()">
+                          Start Game Without Structure
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div id="opening-arguments" *ngIf="showOpeningArguments">
+                  <p>
+                    <strong>
+                      Opening Arguments Script
+                    </strong>
+                  </p>
+                  <p>
+                    An introduction to the issue and all of the players.
+                  </p>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      Swear Everyone In
+                    </li>
+                    <li class="list-group-item">
+                      Introduce the Case's Issue
+                    </li>
+                    <li class="list-group-item">
+                      Plaintiff's Opening Argument
+                    </li>
+                    <li class="list-group-item">
+                      Defendant's Opening Argument
+                    </li>
+                    <li class="list-group-item"
+                        *ngFor="let witness of witnesses">
+                      Introduce Witness: {{witness.character}}
+                    </li>
+                  </ul>
+                  <br>
+                  <p>
+                    <button class="btn btn-success" (click)="endOpeningArguments()">
+                      End Opening Arguments
+                      <i class="fa fa-arrow-right"></i>
+                    </button>
+                  </p>
+                </div>
+                <div id="crossfire" *ngIf="showCrossfire">
+                  <p>
+                    <strong>
+                      Crossfire Debate Script
+                    </strong>
+                  </p>
+                  <p>
+                    This part of the trial is a free for all. Anyone can ask questions of each other. Up to you, The
+                    Judge, to handle it!
+                  </p>
+                  <p>
+                    Some things to keep the conversation moving:
+                  </p>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      Question Witnesses
+                    </li>
+                    <li class="list-group-item">
+                      Talk About Evidence
+                    </li>
+                    <li class="list-group-item">
+                      Ask For More Details
+                    </li>
+                  </ul>
+                  <br>
+                  <p>
+                    <button class="btn btn-success" (click)="endCrossfire()">
+                      End Crossfire
+                      <i class="fa fa-arrow-right"></i>
+                    </button>
+                  </p>
+                </div>
+                <div id="closing-arguments" *ngIf="showClosingArguments">
+                  <p>
+                    <strong>
+                      Closing Arguments Script
+                    </strong>
+                  </p>
+                  <p>
+                    The Plaintiff and The Defendant get one last chance to make their case.
+                  </p>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      Plaintiff's Closing Argument
+                    </li>
+                    <li class="list-group-item">
+                      Defendant's Closing Argument
+                    </li>
+                  </ul>
+                  <br>
+                </div>
+                <div id="show-free-time" *ngIf="showFreeTime">
+                  <p>
+                    <strong>
+                      Open Trial
+                    </strong>
+                  </p>
+                  <p>
+                    This case is an open trial, direct it however you like.
+                  </p>
+                  <p>
+                    Some things to keep in mind:
+                  </p>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      The Issue
+                    </li>
+                    <li class="list-group-item">
+                      The Plaintiff's Story
+                    </li>
+                    <li class="list-group-item">
+                      The Defendant's Story
+                    </li>
+                    <li class="list-group-item"
+                        *ngFor="let witness of witnesses">
+                      The Witness's Story: {{witness.character}}
+                    </li>
+                  </ul>
+                  <br>
+                </div>
+                <div id="status-at-end" *ngIf="needEvidenceRevealed">
+                  <div class="alert alert-info">
+                    To close the case, the Plaintiff and Defendant must each first use 5 pieces of evidence.
+                  </div>
+                </div>
+                <div id="case-at-end" *ngIf="canStartVerdictSelection">
+                  <p>
+                    All necessary evidence has been revealed. Whenever you're ready, move on to make the verdict.
+                  </p>
+                  <p>
+                    <button class="btn btn-primary" (click)="startVerdictSelection()">
+                      Ready for Verdict
+                      <i class="fa fa-arrow-right"></i>
+                    </button>
+                  </p>
+                </div>
+                <div id="select-verdict" *ngIf="showVerdictOptions">
+                  <p>
+                    Make your verdict. Is the defendant GUILTY or NOT GUILTY?
+                  </p>
+                  <p>
+                    If you have a Jury, you can ask them for their input.
+                  </p>
+                  <div class="row">
+                    <div class="col-md-8 mx-auto">
+                      <p>
+                        <button class="btn btn-danger btn-block" (click)="submitGuiltyVerdict()">
+                          GUILTY
+                        </button>
+                        <br>
+                        <button class="btn btn-success btn-block" (click)="submitNotGuiltyVerdict()">
+                          NOT GUILTY
+                        </button>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div id="opening-arguments" *ngIf="showOpeningArguments">
-                <p>
-                  <strong>
-                    Opening Arguments Script
-                  </strong>
-                </p>
-                <p>
-                  An introduction to the issue and all of the players.
-                </p>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    Swear Everyone In
-                  </li>
-                  <li class="list-group-item">
-                    Introduce the Case's Issue
-                  </li>
-                  <li class="list-group-item">
-                    Plaintiff's Opening Argument
-                  </li>
-                  <li class="list-group-item">
-                    Defendant's Opening Argument
-                  </li>
-                  <li class="list-group-item"
-                      *ngFor="let witness of witnesses">
-                    Introduce Witness: {{witness.character}}
-                  </li>
-                </ul>
-                <br>
-                <p>
-                  <button class="btn btn-success" (click)="endOpeningArguments()">
-                    End Opening Arguments
-                    <i class="fa fa-arrow-right"></i>
-                  </button>
-                </p>
-              </div>
-              <div id="crossfire" *ngIf="showCrossfire">
-                <p>
-                  <strong>
-                    Crossfire Debate Script
-                  </strong>
-                </p>
-                <p>
-                  This part of the trial is a free for all. Anyone can ask questions of each other. Up to you, The
-                  Judge, to handle it!
-                </p>
-                <p>
-                  Some things to keep the conversation moving:
-                </p>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    Question Witnesses
-                  </li>
-                  <li class="list-group-item">
-                    Talk About Evidence
-                  </li>
-                  <li class="list-group-item">
-                    Ask For More Details
-                  </li>
-                </ul>
-                <br>
-                <p>
-                  <button class="btn btn-success" (click)="endCrossfire()">
-                    End Crossfire
-                    <i class="fa fa-arrow-right"></i>
-                  </button>
-                </p>
-              </div>
-              <div id="closing-arguments" *ngIf="showClosingArguments">
-                <p>
-                  <strong>
-                    Closing Arguments Script
-                  </strong>
-                </p>
-                <p>
-                  The Plaintiff and The Defendant get one last chance to make their case.
-                </p>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    Plaintiff's Closing Argument
-                  </li>
-                  <li class="list-group-item">
-                    Defendant's Closing Argument
-                  </li>
-                </ul>
-                <br>
-              </div>
-              <div id="show-free-time" *ngIf="showFreeTime">
-                <p>
-                  <strong>
-                    Open Trial
-                  </strong>
-                </p>
-                <p>
-                  This case is an open trial, direct it however you like.
-                </p>
-                <p>
-                  Some things to keep in mind:
-                </p>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    The Issue
-                  </li>
-                  <li class="list-group-item">
-                    The Plaintiff's Story
-                  </li>
-                  <li class="list-group-item">
-                    The Defendant's Story
-                  </li>
-                  <li class="list-group-item"
-                      *ngFor="let witness of witnesses">
-                    The Witness's Story: {{witness.character}}
-                  </li>
-                </ul>
-                <br>
-              </div>
-              <div id="status-at-end" *ngIf="needEvidenceRevealed">
-                <div class="alert alert-info">
-                  To close the case, the Plaintiff and Defendant must each first use 5 pieces of evidence.
+              <div class="col-md-6">
+                <div class="role-details">
+                  <h5>Judge Role</h5>
+                  <p>
+                    {{roleText}}
+                  </p>
                 </div>
-              </div>
-              <div id="case-at-end" *ngIf="canStartVerdictSelection">
-                <p>
-                  All necessary evidence has been revealed. Whenever you're ready, move on to make the verdict.
-                </p>
-                <p>
-                  <button class="btn btn-primary" (click)="startVerdictSelection()">
-                    Ready for Verdict
-                    <i class="fa fa-arrow-right"></i>
-                  </button>
-                </p>
-              </div>
-              <div id="select-verdict" *ngIf="showVerdictOptions">
-                <p>
-                  Make your verdict. Is the defendant GUILTY or NOT GUILTY?
-                </p>
-                <p>
-                  If you have a Jury, you can ask them for their input.
-                </p>
-                <div class="row">
-                  <div class="col-md-8 mx-auto">
-                    <p>
-                      <button class="btn btn-danger btn-block" (click)="submitGuiltyVerdict()">
-                        GUILTY
-                      </button>
-                      <br>
-                      <button class="btn btn-success btn-block" (click)="submitNotGuiltyVerdict()">
-                        NOT GUILTY
-                      </button>
-                    </p>
-                  </div>
+                <div id="timer-section" *ngIf="showTimer">
+                  <hr>
+                  <h5>
+                    {{status}} Timer
+                  </h5>
+                  <h4>
+                    <i class="fa fa-clock-o"></i>
+                    {{timerValue}}
+                  </h4>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <h5>Judge Role</h5>
-              <p>
-                {{roleText}}
-              </p>
-              <hr>
-              <div id="timer-section" *ngIf="showTimer">
-                <h5>
-                  {{status}} Timer
-                </h5>
-                <h4>
-                  <i class="fa fa-clock-o"></i>
-                  {{timerValue}}
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div id="case-in-progress" *ngIf="shouldShowEvidence">
+          </section>
+          <section id="case-in-progress" *ngIf="shouldShowEvidence">
             <hr>
             <app-revealed-evidence></app-revealed-evidence>
-          </div>
+          </section>
         </ng-container>
       </app-card>
     </div>
   </div>
 </app-body>
 
+<ng-template #loadingSectionWithHr>
+  <hr>
+  <ng-container [ngTemplateOutlet]="loadingSection"></ng-container>
+</ng-template>
+
 <ng-template #loadingSection>
   <app-waiting></app-waiting>
-  <hr>
 </ng-template>
