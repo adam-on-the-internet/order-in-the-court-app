@@ -30,6 +30,13 @@
               Edit Your Profile
             </a>
           </p>
+          <p *ngIf="user.admin">
+            <a (click)="goAdmin()"
+               class="btn btn-primary"
+            >
+              Admin Panel
+            </a>
+          </p>
         </div>
       </app-card>
     </div>

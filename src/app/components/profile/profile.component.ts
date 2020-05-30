@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {User} from "../../models/User.model";
 import {BooleanHelper} from "../../utilities/boolean.util";
 import {UserService} from "../../services/user.service";
+import {NavHelperService} from "../../services/nav-helper.service";
 
 @Component({
   selector: "app-profile",
@@ -17,11 +18,16 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private navHelper: NavHelperService,
   ) {
   }
 
   public ngOnInit() {
     this.loadUser();
+  }
+
+  public goAdmin() {
+    this.navHelper.goToAdmin();
   }
 
   private loadUser(): void {
@@ -32,6 +38,5 @@ export class ProfileComponent implements OnInit {
           console.log("get user failed");
         });
   }
-
 
 }
