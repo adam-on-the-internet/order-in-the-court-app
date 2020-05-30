@@ -233,21 +233,21 @@ export class CaseManagerService {
         });
   }
 
-  public selectPlaintiffEvidence(evidenceId: string) {
+  public pickStartingPlaintiffEvidence(evidenceId: string) {
     let response;
-    this.caseEvidenceService.selectPlaintiffEvidence(this.activeCase._id, evidenceId)
+    this.caseEvidenceService.pickStartingPlaintiffEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
-          console.log("select plaintiff evidence failed");
+          console.log("select starting plaintiff evidence failed");
         });
   }
 
-  public selectDefendantEvidence(evidenceId: string) {
+  public pickStartingDefendantEvidence(evidenceId: string) {
     let response;
-    this.caseEvidenceService.selectDefendantEvidence(this.activeCase._id, evidenceId)
+    this.caseEvidenceService.pickStartingDefendantEvidence(this.activeCase._id, evidenceId)
       .subscribe((res) => response = res,
         (error) => {
-          console.log("select defendant evidence failed");
+          console.log("select starting defendant evidence failed");
         });
   }
 

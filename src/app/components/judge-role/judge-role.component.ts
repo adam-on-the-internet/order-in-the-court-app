@@ -32,7 +32,7 @@ export class JudgeRoleComponent implements OnInit {
 
   public get showStructureOptions(): boolean {
     return this.caseManager.activeCase.isMakeSelections &&
-      this.caseManager.activeCase.isAllEvidenceSelected &&
+      this.caseManager.activeCase.isStartingEvidenceRevealed &&
       this.caseManager.activeCase.allWitnessesReady;
   }
 

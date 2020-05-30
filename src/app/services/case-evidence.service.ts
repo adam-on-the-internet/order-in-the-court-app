@@ -18,20 +18,20 @@ export class CaseEvidenceService {
   ) {
   }
 
-  public selectDefendantEvidence(caseId: string, evidenceId: string): Observable<any> {
+  public pickStartingDefendantEvidence(caseId: string, evidenceId: string): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `${caseId}/selectEvidence/defendant/${evidenceId}`
+      collection: `${caseId}/pickStartingEvidence/defendant/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.headers) as Observable<any>;
   }
 
-  public selectPlaintiffEvidence(caseId: string, evidenceId: string): Observable<any> {
+  public pickStartingPlaintiffEvidence(caseId: string, evidenceId: string): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
       service: ServiceUrl.BasicExpress,
       controller,
-      collection: `${caseId}/selectEvidence/plaintiff/${evidenceId}`
+      collection: `${caseId}/pickStartingEvidence/plaintiff/${evidenceId}`
     });
     return this.http.put(url, CookieHelper.headers) as Observable<Case>;
   }

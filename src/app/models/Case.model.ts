@@ -25,10 +25,8 @@ export interface Case {
   witnessPool5: Witness[];
   issue: string;
   plaintiffEvidencePool: Evidence[];
-  plaintiffEvidenceSelected: Evidence[];
   plaintiffEvidenceCourt: Evidence[];
   defendantEvidencePool: Evidence[];
-  defendantEvidenceSelected: Evidence[];
   defendantEvidenceCourt: Evidence[];
   isDefendantGuilty: boolean;
   status: number;
@@ -54,9 +52,9 @@ export interface Case {
   howManyWitnessesSelected: number;
   allWitnessesReady: boolean;
   witnessPlayers: WitnessPlayer[];
-  isAllEvidenceSelected: boolean;
-  isAllPlaintiffEvidenceSelected: boolean;
-  isAllDefendantEvidenceSelected: boolean;
+  isStartingEvidenceRevealed: boolean;
+  isStartingDefendantEvidenceRevealed: boolean;
+  isStartingPlaintiffEvidenceRevealed: boolean;
   isAllEvidenceRevealed: boolean;
   isAllPlaintiffEvidenceRevealed: boolean;
   isAllDefendantEvidenceRevealed: boolean;

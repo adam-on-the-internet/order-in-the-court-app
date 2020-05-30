@@ -49,7 +49,7 @@ export class WaitingComponent {
   }
 
   private get makeSelectionsWaitingMessage(): string {
-    if (this.caseManager.activeCase.isAllEvidenceSelected && this.caseManager.activeCase.allWitnessesReady) {
+    if (this.caseManager.activeCase.isStartingEvidenceRevealed && this.caseManager.activeCase.allWitnessesReady) {
       return "Waiting for the judge to start the case...";
     } else {
       return "Waiting for selections...";
@@ -58,10 +58,10 @@ export class WaitingComponent {
 
   public get neededSelections(): string[] {
     const necessarySelections = [];
-    if (!this.caseManager.activeCase.isAllPlaintiffEvidenceSelected) {
+    if (!this.caseManager.activeCase.isStartingDefendantEvidenceRevealed) {
       necessarySelections.push(this.plaintiffMessage);
     }
-    if (!this.caseManager.activeCase.isAllDefendantEvidenceSelected) {
+    if (!this.caseManager.activeCase.isStartingPlaintiffEvidenceRevealed) {
       necessarySelections.push(this.defendantMessage);
     }
     if (!this.caseManager.activeCase.allWitnessesReady) {
@@ -71,13 +71,11 @@ export class WaitingComponent {
   }
 
   private get plaintiffMessage(): string {
-    const chosen = this.caseManager.activeCase.plaintiffEvidenceSelected.length;
-    return `Plaintiff is selecting evidence (${chosen}/10)`;
+    return `Plaintiff is submitting evidence...`;
   }
 
   private get defendantMessage(): string {
-    const chosen = this.caseManager.activeCase.defendantEvidenceSelected.length;
-    return `Defendant is selecting evidence (${chosen}/10)`;
+    return `Defendant is submitting evidence...`;
   }
 
   private get witnessMessage(): string {

@@ -39,8 +39,7 @@
               <i class="fa fa-search"></i>
               Select Your Evidence
             </h5>
-            <p>Select 10 pieces of evidence to bring to court. You will end up using 5 of the 10 you select.</p>
-            <p>({{ unrevealedEvidence.length }} of 10 selected)</p>
+            <p>Select 1 piece of evidence that your opponent must use.</p>
             <div class="row">
               <div class="col-md-4 my-2"
                    *ngFor="let evidence of evidencePool">
@@ -70,7 +69,7 @@
                 <ul class="list-group">
                   <li
                     class="list-group-item"
-                    *ngFor="let evidence of unrevealedEvidence"
+                    *ngFor="let evidence of evidencePool"
                   >
                     <h6 class="card-title">
                       <i class="fa fa-search"></i>

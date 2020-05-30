@@ -29,15 +29,11 @@ export class PlaintiffRoleComponent implements OnInit {
 
   public get showEvidencePool(): boolean {
     return this.caseManager.activeCase.isMakeSelections &&
-      !this.caseManager.activeCase.isAllPlaintiffEvidenceSelected;
+      !this.caseManager.activeCase.isStartingDefendantEvidenceRevealed;
   }
 
   public get poolEvidence(): Evidence[] {
     return this.caseManager.activeCase.plaintiffEvidencePool;
-  }
-
-  public get selectedEvidence(): Evidence[] {
-    return this.caseManager.activeCase.plaintiffEvidenceSelected;
   }
 
   public get courtEvidence(): Evidence[] {
@@ -65,7 +61,7 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public get someEvidenceSelected(): boolean {
-    return this.selectedEvidence.length +
+    return this.poolEvidence.length +
       this.courtEvidence.length > 0;
   }
 
@@ -92,7 +88,7 @@ export class PlaintiffRoleComponent implements OnInit {
   }
 
   public selectEvidence(evidence: Evidence) {
-    this.caseManager.selectPlaintiffEvidence(evidence._id);
+    this.caseManager.pickStartingDefendantEvidence(evidence._id);
   }
 
   public revealEvidence(evidence: Evidence) {
