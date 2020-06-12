@@ -1,1 +1,10 @@
-<p>modal-trigger-button works!</p>
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  [class.btn-block]="block"
+  data-toggle="modal"
+  [attr.data-target]="'#' + boxId"
+>
+  {{ text }}
+</button>

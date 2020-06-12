@@ -9,6 +9,7 @@ import {SimpleComponentsModule} from "../../simple-components/simple-components.
 import {RevealedEvidenceListComponent} from "../revealed-evidence-list/revealed-evidence-list.component";
 import {RevealedEvidenceComponent} from "../revealed-evidence/revealed-evidence.component";
 import {CaseRecordComponent} from "../case-record/case-record.component";
+import {FormsModule} from "@angular/forms";
 
 describe("ArchivedCaseComponent", () => {
   let component: ArchivedCaseComponent;
@@ -21,7 +22,7 @@ describe("ArchivedCaseComponent", () => {
         CastComponent, RevealedEvidenceListComponent, RevealedEvidenceComponent,
         CaseRecordComponent,
       ],
-      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, ]
+      imports: [HttpClientTestingModule, RouterTestingModule, SimpleComponentsModule, FormsModule]
     })
       .compileComponents();
   }));

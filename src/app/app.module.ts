@@ -31,7 +31,6 @@ import {RulesComponent} from "./components/rules/rules.component";
 import {CaseSelectComponent} from "./components/case-select/case-select.component";
 import {CaseArchiveComponent} from "./components/case-archive/case-archive.component";
 import {ArchivedCaseComponent} from "./components/archived-case/archived-case.component";
-import {ModalTriggerButtonComponent} from "./components/modal-trigger-button/modal-trigger-button.component";
 import {ExtrasComponent} from "./components/extras/extras.component";
 import {RandomContentComponent} from "./components/random-content/random-content.component";
 import {CreditsComponent} from "./components/credits/credits.component";
@@ -52,8 +51,8 @@ import {JuryRoleComponent} from "./components/jury-role/jury-role.component";
 import {WaitingComponent} from "./components/waiting/waiting.component";
 import {TipsComponent} from "./components/tips/tips.component";
 import {SimpleComponentsModule} from "./simple-components/simple-components.module";
-import { CaseRecordComponent } from "./components/case-record/case-record.component";
-import { EvidenceOperationsComponent } from "./components/evidence-operations/evidence-operations.component";
+import {CaseRecordComponent} from "./components/case-record/case-record.component";
+import {EvidenceOperationsComponent} from "./components/evidence-operations/evidence-operations.component";
 
 @NgModule({
   declarations: [
@@ -84,7 +83,6 @@ import { EvidenceOperationsComponent } from "./components/evidence-operations/ev
     CaseSelectComponent,
     CaseArchiveComponent,
     ArchivedCaseComponent,
-    ModalTriggerButtonComponent,
     ExtrasComponent,
     RandomContentComponent,
     CreditsComponent,

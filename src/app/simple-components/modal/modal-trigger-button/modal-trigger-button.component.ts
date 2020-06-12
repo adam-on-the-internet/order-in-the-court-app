@@ -1,15 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector: "app-modal-trigger-button",
   templateUrl: "./modal-trigger-button.component.html",
   styleUrls: ["./modal-trigger-button.component.scss"]
 })
-export class ModalTriggerButtonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class ModalTriggerButtonComponent {
+  @Input() public text = "Open Modal";
+  @Input() public boxId = "modalBox";
+  @Input() public block = false;
 }

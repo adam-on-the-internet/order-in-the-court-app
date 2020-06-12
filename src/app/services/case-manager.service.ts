@@ -9,6 +9,7 @@ import {CaseNameService} from "./case-name.service";
 import {CaseStatusService} from "./case-status.service";
 import {CaseEvidenceService} from "./case-evidence.service";
 import {CaseOptions} from "../models/CaseOptions.model";
+import {ContactService} from "./contact.service";
 
 @Injectable({
   providedIn: "root"
@@ -42,6 +43,7 @@ export class CaseManagerService {
     private caseStatusService: CaseStatusService,
     private logService: LogService,
     private navHelper: NavHelperService,
+    private contactService: ContactService,
   ) {
   }
 
@@ -298,6 +300,7 @@ export class CaseManagerService {
           }
           if (this.activeCase.isClosed) {
             this.caseRefresher.unsubscribe();
+            this.contactService.promptForFeedback();
             this.navHelper.goToArchivedCase(this.activeCase._id);
           }
         });

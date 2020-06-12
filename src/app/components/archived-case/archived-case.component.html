@@ -5,6 +5,21 @@
         <app-card>
           <app-case-header></app-case-header>
           <hr>
+          <ng-container *ngIf="showFeedbackPrompt">
+            <div class="row justify-content-around">
+              <div class="col-md-5">
+                <app-modal-trigger-button [block]="true" [boxId]="'feedback'">
+                  Give Feedback
+                </app-modal-trigger-button>
+              </div>
+              <div class="col-md-5">
+                <button class="btn btn-block btn-outline-primary" (click)="hidePrompt()">
+                  Do Not Give Feedback
+                </button>
+              </div>
+            </div>
+            <hr>
+          </ng-container>
           <app-revealed-evidence></app-revealed-evidence>
         </app-card>
       </div>
@@ -21,3 +36,22 @@
     </div>
   </app-body>
 </ng-template>
+
+<app-modal-box-advanced [title]="'Feedback'" [boxId]="'feedback'">
+  <section class="mb-3">
+    <label for="email">
+      Your Email:
+    </label>
+    <input id="email" name="email" type="text" class="form-control" [(ngModel)]="email">
+  </section>
+  <section class="mb-3">
+    <label for="feedback">
+      Your Feedback:
+    </label>
+    <input id="feedback" name="email" type="text" class="form-control" [(ngModel)]="message">
+  </section>
+  <hr>
+  <button class="btn btn-primary btn-block" (click)="submitFeedback()" data-dismiss="modal">
+    Submit Feedback
+  </button>
+</app-modal-box-advanced>

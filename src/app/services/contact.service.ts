@@ -10,9 +10,19 @@ import {ServiceUrl} from "../constants/rest.constants";
   providedIn: "root"
 })
 export class ContactService {
+  public showFeedbackPrompt = false;
+
   constructor(
     private http: HttpClient,
   ) { }
+
+  public promptForFeedback() {
+    this.showFeedbackPrompt = true;
+  }
+
+  public hidePrompt() {
+    this.showFeedbackPrompt = false;
+  }
 
   public contactAOTI(contactBody: ContactBody): Observable<any> {
     const url = RestUrlBuilder.buildRestUrl({
