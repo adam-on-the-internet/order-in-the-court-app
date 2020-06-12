@@ -28,6 +28,15 @@
           </div>
         </div>
         <hr>
+        <div class="row" *ngIf="customSelected">
+          <div class="col-md-10 mx-auto">
+            <div class="alert alert-info">
+              <p>
+                You are making a custom case. This case will not show up in the Case Archive after you complete it.
+              </p>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-6 mx-auto">
             <button class="btn btn-success btn-block" (click)="create()" [disabled]="incomplete">
