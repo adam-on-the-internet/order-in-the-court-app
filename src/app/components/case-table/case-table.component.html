@@ -3,6 +3,9 @@
     <div class="card border-primary">
       <h3 class="text-center mt-2" *ngIf="hasTitle">{{title}}</h3>
       <div id="show-cases" *ngIf="hasCases">
+        <p class="text-center" *ngIf="!archiveMode">
+          <button class="btn btn-danger" (click)="deleteAllCases()">Delete All</button>
+        </p>
         <p class="mx-2 my-2">
           <small>Showing {{ cases.length }} case(s)</small>
         </p>
@@ -26,7 +29,7 @@
           <tr *ngFor="let myCase of cases; let i = index">
             <td>
               The Case of the {{ myCase.name }}
-              <span class="badge badge-warning" *ngIf="myCase.isCustom">CUSTOM</span>
+              <span class="badge badge-warning" *ngIf="myCase.isCustom && !archiveMode">CUSTOM</span>
             </td>
             <td>{{ myCase.openedDate | date:'MMM d, y, h:mm a' }}</td>
             <ng-container *ngIf="archiveMode">

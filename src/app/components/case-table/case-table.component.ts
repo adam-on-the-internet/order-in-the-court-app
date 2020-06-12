@@ -42,6 +42,15 @@ export class CaseTableComponent {
     }
   }
 
+  public deleteAllCases(): void {
+    const confirmDelete = confirm(`Are you sure you want to delete ALL these cases?`);
+    if (confirmDelete) {
+      this.cases.forEach((myCase) => {
+        this.deleteCase(myCase);
+      });
+    }
+  }
+
   private deleteCase(myCase: Case) {
     let response;
     this.caseService.deleteCase(myCase._id)
