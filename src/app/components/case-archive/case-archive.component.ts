@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {SortedCases} from "../../models/SortedCases.model";
 import {BooleanHelper} from "../../utilities/boolean.util";
 import {CaseService} from "../../services/case.service";
 import {Case} from "../../models/Case.model";
@@ -10,7 +9,13 @@ import {Case} from "../../models/Case.model";
   styleUrls: ["./case-archive.component.css"]
 })
 export class CaseArchiveComponent implements OnInit {
-  public closedCases: Case[] = null;
+  private closedCases: Case[] = null;
+
+  public get nonCustomClosedCases(): Case[] {
+    return this.closedCases.filter((myCase) => {
+      return !myCase.isCustom;
+    });
+  }
 
   public get ready(): boolean {
     return BooleanHelper.hasValue(this.closedCases);

@@ -1,5 +1,5 @@
 <app-body>
-  <app-case-table [title]="'Case Archive'" [cases]="closedCases" [archiveMode]="true"
+  <app-case-table [title]="'Case Archive'" [cases]="nonCustomClosedCases" [archiveMode]="true"
                   *ngIf="ready; else loading"></app-case-table>
 </app-body>
 

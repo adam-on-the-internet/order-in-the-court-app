@@ -14,6 +14,10 @@ export class CastComponent {
     return this.caseManager.activeCase;
   }
 
+  public get notClosed(): boolean {
+    return !this.caseManager.activeCase.isClosed;
+  }
+
   public get hasJudgeName(): boolean {
     return this.caseManager.activeCase.judgeNameSet;
   }

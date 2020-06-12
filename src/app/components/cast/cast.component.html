@@ -2,32 +2,47 @@
   <h5>Starring...</h5>
   <ul class="list-group">
     <li class="list-group-item" *ngIf="hasJudgeName">
-      {{ judgeName }}
+      <span *ngIf="notClosed">
+        {{ judgeName }}
+        as
+      </span>
       <em>
-        as THE JUDGE
+        THE JUDGE
       </em>
       <i class="fa fa-balance-scale pull-right"></i>
     </li>
     <li class="list-group-item" *ngIf="hasPlaintiffName">
-      {{ plaintiffName }}
+      <span *ngIf="notClosed">
+        {{ plaintiffName }}
+        as
+      </span>
       <em>
-        as THE PLAINTIFF
+        THE PLAINTIFF
       </em>
       <i class="fa fa-user-circle-o pull-right"></i>
     </li>
     <li class="list-group-item" *ngIf="hasDefendantName">
-      {{ defendantName }}
+      <span *ngIf="notClosed">
+        {{ defendantName }}
+        as
+      </span>
       <em>
-        as THE DEFENDANT
+        THE DEFENDANT
       </em>
       <i class="fa fa-user-circle pull-right"></i>
     </li>
     <li class="list-group-item" *ngFor="let witness of witnesses">
-      {{ witness.name }}
-      <em> as witness: {{ witness.character }} </em>
+      <span *ngIf="notClosed">
+        {{ witness.name }}
+        as
+      </span>
+      <em>WITNESS #{{witness.witnessNumber}}: {{ witness.character.toUpperCase() }} </em>
       <i class="fa fa-user pull-right"></i>
     </li>
   </ul>
+  <p *ngIf="!notClosed" class="mt-3">
+    NOTE: player names are not displayed after a case is closed
+  </p>
 </ng-container>
 
 <ng-template #nobody>

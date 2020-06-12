@@ -24,7 +24,10 @@
           </thead>
           <tbody>
           <tr *ngFor="let myCase of cases; let i = index">
-            <td>The Case of the {{ myCase.name }}</td>
+            <td>
+              The Case of the {{ myCase.name }}
+              <span class="badge badge-warning" *ngIf="myCase.isCustom">CUSTOM</span>
+            </td>
             <td>{{ myCase.openedDate | date:'MMM d, y, h:mm a' }}</td>
             <ng-container *ngIf="archiveMode">
               <td>{{ myCase.closedDate | date:'MMM d, y, h:mm a' }}</td>

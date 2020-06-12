@@ -34,6 +34,7 @@ export interface Case {
   openedDate: string;
   logs: string[];
   version: number;
+  isCustom: boolean;
 
   // attributes
   fullCaseName: string;
