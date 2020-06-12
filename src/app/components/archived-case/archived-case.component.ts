@@ -45,6 +45,7 @@ export class ArchivedCaseComponent implements OnInit {
       .subscribe();
     this.email = null;
     this.message = null;
+    this.hidePrompt();
   }
 
   public hidePrompt() {

@@ -294,16 +294,21 @@ export class CaseManagerService {
           this.caseRefresher.unsubscribe();
           console.log("get case failed");
         }, () => {
-          if (this.shouldUpdateCase(tempCase)) {
-            console.log("updating...");
-            this.activeCase = tempCase;
-          }
-          if (this.activeCase.isClosed) {
-            this.caseRefresher.unsubscribe();
-            this.contactService.promptForFeedback();
-            this.navHelper.goToArchivedCase(this.activeCase._id);
-          }
+          this.resolveCase(tempCase);
         });
+  }
+
+  private resolveCase(tempCase: Case) {
+    if (this.caseReady && tempCase.isClosed) {
+      this.contactService.promptForFeedback();
+    }
+    if (this.shouldUpdateCase(tempCase)) {
+      this.activeCase = tempCase;
+    }
+    if (this.activeCase.isClosed) {
+      this.caseRefresher.unsubscribe();
+      this.navHelper.goToArchivedCase(this.activeCase._id);
+    }
   }
 
   private shouldUpdateCase(newCase: Case): boolean {

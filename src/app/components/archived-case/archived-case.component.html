@@ -7,13 +7,16 @@
           <hr>
           <ng-container *ngIf="showFeedbackPrompt">
             <div class="row justify-content-around">
-              <div class="col-md-5">
+              <div class="col-md-7">
                 <app-modal-trigger-button [block]="true" [boxId]="'feedback'">
+                  <i class="fa fa-comments">
+                  </i>
                   Give Feedback
                 </app-modal-trigger-button>
               </div>
               <div class="col-md-5">
                 <button class="btn btn-block btn-outline-primary" (click)="hidePrompt()">
+                  <i class="fa fa-times"></i>
                   Do Not Give Feedback
                 </button>
               </div>
