@@ -22,5 +22,10 @@ export class CreditsComponent {
     "Melissa",
     "Joey",
     "Blake",
+    "Meredith",
+    "Rowen",
+    "Lesley",
+    "Rhi",
+    "Isiah",
   ];
 }
